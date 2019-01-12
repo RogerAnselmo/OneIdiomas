@@ -1,0 +1,11 @@
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.deps.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Domain.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Domain.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.csprojResolveAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.AssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.Data.pdb

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-ArquiteturaPadraoDotNet.Site-5CC354AE-C33B-4526-9142-AF756EDFB81C</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.csproj" />
+    <ProjectReference Include="..\ArquiteturaPadraoDotNet.Infra.CrossCutting.IoC\ArquiteturaPadraoDotNet.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\ArquiteturaPadraoDotNet.Infra.Data\ArquiteturaPadraoDotNet.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
