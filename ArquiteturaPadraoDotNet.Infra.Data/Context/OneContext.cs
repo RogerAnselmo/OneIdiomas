@@ -1,20 +1,52 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using One.Domain.Entities;
-using One.Infra.Data.EntityConfig;
+using System.Linq;
 
 namespace One.Infra.Data.Context
 {
-    public class OneContext: DbContext
+    public class OneContext : DbContext
     {
         public OneContext(DbContextOptions<OneContext> options) : base(options)
         { }
 
-        public DbSet<UF> UF { get; set; }
-        public DbSet<Cidade> Cidade { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        #region GERAL
+        public DbSet<GEAluno> GEAluno { get; set; }
+        public GEBairro GEBairro { get; set; }
+        public DbSet<GECidade> GECidade { get; set; }
+        public GEEndereco GEEndereco { get; set; }
+        public DbSet<GEResponsavel> GEResponsavel { get; set; }
+        public DbSet<GETelefone> GETelefone { get; set; }
+        public DbSet<GETipoTelefone> GETipoTelefone { get; set; }
+        public DbSet<GEUF> GEUF { get; set; }
+        #endregion
+
+        #region ACADÊMICO
+        public DbSet<ACCategoria> ACCategoria { get; set; }
+        public DbSet<ACFaixaEtaria> ACFaixaEtaria { get; set; }
+        public DbSet<ACProfessor> ACProfessor { get; set; }
+        public DbSet<ACTurma> ACTurma { get; set }
+        #endregion
+
+        #region SEGURANÇA
+        public DbSet<SEGPerfil> SEGPerfil { get; set; }
+        public DbSet<SEGUsuario> SEGUsuario { get; set; }
+        public DbSet<SEGUsuarioPerfil> SEGUsuarioPerfil { get; set; }
+        #endregion
+
+        #region FINANCEIRO
+        public DbSet<FIMensalidade> FIMensalidade { get; set; } 
+        #endregion
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            modelBuilder.ApplyConfiguration(new UFMap());
-            modelBuilder.ApplyConfiguration(new CidadeMap());
+            foreach (var relationship in modelbuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            base.OnModelCreating(modelbuilder);
+            //modelbuilder.Conventions.Remove<ManyToManyCascadeDeleteConve‌​ntion>();
+            //modelbuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 }
