@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace One.Domain.Entities
@@ -12,7 +13,7 @@ namespace One.Domain.Entities
         public int CodigoMensalidade { get; set; }
 
         [Required]
-        public int CodigoMatricula { get; set; }
+        public int NumeroParcela { get; set; }
 
         [Required]
         public DateTime DataVencimento { get; set; }
@@ -32,7 +33,15 @@ namespace One.Domain.Entities
 
         [Required]
         [MaxLength(1)]
-        public string flAtivo { get; set; } 
+        public string flAtivo { get; set; }
+        #endregion
+
+        #region ACMatricula
+        [Required]
+        public int CodigoMatricula { get; set; }
+
+        [ForeignKey("CodigoMatricula")]
+        public ACMatricula ACMatricula { get; set; } 
         #endregion
     }
 }

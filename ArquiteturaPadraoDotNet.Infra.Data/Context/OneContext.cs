@@ -24,7 +24,7 @@ namespace One.Infra.Data.Context
         public DbSet<ACCategoria> ACCategoria { get; set; }
         public DbSet<ACFaixaEtaria> ACFaixaEtaria { get; set; }
         public DbSet<ACProfessor> ACProfessor { get; set; }
-        public DbSet<ACTurma> ACTurma { get; set }
+        public DbSet<ACTurma> ACTurma { get; set; }
         #endregion
 
         #region SEGURANÇA
