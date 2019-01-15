@@ -10,11 +10,11 @@ namespace One.Infra.Data.Context
         { }
 
         #region GERAL
-        public DbSet<GEAluno> GEAluno { get; set; }
+        public DbSet<ACAluno> ACAluno { get; set; }
         public GEBairro GEBairro { get; set; }
         public DbSet<GECidade> GECidade { get; set; }
         public GEEndereco GEEndereco { get; set; }
-        public DbSet<GEResponsavel> GEResponsavel { get; set; }
+        public DbSet<ACResponsavel> ACResponsavel { get; set; }
         public DbSet<GETelefone> GETelefone { get; set; }
         public DbSet<GETipoTelefone> GETipoTelefone { get; set; }
         public DbSet<GEUF> GEUF { get; set; }

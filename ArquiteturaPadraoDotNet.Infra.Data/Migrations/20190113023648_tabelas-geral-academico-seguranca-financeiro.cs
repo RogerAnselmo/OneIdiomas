@@ -270,7 +270,7 @@ namespace One.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GEResponsavel",
+                name: "ACResponsavel",
                 columns: table => new
                 {
                     CodigoResponsavel = table.Column<int>(nullable: false)
@@ -283,15 +283,15 @@ namespace One.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GEResponsavel", x => x.CodigoResponsavel);
+                    table.PrimaryKey("PK_ACResponsavel", x => x.CodigoResponsavel);
                     table.ForeignKey(
-                        name: "FK_GEResponsavel_GEEndereco_CodigoEndereco",
+                        name: "FK_ACResponsavel_GEEndereco_CodigoEndereco",
                         column: x => x.CodigoEndereco,
                         principalTable: "GEEndereco",
                         principalColumn: "CodigoEndereco",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_GEResponsavel_SEGUsuario_CodigoUsuario",
+                        name: "FK_ACResponsavel_SEGUsuario_CodigoUsuario",
                         column: x => x.CodigoUsuario,
                         principalTable: "SEGUsuario",
                         principalColumn: "CodigoUsuario",
@@ -299,7 +299,7 @@ namespace One.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GEAluno",
+                name: "ACAluno",
                 columns: table => new
                 {
                     CodigoALuno = table.Column<int>(nullable: false)
@@ -314,21 +314,21 @@ namespace One.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GEAluno", x => x.CodigoALuno);
+                    table.PrimaryKey("PK_ACAluno", x => x.CodigoALuno);
                     table.ForeignKey(
-                        name: "FK_GEAluno_GEEndereco_CodigoEndereco",
+                        name: "FK_ACAluno_GEEndereco_CodigoEndereco",
                         column: x => x.CodigoEndereco,
                         principalTable: "GEEndereco",
                         principalColumn: "CodigoEndereco",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_GEAluno_GEResponsavel_CodigoResponsavel",
+                        name: "FK_ACAluno_ACResponsavel_CodigoResponsavel",
                         column: x => x.CodigoResponsavel,
-                        principalTable: "GEResponsavel",
+                        principalTable: "ACResponsavel",
                         principalColumn: "CodigoResponsavel",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_GEAluno_SEGUsuario_CodigoUsuario",
+                        name: "FK_ACAluno_SEGUsuario_CodigoUsuario",
                         column: x => x.CodigoUsuario,
                         principalTable: "SEGUsuario",
                         principalColumn: "CodigoUsuario",
@@ -348,9 +348,9 @@ namespace One.Infra.Data.Migrations
                 {
                     table.PrimaryKey("PK_ACMatricula", x => x.CoodigoMatricula);
                     table.ForeignKey(
-                        name: "FK_ACMatricula_GEAluno_CodigoAluno",
+                        name: "FK_ACMatricula_ACAluno_CodigoAluno",
                         column: x => x.CodigoAluno,
-                        principalTable: "GEAluno",
+                        principalTable: "ACAluno",
                         principalColumn: "CodigoALuno",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -412,18 +412,18 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoMatricula");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GEAluno_CodigoEndereco",
-                table: "GEAluno",
+                name: "IX_ACAluno_CodigoEndereco",
+                table: "ACAluno",
                 column: "CodigoEndereco");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GEAluno_CodigoResponsavel",
-                table: "GEAluno",
+                name: "IX_ACAluno_CodigoResponsavel",
+                table: "ACAluno",
                 column: "CodigoResponsavel");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GEAluno_CodigoUsuario",
-                table: "GEAluno",
+                name: "IX_ACAluno_CodigoUsuario",
+                table: "ACAluno",
                 column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
@@ -442,13 +442,13 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoBairro");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GEResponsavel_CodigoEndereco",
-                table: "GEResponsavel",
+                name: "IX_ACResponsavel_CodigoEndereco",
+                table: "ACResponsavel",
                 column: "CodigoEndereco");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GEResponsavel_CodigoUsuario",
-                table: "GEResponsavel",
+                name: "IX_ACResponsavel_CodigoUsuario",
+                table: "ACResponsavel",
                 column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
@@ -500,10 +500,10 @@ namespace One.Infra.Data.Migrations
                 name: "ACFaixaEtaria");
 
             migrationBuilder.DropTable(
-                name: "GEAluno");
+                name: "ACAluno");
 
             migrationBuilder.DropTable(
-                name: "GEResponsavel");
+                name: "ACResponsavel");
 
             migrationBuilder.DropTable(
                 name: "GEEndereco");

@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ArquiteturaPadraoDotNet.Application\One.Application.csproj" />
+    <ProjectReference Include="..\ArquiteturaPadraoDotNet.Infra.Data\One.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -11,12 +11,12 @@ namespace One.Domain.Entities
         [Required]
         public string CodigoIdentificador { get; private set; }
 
-        #region GEAluno
+        #region ACAluno
         [Required]
         public int CodigoAluno { get; set; }
 
         [ForeignKey("CodigoAluno")]
-        public virtual GEAluno GEAluno { get; set; } 
+        public virtual ACAluno ACAluno { get; set; } 
         #endregion
     }
 }

@@ -183,7 +183,7 @@ namespace One.Infra.Data.Migrations
                     b.ToTable("FIMensalidade");
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.GEAluno", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
                 {
                     b.Property<int>("CodigoALuno")
                         .ValueGeneratedOnAdd()
@@ -217,7 +217,7 @@ namespace One.Infra.Data.Migrations
 
                     b.HasIndex("CodigoUsuario");
 
-                    b.ToTable("GEAluno");
+                    b.ToTable("ACAluno");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.GEBairro", b =>
@@ -295,7 +295,7 @@ namespace One.Infra.Data.Migrations
                     b.ToTable("GEEndereco");
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.GEResponsavel", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
                 {
                     b.Property<int>("CodigoResponsavel")
                         .ValueGeneratedOnAdd()
@@ -323,7 +323,7 @@ namespace One.Infra.Data.Migrations
 
                     b.HasIndex("CodigoUsuario");
 
-                    b.ToTable("GEResponsavel");
+                    b.ToTable("ACResponsavel");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.GETelefone", b =>
@@ -458,7 +458,7 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACMatricula", b =>
                 {
-                    b.HasOne("One.Domain.Entities.GEAluno", "GEAluno")
+                    b.HasOne("One.Domain.Entities.ACAluno", "ACAluno")
                         .WithMany()
                         .HasForeignKey("CodigoAluno")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -493,14 +493,14 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.GEAluno", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
                 {
                     b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
                         .WithMany()
                         .HasForeignKey("CodigoEndereco")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("One.Domain.Entities.GEResponsavel", "GEResponsavel")
+                    b.HasOne("One.Domain.Entities.ACResponsavel", "ACResponsavel")
                         .WithMany()
                         .HasForeignKey("CodigoResponsavel")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -535,7 +535,7 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.GEResponsavel", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
                 {
                     b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
                         .WithMany()

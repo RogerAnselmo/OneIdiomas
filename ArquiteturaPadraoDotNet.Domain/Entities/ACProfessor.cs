@@ -13,10 +13,6 @@ namespace One.Domain.Entities
         public int CodigoProfessor { get; set; }
 
         [Required]
-        [MaxLength(100)]
-        public string NomeCompleto { get; set; }
-
-        [Required]
         public DateTime DataNascimento { get; set; }
 
         [Required]

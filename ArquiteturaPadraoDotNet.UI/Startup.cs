@@ -74,8 +74,8 @@ namespace One.UI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(o =>
                 {
-                    o.LoginPath = "/Home/Index";
-                    o.LogoutPath = "/Home/Index";
+                    o.LoginPath = "/Seguranca/Login";
+                    o.LogoutPath = "/Seguranca/Login";
 
                 });
 
@@ -92,7 +92,7 @@ namespace One.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Seguranca/Login");
                 app.UseHsts();
             }
 
@@ -104,7 +104,7 @@ namespace One.UI
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Seguranca}/{action=Login}/{id?}");
             });
         }
 

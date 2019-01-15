@@ -11,6 +11,8 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoUsuarioPerfil { get; set; }
 
+        public int CodigoPerfilPadrao { get; set; }
+
         #region SEGUsuario
         [Required]
         public int CodigoUsuario { get; set; }

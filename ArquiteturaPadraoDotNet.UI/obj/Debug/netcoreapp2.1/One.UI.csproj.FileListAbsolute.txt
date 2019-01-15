@@ -1,9 +1,3 @@
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csprojResolveAssemblyReference.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csproj.CoreCompileInputs.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.RazorAssemblyInfo.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.RazorAssemblyInfo.cs
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.AssemblyInfoInputs.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.AssemblyInfo.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.UI.deps.json
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.UI.runtimeconfig.json
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.UI.runtimeconfig.dev.json
@@ -19,6 +13,12 @@ C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.IoC.pdb
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Infra.Data.pdb
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Domain.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csprojResolveAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csproj.CoreCompileInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.RazorAssemblyInfo.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.RazorAssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.AssemblyInfoInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.AssemblyInfo.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.TagHelpers.input.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.TagHelpers.output.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.RazorCoreGenerate.cache
@@ -78,3 +78,7 @@ C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Deb
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csproj.CopyComplete
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.dll
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.pdb
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Seguranca\Login.g.cshtml.cs
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Painel\DashBoard.g.cshtml.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Painel\DashBoard.g.cshtml.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Seguranca\Login.g.cshtml.cs

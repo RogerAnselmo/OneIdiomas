@@ -1,7 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using One.Application.Interfaces;
+using One.Application.Services;
+using One.Domain.Interfaces.Repository;
+using One.Domain.Interfaces.Service;
+using One.Domain.Services;
+using One.Infra.Data.Context;
+using One.Infra.Data.Interface;
+using One.Infra.Data.Repository;
+using One.Infra.Data.Uow;
 
 namespace One.Infra.CrossCutting.IoC
 {
@@ -14,21 +20,20 @@ namespace One.Infra.CrossCutting.IoC
             Services = services;
 
             //Application
-            //services.AddScoped<IAppService, AppService>();
-            
+            services.AddScoped<IUsuarioExternoAppservice, UsuarioExternoAppService>();
+
             //Service
-            //services.AddScoped<IService, Service>();
+            services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
 
             //Repository
-            //services.AddScoped<IRepository, Repository>();
+            services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>();
 
             //Infra - IoC
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IUnitOfWorkTransaction, UnitOfWorkTransaction>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWorkTransaction, UnitOfWorkTransaction>();
 
             //Context
-            //services.AddScoped<Context>();
-
+            services.AddScoped<OneContext>();
         }
     }
 }
