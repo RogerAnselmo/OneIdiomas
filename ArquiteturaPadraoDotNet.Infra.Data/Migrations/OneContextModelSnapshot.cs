@@ -19,6 +19,35 @@ namespace One.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
+                {
+                    b.Property<int>("CodigoALuno")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CodigoEndereco");
+
+                    b.Property<int>("CodigoResponsavel");
+
+                    b.Property<int>("CodigoUsuario");
+
+                    b.Property<DateTime>("DataNascimento");
+
+                    b.Property<string>("flAtivo")
+                        .IsRequired()
+                        .HasMaxLength(1);
+
+                    b.HasKey("CodigoALuno");
+
+                    b.HasIndex("CodigoEndereco");
+
+                    b.HasIndex("CodigoResponsavel");
+
+                    b.HasIndex("CodigoUsuario");
+
+                    b.ToTable("ACAluno");
+                });
+
             modelBuilder.Entity("One.Domain.Entities.ACCategoria", b =>
                 {
                     b.Property<int>("CodigoCategoria")
@@ -97,10 +126,6 @@ namespace One.Infra.Data.Migrations
 
                     b.Property<DateTime>("DataNascimento");
 
-                    b.Property<string>("NomeCompleto")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
                     b.Property<string>("flAtivo")
                         .IsRequired()
                         .HasMaxLength(1);
@@ -110,6 +135,29 @@ namespace One.Infra.Data.Migrations
                     b.HasIndex("CodigoUsuario");
 
                     b.ToTable("ACProfessor");
+                });
+
+            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
+                {
+                    b.Property<int>("CodigoResponsavel")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CodigoEndereco");
+
+                    b.Property<int>("CodigoUsuario");
+
+                    b.Property<string>("flAtivo")
+                        .IsRequired()
+                        .HasMaxLength(1);
+
+                    b.HasKey("CodigoResponsavel");
+
+                    b.HasIndex("CodigoEndereco");
+
+                    b.HasIndex("CodigoUsuario");
+
+                    b.ToTable("ACResponsavel");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.ACTurma", b =>
@@ -179,43 +227,6 @@ namespace One.Infra.Data.Migrations
                     b.HasIndex("CodigoMatricula");
 
                     b.ToTable("FIMensalidade");
-                });
-
-            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
-                {
-                    b.Property<int>("CodigoALuno")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CodigoEndereco");
-
-                    b.Property<int>("CodigoResponsavel");
-
-                    b.Property<int>("CodigoUsuario");
-
-                    b.Property<DateTime>("DataNascimento");
-
-                    b.Property<string>("NomeCompleto")
-                        .IsRequired()
-                        .HasMaxLength(200);
-
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasMaxLength(1);
-
-                    b.Property<string>("flAtivo")
-                        .IsRequired()
-                        .HasMaxLength(1);
-
-                    b.HasKey("CodigoALuno");
-
-                    b.HasIndex("CodigoEndereco");
-
-                    b.HasIndex("CodigoResponsavel");
-
-                    b.HasIndex("CodigoUsuario");
-
-                    b.ToTable("ACAluno");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.GEBairro", b =>
@@ -291,37 +302,6 @@ namespace One.Infra.Data.Migrations
                     b.HasIndex("CodigoBairro");
 
                     b.ToTable("GEEndereco");
-                });
-
-            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
-                {
-                    b.Property<int>("CodigoResponsavel")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CPF")
-                        .IsRequired()
-                        .HasMaxLength(11);
-
-                    b.Property<int>("CodigoEndereco");
-
-                    b.Property<int>("CodigoUsuario");
-
-                    b.Property<string>("NomeCompleto")
-                        .IsRequired()
-                        .HasMaxLength(300);
-
-                    b.Property<string>("flAtivo")
-                        .IsRequired()
-                        .HasMaxLength(1);
-
-                    b.HasKey("CodigoResponsavel");
-
-                    b.HasIndex("CodigoEndereco");
-
-                    b.HasIndex("CodigoUsuario");
-
-                    b.ToTable("ACResponsavel");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.GETelefone", b =>
@@ -414,9 +394,22 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CPF")
+                        .HasMaxLength(11);
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasMaxLength(15);
+                        .HasMaxLength(100);
+
+                    b.Property<string>("NomeCompleto")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Sexo")
+                        .HasMaxLength(1);
 
                     b.Property<string>("flAtivo")
                         .IsRequired()
@@ -435,6 +428,8 @@ namespace One.Infra.Data.Migrations
 
                     b.Property<int>("CodigoPerfil");
 
+                    b.Property<int>("CodigoPerfilPadrao");
+
                     b.Property<int>("CodigoUsuario");
 
                     b.HasKey("CodigoUsuarioPerfil");
@@ -444,6 +439,24 @@ namespace One.Infra.Data.Migrations
                     b.HasIndex("CodigoUsuario");
 
                     b.ToTable("SEGUsuarioPerfil");
+                });
+
+            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
+                {
+                    b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
+                        .WithMany()
+                        .HasForeignKey("CodigoEndereco")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("One.Domain.Entities.ACResponsavel", "ACResponsavel")
+                        .WithMany()
+                        .HasForeignKey("CodigoResponsavel")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
+                        .WithMany()
+                        .HasForeignKey("CodigoUsuario")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("One.Domain.Entities.ACCategoria", b =>
@@ -464,6 +477,19 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACProfessor", b =>
                 {
+                    b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
+                        .WithMany()
+                        .HasForeignKey("CodigoUsuario")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
+                {
+                    b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
+                        .WithMany()
+                        .HasForeignKey("CodigoEndereco")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
                         .WithMany()
                         .HasForeignKey("CodigoUsuario")
@@ -491,24 +517,6 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
-                {
-                    b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
-                        .WithMany()
-                        .HasForeignKey("CodigoEndereco")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("One.Domain.Entities.ACResponsavel", "ACResponsavel")
-                        .WithMany()
-                        .HasForeignKey("CodigoResponsavel")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
-                        .WithMany()
-                        .HasForeignKey("CodigoUsuario")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
             modelBuilder.Entity("One.Domain.Entities.GEBairro", b =>
                 {
                     b.HasOne("One.Domain.Entities.GECidade", "GECidade")
@@ -530,19 +538,6 @@ namespace One.Infra.Data.Migrations
                     b.HasOne("One.Domain.Entities.GEBairro", "GEBairro")
                         .WithMany()
                         .HasForeignKey("CodigoBairro")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("One.Domain.Entities.ACResponsavel", b =>
-                {
-                    b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
-                        .WithMany()
-                        .HasForeignKey("CodigoEndereco")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
-                        .WithMany()
-                        .HasForeignKey("CodigoUsuario")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

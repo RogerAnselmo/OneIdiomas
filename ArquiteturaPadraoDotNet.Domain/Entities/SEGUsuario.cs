@@ -14,7 +14,6 @@ namespace One.Domain.Entities
         public string NomeCompleto { get; set; }
 
         [MaxLength(100)]
-        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

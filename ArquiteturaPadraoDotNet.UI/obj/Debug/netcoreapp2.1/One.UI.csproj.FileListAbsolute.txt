@@ -82,3 +82,9 @@ C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Deb
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Painel\DashBoard.g.cshtml.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Painel\DashBoard.g.cshtml.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Seguranca\Login.g.cshtml.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Application.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Application.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Seguranca\Cadastro.g.cshtml.cs
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Application.dll
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Application.pdb
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\Seguranca\Cadastro.g.cshtml.cs

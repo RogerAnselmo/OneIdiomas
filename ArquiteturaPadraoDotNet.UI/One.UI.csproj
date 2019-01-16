@@ -33,10 +33,32 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Aluno\Controllers\" />
+    <Folder Include="Areas\Aluno\Data\" />
+    <Folder Include="Areas\Aluno\Models\" />
+    <Folder Include="Areas\Aluno\Views\" />
+    <Folder Include="Areas\Professor\Controllers\" />
+    <Folder Include="Areas\Professor\Data\" />
+    <Folder Include="Areas\Professor\Models\" />
+    <Folder Include="Areas\Professor\Views\" />
+    <Folder Include="Areas\Responsavel\Controllers\" />
+    <Folder Include="Areas\Responsavel\Data\" />
+    <Folder Include="Areas\Responsavel\Models\" />
+    <Folder Include="Areas\Responsavel\Views\" />
+    <Folder Include="wwwroot\CoreJs\Aluno\" />
+    <Folder Include="wwwroot\CoreJs\Responsavel\" />
+    <Folder Include="wwwroot\CoreJs\Professor\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Seguranca\Cadastro.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

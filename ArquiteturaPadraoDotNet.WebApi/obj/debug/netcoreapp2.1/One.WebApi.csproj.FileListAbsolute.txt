@@ -12,3 +12,17 @@ C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.dll
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.deps.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.runtimeconfig.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.runtimeconfig.dev.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.csprojResolveAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorAssemblyInfo.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorAssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.AssemblyInfoInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.AssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.pdb

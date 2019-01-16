@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class tabelasgeralacademicosegurancafinanceiro : Migration
+    public partial class inicioone : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -73,7 +73,11 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoUsuario = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Login = table.Column<string>(maxLength: 15, nullable: false),
+                    NomeCompleto = table.Column<string>(maxLength: 200, nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: true),
+                    Login = table.Column<string>(maxLength: 100, nullable: false),
+                    CPF = table.Column<string>(maxLength: 11, nullable: true),
+                    Sexo = table.Column<string>(maxLength: 1, nullable: true),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false)
                 },
                 constraints: table =>
@@ -150,7 +154,6 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoProfessor = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NomeCompleto = table.Column<string>(maxLength: 100, nullable: false),
                     DataNascimento = table.Column<DateTime>(nullable: false),
                     CPF = table.Column<string>(maxLength: 11, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
@@ -173,6 +176,7 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoUsuarioPerfil = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CodigoPerfilPadrao = table.Column<int>(nullable: false),
                     CodigoUsuario = table.Column<int>(nullable: false),
                     CodigoPerfil = table.Column<int>(nullable: false)
                 },
@@ -275,8 +279,6 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoResponsavel = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CPF = table.Column<string>(maxLength: 11, nullable: false),
-                    NomeCompleto = table.Column<string>(maxLength: 300, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
                     CodigoEndereco = table.Column<int>(nullable: false),
                     CodigoUsuario = table.Column<int>(nullable: false)
@@ -304,8 +306,6 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoALuno = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NomeCompleto = table.Column<string>(maxLength: 200, nullable: false),
-                    Sexo = table.Column<string>(maxLength: 1, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
                     DataNascimento = table.Column<DateTime>(nullable: false),
                     CodigoEndereco = table.Column<int>(nullable: false),
@@ -382,6 +382,21 @@ namespace One.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_ACAluno_CodigoEndereco",
+                table: "ACAluno",
+                column: "CodigoEndereco");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ACAluno_CodigoResponsavel",
+                table: "ACAluno",
+                column: "CodigoResponsavel");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ACAluno_CodigoUsuario",
+                table: "ACAluno",
+                column: "CodigoUsuario");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ACCategoria_CodigoFaixaEtaria",
                 table: "ACCategoria",
                 column: "CodigoFaixaEtaria");
@@ -394,6 +409,16 @@ namespace One.Infra.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ACProfessor_CodigoUsuario",
                 table: "ACProfessor",
+                column: "CodigoUsuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ACResponsavel_CodigoEndereco",
+                table: "ACResponsavel",
+                column: "CodigoEndereco");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ACResponsavel_CodigoUsuario",
+                table: "ACResponsavel",
                 column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
@@ -412,21 +437,6 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoMatricula");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACAluno_CodigoEndereco",
-                table: "ACAluno",
-                column: "CodigoEndereco");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACAluno_CodigoResponsavel",
-                table: "ACAluno",
-                column: "CodigoResponsavel");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACAluno_CodigoUsuario",
-                table: "ACAluno",
-                column: "CodigoUsuario");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_GEBairro_CodigoCidade",
                 table: "GEBairro",
                 column: "CodigoCidade");
@@ -440,16 +450,6 @@ namespace One.Infra.Data.Migrations
                 name: "IX_GEEndereco_CodigoBairro",
                 table: "GEEndereco",
                 column: "CodigoBairro");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACResponsavel_CodigoEndereco",
-                table: "ACResponsavel",
-                column: "CodigoEndereco");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACResponsavel_CodigoUsuario",
-                table: "ACResponsavel",
-                column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GETelefone_CodigoTipoTelefone",

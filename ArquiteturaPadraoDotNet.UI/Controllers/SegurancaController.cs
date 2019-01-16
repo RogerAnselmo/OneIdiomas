@@ -7,27 +7,36 @@ using System.Threading.Tasks;
 
 namespace One.UI.Controllers
 {
-    //[Route("Gerenciar-Seguranca")]
     public class SegurancaController : Controller
     {
+        #region Interface - IoC
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        #endregion
 
-        //[Route("Novo-Usuario")]
+        #region Construtor
+        public SegurancaController(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        } 
+        #endregion
+
+        #region Actions
         public IActionResult Cadastro()
         {
             return View();
         }
 
-        //[Route("Login-Usuario")]
         public IActionResult Login()
         {
             return View();
-        }
+        } 
+        #endregion
 
         #region Seção: AJAX
         [HttpPost]
-        [Route("Autenticar-Usuario")]
         public async Task<JsonResult> AutenticarAsync([FromBody]UsuarioViewModel usuario)
         {
             try
@@ -59,7 +68,6 @@ namespace One.UI.Controllers
         }
 
         [HttpPost]
-        [Route("Salvar-Novo-Usuario")]
         public async Task<JsonResult> SalvarUsuarioAsync([FromBody]UsuarioViewModel usuario)
         {
             try
@@ -71,7 +79,7 @@ namespace One.UI.Controllers
                 if (result.Succeeded)
                 {
 
-                    _usuarioAppservice.SalvarUsuario(usuario);
+                    //_usuarioAppservice.SalvarUsuario(usuario);
 
                     usuario.Mensagem = "Usuário Salvo com sucesso";
                     return Json(new { erro = 0, mensagem = usuario.Mensagem });
@@ -89,5 +97,4 @@ namespace One.UI.Controllers
         }
         #endregion
     }
-}
 }
