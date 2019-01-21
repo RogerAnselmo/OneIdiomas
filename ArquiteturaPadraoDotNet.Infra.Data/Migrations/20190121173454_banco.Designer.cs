@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190115192918_inicio-one")]
-    partial class inicioone
+    [Migration("20190121173454_banco")]
+    partial class banco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,13 +27,22 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CPF")
+                        .HasMaxLength(10);
+
                     b.Property<int>("CodigoEndereco");
 
                     b.Property<int>("CodigoResponsavel");
 
-                    b.Property<int>("CodigoUsuario");
-
                     b.Property<DateTime>("DataNascimento");
+
+                    b.Property<int>("DiaVencimento");
+
+                    b.Property<string>("RG")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("Telefone")
+                        .HasMaxLength(15);
 
                     b.Property<string>("flAtivo")
                         .IsRequired()
@@ -45,20 +54,18 @@ namespace One.Infra.Data.Migrations
 
                     b.HasIndex("CodigoResponsavel");
 
-                    b.HasIndex("CodigoUsuario");
-
                     b.ToTable("ACAluno");
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.ACCategoria", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACEstagio", b =>
                 {
-                    b.Property<int>("CodigoCategoria")
+                    b.Property<int>("CodigoEstagio")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CodigoFaixaEtaria");
 
-                    b.Property<string>("DescricaoCategoria")
+                    b.Property<string>("DescricaoEstagio")
                         .IsRequired()
                         .HasMaxLength(30);
 
@@ -66,11 +73,11 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1);
 
-                    b.HasKey("CodigoCategoria");
+                    b.HasKey("CodigoEstagio");
 
                     b.HasIndex("CodigoFaixaEtaria");
 
-                    b.ToTable("ACCategoria");
+                    b.ToTable("ACEstagio");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.ACFaixaEtaria", b =>
@@ -168,7 +175,7 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CodigoCategoria");
+                    b.Property<int>("CodigoEstagio");
 
                     b.Property<string>("CodigoIdentificador")
                         .IsRequired();
@@ -191,7 +198,7 @@ namespace One.Infra.Data.Migrations
 
                     b.HasKey("CodigoTurma");
 
-                    b.HasIndex("CodigoCategoria");
+                    b.HasIndex("CodigoEstagio");
 
                     b.HasIndex("CodigoProfessor");
 
@@ -207,6 +214,10 @@ namespace One.Infra.Data.Migrations
                     b.Property<int>("AnoCompetencia");
 
                     b.Property<int>("CodigoMatricula");
+
+                    b.Property<DateTime>("DataEmissao");
+
+                    b.Property<DateTime>("DataPagamento");
 
                     b.Property<DateTime>("DataVencimento");
 
@@ -373,7 +384,7 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.SEGPerfil", b =>
                 {
-                    b.Property<int>("CoigoPerfil")
+                    b.Property<int>("CodigoPerfil")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -385,7 +396,7 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1);
 
-                    b.HasKey("CoigoPerfil");
+                    b.HasKey("CodigoPerfil");
 
                     b.ToTable("SEGPerfil");
                 });
@@ -398,9 +409,6 @@ namespace One.Infra.Data.Migrations
 
                     b.Property<string>("CPF")
                         .HasMaxLength(11);
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(100);
 
                     b.Property<string>("Login")
                         .IsRequired()
@@ -454,14 +462,9 @@ namespace One.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CodigoResponsavel")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
-                        .WithMany()
-                        .HasForeignKey("CodigoUsuario")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.ACCategoria", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACEstagio", b =>
                 {
                     b.HasOne("One.Domain.Entities.ACFaixaEtaria", "ACFaixaEtaria")
                         .WithMany()
@@ -500,9 +503,9 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACTurma", b =>
                 {
-                    b.HasOne("One.Domain.Entities.ACCategoria", "ACCategoria")
+                    b.HasOne("One.Domain.Entities.ACEstagio", "ACEstagio")
                         .WithMany()
-                        .HasForeignKey("CodigoCategoria")
+                        .HasForeignKey("CodigoEstagio")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("One.Domain.Entities.ACProfessor", "ACProfessor")

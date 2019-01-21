@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace One.Domain.Entities
 {
@@ -32,7 +29,14 @@ namespace One.Domain.Entities
         public int CodigoBairro { get; set; }
 
         [ForeignKey("CodigoBairro")]
-        public virtual GEBairro GEBairro { get; set; } 
+        public virtual GEBairro GEBairro { get; set; }
         #endregion
+
+        #region SEGUsuario
+        public int CodigoUsuario { get; set; }
+
+        [ForeignKey("CodigoUsuario")]
+        public virtual SEGUsuario SEGUsuario { get; set; }
+        #endregion        
     }
 }

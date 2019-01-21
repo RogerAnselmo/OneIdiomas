@@ -25,6 +25,5 @@ namespace One.Domain.Entities
         [MaxLength(1)]
         public string flAtivo { get; set; }
         #endregion
-
     }
 }

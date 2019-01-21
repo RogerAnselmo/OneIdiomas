@@ -22,13 +22,10 @@ function SalvarNovoUsuario() {
     //    return;
     //}
 
-    var usuario = {        
+    var usuario = {
         NomeCompleto: _nome.val(),
         Login: _login.val(),
-        //Email: _email.val(),
         Senha: _senha.val(),
-        //ConfirmacaoSenha: _confirmaSenha.val(),
-        //CPF: _cpf.val(),
         CodigoUsuario: 0
     };
 
@@ -36,10 +33,10 @@ function SalvarNovoUsuario() {
         function (retorno) {
 
             if (retorno.erro == 0) {
-                AlertSuccess("Usuário cadastrado com sucesso", function () { location.reload(); });
+                AlertSuccess("Usuário cadastrado com sucesso", function () { window.history.back(1);});
             }
             else {
-                AlertWarning(retorno.data.mensagem);
+                AlertWarning(retorno.mensagem);
             }
         },
         function (erro) {

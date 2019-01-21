@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class inicioone : Migration
+    public partial class banco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -57,14 +57,14 @@ namespace One.Infra.Data.Migrations
                 name: "SEGPerfil",
                 columns: table => new
                 {
-                    CoigoPerfil = table.Column<int>(nullable: false)
+                    CodigoPerfil = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Descricao = table.Column<string>(maxLength: 30, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SEGPerfil", x => x.CoigoPerfil);
+                    table.PrimaryKey("PK_SEGPerfil", x => x.CodigoPerfil);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,7 +74,6 @@ namespace One.Infra.Data.Migrations
                     CodigoUsuario = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NomeCompleto = table.Column<string>(maxLength: 200, nullable: false),
-                    Email = table.Column<string>(maxLength: 100, nullable: true),
                     Login = table.Column<string>(maxLength: 100, nullable: false),
                     CPF = table.Column<string>(maxLength: 11, nullable: true),
                     Sexo = table.Column<string>(maxLength: 1, nullable: true),
@@ -86,20 +85,20 @@ namespace One.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ACCategoria",
+                name: "ACEstagio",
                 columns: table => new
                 {
-                    CodigoCategoria = table.Column<int>(nullable: false)
+                    CodigoEstagio = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DescricaoCategoria = table.Column<string>(maxLength: 30, nullable: false),
+                    DescricaoEstagio = table.Column<string>(maxLength: 30, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
                     CodigoFaixaEtaria = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ACCategoria", x => x.CodigoCategoria);
+                    table.PrimaryKey("PK_ACEstagio", x => x.CodigoEstagio);
                     table.ForeignKey(
-                        name: "FK_ACCategoria_ACFaixaEtaria_CodigoFaixaEtaria",
+                        name: "FK_ACEstagio_ACFaixaEtaria_CodigoFaixaEtaria",
                         column: x => x.CodigoFaixaEtaria,
                         principalTable: "ACFaixaEtaria",
                         principalColumn: "CodigoFaixaEtaria",
@@ -187,7 +186,7 @@ namespace One.Infra.Data.Migrations
                         name: "FK_SEGUsuarioPerfil_SEGPerfil_CodigoPerfil",
                         column: x => x.CodigoPerfil,
                         principalTable: "SEGPerfil",
-                        principalColumn: "CoigoPerfil",
+                        principalColumn: "CodigoPerfil",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_SEGUsuarioPerfil_SEGUsuario_CodigoUsuario",
@@ -230,17 +229,17 @@ namespace One.Infra.Data.Migrations
                     ValorBase = table.Column<decimal>(nullable: false),
                     CodigoIdentificador = table.Column<string>(nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
-                    CodigoCategoria = table.Column<int>(nullable: false),
+                    CodigoEstagio = table.Column<int>(nullable: false),
                     CodigoProfessor = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ACTurma", x => x.CodigoTurma);
                     table.ForeignKey(
-                        name: "FK_ACTurma_ACCategoria_CodigoCategoria",
-                        column: x => x.CodigoCategoria,
-                        principalTable: "ACCategoria",
-                        principalColumn: "CodigoCategoria",
+                        name: "FK_ACTurma_ACEstagio_CodigoEstagio",
+                        column: x => x.CodigoEstagio,
+                        principalTable: "ACEstagio",
+                        principalColumn: "CodigoEstagio",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ACTurma_ACProfessor_CodigoProfessor",
@@ -306,11 +305,14 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoALuno = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Telefone = table.Column<string>(maxLength: 15, nullable: true),
+                    RG = table.Column<string>(maxLength: 10, nullable: true),
+                    CPF = table.Column<string>(maxLength: 10, nullable: true),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
+                    DiaVencimento = table.Column<int>(nullable: false),
                     DataNascimento = table.Column<DateTime>(nullable: false),
                     CodigoEndereco = table.Column<int>(nullable: false),
-                    CodigoResponsavel = table.Column<int>(nullable: false),
-                    CodigoUsuario = table.Column<int>(nullable: false)
+                    CodigoResponsavel = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -326,12 +328,6 @@ namespace One.Infra.Data.Migrations
                         column: x => x.CodigoResponsavel,
                         principalTable: "ACResponsavel",
                         principalColumn: "CodigoResponsavel",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ACAluno_SEGUsuario_CodigoUsuario",
-                        column: x => x.CodigoUsuario,
-                        principalTable: "SEGUsuario",
-                        principalColumn: "CodigoUsuario",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -363,6 +359,8 @@ namespace One.Infra.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NumeroParcela = table.Column<int>(nullable: false),
                     DataVencimento = table.Column<DateTime>(nullable: false),
+                    DataPagamento = table.Column<DateTime>(nullable: false),
+                    DataEmissao = table.Column<DateTime>(nullable: false),
                     Valor = table.Column<decimal>(nullable: false),
                     MesCompetencia = table.Column<int>(nullable: false),
                     AnoCompetencia = table.Column<int>(nullable: false),
@@ -392,13 +390,8 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoResponsavel");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACAluno_CodigoUsuario",
-                table: "ACAluno",
-                column: "CodigoUsuario");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACCategoria_CodigoFaixaEtaria",
-                table: "ACCategoria",
+                name: "IX_ACEstagio_CodigoFaixaEtaria",
+                table: "ACEstagio",
                 column: "CodigoFaixaEtaria");
 
             migrationBuilder.CreateIndex(
@@ -422,9 +415,9 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACTurma_CodigoCategoria",
+                name: "IX_ACTurma_CodigoEstagio",
                 table: "ACTurma",
-                column: "CodigoCategoria");
+                column: "CodigoEstagio");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ACTurma_CodigoProfessor",
@@ -482,7 +475,7 @@ namespace One.Infra.Data.Migrations
                 name: "SEGUsuarioPerfil");
 
             migrationBuilder.DropTable(
-                name: "ACCategoria");
+                name: "ACEstagio");
 
             migrationBuilder.DropTable(
                 name: "ACProfessor");

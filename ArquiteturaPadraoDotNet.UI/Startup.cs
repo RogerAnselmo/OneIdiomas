@@ -45,12 +45,14 @@ namespace One.UI
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<OneContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddDbContext<OneContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -74,10 +76,10 @@ namespace One.UI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(o =>
                 {
-                    o.LoginPath = "/Seguranca/Login";
-                    o.LogoutPath = "/Seguranca/Login";
-
-                });
+                    o.Cookie.HttpOnly = true;
+                    o.Cookie.Expiration = TimeSpan.FromDays(5);
+                    o.LoginPath = new PathString("/Seguranca/Login");
+                }); 
 
             RegisterServices(services);
         }
@@ -96,9 +98,10 @@ namespace One.UI
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

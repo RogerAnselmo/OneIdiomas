@@ -14,7 +14,6 @@ namespace One.Infra.Data.Repository
         public SEGUsuario ObterUsuarioPorLogin(string pLogin)
         {
             return Db.SEGUsuario
-                .Include(u => u.SEGUsuarioPerfis)
                 .Where(u => u.Login.ToUpper().Equals(pLogin.ToUpper()))
                 .AsNoTracking()
                 .FirstOrDefault();

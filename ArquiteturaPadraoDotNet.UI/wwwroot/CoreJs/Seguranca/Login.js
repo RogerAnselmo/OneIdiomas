@@ -1,32 +1,29 @@
 ﻿var _login = $('#Login');
 var _senha = $('#Senha');
+var _frm = $('#frmLogin');
 
 $(document).ready(function () {
 
     sessionStorage.removeItem('usr');
-    $('#btnEntrar').click(function () {
-        AutenticarUsuario();
+
+    $('.btnEntrar').click(function () {
+
+        if (ValidarLogin())
+            _frm.submit();
+
     });
 });
 
-function AutenticarUsuario() {
-    var usuario = {
-        Login: _login.val(),
-        Senha: _senha.val()
-    };
+function ValidarLogin() {
 
-    ExecutarComandoPost('/Gerenciar-Seguranca/Autenticar-Usuario', usuario,
-        function (retorno) {
-            if (retorno.erro == 0) {
-                sessionStorage.setItem("usr", JSON.stringify(retorno.data));
-                redirectToUrl(_defaulUrl);
-            }
-            else {
-                AlertWarning(retorno.mensagem)
-            }
-        },
-        function (error) {
-            AlertError(error.mensagem);
-            console.log(error)
-        });
+    if ($.trim(_login.val()) === '') {
+        AlertWarning('Preencha o Login')
+        return false;
+    }
+    else if ($.trim(_senha.val()) === '') {
+        AlertWarning('Preencha a senha')
+        return false;
+    }
+
+    return true;
 }

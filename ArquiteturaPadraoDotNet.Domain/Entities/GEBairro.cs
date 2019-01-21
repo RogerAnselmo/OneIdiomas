@@ -5,7 +5,7 @@ namespace One.Domain.Entities
 {
     public class GEBairro
     {
-        #region ACCategoria
+        #region ACEstagio
         [Key]
         public int CodigoBairro { get; set; }
 

@@ -23,7 +23,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region GECidade
-        public virtual IEnumerable<GECidade> Cidades { get; set; } 
+        public virtual IEnumerable<GECidade> GECidade { get; set; } 
         #endregion
     }
 }

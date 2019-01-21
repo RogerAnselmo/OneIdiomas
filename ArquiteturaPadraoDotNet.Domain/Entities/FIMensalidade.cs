@@ -19,6 +19,12 @@ namespace One.Domain.Entities
         public DateTime DataVencimento { get; set; }
 
         [Required]
+        public DateTime DataPagamento { get; set; }
+
+        [Required]
+        public DateTime DataEmissao { get; set; }
+
+        [Required]
         public decimal Valor { get; set; }
 
         [Required]

@@ -32,11 +32,11 @@ namespace One.Domain.Entities
         public string flAtivo { get; set; }
         #endregion
 
-        #region ACCategoria
+        #region ACEstagio
         [Required]
-        public int CodigoCategoria { get; set; }
+        public int CodigoEstagio { get; set; }
 
-        public virtual ACCategoria ACCategoria { get; set; }
+        public virtual ACEstagio ACEstagio { get; set; }
         #endregion
 
         #region ACProfessor

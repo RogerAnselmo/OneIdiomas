@@ -25,3 +25,7 @@ C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.App
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\obj\Debug\netcoreapp2.1\One.Application.AssemblyInfo.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\obj\Debug\netcoreapp2.1\One.Application.dll
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\obj\Debug\netcoreapp2.1\One.Application.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Application\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb

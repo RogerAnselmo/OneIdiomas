@@ -4620,6 +4620,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "One.Infra.CrossCutting.Identity": "1.0.0",
           "One.Infra.Data": "1.0.0"
         },
         "compile": {

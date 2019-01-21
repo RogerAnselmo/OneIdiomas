@@ -9,7 +9,7 @@ namespace One.Domain.Entities
     {
         #region SEGPerfil
         [Key]
-        public int CoigoPerfil { get; set; }
+        public int CodigoPerfil { get; set; }
 
         [Required]
         [MaxLength(30)]

@@ -16,10 +16,6 @@ namespace One.Domain.Entities
         public DateTime DataNascimento { get; set; }
 
         [Required]
-        [MaxLength(11)]
-        public string CPF { get; set; }
-
-        [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
         #endregion
@@ -32,7 +28,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region ACTurma
-        public virtual IEnumerable<ACTurma> ACTurmas { get; set; } 
+        public virtual IEnumerable<ACTurma> ACTurma { get; set; } 
         #endregion
     }
 }

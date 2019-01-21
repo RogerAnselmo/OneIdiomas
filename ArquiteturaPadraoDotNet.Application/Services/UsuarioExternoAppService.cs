@@ -1,24 +1,33 @@
-﻿using One.Application.Interfaces;
+﻿using One.Application.Adapter;
+using One.Application.Interfaces;
+using One.Application.UoW;
+using One.Application.ViewModels;
 using One.Domain.Interfaces.Service;
+using One.Infra.Data.Interface;
 
 namespace One.Application.Services
 {
-    public class UsuarioExternoAppService: IUsuarioExternoAppservice
+    public class UsuarioExternoAppService: ApplicationServiceTransaction, IUsuarioExternoAppservice
     {
         #region Interface - IoC
-        private readonly ISEGUsuarioService _iSEGUsuarioServico;
+        private readonly ISEGUsuarioService _iSEGUsuarioService;
         #endregion
 
         #region Construtor
-        public UsuarioExternoAppService(ISEGUsuarioService iSEGUsuarioServico)
+        public UsuarioExternoAppService(ISEGUsuarioService iSEGUsuarioService, IUnitOfWorkTransaction uow): base(uow)
         {
-            _iSEGUsuarioServico = iSEGUsuarioServico;
-        } 
+            _iSEGUsuarioService = iSEGUsuarioService;
+        }
         #endregion
 
-        public void SalvarNovoUsuario()
+        #region Services
+        public void SalvarUsuario(SEGUsuarioViewModel usuarioViewModel)
         {
-
+            BeginTransaction();
+            _iSEGUsuarioService.SalvarUsuario(SEGUsuarioAdapter.ViewModelToDomain(usuarioViewModel));
+            SaveChange();
+            Commit();
         }
+        #endregion
     }
 }

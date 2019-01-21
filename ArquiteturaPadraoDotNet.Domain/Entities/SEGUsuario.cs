@@ -12,9 +12,7 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(200)]
         public string NomeCompleto { get; set; }
-
-        [MaxLength(100)]
-        public string Email { get; set; }
+        
 
         [Required]
         [MinLength(3)]
@@ -34,6 +32,14 @@ namespace One.Domain.Entities
 
         #region SEGUsuarioPerfil
         public virtual IEnumerable<SEGUsuarioPerfil> SEGUsuarioPerfis { get; set; }
+        #endregion
+
+        #region GETelefone
+        public virtual IEnumerable<GETelefone> GETelefone { get; set; }
+        #endregion
+
+        #region GEEndereco
+        public virtual GEEndereco GEEndereco { get; set; } 
         #endregion
     }
 }

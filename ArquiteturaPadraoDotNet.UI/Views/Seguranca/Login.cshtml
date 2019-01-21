@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="~/assets/vendor/magnific-popup/magnific-popup.css" />
     <link rel="stylesheet" href="~/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
     <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/assets/vendor/sweetalert/sweetalert.css" rel="stylesheet" />
+
     <!-- Theme CSS -->
     <link rel="stylesheet" href="~/assets/stylesheets/theme.css" />
 
@@ -49,11 +51,19 @@
                 </a>*@
 
             <div class="panel panel-sign">
+
+                @if (!string.IsNullOrEmpty(@Model.Mensagem))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @Model.Mensagem
+                    </div>
+                }
+
                 <div class="panel-title-sign mt-xl text-right">
                     <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Login</h2>
                 </div>
                 <div class="panel-body">
-                    <form>
+                    <form id="frmLogin" asp-controller="Seguranca" asp-action="Autenticar" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="form-group mb-lg">
                             <label asp-for="Login"></label>
                             <div class="input-group input-group-icon">
@@ -67,10 +77,6 @@
                         </div>
 
                         <div class="form-group mb-lg">
-                            <div class="clearfix">
-                                <label asp-for="Senha" class="pull-left"></label>
-                                <a href="pages-recover-password.html" class="pull-right">Equeceu sua senha?</a>
-                            </div>
                             <div class="input-group input-group-icon">
                                 <input asp-for="Senha" type="password" class="form-control input-lg" />
                                 <span class="input-group-addon">
@@ -79,18 +85,18 @@
                                     </span>
                                 </span>
                             </div>
+                            <div class="clearfix">
+                                <label asp-for="Senha" class="pull-left"></label>
+                                <a href="pages-recover-password.html" class="pull-right">Esqueceu sua senha?</a>
+                            </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-8">
-                                @*<div class="checkbox-custom checkbox-default">
-                                        <input id="RememberMe" name="rememberme" type="checkbox" />
-                                        <label for="RememberMe">Continuar Conectado</label>
-                                    </div>*@
                             </div>
                             <div class="col-sm-4 text-right">
-                                <button type="submit" class="btn btn-primary hidden-xs">Login</button>
-                                <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Login</button>
+                                <button type="button" class="btnEntrar btn btn-primary hidden-xs">Login</button>
+                                <button type="button" class="btnEntrar btn btn-primary btn-block btn-lg visible-xs mt-lg">Login</button>
                             </div>
                         </div>
 
@@ -129,6 +135,8 @@
 
     <!-- Theme Initialization Files -->
     <script src="~/assets/javascripts/theme.init.js"></script>
-
+    <script src="~/assets/vendor/sweetalert/sweetalert.js"></script>
+    <script src="~/CoreJs/Sistema/coresistema.js"></script>
+    <script src="~/CoreJs/Seguranca/Login.js"></script>
 </body>
 </html>

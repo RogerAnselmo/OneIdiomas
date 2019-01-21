@@ -18,12 +18,6 @@ namespace One.Domain.Services
 
         public void Dispose()
         {
-            throw new NotImplementedException();
-        }
-
-        public SEGUsuario AutenticarUsuario(SEGUsuario pUsuario)
-        {
-            throw new NotImplementedException();
         }
 
         public SEGUsuario ObterUsuarioPorLogin(string login)
@@ -31,9 +25,11 @@ namespace One.Domain.Services
             return _iSEGUsuarioRepository.ObterUsuarioPorLogin(login);
         }
 
-        public void SalvarUsuario(SEGUsuario usuario)
+        public void SalvarUsuario(SEGUsuario SEGUsuario)
         {
-            _iSEGUsuarioRepository.SalvarUsuario(usuario);
+            SEGUsuario.CodigoUsuario = 0;//usuário novo sempre tem CodigoUsuario = 0
+            SEGUsuario.flAtivo = "A";//usuário novo sempre tem flAtivo = "A"
+            _iSEGUsuarioRepository.SalvarUsuario(SEGUsuario);
         }
     }
 }

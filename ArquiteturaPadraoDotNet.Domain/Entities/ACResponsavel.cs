@@ -31,5 +31,9 @@ namespace One.Domain.Entities
         [ForeignKey("CodigoUsuario")]
         public virtual SEGUsuario SEGUsuario { get; set; }
         #endregion
+
+        #region GETelefone
+        public IEnumerable<GETelefone> GETelefones { get; set; }
+        #endregion
     }
 }

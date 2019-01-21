@@ -6,13 +6,11 @@ using System.Text;
 
 namespace One.Application.ViewModels
 {
-    public class UsuarioViewModel
+    public class SEGUsuarioViewModel
     {
         [DisplayName("CodigoUsuario do Usuário: ")]
         public int CodigoUsuario { get; set; }
 
-        [Required]
-        [MaxLength(200)]
         [DisplayName("Nome Completo: ")]
         public string NomeCompleto { get; set; }
 
@@ -42,7 +40,9 @@ namespace One.Application.ViewModels
         public string Mensagem { get; set; }
 
         [ScaffoldColumn(false)]
-        public bool Autenticado { get; set; } 
+        public bool Autenticado { get; set; }
         #endregion
+
+        public IList<SEGPerfilViewModel> SEGPerfilViewModel { get; set; }
     }
 }

@@ -21,12 +21,15 @@ namespace One.Infra.CrossCutting.IoC
 
             //Application
             services.AddScoped<IUsuarioExternoAppservice, UsuarioExternoAppService>();
+            services.AddScoped<IUsuarioOneAppService, UsuarioOneAppService>();
 
             //Service
             services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
+            services.AddScoped<ISEGUsuarioPerfilService, SEGUsuarioPerfilService>();
 
             //Repository
             services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>();
+            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
 
             //Infra - IoC
             services.AddScoped<IUnitOfWork, UnitOfWork>();

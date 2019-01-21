@@ -8,10 +8,12 @@ namespace One.Domain.Entities
 {
     public class SEGUsuarioPerfil
     {
+        #region SEGUsuarioPerfil
         [Key]
         public int CodigoUsuarioPerfil { get; set; }
 
-        public int CodigoPerfilPadrao { get; set; }
+        public int CodigoPerfilPadrao { get; set; } 
+        #endregion
 
         #region SEGUsuario
         [Required]
@@ -21,7 +23,7 @@ namespace One.Domain.Entities
         public SEGUsuario SEGUsuario { get; set; }
         #endregion
 
-        #region SegPerfil
+        #region SEGPerfil
         [Required]
         public int CodigoPerfil { get; set; }
 

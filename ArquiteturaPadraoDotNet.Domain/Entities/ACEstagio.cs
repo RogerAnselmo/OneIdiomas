@@ -6,15 +6,15 @@ using System.Text;
 
 namespace One.Domain.Entities
 {
-    public class ACCategoria
+    public class ACEstagio
     {
-        #region ACCategoria
+        #region ACEstagio
         [Key]
-        public int CodigoCategoria { get; set; }
+        public int CodigoEstagio { get; set; }
 
         [Required]
         [MaxLength(30)]
-        public string DescricaoCategoria { get; set; }
+        public string Descricao{ get; set; }
 
         [Required]
         [MaxLength(1)]
