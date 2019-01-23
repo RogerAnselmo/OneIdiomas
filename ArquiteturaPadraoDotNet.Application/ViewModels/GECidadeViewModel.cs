@@ -8,10 +8,10 @@ namespace One.Application.ViewModels
     public class GECidadeViewModel
     {
         #region GECidadeViewModel
-        [DisplayName("Código da Cidade: ")]
+        [DisplayName("Código da Cidade")]
         public int CodigoCidade { get; set; }
 
-        [DisplayName("Cidade: ")]
+        [DisplayName("Cidade")]
         public string Descricao { get; set; }
         #endregion
 

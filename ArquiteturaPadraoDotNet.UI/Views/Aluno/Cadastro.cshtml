@@ -1,18 +1,208 @@
-﻿@model One.Application.ViewModels.AlunoViewModel
+﻿@model One.Application.ViewModels.ACAlunoViewModel
 @{
-    ViewData["Title"] = "DashBoard2";
+    ViewData["Title"] = "Novo Aluno";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Novo Aluno</h2>
 
-<form class="form-horizontal">
-    <div class="form-group">
-        <label asp-for="CodigoALuno"></label>
-        <input asp-for="CodigoALuno" class="form-control" />
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                    @*<a href="#" class="fa fa-times"></a>*@
+                </div>
+
+                <h2 class="panel-title">@ViewBag.Title</h2>
+            </header>
+            <div class="panel-body">
+                <section class="panel form-wizard" id="w2">
+                    <div class="tabs">
+                        <ul class="nav nav-tabs nav-justify">
+                            <li class="active">
+                                <a href="#w2-account" data-toggle="tab" class="text-center">
+                                    @*<span class="badge hidden-xs">1</span>*@
+                                    Aluno
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#w2-profile" data-toggle="tab" class="text-center">
+                                    @*<span class="badge hidden-xs">2</span>*@
+                                    Responsável
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#w2-confirm" data-toggle="tab" class="text-center disabled">
+                                    @*<span class="badge hidden-xs">3</span>*@
+                                    Matrículas
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="form-horizontal" novalidate="novalidate">
+                            <div class="tab-content">
+                                @*ABA Aluno*@
+                                <div id="w2-account" class="tab-pane active">
+
+                                    @*Nome*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.NomeCompleto"></label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control input-sm" asp-for="SEGUsuarioViewModel.NomeCompleto">
+                                        </div>
+                                    </div>
+
+                                    @*Nascimento/Idade/Telefone*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.DataNascimento"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.DataNascimento">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="Idade"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="Idade">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="GETelefoneViewModel.NumeroTelefone"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="GETelefoneViewModel.NumeroTelefone">
+                                        </div>
+                                    </div>
+
+                                    @*RG/CPF/Dia de Vencimento*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.RG"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.RG">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="SEGUsuarioViewModel.CPF"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.CPF">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="DiaVencimento"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="DiaVencimento">
+                                                <option value="5" selected="selected">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    @*CEP/UF/Cidade*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="GEEnderecoViewModel.Cep"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="GEEnderecoViewModel.Cep">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.GEUFViewModel.Descricao"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.GEUFViewModel.CodigoUF">
+                                                <option value="5" selected="selected">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                            </select>
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.Descricao"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.CodigoCidade">
+                                                <option value="5" selected="selected">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    @*Logradouro/Bairro*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="GEEnderecoViewModel.Logradouro"></label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control input-sm" asp-for="GEEnderecoViewModel.Logradouro">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.Descricao"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.CodigoBairro">
+                                                <option value="5" selected="selected">5</option>
+                                                <option value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                @*ABA Responsável*@
+                                <div id="w2-profile" class="tab-pane">
+
+                                    @*Nome*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="ACResponsavelViewModel"></label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control input-sm" asp-for="SEGUsuarioViewModel.NomeCompleto">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="w2-last-name">Last Name</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control input-sm" name="last-name" id="w2-last-name" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*ABA MATRÍCULAS*@
+                                <div id="w2-confirm" class="tab-pane">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="w2-email">Email</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control input-sm" name="email" id="w2-email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox-custom">
+                                                <input type="checkbox" name="terms" id="w2-terms" required>
+                                                <label for="w2-terms">I agree to the terms of service</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    @*<div class="panel-footer">
+                        <ul class="pager">
+                            <li class="previous disabled">
+                                <a><i class="fa fa-angle-left"></i> Previous</a>
+                            </li>
+                            <li class="finish hidden pull-right">
+                                <a>Finish</a>
+                            </li>
+                            <li class="next">
+                                <a>Next <i class="fa fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>*@
+                </section>
+            </div>
+        </section>
     </div>
-    <div class="form-control">
-        <label asp-for=""></label>
-    </div>
-</form>
+</div>
+
+
+
 

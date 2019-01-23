@@ -35,5 +35,9 @@ namespace One.Domain.Entities
         #region GETelefone
         public IEnumerable<GETelefone> GETelefones { get; set; }
         #endregion
+
+        #region ACAlunoResponsavel
+        public virtual IEnumerable<ACAlunoResponsavel> ACAlunoResponsavel { get; set; }
+        #endregion
     }
 }

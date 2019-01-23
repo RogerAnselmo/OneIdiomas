@@ -12,12 +12,17 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(200)]
         public string NomeCompleto { get; set; }
-        
+
+        [Required]
+        public int DiaVencimento { get; set; }
 
         [Required]
         [MinLength(3)]
         [MaxLength(100)]
         public string Login { get; set; }
+
+        [MaxLength(20)]
+        public string RG { get; set; }
 
         [MaxLength(11)]
         public string CPF { get; set; }

@@ -8,22 +8,25 @@ namespace One.Application.ViewModels
 {
     public class SEGUsuarioViewModel
     {
-        [DisplayName("CodigoUsuario do Usuário: ")]
+        [DisplayName("CodigoUsuario do Usuário")]
         public int CodigoUsuario { get; set; }
 
-        [DisplayName("Nome Completo: ")]
+        [DisplayName("Nome Completo")]
         public string NomeCompleto { get; set; }
 
-        [DisplayName("Login: ")]
+        [DisplayName("Login")]
         public string Email { get; set; }
 
-        [DisplayName("Login: ")]
+        [DisplayName("Login")]
         public string Login { get; set; }
 
-        [DisplayName("CPF: ")]
+        [DisplayName("RG")]
+        public string RG { get; set; }
+
+        [DisplayName("CPF")]
         public string CPF { get; set; }
 
-        [DisplayName("Sexo: ")]
+        [DisplayName("Sexo")]
         public string Sexo { get; set; }
 
         #region Scaffold(false)

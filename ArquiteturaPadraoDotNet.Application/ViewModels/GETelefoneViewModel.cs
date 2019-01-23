@@ -8,7 +8,7 @@ namespace One.Application.ViewModels
         [DisplayName("Código do Telefone")]
         public int CodigoTelefone { get; set; }
 
-        [DisplayName("Número")]
+        [DisplayName("Telefone")]
         public string NumeroTelefone { get; set; }
         #endregion
 

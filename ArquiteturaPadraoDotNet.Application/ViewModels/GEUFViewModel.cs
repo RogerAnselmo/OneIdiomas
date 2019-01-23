@@ -11,7 +11,7 @@ namespace One.Application.ViewModels
         [DisplayName("Código UF")]
         public int CodigoUF { get; set; }
 
-        [DisplayName("Descrição")]
+        [DisplayName("Estado")]
         public string Descricao { get; set; }
 
         [DisplayName("Sigla")]

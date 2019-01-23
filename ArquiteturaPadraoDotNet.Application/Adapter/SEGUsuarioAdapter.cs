@@ -37,8 +37,8 @@ namespace One.Application.Adapter
         #region DomainToViewModel
         public static SEGUsuarioViewModel DomainToViewModel(SEGUsuario SEGUsuario)
         {
-            #region UsuarioViewModel
-            SEGUsuarioViewModel usuarioViewModel = new SEGUsuarioViewModel
+            #region SEGUsuarioViewModel
+            SEGUsuarioViewModel SEGUsuarioViewModel = new SEGUsuarioViewModel
             {
                 CodigoUsuario = SEGUsuario.CodigoUsuario,
                 CPF = SEGUsuario.CPF,
@@ -52,11 +52,11 @@ namespace One.Application.Adapter
             #region PerfilViewModel
             if(SEGUsuario.SEGUsuarioPerfis != null)
             {
-                usuarioViewModel.PerfilViewModel = new List<SEGPerfilViewModel>();
+                SEGUsuarioViewModel.SEGPerfilViewModel = new List<SEGPerfilViewModel>();
 
                 foreach (SEGUsuarioPerfil SEGUsuarioPerfil in SEGUsuario.SEGUsuarioPerfis)
                 {
-                    usuarioViewModel.PerfilViewModel.Add(new SEGPerfilViewModel
+                    SEGUsuarioViewModel.SEGPerfilViewModel.Add(new SEGPerfilViewModel
                     {
                         CodigoPerfil = SEGUsuarioPerfil.CodigoPerfil,
                         Descricao = SEGUsuarioPerfil.SEGPerfil != null ? SEGUsuarioPerfil.SEGPerfil.Descricao : "Não Informado"
@@ -65,7 +65,7 @@ namespace One.Application.Adapter
             }
             #endregion
 
-            return usuarioViewModel;
+            return SEGUsuarioViewModel;
         }
 
         public static IEnumerable<SEGUsuarioViewModel> DomainToViewModel(IEnumerable<SEGUsuario> listaSEGUsuario)

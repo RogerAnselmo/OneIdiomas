@@ -16,8 +16,8 @@ namespace One.Application.Adapter
             {
                 CodigoPerfil = domain.CodigoPerfil,
                 CodigoUsuario = domain.CodigoUsuario,
-                UsuarioViewModel = domain.SEGUsuario == null ? new SEGUsuarioViewModel() : SEGUsuarioAdapter.DomainToViewModel(domain.SEGUsuario),
-                PerfilViewModel = domain.SEGPerfil == null ? new SEGPerfilViewModel() : SEGPerfilAdapter.DomainToViewModel(domain.SEGPerfil)
+                SEGUsuarioViewModel = domain.SEGUsuario == null ? new SEGUsuarioViewModel() : SEGUsuarioAdapter.DomainToViewModel(domain.SEGUsuario),
+                SEGPerfilViewModel = domain.SEGPerfil == null ? new SEGPerfilViewModel() : SEGPerfilAdapter.DomainToViewModel(domain.SEGPerfil)
             };
         }
 
@@ -45,8 +45,8 @@ namespace One.Application.Adapter
                 CodigoPerfilPadrao = viewModel.CodigoPerfil,
                 CodigoUsuario = viewModel.CodigoUsuario,
                 CodigoUsuarioPerfil = viewModel.CodigoUsuario,
-                SEGPerfil = viewModel.PerfilViewModel == null ? new SEGPerfil() : SEGPerfilAdapter.ViewModelToDomain(viewModel.PerfilViewModel),
-                SEGUsuario = viewModel.UsuarioViewModel == null ? new SEGUsuario() : SEGUsuarioAdapter.ViewModelToDomain(viewModel.UsuarioViewModel)
+                SEGPerfil = viewModel.SEGPerfilViewModel == null ? new SEGPerfil() : SEGPerfilAdapter.ViewModelToDomain(viewModel.SEGPerfilViewModel),
+                SEGUsuario = viewModel.SEGUsuarioViewModel == null ? new SEGUsuario() : SEGUsuarioAdapter.ViewModelToDomain(viewModel.SEGUsuarioViewModel)
             };
         }
 

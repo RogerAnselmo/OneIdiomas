@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace One.Application.ViewModels
@@ -26,12 +28,8 @@ namespace One.Application.ViewModels
         public string flAtivo { get; set; }
         #endregion
 
-        #region GEBairro
-        [Required]
-        public int CodigoBairro { get; set; }
-
-        [ForeignKey("CodigoBairro")]
-        public virtual GEBairro GEBairro { get; set; }
+        #region GEBairroViewModel
+        public virtual GEBairroViewModel GEBairroViewModel { get; set; }
         #endregion
     }
 }

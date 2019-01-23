@@ -11,12 +11,6 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoALuno { get; set; }
 
-        [MaxLength(10)]
-        public string RG { get; set; }
-
-        [MaxLength(10)]
-        public string CPF { get; set; }
-
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
