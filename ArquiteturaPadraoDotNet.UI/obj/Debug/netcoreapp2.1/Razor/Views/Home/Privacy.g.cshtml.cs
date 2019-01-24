@@ -23,8 +23,13 @@ using One.UI.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.UI\Views\_ViewImports.cshtml"
+using One.Application.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e57a9cdbfb174b0e3def22c244c908ddaaf89fa7", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ccf1300be9030c1a6a18ac798e220d474b05eff2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b172fcc74fc4d3034f92edb85074181baa8e21b", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

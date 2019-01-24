@@ -1,12 +1,18 @@
 ﻿using One.Application.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace One.Application.Interfaces
 {
     public interface IUsuarioOneAppService
     {
+        #region GECidade
+        IEnumerable<GECidadeViewModel> ObterPorUF(int pCodigoUF);
+        #endregion
+
+        #region GEUF
+        IEnumerable<GEUFViewModel> ObterTodasUF(); 
+        #endregion
+
         #region Usuario
         SEGUsuarioViewModel ObterUsuarioPorLogin(string login);
         #endregion

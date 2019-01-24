@@ -1,7 +1,6 @@
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.deps.json
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.dll
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.pdb
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csprojResolveAssemblyReference.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CoreCompileInputs.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfoInputs.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfo.cs
@@ -16,3 +15,4 @@ C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.dll
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.pdb
 C:\Users\Rogerio\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csprojAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csprojAssemblyReference.cache

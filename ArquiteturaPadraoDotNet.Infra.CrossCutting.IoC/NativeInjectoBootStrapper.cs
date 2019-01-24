@@ -24,12 +24,16 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<IUsuarioOneAppService, UsuarioOneAppService>();
 
             //Service
+            services.AddScoped<IGEUFService, GEUFService>();
+            services.AddScoped<IGECidadeService, GECidadeService>();
             services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
             services.AddScoped<ISEGUsuarioPerfilService, SEGUsuarioPerfilService>();
 
             //Repository
+            services.AddScoped<IGECidadeRepository, GECidadeRepository>();
+            services.AddScoped<IGEUFRepository, GEUFRepository>();
             services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>();
-            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
+            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>(); 
 
             //Infra - IoC
             services.AddScoped<IUnitOfWork, UnitOfWork>();

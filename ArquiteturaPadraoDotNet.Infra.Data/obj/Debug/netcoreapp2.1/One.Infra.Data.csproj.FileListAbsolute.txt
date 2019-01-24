@@ -19,9 +19,10 @@ C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Inf
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.pdb
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Domain.dll
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Domain.pdb
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csprojResolveAssemblyReference.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csproj.CoreCompileInputs.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfoInputs.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfo.cs
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.dll
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csprojAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csproj.CopyComplete

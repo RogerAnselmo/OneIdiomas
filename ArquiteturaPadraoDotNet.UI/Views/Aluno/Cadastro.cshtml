@@ -1,4 +1,4 @@
-﻿@model One.Application.ViewModels.ACAlunoViewModel
+﻿@model One.Application.ViewModels.ACAlunoVM.CadastroAlunoViewModel
 @{
     ViewData["Title"] = "Novo Aluno";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -46,17 +46,17 @@
 
                                     @*Nome*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.NomeCompleto"></label>
+                                        <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" asp-for="SEGUsuarioViewModel.NomeCompleto">
+                                            <input type="text" class="form-control input-sm" asp-for="NomeCompleto">
                                         </div>
                                     </div>
 
                                     @*Nascimento/Idade/Telefone*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.DataNascimento"></label>
+                                        <label class="col-sm-2 control-label" asp-for="DataNascimento"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.DataNascimento">
+                                            <input class="form-control input-sm" asp-for="DataNascimento">
                                         </div>
 
                                         <label class="col-sm-1 control-label" asp-for="Idade"></label>
@@ -64,22 +64,22 @@
                                             <input class="form-control input-sm" asp-for="Idade">
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="GETelefoneViewModel.NumeroTelefone"></label>
+                                        <label class="col-sm-1 control-label" asp-for="Telefone"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="GETelefoneViewModel.NumeroTelefone">
+                                            <input class="form-control input-sm" asp-for="Telefone">
                                         </div>
                                     </div>
 
                                     @*RG/CPF/Dia de Vencimento*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="SEGUsuarioViewModel.RG"></label>
+                                        <label class="col-sm-2 control-label" asp-for="RG"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.RG">
+                                            <input class="form-control input-sm" asp-for="RG">
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="SEGUsuarioViewModel.CPF"></label>
+                                        <label class="col-sm-1 control-label" asp-for="CPF"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="SEGUsuarioViewModel.CPF">
+                                            <input class="form-control input-sm" asp-for="CPF">
                                         </div>
 
                                         <label class="col-sm-1 control-label" asp-for="DiaVencimento"></label>
@@ -96,50 +96,41 @@
 
                                     @*CEP/UF/Cidade*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="GEEnderecoViewModel.Cep"></label>
+                                        <label class="col-sm-2 control-label" asp-for="CEP"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="GEEnderecoViewModel.Cep">
+                                            <input class="form-control input-sm" asp-for="CEP">
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.GEUFViewModel.Descricao"></label>
+                                        <label class="col-sm-1 control-label" asp-for="CodigoUF"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.GEUFViewModel.CodigoUF">
-                                                <option value="5" selected="selected">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="25">25</option>
+                                            <select class="form-control input-sm" asp-for="CodigoUF">
+
+                                                @foreach (GEUFViewModel uf in ViewBag.ListaUF)
+                                                {
+                                                    <option value="@uf.CodigoUF" selected="@(Model.CodigoUF== uf.CodigoUF ? "selected": "")">
+                                                        @uf.Descricao
+                                                    </option>
+                                                }
+
                                             </select>
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.Descricao"></label>
+                                        <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.GECidadeViewModel.CodigoCidade">
-                                                <option value="5" selected="selected">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="25">25</option>
-                                            </select>
+                                            <select class="form-control input-sm" asp-for="CodigoCidade"></select>
                                         </div>
                                     </div>
 
                                     @*Logradouro/Bairro*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="GEEnderecoViewModel.Logradouro"></label>
+                                        <label class="col-sm-2 control-label" asp-for="Logradouro"></label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control input-sm" asp-for="GEEnderecoViewModel.Logradouro">
+                                            <input type="text" class="form-control input-sm" asp-for="Logradouro">
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="GEEnderecoViewModel.GEBairroViewModel.Descricao"></label>
+                                        <label class="col-sm-1 control-label" asp-for="CodigoBairro"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="GEEnderecoViewModel.GEBairroViewModel.CodigoBairro">
-                                                <option value="5" selected="selected">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="25">25</option>
-                                            </select>
+                                            <select class="form-control input-sm" asp-for="CodigoBairro"></select>
                                         </div>
                                     </div>
 
@@ -147,18 +138,102 @@
 
                                 @*ABA Responsável*@
                                 <div id="w2-profile" class="tab-pane">
+                                    <div class="col-sm-2 control-label"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                            <div class="switch switch-sm switch-primary">
+                                                <input type="checkbox" name="switch" />
+                                            </div>
+                                            <label>Aluno é o próprio Responsável</label>
+                                        </div>
+
+                                        <div class="col-sm-2">
+                                            <div class="switch switch-sm switch-primary">
+                                                <input type="checkbox" name="switch" />
+                                            </div>
+                                            <label>Usar Endereço do Responsável</label>
+                                        </div>
+                                    </div>
 
                                     @*Nome*@
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="ACResponsavelViewModel"></label>
+                                        <label class="col-sm-2 control-label" asp-for="NomeCompletoResponsavel"></label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" asp-for="SEGUsuarioViewModel.NomeCompleto">
+                                            <input type="text" class="form-control input-sm" asp-for="NomeCompletoResponsavel">
                                         </div>
                                     </div>
+
+                                    @*Nascimento/Parentesco*@
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label" for="w2-last-name">Last Name</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" name="last-name" id="w2-last-name" required>
+                                        <label class="col-sm-2 control-label" asp-for="DataNascimentoResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="DataNascimentoResponsavel">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label">Idade</label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="CodigoParentesco"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="CodigoParentesco"></select>
+                                        </div>
+                                    </div>
+
+                                    @*RG/CPF/Telefone*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="CPFResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="CPFResponsavel">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="RGResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="RGResponsavel">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="Telefone"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="Telefone">
+                                        </div>
+                                    </div>
+
+                                    @*CEP/Estado/Cidade*@
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="CEPResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="CEPResponsavel">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="CodigoUFResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="CodigoUFResponsavel">
+                                                @foreach (GEUFViewModel uf in ViewBag.ListaUF)
+                                                {
+                                                    <option value="@uf.CodigoUF" selected="@(Model.CodigoUFResponsavel== uf.CodigoUF ? "selected": "")">
+                                                        @uf.Descricao
+                                                    </option>
+                                                }
+
+                                            </select>
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="CodigoCidade"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="LogradouroResponsavel"></label>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control input-sm" asp-for="LogradouroResponsavel">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="CodigoBairroResponsavel"></label>
+                                        <div class="col-sm-2">
+                                            <select class="form-control input-sm" asp-for="CodigoBairroResponsavel"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -184,19 +259,13 @@
                             </div>
                         </form>
                     </div>
-                    @*<div class="panel-footer">
-                        <ul class="pager">
-                            <li class="previous disabled">
-                                <a><i class="fa fa-angle-left"></i> Previous</a>
-                            </li>
-                            <li class="finish hidden pull-right">
-                                <a>Finish</a>
-                            </li>
-                            <li class="next">
-                                <a>Next <i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </div>*@
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <a class="btn btn-sm btn-default col-md-1 col-xs-12">Salvar</a>
+                            <a class="btn btn-sm btn-default col-md-1 col-xs-12">Cancelar</a>
+                        </div>
+                    </div>
                 </section>
             </div>
         </section>
