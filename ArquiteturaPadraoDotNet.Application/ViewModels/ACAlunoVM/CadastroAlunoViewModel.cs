@@ -48,6 +48,9 @@ namespace One.Application.ViewModels.ACAlunoVM
 
         [DisplayName("Logradouro")]
         public string Logradouro { get; set; }
+
+        [DisplayName("Número")]
+        public int NumeroResponsavel { get; set; }
         #endregion
 
         #region Seção: Dados do Responsável
@@ -90,7 +93,10 @@ namespace One.Application.ViewModels.ACAlunoVM
         public int CodigoBairroResponsavel { get; set; }
 
         [DisplayName("Logradouro")]
-        public string LogradouroResponsavel { get; set; } 
+        public string LogradouroResponsavel { get; set; }
+
+        [DisplayName("Número")]
+        public int Numero { get; set; }
         #endregion
     }
 }

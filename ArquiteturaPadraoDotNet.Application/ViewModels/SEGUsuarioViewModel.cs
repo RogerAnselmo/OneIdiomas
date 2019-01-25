@@ -15,10 +15,10 @@ namespace One.Application.ViewModels
         public string NomeCompleto { get; set; }
 
         [DisplayName("Login")]
-        public string Email { get; set; }
+        public string Login { get; set; }
 
         [DisplayName("Login")]
-        public string Login { get; set; }
+        public string Email { get; set; }
 
         [DisplayName("RG")]
         public string RG { get; set; }
@@ -28,6 +28,9 @@ namespace One.Application.ViewModels
 
         [DisplayName("Sexo")]
         public string Sexo { get; set; }
+
+        [DisplayName("Data Nascimento")]
+        public DateTime DataNascimento { get; set; }
 
         #region Scaffold(false)
         [ScaffoldColumn(false)]

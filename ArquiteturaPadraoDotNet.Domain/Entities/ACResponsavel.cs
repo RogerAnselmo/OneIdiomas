@@ -13,6 +13,22 @@ namespace One.Domain.Entities
         public int CodigoResponsavel { get; set; }
 
         [Required]
+        [MaxLength(200)]
+        public string NomeCompleto { get; set; }
+
+        [MaxLength(20)]
+        public string RG { get; set; }
+
+        [MaxLength(11)]
+        public string CPF { get; set; }
+
+        [MaxLength(1)]
+        public string Sexo { get; set; }
+
+        [Required]
+        public DateTime DataNascimento { get; set; }
+
+        [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; } 
         #endregion

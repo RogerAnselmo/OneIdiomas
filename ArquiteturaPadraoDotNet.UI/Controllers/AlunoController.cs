@@ -12,13 +12,18 @@ namespace One.UI.Controllers
     public class AlunoController : Controller
     {
 
+        #region Inteface - IoC
         private readonly IUsuarioOneAppService _usuarioOneAppService;
+        #endregion
 
+        #region Construtor
         public AlunoController(IUsuarioOneAppService usuarioOneAppService)
         {
             _usuarioOneAppService = usuarioOneAppService;
         }
+        #endregion
 
+        #region Actions
         [Route("Novo-Aluno")]
         public IActionResult Cadastro()
         {
@@ -33,6 +38,14 @@ namespace One.UI.Controllers
         public IActionResult Lista()
         {
             return View();
+        } 
+        #endregion
+
+        public JsonResult SalvarAluno([FromBody]CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+
+
+            return Json(new { erro =  0, mensagem = "a"});
         }
     }
 }

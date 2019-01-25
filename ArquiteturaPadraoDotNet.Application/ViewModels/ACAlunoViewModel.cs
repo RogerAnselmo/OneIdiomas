@@ -9,7 +9,7 @@ namespace One.Application.ViewModels
     {
         #region ACAlunoViewModel
         [DisplayName("Código do Aluno")]
-        public int CodigoALuno { get; set; }
+        public int CodigoAluno { get; set; }
 
         [DisplayName("Idade")]
         public int Idade { get; set; }

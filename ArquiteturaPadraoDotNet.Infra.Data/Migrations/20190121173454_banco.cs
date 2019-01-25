@@ -303,7 +303,7 @@ namespace One.Infra.Data.Migrations
                 name: "ACAluno",
                 columns: table => new
                 {
-                    CodigoALuno = table.Column<int>(nullable: false)
+                    CodigoAluno = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Telefone = table.Column<string>(maxLength: 15, nullable: true),
                     RG = table.Column<string>(maxLength: 10, nullable: true),
@@ -316,7 +316,7 @@ namespace One.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ACAluno", x => x.CodigoALuno);
+                    table.PrimaryKey("PK_ACAluno", x => x.CodigoAluno);
                     table.ForeignKey(
                         name: "FK_ACAluno_GEEndereco_CodigoEndereco",
                         column: x => x.CodigoEndereco,
@@ -347,7 +347,7 @@ namespace One.Infra.Data.Migrations
                         name: "FK_ACMatricula_ACAluno_CodigoAluno",
                         column: x => x.CodigoAluno,
                         principalTable: "ACAluno",
-                        principalColumn: "CodigoALuno",
+                        principalColumn: "CodigoAluno",
                         onDelete: ReferentialAction.Restrict);
                 });
 

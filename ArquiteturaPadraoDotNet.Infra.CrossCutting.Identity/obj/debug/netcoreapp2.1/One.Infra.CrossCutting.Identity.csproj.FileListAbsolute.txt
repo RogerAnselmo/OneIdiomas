@@ -25,3 +25,12 @@ C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Iden
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfo.cs
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.deps.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb

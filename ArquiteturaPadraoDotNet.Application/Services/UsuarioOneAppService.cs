@@ -1,8 +1,11 @@
 ﻿using One.Application.Adapter;
+using One.Application.Extractors;
 using One.Application.Interfaces;
 using One.Application.UoW;
 using One.Application.ViewModels;
+using One.Application.ViewModels.ACAlunoVM;
 using One.Domain.Interfaces.Service;
+using One.Domain.Entities;
 using One.Infra.Data.Interface;
 using System.Collections.Generic;
 
@@ -15,6 +18,10 @@ namespace One.Application.Services
         private readonly IGECidadeService _iGECidadeService;
         private readonly ISEGUsuarioService _iSEGUsuarioService;
         private readonly ISEGUsuarioPerfilService _iSEGUsuarioPerfilService;
+        private readonly IGEEnderecoService _iGEEnderecoService;
+        private readonly IACAlunoService _iACAlunoService;
+        private readonly IACResponsavelService _iACResponsavelService;
+        private readonly IACAlunoReponsavelService _iACAlunoResponsavelService;
         #endregion
 
         #region Construtor
@@ -22,12 +29,88 @@ namespace One.Application.Services
             IGECidadeService iGECidadeService,
             ISEGUsuarioService iSEGUsuarioService,
             ISEGUsuarioPerfilService iSEGUsuarioPerfilService,
+            IGEEnderecoService iGEEnderecoService,
+            IACAlunoService iACAlunoService,
+            IACResponsavelService iACResponsavelService,
+            IACAlunoReponsavelService iACAlunoResponsavelService,
             IUnitOfWorkTransaction uow) : base(uow)
         {
             _iGEUF = iGEUF;
             _iGECidadeService = iGECidadeService;
             _iSEGUsuarioService = iSEGUsuarioService;
             _iSEGUsuarioPerfilService = iSEGUsuarioPerfilService;
+            _iGEEnderecoService = iGEEnderecoService;
+            _iACAlunoService = iACAlunoService;
+            _iACResponsavelService = iACResponsavelService;
+            _iACAlunoResponsavelService = iACAlunoResponsavelService;
+        }
+        #endregion
+
+        #region Seção: ACAluno
+        public void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+            BeginTransaction();
+            #region salva o endereço do aluno
+            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
+            _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
+            #endregion
+
+            #region Salva o usuário do aluno
+            SEGUsuario SEGUsuarioAluno = new SEGUsuario
+            {
+                Login = pCadastroAlunoViewModel.CPF,
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+            };
+
+            _iSEGUsuarioService.SalvarUsuario(SEGUsuarioAluno);
+            #endregion
+
+            #region salva o aluno com os dados do usuário e endereço
+            ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(pCadastroAlunoViewModel);
+
+            ACAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
+            ACAluno.CodigoEndereco = GEEnderecoAluno.CodigoEndereco;
+
+            _iACAlunoService.SalvarAluno(ACAluno);
+            #endregion
+
+            #region salva o endereço
+            GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
+            _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
+            #endregion
+
+            #region Salva o usuário do responsável
+            SEGUsuario SEGUsuarioResponsavel = new SEGUsuario
+            {
+                Login = pCadastroAlunoViewModel.CPF,
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+            };
+
+            _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel);
+            #endregion
+
+            #region salva o responsável
+            ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(pCadastroAlunoViewModel);
+
+            ACResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
+            ACResponsavel.CodigoEndereco = GEEnderecoResponsavel.CodigoEndereco;
+
+            _iACResponsavelService.SalvarResponsavel(ACResponsavel);
+            #endregion
+
+            #region salva o aluno responsavel
+            ACAlunoResponsavel ACAlunoResponsavel = new ACAlunoResponsavel
+            {
+                CodigoAluno = ACAluno.CodigoAluno,
+                CodigoResponsavel = ACResponsavel.CodigoResponsavel,
+                CodigoParentesco = pCadastroAlunoViewModel.CodigoParentesco
+            };
+
+            _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel); 
+            #endregion
+
+            SaveChange();
+            Commit();
         }
         #endregion
 
@@ -38,10 +121,12 @@ namespace One.Application.Services
         }
         #endregion
 
+        #region Seção: GECidade
         public IEnumerable<GECidadeViewModel> ObterPorUF(int pCodigoUF)
         {
             return GECidadeAdapter.DomainToViewModel(_iGECidadeService.ObterPorUF(pCodigoUF));
         }
+        #endregion
 
         #region Seção: SEGUsuario
         public IEnumerable<SEGUsuarioPerfilViewModel> ObterUsuarioPerfilPorCodigoUsuario(int CodigoUsuario)

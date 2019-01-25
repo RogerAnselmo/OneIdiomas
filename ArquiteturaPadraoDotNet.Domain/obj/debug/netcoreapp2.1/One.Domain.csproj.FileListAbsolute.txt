@@ -25,3 +25,12 @@ C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcor
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfo.cs
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.dll
 C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.deps.json
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.pdb
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csprojAssemblyReference.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CoreCompileInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfoInputs.cache
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfo.cs
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.dll
+C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.pdb

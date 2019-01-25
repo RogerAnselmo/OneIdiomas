@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace One.Domain.Entities
@@ -14,25 +15,14 @@ namespace One.Domain.Entities
         public string NomeCompleto { get; set; }
 
         [Required]
-        public int DiaVencimento { get; set; }
-
-        [Required]
         [MinLength(3)]
         [MaxLength(100)]
         public string Login { get; set; }
 
-        [MaxLength(20)]
-        public string RG { get; set; }
-
-        [MaxLength(11)]
-        public string CPF { get; set; }
-
-        [MaxLength(1)]
-        public string Sexo { get; set; }
-
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
         #endregion
 
         #region SEGUsuarioPerfil

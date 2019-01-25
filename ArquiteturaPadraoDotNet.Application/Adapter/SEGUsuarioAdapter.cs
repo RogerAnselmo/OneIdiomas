@@ -13,11 +13,8 @@ namespace One.Application.Adapter
             return new SEGUsuario
             {
                 CodigoUsuario = usuarioViewModel.CodigoUsuario,
-                CPF = usuarioViewModel.CPF,
                 flAtivo = usuarioViewModel.flAtivo,
                 Login = usuarioViewModel.Login,
-                NomeCompleto = usuarioViewModel.NomeCompleto,
-                Sexo = usuarioViewModel.Sexo
             };
         }
 
@@ -41,11 +38,8 @@ namespace One.Application.Adapter
             SEGUsuarioViewModel SEGUsuarioViewModel = new SEGUsuarioViewModel
             {
                 CodigoUsuario = SEGUsuario.CodigoUsuario,
-                CPF = SEGUsuario.CPF,
                 flAtivo = SEGUsuario.flAtivo,
-                Login = SEGUsuario.Login,
-                NomeCompleto = SEGUsuario.NomeCompleto,
-                Sexo = SEGUsuario.Sexo
+                Login = SEGUsuario.Login
             }; 
             #endregion
 

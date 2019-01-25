@@ -21,7 +21,7 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACAluno", b =>
                 {
-                    b.Property<int>("CodigoALuno")
+                    b.Property<int>("CodigoAluno")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -46,7 +46,7 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1);
 
-                    b.HasKey("CodigoALuno");
+                    b.HasKey("CodigoAluno");
 
                     b.HasIndex("CodigoEndereco");
 

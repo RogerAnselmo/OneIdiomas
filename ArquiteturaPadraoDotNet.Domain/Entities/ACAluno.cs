@@ -9,17 +9,30 @@ namespace One.Domain.Entities
     {
         #region ACAluno
         [Key]
-        public int CodigoALuno { get; set; }
+        public int CodigoAluno { get; set; }
 
         [Required]
+        [MaxLength(200)]
+        public string NomeCompleto { get; set; }
+
+        [MaxLength(20)]
+        public string RG { get; set; }
+
+        [MaxLength(11)]
+        public string CPF { get; set; }
+
         [MaxLength(1)]
-        public string flAtivo { get; set; }
+        public string Sexo { get; set; }
+
+        [Required]
+        public DateTime DataNascimento { get; set; }
 
         [Required]
         public int DiaVencimento { get; set; }
 
         [Required]
-        public DateTime DataNascimento { get; set; }
+        [MaxLength(1)]
+        public string flAtivo { get; set; }
         #endregion
 
         #region GEEndereco
@@ -45,7 +58,7 @@ namespace One.Domain.Entities
         public virtual IEnumerable<ACMatricula> ACMatricula { get; set; } 
         #endregion
 
-        #region Métodos Inteigentes
+        #region Métodos Inteligentes
         public int Idade()
         {
             int idade = DateTime.Now.Year - DataNascimento.Year;
