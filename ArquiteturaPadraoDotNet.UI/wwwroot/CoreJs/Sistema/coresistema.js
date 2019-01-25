@@ -19,6 +19,8 @@ function configuraFormulario(_nameform, _success, _error) {
     });
 }
 
+
+//comandos
 function ExecutarComandoConsulta(_controller, _parametros, _sucesso, _erro) {
     var _url;
 
@@ -150,6 +152,7 @@ CarregaModulo = function (target, url, parametro) {
     });
 };
 
+//valida data
 function fIsDate(data) {
     if (data.length === 10) {
         er = /(0[0-9]|[12][0-9]|3[01])[-\.\/](0[0-9]|1[012])[-\.\/][0-9]{4}/;
@@ -199,6 +202,7 @@ function IsValidaCep(cep) {
     }
 }
 
+//valida CPF
 function IsValidarCPF2(Objcpf) {
     var cpf = Objcpf;
 
@@ -230,6 +234,7 @@ function IsValidarCPF2(Objcpf) {
     }
 }
 
+//valida cpf
 function IsValidarCPF(value) {
     value = value.replace('.', '');
     value = value.replace('.', '');
@@ -256,6 +261,7 @@ function IsValidarCPF(value) {
     return retorno;
 }
 
+//valida cpf
 function validarCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (cpf === '') return false;
@@ -294,7 +300,7 @@ function validarCPF(cpf) {
 }
 
 //Datepicker
-function configuraDatePicker(_target) {
+function configuraDatePickerOld(_target) {
 
     _target = '#' + _target;
 
@@ -325,7 +331,7 @@ function configuraDatePicker(_target) {
     });
 }
 
-function ConfiguraDataDatePicker(_target) {
+function ConfiguraDatePicker(_target) {
     _target.datepicker({
         dateFormat: 'dd/mm/yy',
         dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -473,7 +479,7 @@ function ConfiguraDataTable(_target) {
     });
 }
 
-ShowWaitMe = function (msg) {
+ShowWaitMe = function () {
     $('#dvLoading').show();
 };
 
@@ -481,6 +487,7 @@ HideWaitMe = function () {
     $('#dvLoading').hide();
 };
 
+//alertas
 function AlertSuccess(mensagem) {
     swal('Atenção', mensagem, 'success');
 }
@@ -492,6 +499,8 @@ function AlertWarning(mensagem) {
 function AlertError(mensagem) {
     swal('Atenção', mensagem, 'error');
 }
+
+
 
 function ConfiguraCampoData(_target) {
     _target.setMask({ mask: "99/99/9999" });

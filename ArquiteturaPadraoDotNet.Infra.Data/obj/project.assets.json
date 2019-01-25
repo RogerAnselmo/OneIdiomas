@@ -3595,26 +3595,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carlos.anselmo\\.nuget\\packages\\": {},
+    "C:\\Users\\Rogerio\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Infra.Data\\One.Infra.Data.csproj",
+      "projectUniqueName": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Infra.Data\\One.Infra.Data.csproj",
       "projectName": "One.Infra.Data",
-      "projectPath": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Infra.Data\\One.Infra.Data.csproj",
-      "packagesPath": "C:\\Users\\carlos.anselmo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Infra.Data\\obj\\",
+      "projectPath": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Infra.Data\\One.Infra.Data.csproj",
+      "packagesPath": "C:\\Users\\Rogerio\\.nuget\\packages\\",
+      "outputPath": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Infra.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\carlos.anselmo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rogerio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3627,8 +3624,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj": {
-              "projectPath": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj"
+            "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj": {
+              "projectPath": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj"
             }
           }
         }

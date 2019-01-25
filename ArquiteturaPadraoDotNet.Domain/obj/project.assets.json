@@ -688,26 +688,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\carlos.anselmo\\.nuget\\packages\\": {},
+    "C:\\Users\\Rogerio\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj",
+      "projectUniqueName": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj",
       "projectName": "One.Domain",
-      "projectPath": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj",
-      "packagesPath": "C:\\Users\\carlos.anselmo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos.anselmo\\Dropbox\\ProjetosPessoais\\One\\ArquiteturaPadraoDotNet.Domain\\obj\\",
+      "projectPath": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj",
+      "packagesPath": "C:\\Users\\Rogerio\\.nuget\\packages\\",
+      "outputPath": "C:\\G\\ProjetosPessoais\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\carlos.anselmo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rogerio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

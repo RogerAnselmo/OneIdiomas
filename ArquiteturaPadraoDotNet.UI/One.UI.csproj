@@ -46,7 +46,6 @@
     <Folder Include="Areas\Responsavel\Data\" />
     <Folder Include="Areas\Responsavel\Models\" />
     <Folder Include="Areas\Responsavel\Views\" />
-    <Folder Include="wwwroot\CoreJs\Aluno\" />
     <Folder Include="wwwroot\CoreJs\Responsavel\" />
     <Folder Include="wwwroot\CoreJs\Professor\" />
     <Folder Include="wwwroot\css\" />

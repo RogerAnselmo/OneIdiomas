@@ -16,3 +16,12 @@ C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Inf
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.deps.json
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfo.cs
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb

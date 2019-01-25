@@ -26,3 +26,17 @@ C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Inf
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.pdb
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csprojAssemblyReference.cache
 C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\One\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csproj.CopyComplete
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.deps.json
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.runtimeconfig.json
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.runtimeconfig.dev.json
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.dll
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Infra.Data.pdb
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Domain.dll
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\bin\Debug\netcoreapp2.1\One.Domain.pdb
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csprojAssemblyReference.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csproj.CoreCompileInputs.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfoInputs.cache
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfo.cs
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.csproj.CopyComplete
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.dll
+C:\G\ProjetosPessoais\OneIdiomas\ArquiteturaPadraoDotNet.Infra.Data\obj\Debug\netcoreapp2.1\One.Infra.Data.pdb

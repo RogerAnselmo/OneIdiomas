@@ -43,6 +43,7 @@
                             <div class="tab-content">
                                 @*ABA Aluno*@
                                 <div id="w2-account" class="tab-pane active">
+                                    <input asp-for="CodigoAluno" />
 
                                     @*Nome*@
                                     <div class="form-group">
@@ -133,7 +134,6 @@
                                             <select class="form-control input-sm" asp-for="CodigoBairro"></select>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 @*ABA Responsável*@
@@ -154,6 +154,8 @@
                                             <label>Usar Endereço do Responsável</label>
                                         </div>
                                     </div>
+
+                                    <input asp-for="CodigoResponsavel" />
 
                                     @*Nome*@
                                     <div class="form-group">
@@ -193,9 +195,9 @@
                                             <input class="form-control input-sm" asp-for="RGResponsavel">
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="Telefone"></label>
+                                        <label class="col-sm-1 control-label" asp-for="TelefoneResponsavel"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="Telefone">
+                                            <input class="form-control input-sm" asp-for="TelefoneResponsavel">
                                         </div>
                                     </div>
 
@@ -262,8 +264,8 @@
                     <div class="panel-footer">
                         <div class="row">
                             <div class="col-md-8"></div>
-                            <a class="btn btn-sm btn-default col-md-1 col-xs-12">Salvar</a>
-                            <a class="btn btn-sm btn-default col-md-1 col-xs-12">Cancelar</a>
+                            <a class="bt-salvar btn btn-sm btn-default col-md-1 col-xs-12">Salvar</a>
+                            <a class="bt-cancelar btn btn-sm btn-default col-md-1 col-xs-12">Cancelar</a>
                         </div>
                     </div>
                 </section>
@@ -271,7 +273,7 @@
         </section>
     </div>
 </div>
-
+<script src="~/CoreJs/Aluno/Cadastro.js"></script>
 
 
 
