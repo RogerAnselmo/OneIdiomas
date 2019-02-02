@@ -6,21 +6,23 @@ namespace One.Application.Interfaces
 {
     public interface IUsuarioOneAppService
     {
-        void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel);
-
-        #region GECidade
-        IEnumerable<GECidadeViewModel> ObterPorUF(int pCodigoUF);
+        #region Seção: ACAluno
+        void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel); 
         #endregion
 
-        #region GEUF
+        #region Seção: GECidade
+        IEnumerable<GECidadeViewModel> ObterCidadesPorUF(int pCodigoUF);
+        #endregion
+
+        #region Seção: GEUF
         IEnumerable<GEUFViewModel> ObterTodasUF(); 
         #endregion
 
-        #region Usuario
+        #region SEGUsuarioUsuario
         SEGUsuarioViewModel ObterUsuarioPorLogin(string login);
         #endregion
 
-        #region UsuarioPerfil
+        #region SEGUsuarioPerfil
         IEnumerable<SEGUsuarioPerfilViewModel> ObterUsuarioPerfilPorCodigoUsuario(int CodigoUsuario);
         #endregion
     }

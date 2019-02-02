@@ -27,8 +27,8 @@ namespace One.UI.Controllers
         [Route("Novo-Aluno")]
         public IActionResult Cadastro()
         {
-            var ListaUF = _usuarioOneAppService.ObterTodasUF().ToList();
-            ListaUF.Add(new GEUFViewModel { CodigoUF = 0, Descricao = "Selecione", Sigla = "Estado" });
+            var ListaUF = _usuarioOneAppService.ObterTodasUF();
+            ListaUF.ToList().Insert(0,new GEUFViewModel { CodigoUF = 0, Descricao = "Selecione", Sigla = "Estado" });
 
             ViewBag.ListaUF = ListaUF;
             return View(new CadastroAlunoViewModel());

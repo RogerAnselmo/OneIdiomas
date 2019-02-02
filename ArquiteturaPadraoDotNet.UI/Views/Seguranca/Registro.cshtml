@@ -1,0 +1,44 @@
+﻿@model One.Application.ViewModels.SEGUsuarioViewModel;
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "~/Views/Shared/_LayoutExterno.cshtml";
+}
+
+<form>
+    <div class="form-group mb-lg">
+        <label asp-for="NomeCompleto"></label>
+        <input asp-for="NomeCompleto" type="text" class="form-control input-lg" />
+    </div>
+
+    <div class="form-group mb-lg">
+        <label asp-for="Login"></label>
+        <input asp-for="Login" type="text" class="form-control input-lg" />
+    </div>
+
+    <div class="form-group mb-none">
+        <div class="row">
+            <div class="col-sm-6 mb-lg">
+                <label asp-for="Senha"></label>
+                <input asp-for="Senha" type="password" class="form-control input-lg" />
+            </div>
+            <div class="col-sm-6 mb-lg">
+                <label asp-for="ConfirmacaoSenha"></label>
+                <input asp-for="ConfirmacaoSenha" type="password" class="form-control input-lg" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+        </div>
+        <div class="col-sm-4 text-right">
+            <button type="button" class="btn btnSalvar btn-primary hidden-xs">Cadastrar</button>
+            <button type="button" class="btn btnSalvar btn-primary btn-block btn-lg visible-xs mt-lg">Cadastrar</button>
+        </div>
+    </div>
+
+    <p class="text-center">Já tem uma conta? <a href="@Url.Action("Login", "Seguranca")">Login!</a>
+
+</form>
+
+<script src="~/CoreJs/Seguranca/Cadastro.js"></script>

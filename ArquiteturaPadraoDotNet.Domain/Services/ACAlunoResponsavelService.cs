@@ -7,7 +7,7 @@ using System.Text;
 
 namespace One.Domain.Services
 {
-    public class ACAlunoResponsavelService : IACAlunoReponsavelService
+    public class ACAlunoResponsavelService : IACAlunoResponsavelService
     {
         private readonly IACAlunoResponsavelRepository _iACAlunoResponsavelRepository;
 

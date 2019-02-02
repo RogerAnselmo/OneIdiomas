@@ -1,12 +1,10 @@
 ﻿using One.Domain.Entities;
+using One.Domain.Interfaces.Repository;
 using One.Infra.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Infra.Data.Repository
 {
-    public class ACAlunoResponsavelRepository : Repository<ACAlunoResponsavel>
+    public class ACAlunoResponsavelRepository : Repository<ACAlunoResponsavel>,IACAlunoResponsavelRepository
     {
         public ACAlunoResponsavelRepository(OneContext context) : base(context)
         {

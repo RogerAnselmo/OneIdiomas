@@ -36,11 +36,30 @@ $(document).ready(function () {
     _idade.attr("disabled", "disabled");
 
     //configura datas
-    configuraDatePicker(_dataNascimento);
-    configuraDatePicker(_dataNascimentoResponsavel);
+    //ConfiguraDatePicker(_dataNascimento);
+    //ConfiguraDatePicker(_dataNascimentoResponsavel);
 
     $('.bt-salvar').click(function () {
         SalvarAluno();
+    });
+
+    _codigoUF.change(function () {
+        ObterCidadesPorUF(_codigoUF.val(), _codigoCidade);
+    });
+
+    _codigoUFResponsavel.change(function () {
+        ObterCidadesPorUF($(this).val(), function (data) {
+
+            $(this).empty();
+            appendOption(0, "Selecione a Cidade", $(this));
+
+            $.forEach(data, function (item) {
+                appendOption(item.CodigoCidade, item.Descricao, $(this));
+            });
+
+            $(this).val(0);
+
+        });
     });
 
 });
@@ -53,6 +72,36 @@ function SalvarAluno() {
     }
 
     AlertSuccess("Aluno salvo com sucesso!");
+}
+
+function ObterCidadesPorUF(CodigoUF, _target) {
+
+    ExecutarComandoPost("/Gerenciar-Cidade/Obter-Cidades-Por-UF", {CodigoUF: CodigoUF},
+        function (retorno) {
+
+            if (retorno.erro === 0) {
+
+                _target.empty();
+                appendOption(0, "Selecione a Cidade", _target);
+
+                $.each(retorno.data, function (i, item) {
+                    appendOption(item.CodigoCidade, item.Descricao, _target)
+                });
+
+
+                _target.val(0);
+
+            }
+            else {
+                AlertWarning(retorno.mensagem);
+            }
+
+        },
+        function (error) {
+            console.log(error);
+            AlertError("Erro ao carregar Cidades");
+        });
+
 }
 
 

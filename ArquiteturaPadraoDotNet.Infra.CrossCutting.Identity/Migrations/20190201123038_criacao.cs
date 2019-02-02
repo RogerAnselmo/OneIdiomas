@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.CrossCutting.Identity.Migrations
 {
-    public partial class banco : Migration
+    public partial class criacao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

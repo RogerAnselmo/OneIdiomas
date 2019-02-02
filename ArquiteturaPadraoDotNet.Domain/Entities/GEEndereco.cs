@@ -33,10 +33,10 @@ namespace One.Domain.Entities
         #endregion
 
         #region SEGUsuario
-        //public int CodigoUsuario { get; set; }
+        public int CodigoUsuario { get; set; }
 
-        //[ForeignKey("CodigoUsuario")]
-        //public virtual SEGUsuario SEGUsuario { get; set; }
+        [ForeignKey("CodigoUsuario")]
+        public virtual SEGUsuario SEGUsuario { get; set; }
         #endregion
     }
 }

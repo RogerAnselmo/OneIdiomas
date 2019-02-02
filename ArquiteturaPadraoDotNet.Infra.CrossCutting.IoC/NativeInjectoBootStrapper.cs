@@ -28,12 +28,20 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<IGECidadeService, GECidadeService>();
             services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
             services.AddScoped<ISEGUsuarioPerfilService, SEGUsuarioPerfilService>();
+            services.AddScoped<IGEEnderecoService, GEEnderecoService>();
+            services.AddScoped<IACAlunoService, ACAlunoService>();
+            services.AddScoped<IACAlunoResponsavelService, ACAlunoResponsavelService>();
+            services.AddScoped<IACResponsavelService, ACResponsavelService>();
 
             //Repository
             services.AddScoped<IGECidadeRepository, GECidadeRepository>();
             services.AddScoped<IGEUFRepository, GEUFRepository>();
             services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>();
-            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>(); 
+            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
+            services.AddScoped<IGEEnderecoRepository, GEEndercoRepository>();
+            services.AddScoped<IACAlunoRepository, ACAlunoRepository>();
+            services.AddScoped<IACAlunoResponsavelRepository, ACAlunoResponsavelRepository>();
+            services.AddScoped<IACResponsavelRepository, ACResponsavelRepository>();
 
             //Infra - IoC
             services.AddScoped<IUnitOfWork, UnitOfWork>();

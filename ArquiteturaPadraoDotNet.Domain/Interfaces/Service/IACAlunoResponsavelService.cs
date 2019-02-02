@@ -5,7 +5,7 @@ using System.Text;
 
 namespace One.Domain.Interfaces.Service
 {
-    public interface IACAlunoReponsavelService: IDisposable
+    public interface IACAlunoResponsavelService: IDisposable
     {
         void SalvarAlunoReponsavel(ACAlunoResponsavel ACAlunoResponsavel);
     }

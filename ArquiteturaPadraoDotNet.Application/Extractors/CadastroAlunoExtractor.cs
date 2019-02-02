@@ -14,7 +14,7 @@ namespace One.Application.Extractors
             return new ACAluno
             {
                 CodigoAluno = pCadastroAlunoViewModel.CodigoAluno,
-                CodigoEndereco = pCadastroAlunoViewModel.CodigoEndereco,
+                //CodigoEndereco = pCadastroAlunoViewModel.CodigoEndereco,
                 CPF = pCadastroAlunoViewModel.CPF,
                 DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimento),
                 DiaVencimento = pCadastroAlunoViewModel.DiaVencimento,
@@ -54,7 +54,7 @@ namespace One.Application.Extractors
             return new ACResponsavel
             {
                 CodigoResponsavel = pCadastroAlunoViewModel.CodigoResponsavel,
-                CodigoEndereco = pCadastroAlunoViewModel.CodigoEndereco,
+                //CodigoEndereco = pCadastroAlunoViewModel.CodigoEndereco,
                 CPF = pCadastroAlunoViewModel.CPFResponsavel,
                 RG = pCadastroAlunoViewModel.RGResponsavel,
                 NomeCompleto = pCadastroAlunoViewModel.NomeCompletoResponsavel,

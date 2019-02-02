@@ -21,7 +21,7 @@ namespace One.Application.Services
         private readonly IGEEnderecoService _iGEEnderecoService;
         private readonly IACAlunoService _iACAlunoService;
         private readonly IACResponsavelService _iACResponsavelService;
-        private readonly IACAlunoReponsavelService _iACAlunoResponsavelService;
+        private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
         #endregion
 
         #region Construtor
@@ -32,7 +32,7 @@ namespace One.Application.Services
             IGEEnderecoService iGEEnderecoService,
             IACAlunoService iACAlunoService,
             IACResponsavelService iACResponsavelService,
-            IACAlunoReponsavelService iACAlunoResponsavelService,
+            IACAlunoResponsavelService iACAlunoResponsavelService,
             IUnitOfWorkTransaction uow) : base(uow)
         {
             _iGEUF = iGEUF;
@@ -50,33 +50,25 @@ namespace One.Application.Services
         public void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
         {
             BeginTransaction();
-            #region salva o endereço do aluno
-            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
-            _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
-            #endregion
-
             #region Salva o usuário do aluno
             SEGUsuario SEGUsuarioAluno = new SEGUsuario
             {
                 Login = pCadastroAlunoViewModel.CPF,
                 NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
             };
-
             _iSEGUsuarioService.SalvarUsuario(SEGUsuarioAluno);
             #endregion
 
+            #region salva o endereço do aluno
+            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
+            GEEnderecoAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
+            _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
+            #endregion            
+
             #region salva o aluno com os dados do usuário e endereço
             ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(pCadastroAlunoViewModel);
-
             ACAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
-            ACAluno.CodigoEndereco = GEEnderecoAluno.CodigoEndereco;
-
             _iACAlunoService.SalvarAluno(ACAluno);
-            #endregion
-
-            #region salva o endereço
-            GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
-            _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
             #endregion
 
             #region Salva o usuário do responsável
@@ -89,11 +81,17 @@ namespace One.Application.Services
             _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel);
             #endregion
 
+            #region salva o endereço do responsável
+            GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
+            GEEnderecoResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
+            _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
+            #endregion            
+
             #region salva o responsável
             ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(pCadastroAlunoViewModel);
 
             ACResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
-            ACResponsavel.CodigoEndereco = GEEnderecoResponsavel.CodigoEndereco;
+            //ACResponsavel.CodigoEndereco = GEEnderecoResponsavel.CodigoEndereco;
 
             _iACResponsavelService.SalvarResponsavel(ACResponsavel);
             #endregion
@@ -122,7 +120,7 @@ namespace One.Application.Services
         #endregion
 
         #region Seção: GECidade
-        public IEnumerable<GECidadeViewModel> ObterPorUF(int pCodigoUF)
+        public IEnumerable<GECidadeViewModel> ObterCidadesPorUF(int pCodigoUF)
         {
             return GECidadeAdapter.DomainToViewModel(_iGECidadeService.ObterPorUF(pCodigoUF));
         }

@@ -37,7 +37,12 @@ namespace One.UI.Controllers
         public IActionResult Cadastro()
         {
             return View();
-        } 
+        }
+
+        public IActionResult Registro()
+        {
+            return View();
+        }
 
         public IActionResult Login(SEGUsuarioViewModel usuarioViewModel)
         {
@@ -98,7 +103,7 @@ namespace One.UI.Controllers
 
                 if (usuario.Result != null)//verifica se o login está disponível
                 {
-                    usuarioViewModel.Mensagem = "Este login já está sendo utilizado";
+                    usuarioViewModel.Mensagem = "Este login já existe!";
                 }
                 else
                 {

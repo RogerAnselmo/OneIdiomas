@@ -30,18 +30,19 @@ namespace One.Domain.Entities
 
         [Required]
         [MaxLength(1)]
-        public string flAtivo { get; set; } 
+        public string flAtivo { get; set; }
         #endregion
 
         #region GEEndereco
-        [Required]
-        public int CodigoEndereco { get; set; }
+        //[Required]
+        //public int CodigoEndereco { get; set; }
 
-        [ForeignKey("CodigoEndereco")]
-        public virtual GEEndereco GEEndereco { get; set; }
+        //[ForeignKey("CodigoEndereco")]
+        //public virtual GEEndereco GEEndereco { get; set; }
         #endregion
 
         #region SEGUsuario
+        [Required]
         public int CodigoUsuario { get; set; }
 
         [ForeignKey("CodigoUsuario")]
@@ -49,7 +50,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region GETelefone
-        public IEnumerable<GETelefone> GETelefones { get; set; }
+        //public IEnumerable<GETelefone> GETelefones { get; set; }
         #endregion
 
         #region ACAlunoResponsavel
