@@ -6,7 +6,7 @@ using System.Text;
 
 namespace One.Domain.Specifications.SEGUsuarioSpecification
 {
-    public class DeveTerLoginComNoMaximo100Caracteres : ISpecification<SEGUsuario>
+    public class LoginDeveTerNoMaximo100Caracteres : ISpecification<SEGUsuario>
     {
         public bool IsSatisfiedBy(SEGUsuario entity)
         {

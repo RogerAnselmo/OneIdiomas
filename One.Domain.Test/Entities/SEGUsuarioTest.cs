@@ -45,7 +45,7 @@ namespace One.Domain.Test.Entities
         }
 
         [Test]
-        public void NomeDeveTerAte200Caracteres()
+        public void NomeDeveTerMinimo3Caracteres()
         {
             //Arrange -> //Act
             var test = new NomeDeveTerMinimo3Caracteres().IsSatisfiedBy(usuario);

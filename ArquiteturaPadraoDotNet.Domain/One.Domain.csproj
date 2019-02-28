@@ -12,6 +12,7 @@
     <Folder Include="Specifications\SEGPerfil\" />
     <Folder Include="Validations\ACAlunoResponsavel\" />
     <Folder Include="Validations\ACResponsavel\" />
+    <Folder Include="Validations\SEGUsuarioValidation\" />
   </ItemGroup>
 
   <ItemGroup>

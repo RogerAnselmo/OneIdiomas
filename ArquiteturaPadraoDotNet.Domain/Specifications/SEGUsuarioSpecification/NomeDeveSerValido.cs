@@ -3,7 +3,7 @@ using One.Domain.Entities;
 
 namespace One.Domain.Specifications.SEGUsuarioSpecification
 {
-    public class SEGUsuarioDeveTerUmNomeValidoSpecification : ISpecification<SEGUsuario>
+    public class NomeDeveSerValido : ISpecification<SEGUsuario>
     {
         public bool IsSatisfiedBy(SEGUsuario entity)
         {
