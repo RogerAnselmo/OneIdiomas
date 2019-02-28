@@ -15,6 +15,7 @@ namespace One.Application.Adapter
                 CodigoUsuario = usuarioViewModel.CodigoUsuario,
                 flAtivo = usuarioViewModel.flAtivo,
                 Login = usuarioViewModel.Login,
+                NomeCompleto = usuarioViewModel.NomeCompleto
             };
         }
 

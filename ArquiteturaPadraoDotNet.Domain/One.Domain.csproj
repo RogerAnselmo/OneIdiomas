@@ -4,4 +4,18 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Specifications\ACAluno\" />
+    <Folder Include="Specifications\ACResponsavel\" />
+    <Folder Include="Specifications\ACAlunoResponsavel\" />
+    <Folder Include="Specifications\SEGUsuarioPrfil\" />
+    <Folder Include="Specifications\SEGPerfil\" />
+    <Folder Include="Validations\ACAlunoResponsavel\" />
+    <Folder Include="Validations\ACResponsavel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\One.Domain.Validation\One.Domain.Validation.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -937,11 +937,24 @@
       "One.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "One.Domain.Validation": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/One.Domain.dll": {}
         },
         "runtime": {
           "bin/placeholder/One.Domain.dll": {}
+        }
+      },
+      "One.Domain.Validation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/One.Domain.Validation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/One.Domain.Validation.dll": {}
         }
       }
     }
@@ -3583,6 +3596,11 @@
       "type": "project",
       "path": "../ArquiteturaPadraoDotNet.Domain/One.Domain.csproj",
       "msbuildProject": "../ArquiteturaPadraoDotNet.Domain/One.Domain.csproj"
+    },
+    "One.Domain.Validation/1.0.0": {
+      "type": "project",
+      "path": "../One.Domain.Validation/One.Domain.Validation.csproj",
+      "msbuildProject": "../One.Domain.Validation/One.Domain.Validation.csproj"
     }
   },
   "projectFileDependencyGroups": {

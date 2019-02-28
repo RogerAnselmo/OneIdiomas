@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "One.Domain/1.0.0": {
+        "dependencies": {
+          "One.Domain.Validation": "1.0.0"
+        },
         "runtime": {
           "One.Domain.dll": {}
+        }
+      },
+      "One.Domain.Validation/1.0.0": {
+        "runtime": {
+          "One.Domain.Validation.dll": {}
         }
       }
     }
   },
   "libraries": {
     "One.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "One.Domain.Validation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

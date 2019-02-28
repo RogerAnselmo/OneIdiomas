@@ -1645,6 +1645,29 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "One.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "One.Domain.Validation": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/One.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/One.Domain.dll": {}
+        }
+      },
+      "One.Domain.Validation/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/One.Domain.Validation.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/One.Domain.Validation.dll": {}
+        }
       }
     }
   },
@@ -5743,6 +5766,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "One.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ArquiteturaPadraoDotNet.Domain/One.Domain.csproj",
+      "msbuildProject": "../ArquiteturaPadraoDotNet.Domain/One.Domain.csproj"
+    },
+    "One.Domain.Validation/1.0.0": {
+      "type": "project",
+      "path": "../One.Domain.Validation/One.Domain.Validation.csproj",
+      "msbuildProject": "../One.Domain.Validation/One.Domain.Validation.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5750,6 +5783,7 @@
       "Microsoft.NET.Test.Sdk >= 15.8.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "NUnit3TestAdapter >= 3.10.0",
+      "One.Domain >= 1.0.0",
       "nunit >= 3.10.1"
     ]
   },
@@ -5782,7 +5816,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\TJE\\Projetos\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj": {
+              "projectPath": "C:\\TJE\\Projetos\\OneIdiomas\\ArquiteturaPadraoDotNet.Domain\\One.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

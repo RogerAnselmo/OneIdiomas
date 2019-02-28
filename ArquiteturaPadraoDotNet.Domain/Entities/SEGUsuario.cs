@@ -11,6 +11,7 @@ namespace One.Domain.Entities
         public int CodigoUsuario { get; set; }
 
         [Required]
+        [MinLength(3)]
         [MaxLength(200)]
         public string NomeCompleto { get; set; }
 
