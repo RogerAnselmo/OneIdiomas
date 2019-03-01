@@ -36,8 +36,12 @@ $(document).ready(function () {
     _idade.attr("disabled", "disabled");
 
     //configura datas
-    //ConfiguraDatePicker(_dataNascimento);
-    //ConfiguraDatePicker(_dataNascimentoResponsavel);
+    ConfiguraDatePicker(_dataNascimento);
+    ConfiguraDatePicker(_dataNascimentoResponsavel);
+
+    _codigoUF.val(0);
+    _codigoUFResponsavel.val(0);
+
 
     $('.bt-salvar').click(function () {
         SalvarAluno();

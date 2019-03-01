@@ -81,9 +81,8 @@ namespace One.Application.Services
             #endregion
 
             #region salva o endereço do responsável
-            GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
-            GEEnderecoResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
-            _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
+            //GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
+            //_iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
             #endregion            
 
             #region salva o responsável

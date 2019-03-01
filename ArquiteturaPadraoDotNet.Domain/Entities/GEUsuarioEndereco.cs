@@ -13,6 +13,7 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoUsuarioEndereco { get; set; }
 
+        [NotMapped]
         public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 

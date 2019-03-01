@@ -2,6 +2,7 @@
 using One.Domain.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace One.Domain.Entities
 {
@@ -25,6 +26,7 @@ namespace One.Domain.Entities
         [MaxLength(1)]
         public string flAtivo { get; set; }
 
+        [NotMapped]
         public Validation.ValidationResult ValidationResult { get; set; }
 
         #endregion
@@ -38,7 +40,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region GEEndereco
-        public virtual GEEndereco GEEndereco { get; set; }
+        public virtual IEnumerable<GEUsuarioEndereco> GEUsuarioEndereco { get; set; }
         #endregion
 
         #region Validação

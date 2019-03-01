@@ -16,7 +16,8 @@ namespace One.Infra.Data.Repository
         public IEnumerable<ACAluno> ObterPorNome(string nome)
         {
             return Db.ACAluno
-                .Where(a => a.NomeCompleto.ToUpper().Contains(nome.ToUpper()))
+                .Include(a => a.SEGUsuario)
+                .Where(a => a.SEGUsuario.NomeCompleto.ToUpper().Contains(nome.ToUpper()))
                 .AsNoTracking();
         }
     }

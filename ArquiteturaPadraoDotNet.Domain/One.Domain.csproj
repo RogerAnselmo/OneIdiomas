@@ -13,4 +13,10 @@
     <ProjectReference Include="..\One.Domain.Validation\One.Domain.Validation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="TextUtil">
+      <HintPath>TextUtil.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

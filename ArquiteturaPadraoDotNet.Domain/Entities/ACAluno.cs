@@ -35,6 +35,7 @@ namespace One.Domain.Entities
         [MaxLength(1)]
         public string flAtivo { get; set; }
 
+        [NotMapped]
         public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 

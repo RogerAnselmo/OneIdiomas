@@ -10,6 +10,7 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoAlunoResponsavel { get; set; }
 
+        [NotMapped]
         public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 

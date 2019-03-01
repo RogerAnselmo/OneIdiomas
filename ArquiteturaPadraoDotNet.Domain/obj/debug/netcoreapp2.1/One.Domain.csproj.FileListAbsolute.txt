@@ -55,3 +55,4 @@ C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.Validation.dll
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.Validation.pdb
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CopyComplete
+C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\TextUtil.dll

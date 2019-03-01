@@ -29,6 +29,7 @@ namespace One.Domain.Entities
         [Required]
         public decimal NotaAvaliacao { get; set; }
 
+        [NotMapped]
         public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 
