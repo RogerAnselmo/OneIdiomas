@@ -300,49 +300,15 @@ function validarCPF(cpf) {
 }
 
 //Datepicker
-function configuraDatePickerOld(_target) {
-
-    _target = '#' + _target;
-
-    if ($(_target).val() === "") {
-        $(_target).val('dd/mm/aaaa');
-    }
-
-    $(_target).datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-        nextText: 'Próximo',
-        prevText: 'Anterior'
-    });
-
-
-    //não permite digitar na caixa de texto
-    $(_target).keypress(function (e) {
-        e = e || window.event;
-        var charCode = (typeof e.which === "undefined") ? e.keyCode : e.which;
-        var charStr = String.fromCharCode(charCode);
-        if (/\d/.test(charStr)) {
-            return false;
-        }
-    });
-}
-
 function ConfiguraDatePicker(_target) {
-    _target.datepicker({
-        dateFormat: 'dd-mm-yy',
-        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-        nextText: 'Próximo',
-        prevText: 'Anterior'
-    });
 
+    _target.datepicker({
+        format: 'dd/mm/yyyy',
+        language: 'pt-BR',
+        weekStart: 0,
+        startDate: '0d',
+        todayHighlight: true
+    });
 
     //não permite digitar na caixa de texto
     $(_target).keypress(function (e) {
@@ -506,7 +472,7 @@ function ConfiguraCampoData(_target) {
     _target.setMask({ mask: "99/99/9999" });
 
     _target.datepicker({
-        dateFormat: 'dd/mm/yy',
+        format: 'dd/mm/yy',
         dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
         dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
         dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
@@ -514,22 +480,6 @@ function ConfiguraCampoData(_target) {
         monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
         nextText: 'Próximo',
         prevText: 'Anterior'
-    });
-}
-
-function ConfiguraCampoDataCallBack(_target, callback) {
-    _target.setMask({ mask: "99/99/9999" });
-
-    _target.datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-        nextText: 'Próximo',
-        prevText: 'Anterior',
-        onSelect: callback
     });
 }
 

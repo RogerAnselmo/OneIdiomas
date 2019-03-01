@@ -21,6 +21,14 @@ namespace One.Application.Extractors
             };
         }
 
+        public static SEGUsuario ExtractUsuarioAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+            return new SEGUsuario
+            {
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+            };
+        } 
+
         public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
         {
             return new GEEndereco()
@@ -57,6 +65,14 @@ namespace One.Application.Extractors
                 DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimentoResponsavel)
             };
         }
+
+        public static SEGUsuario ExtractUsuarioResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+            return new SEGUsuario
+            {
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompletoResponsavel
+            };
+        } 
 
         public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
         {
