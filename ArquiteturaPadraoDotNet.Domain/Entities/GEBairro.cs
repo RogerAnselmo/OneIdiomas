@@ -5,7 +5,7 @@ namespace One.Domain.Entities
 {
     public class GEBairro
     {
-        #region ACEstagio
+        #region GEBairro
         [Key]
         public int CodigoBairro { get; set; }
 
@@ -16,6 +16,7 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
         #endregion
 
         #region GECidade
@@ -23,7 +24,7 @@ namespace One.Domain.Entities
         public int CodigoCidade { get; set; }
 
         [ForeignKey("CodigoCidade")]
-        public virtual GECidade GECidade { get; set; } 
+        public virtual GECidade GECidade { get; set; }
         #endregion
     }
 }

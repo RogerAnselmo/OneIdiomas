@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using One.Domain.Validations.GEEnderecoValidation;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace One.Domain.Entities
@@ -12,7 +14,7 @@ namespace One.Domain.Entities
         public int Numero { get; set; }
 
         [Required]
-        [MaxLength(300)]
+        [MaxLength(500)]
         public string Logradouro { get; set; }
 
         [Required]
@@ -22,6 +24,8 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
+        public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 
         #region GEBairro
@@ -32,11 +36,16 @@ namespace One.Domain.Entities
         public virtual GEBairro GEBairro { get; set; }
         #endregion
 
-        #region SEGUsuario
-        public int CodigoUsuario { get; set; }
+        #region GEUsuarioEndereco
+        IEnumerable<GEUsuarioEndereco> GEUsuarioEndereco { get; set; }
+        #endregion,
 
-        [ForeignKey("CodigoUsuario")]
-        public virtual SEGUsuario SEGUsuario { get; set; }
+        #region Validação
+        public bool IsValid()
+        {
+            ValidationResult = new GEEnderecoConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        } 
         #endregion
     }
 }

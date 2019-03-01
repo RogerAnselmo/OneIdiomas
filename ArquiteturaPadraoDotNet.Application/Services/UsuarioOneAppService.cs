@@ -60,10 +60,9 @@ namespace One.Application.Services
             #endregion
 
             #region salva o endereço do aluno
-            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
-            GEEnderecoAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
-            _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
-            #endregion            
+            //GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
+            //_iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
+            #endregion
 
             #region salva o aluno com os dados do usuário e endereço
             ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(pCadastroAlunoViewModel);

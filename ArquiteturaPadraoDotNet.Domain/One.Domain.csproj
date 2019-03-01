@@ -5,12 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Specifications\ACAlunoResponsavelSpecification\" />
-    <Folder Include="Specifications\ACResponsavel\" />
     <Folder Include="Specifications\SEGUsuarioPrfil\" />
     <Folder Include="Specifications\SEGPerfil\" />
-    <Folder Include="Validations\ACAlunoResponsavelValidation\" />
-    <Folder Include="Validations\ACResponsavel\" />
   </ItemGroup>
 
   <ItemGroup>
