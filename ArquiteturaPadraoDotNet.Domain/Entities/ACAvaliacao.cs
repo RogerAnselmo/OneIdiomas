@@ -1,10 +1,11 @@
-﻿using System;
+﻿using One.Domain.Validations.ACAvaliacaoValidation;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace One.Domain.Entities
 {
-public     class ACAvaliacao
+    public class ACAvaliacao
     {
         #region ACAvaliacao
         [Key]
@@ -27,6 +28,8 @@ public     class ACAvaliacao
 
         [Required]
         public decimal NotaAvaliacao { get; set; }
+
+        public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 
         #region ACMatricula
@@ -34,7 +37,13 @@ public     class ACAvaliacao
         public int CodigoMatricula { get; set; }
 
         [ForeignKey("CodigoMatricula")]
-        public virtual ACMatricula ACMatricula { get; set; } 
+        public virtual ACMatricula ACMatricula { get; set; }
         #endregion
+
+        public bool IsValid()
+        {
+            ValidationResult = new ACAvaliacaoConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using One.Domain.Validations.SEGUsuarioValidation;
+using One.Domain.Validation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -24,6 +25,8 @@ namespace One.Domain.Entities
         [MaxLength(1)]
         public string flAtivo { get; set; }
 
+        public Validation.ValidationResult ValidationResult { get; set; }
+
         #endregion
 
         #region SEGUsuarioPerfil
@@ -35,7 +38,15 @@ namespace One.Domain.Entities
         #endregion
 
         #region GEEndereco
-        public virtual GEEndereco GEEndereco { get; set; } 
+        public virtual GEEndereco GEEndereco { get; set; }
+        #endregion
+
+        #region Validação
+        public bool IsValid()
+        {
+            ValidationResult = new SEGUsuarioConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        }
         #endregion
     }
 }

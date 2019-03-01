@@ -1,4 +1,5 @@
-﻿using System;
+﻿using One.Domain.Validations.ACAlunoValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,9 +12,9 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoAluno { get; set; }
 
-        [Required]
-        [MaxLength(200)]
-        public string NomeCompleto { get; set; }
+        //[Required]
+        //[MaxLength(200)]
+        //public string NomeCompleto { get; set; }
 
         [MaxLength(20)]
         public string RG { get; set; }
@@ -33,6 +34,8 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
+        public Validation.ValidationResult ValidationResult { get; set; }
         #endregion
 
         #region ACAlunoResponsavel
@@ -48,7 +51,15 @@ namespace One.Domain.Entities
         #endregion        
 
         #region ACMatricula
-        public virtual IEnumerable<ACMatricula> ACMatricula { get; set; } 
+        public virtual IEnumerable<ACMatricula> ACMatricula { get; set; }
+        #endregion
+
+        #region Validação
+        public bool IsValid()
+        {
+            ValidationResult = new ACAlunoConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        } 
         #endregion
 
         #region Métodos Inteligentes

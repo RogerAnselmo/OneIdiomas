@@ -5,14 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Specifications\ACAluno\" />
+    <Folder Include="Specifications\ACAlunoResponsavelSpecification\" />
     <Folder Include="Specifications\ACResponsavel\" />
-    <Folder Include="Specifications\ACAlunoResponsavel\" />
     <Folder Include="Specifications\SEGUsuarioPrfil\" />
     <Folder Include="Specifications\SEGPerfil\" />
-    <Folder Include="Validations\ACAlunoResponsavel\" />
+    <Folder Include="Validations\ACAlunoResponsavelValidation\" />
     <Folder Include="Validations\ACResponsavel\" />
-    <Folder Include="Validations\SEGUsuarioValidation\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,4 @@
+C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.Data\Debug\netcoreapp2.1\One.Infra.Data.csprojAssemblyReference.cache
+C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.Data\Debug\netcoreapp2.1\One.Infra.Data.csproj.CoreCompileInputs.cache
+C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.Data\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfoInputs.cache
+C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.Data\Debug\netcoreapp2.1\One.Infra.Data.AssemblyInfo.cs
