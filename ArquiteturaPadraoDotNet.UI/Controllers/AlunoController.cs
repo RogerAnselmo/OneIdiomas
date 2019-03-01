@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using One.Application.Interfaces;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using System;
 using System.Linq;
 
 namespace One.UI.Controllers
@@ -41,11 +42,18 @@ namespace One.UI.Controllers
         } 
         #endregion
 
-        public JsonResult SalvarAluno([FromBody]CadastroAlunoViewModel pCadastroAlunoViewModel)
+        [Route("Registrar-Cadastro-Aluno")]
+        public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel pCadastroAlunoViewModel)
         {
-
-
-            return Json(new { erro =  0, mensagem = "a"});
+            try
+            {
+                _usuarioOneAppService.SalvarAluno(pCadastroAlunoViewModel);
+                return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
+            }
         }
     }
 }

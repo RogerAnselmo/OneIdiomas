@@ -11,7 +11,7 @@ namespace One.Infra.Data.Context
 
         #region GERAL
         public DbSet<ACAluno> ACAluno { get; set; }
-        public GEBairro GEBairro { get; set; }
+        public DbSet<GEBairro> GEBairro { get; set; }
         public DbSet<GECidade> GECidade { get; set; }
         public GEEndereco GEEndereco { get; set; }
         public DbSet<ACResponsavel> ACResponsavel { get; set; }

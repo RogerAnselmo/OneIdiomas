@@ -97,6 +97,12 @@ namespace One.Application.ViewModels.ACAlunoVM
 
         [DisplayName("Número")]
         public int Numero { get; set; }
+
+        [DisplayName("Aluno é o próprio Responsável")]
+        public bool AlunoÉOProprioResponsavel { get; set; }
+
+        [DisplayName("Aluno é o próprio Responsável")]
+        public bool UsarEnderecoDoAluno { get; set; }
         #endregion
     }
 }

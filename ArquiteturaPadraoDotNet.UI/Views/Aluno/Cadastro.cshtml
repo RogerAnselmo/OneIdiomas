@@ -142,16 +142,16 @@
                                     <div class="form-group">
                                         <div class="col-sm-2">
                                             <div class="switch switch-sm switch-primary">
-                                                <input type="checkbox" name="switch" />
+                                                <input type="checkbox" asp-for="AlunoÉOProprioResponsavel" />
                                             </div>
-                                            <label>Aluno é o próprio Responsável</label>
+                                            <label asp-for="AlunoÉOProprioResponsavel"></label>
                                         </div>
 
                                         <div class="col-sm-2">
                                             <div class="switch switch-sm switch-primary">
-                                                <input type="checkbox" name="switch" />
+                                                <input type="checkbox" asp-for="UsarEnderecoDoAluno" />
                                             </div>
-                                            <label>Usar Endereço do Responsável</label>
+                                            <label asp-for="UsarEnderecoDoAluno"></label>
                                         </div>
                                     </div>
 
@@ -221,9 +221,9 @@
                                             </select>
                                         </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
+                                        <label class="col-sm-1 control-label" asp-for="CodigoCidadeResponsavel"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoCidade"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoCidadeResponsavel"></select>
                                         </div>
                                     </div>
 
@@ -273,7 +273,9 @@
         </section>
     </div>
 </div>
-<script src="~/CoreJs/Aluno/Cadastro.js"></script>
 
+<script src="~/CoreJs/Aluno/Cadastro/Aluno.js"></script>
+<script src="~/CoreJs/Aluno/Cadastro/Reponsavel.js"></script>
+<script src="~/CoreJs/Aluno/Cadastro/Common.js"></script>
 
 
