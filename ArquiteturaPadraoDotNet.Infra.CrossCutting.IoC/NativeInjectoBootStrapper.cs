@@ -20,8 +20,9 @@ namespace One.Infra.CrossCutting.IoC
             Services = services;
 
             //Application
-            services.AddScoped<IUsuarioExternoAppservice, UsuarioExternoAppService>();
-            services.AddScoped<IUsuarioOneAppService, UsuarioOneAppService>();
+            services.AddScoped<IAcademicoAppService, AcademicoAppService>();
+            services.AddScoped<IGeralAppService, GeralAppService>();
+            services.AddScoped<ISegurancaAppService, SegurancaAppService>();
 
             //Service
             services.AddScoped<IGEUFService, GEUFService>();

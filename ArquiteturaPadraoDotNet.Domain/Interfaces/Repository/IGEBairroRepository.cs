@@ -7,6 +7,6 @@ namespace One.Domain.Interfaces.Repository
 {
     public interface IGEBairroRepository: IRepository<GEBairro>
     {
-        IEnumerable<GEBairro> ObterBairroPorCidade();
+        IEnumerable<GEBairro> ObterBairroPorCidade(int CodigoCidade);
     }
 }

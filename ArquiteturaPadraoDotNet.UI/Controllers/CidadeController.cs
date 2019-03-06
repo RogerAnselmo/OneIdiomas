@@ -9,11 +9,16 @@ namespace One.UI.Controllers
     [Route("Gerenciar-Cidade")]
     public class CidadeController : Controller
     {
-        private readonly IUsuarioOneAppService _iUsuarioOneAppService;
+        #region Seção: Inteface - IoC
+        private readonly IAcademicoAppService _academicoAppService;
+        private readonly IGeralAppService _geralAppService;
+        #endregion
 
-        public CidadeController(IUsuarioOneAppService iUsuarioOneAppService)
+        public CidadeController(IAcademicoAppService academicoAppService,
+                               IGeralAppService geralAppService)
         {
-            _iUsuarioOneAppService = iUsuarioOneAppService;
+            _academicoAppService = academicoAppService;
+            _geralAppService = geralAppService;
         }
 
         [HttpPost]
@@ -22,9 +27,9 @@ namespace One.UI.Controllers
         {
             try
             {
-                var xicote = _iUsuarioOneAppService.ObterCidadesPorUF(pGEUFViewModel.CodigoUF).ToList();
+                var xicote = _geralAppService.ObterCidadesPorUF(pGEUFViewModel.CodigoUF).ToList();
 
-                return Json(new { erro = 0, data = _iUsuarioOneAppService.ObterCidadesPorUF(pGEUFViewModel.CodigoUF) });
+                return Json(new { erro = 0, data = _geralAppService.ObterCidadesPorUF(pGEUFViewModel.CodigoUF) });
             }
             catch (Exception ex)
             {

@@ -1,48 +1,36 @@
-﻿using One.Application.Adapter;
-using One.Application.Extractors;
+﻿using One.Application.Extractors;
 using One.Application.Interfaces;
 using One.Application.UoW;
-using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
-using One.Domain.Interfaces.Service;
 using One.Domain.Entities;
+using One.Domain.Interfaces.Service;
 using One.Infra.Data.Interface;
-using System.Collections.Generic;
 
 namespace One.Application.Services
 {
-    public class UsuarioOneAppService : ApplicationServiceTransaction, IUsuarioOneAppService
+    public class AcademicoAppService: ApplicationServiceTransaction, IAcademicoAppService
     {
         #region Interface - IoC
-        private readonly IGEUFService _iGEUF;
-        private readonly IGECidadeService _iGECidadeService;
-        private readonly ISEGUsuarioService _iSEGUsuarioService;
-        private readonly ISEGUsuarioPerfilService _iSEGUsuarioPerfilService;
-        private readonly IGEEnderecoService _iGEEnderecoService;
         private readonly IACAlunoService _iACAlunoService;
         private readonly IACResponsavelService _iACResponsavelService;
         private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
+
+        private readonly ISEGUsuarioService _iSEGUsuarioService;
         #endregion
 
         #region Construtor
-        public UsuarioOneAppService(IGEUFService iGEUF,
-            IGECidadeService iGECidadeService,
-            ISEGUsuarioService iSEGUsuarioService,
-            ISEGUsuarioPerfilService iSEGUsuarioPerfilService,
-            IGEEnderecoService iGEEnderecoService,
+        public AcademicoAppService(
             IACAlunoService iACAlunoService,
             IACResponsavelService iACResponsavelService,
             IACAlunoResponsavelService iACAlunoResponsavelService,
+            ISEGUsuarioService iSEGUsuarioService,
             IUnitOfWorkTransaction uow) : base(uow)
         {
-            _iGEUF = iGEUF;
-            _iGECidadeService = iGECidadeService;
-            _iSEGUsuarioService = iSEGUsuarioService;
-            _iSEGUsuarioPerfilService = iSEGUsuarioPerfilService;
-            _iGEEnderecoService = iGEEnderecoService;
             _iACAlunoService = iACAlunoService;
             _iACResponsavelService = iACResponsavelService;
             _iACAlunoResponsavelService = iACAlunoResponsavelService;
+
+            _iSEGUsuarioService = iSEGUsuarioService;
         }
         #endregion
 
@@ -102,37 +90,11 @@ namespace One.Application.Services
                 CodigoParentesco = pCadastroAlunoViewModel.CodigoParentesco
             };
 
-            _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel); 
+            _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
             #endregion
 
             SaveChange();
             Commit();
-        }
-        #endregion
-
-        #region Seção: GEUF
-        public IEnumerable<GEUFViewModel> ObterTodasUF()
-        {
-            return GEUFAdapter.DomainToViewModel(_iGEUF.ObterTodos());
-        }
-        #endregion
-
-        #region Seção: GECidade
-        public IEnumerable<GECidadeViewModel> ObterCidadesPorUF(int pCodigoUF)
-        {
-            return GECidadeAdapter.DomainToViewModel(_iGECidadeService.ObterPorUF(pCodigoUF));
-        }
-        #endregion
-
-        #region Seção: SEGUsuario
-        public IEnumerable<SEGUsuarioPerfilViewModel> ObterUsuarioPerfilPorCodigoUsuario(int CodigoUsuario)
-        {
-            return SEGUsuarioPerfilAdapter.DomainToViewModel(_iSEGUsuarioPerfilService.ObterUsuarioPerfilPorCodigoUsuario(CodigoUsuario));
-        }
-
-        public SEGUsuarioViewModel ObterUsuarioPorLogin(string login)
-        {
-            return SEGUsuarioAdapter.DomainToViewModel(_iSEGUsuarioService.ObterUsuarioPorLogin(login));
         }
         #endregion
     }

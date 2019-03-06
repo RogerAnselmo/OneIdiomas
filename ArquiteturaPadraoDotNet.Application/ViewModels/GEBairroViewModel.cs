@@ -12,7 +12,7 @@ namespace One.Application.ViewModels
         public int CodigoBairro { get; set; }
 
         [DisplayName("Bairro: ")]
-        public int Descricao { get; set; }
+        public string Descricao { get; set; }
         #endregion
 
         #region GECidadeViewModel

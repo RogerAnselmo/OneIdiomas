@@ -13,27 +13,24 @@ namespace One.UI.Controllers
 {
     public class SegurancaController : Controller
     {
-        #region Interface - IoC
-        private readonly IUsuarioExternoAppservice _usuarioExternoAppService;
-        private readonly IUsuarioOneAppService _usuarioOneAppService;
+        #region Seção: Interface - IoC
+        private readonly ISegurancaAppService _segurancaAppService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         #endregion
 
-        #region Construtor
-        public SegurancaController(IUsuarioExternoAppservice usuarioExternoAppService,
-            IUsuarioOneAppService usuarioOneAppService,
+        #region Seção: Construtor
+        public SegurancaController(ISegurancaAppService segurancaAppService,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager)
         {
-            _usuarioExternoAppService = usuarioExternoAppService;
-            _usuarioOneAppService = usuarioOneAppService;
+            _segurancaAppService = segurancaAppService;
             _userManager = userManager;
             _signInManager = signInManager;
         }
         #endregion
 
-        #region Actions
+        #region Seção: Actions
         public IActionResult Cadastro()
         {
             return View();
@@ -99,6 +96,7 @@ namespace One.UI.Controllers
         {
             try
             {
+                //procura o usuário identity pelo Login
                 var usuario = _userManager.FindByEmailAsync(usuarioViewModel.Login);
 
                 if (usuario.Result != null)//verifica se o login está disponível
@@ -109,12 +107,13 @@ namespace One.UI.Controllers
                 {
                     var user = new ApplicationUser { UserName = usuarioViewModel.Login, Email = usuarioViewModel.Login };
                     var result = await _userManager.CreateAsync(user, usuarioViewModel.Senha);
+
                     if (result.Succeeded)//salva o usuário no Identity
                     {
                         //salva o usuário na base
+                        _segurancaAppService.SalvarUsuario(usuarioViewModel);
                         usuarioViewModel.Mensagem = "Usuário Salvo com sucesso";
                         usuarioViewModel.Autenticado = true;
-                        _usuarioExternoAppService.SalvarUsuario(usuarioViewModel);
                     }
                     else
                     {
