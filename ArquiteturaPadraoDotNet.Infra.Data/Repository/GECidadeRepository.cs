@@ -14,7 +14,9 @@ namespace One.Infra.Data.Repository
 
         public IEnumerable<GECidade> ObterPorUF(int pCodigoUF)
         {
-            return Db.GECidade.Where(c => c.CodigoUF == pCodigoUF);
+            return Db.GECidade
+                .Where(c => c.CodigoUF == pCodigoUF)
+                .OrderBy(c => c.Descricao);
         }
     }
 }

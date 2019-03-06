@@ -48,5 +48,7 @@ $(document).ready(function () {
     _codigoUFResponsavel.attr("disabled", "true");
     _codigoCidadeResponsavel.attr("disabled", "true");
 
+    ObterBairrosPorCidade(1, _codigoBairroResponsavel);
+
 });
 

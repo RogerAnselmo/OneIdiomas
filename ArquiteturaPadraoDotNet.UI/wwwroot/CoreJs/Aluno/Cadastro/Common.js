@@ -28,6 +28,34 @@ function ObterCidadesPorUF(CodigoUF, _target) {
 
 }
 
+function ObterBairrosPorCidade(CodigoCidade, _target) {
+
+    ExecutarComandoGet("/Gerenciar-Bairro/Obter-Bairros-Por-Cidade/" + CodigoCidade,
+        function (retorno) {
+
+            if (retorno.erro === 0) {
+
+                _target.empty();
+                appendOption(0, "Selecione o Bairro", _target);
+
+                $.each(retorno.data, function (i, item) {
+                    appendOption(item.CodigoBairro, item.Descricao, _target);
+                });
+
+                _target.val(_codigoBairro.val());
+            }
+            else {
+                AlertWarning(retorno.mensagem);
+            }
+
+        },
+        function (error) {
+            console.log(error);
+            AlertError("Erro ao carregar Bairros");
+        });
+
+}
+
 function SalvarAluno() {
 
     if (ValidarCadastroAlunoViewModel()) {

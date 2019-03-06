@@ -56,7 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Aluno\Cadastro.cshtml">
+    <Content Update="Views\ACAluno\Cadastro.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Seguranca\Cadastro.cshtml">

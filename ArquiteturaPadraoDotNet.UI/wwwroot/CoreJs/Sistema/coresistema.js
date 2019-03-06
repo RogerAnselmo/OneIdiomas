@@ -56,7 +56,7 @@ function IsValidarCPF2(Objcpf) {
         soma2 += eval(cpf.charAt(i) * vlr);
         vlr--;
     }
-    soma1 = (((soma1 * 10) % 11) == 10 ? 0 : ((soma1 * 10) % 11));
+    soma1 = (((soma1 * 10) % 11) === 10 ? 0 : ((soma1 * 10) % 11));
     soma2 = (((soma2 + (2 * soma1)) * 10) % 11);
 
     var digitoGerado = (soma1 * 10) + soma2;

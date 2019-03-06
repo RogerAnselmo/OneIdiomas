@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
+using One.UI.Helpers;
 
 namespace One.UI
 {
@@ -79,7 +80,9 @@ namespace One.UI
                     o.Cookie.HttpOnly = true;
                     o.Cookie.Expiration = TimeSpan.FromDays(5);
                     o.LoginPath = new PathString("/Seguranca/Login");
-                }); 
+                });
+
+            services.Configure<BaseUrl>(Configuration.GetSection("AppSettings"));
 
             RegisterServices(services);
         }

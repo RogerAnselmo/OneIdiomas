@@ -11,7 +11,7 @@ function ExecutarComandoConsulta(_controller, _parametros, _sucesso, _erro) {
 
     $.ajax({
         type: 'GET',
-        url: _url,
+        url: '/' + $('#tbBaseUrl').val() +_url,
         data: {},
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -30,7 +30,7 @@ function ExecutarComandoConsulta(_controller, _parametros, _sucesso, _erro) {
 function ExecutarComandoSalvar(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'POST',
-        url: _controller,
+        url: '/' + $('#tbBaseUrl').val() + _controller,
         data: JSON.stringify(_parametros),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -49,7 +49,7 @@ function ExecutarComandoSalvar(_controller, _parametros, _sucesso, _erro) {
 function ExecutarComandoPost(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'POST',
-        url: _controller,
+        url: '/' + $('#tbBaseUrl').val() + _controller,
         data: JSON.stringify(_parametros),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -68,7 +68,7 @@ function ExecutarComandoPost(_controller, _parametros, _sucesso, _erro) {
 function ExecutarComandoDelete(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'GET',
-        url: _controller + _parametros,
+        url: '/' + $('#tbBaseUrl').val() +_controller + _parametros,
         data: {},
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -85,9 +85,12 @@ function ExecutarComandoDelete(_controller, _parametros, _sucesso, _erro) {
 }
 
 function ExecutarComandoGet(_controller, _sucesso, _erro) {
+
+    console.log('/' + $('#tbBaseUrl').val() + _controller);
+
     $.ajax({
         type: 'GET',
-        url: _controller,
+        url: '/' + $('#tbBaseUrl').val() +_controller,
         data: {},
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
@@ -106,7 +109,7 @@ function ExecutarComandoGet(_controller, _sucesso, _erro) {
 function ExecutaComandoPostHTML(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'POST',
-        url: _controller,
+        url: '/' + $('#tbBaseUrl').val() +_controller,
         data: JSON.stringify(_parametros),
         contentType: 'application/json; charset=utf-8',
         dataType: 'html',

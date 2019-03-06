@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Infra.CrossCutting.Identity.Data.Models;
+using One.UI.Helpers;
 using System;
 using System.Linq;
 
@@ -10,7 +14,7 @@ namespace One.UI.Controllers
 {
     [Authorize]
     [Route("Gerenciar-Aluno")]
-    public class AlunoController : Controller
+    public class ACAlunoController : BaseController
     {
         #region Seção: Inteface - IoC
         private readonly IAcademicoAppService _academicoAppService;
@@ -18,8 +22,11 @@ namespace One.UI.Controllers
         #endregion
 
         #region Seção: Construtor
-        public AlunoController(IAcademicoAppService academicoAppService,
-                               IGeralAppService geralAppService)
+        public ACAlunoController(IAcademicoAppService academicoAppService,
+                               IGeralAppService geralAppService,
+                               IOptions<BaseUrl> baseUrl,
+                               UserManager<ApplicationUser> userManager, 
+                               SignInManager<ApplicationUser> signInManager): base(baseUrl, userManager, signInManager)
         {
             _academicoAppService = academicoAppService;
             _geralAppService = geralAppService;
@@ -30,6 +37,7 @@ namespace One.UI.Controllers
         [Route("Novo-Aluno")]
         public IActionResult Cadastro()
         {
+            ViewBag.BaseUrl = ObterBaseUrl();
             var ListaUF = _geralAppService.ObterTodasUF().ToList();
             ListaUF.Insert(0,new GEUFViewModel { CodigoUF = 0, Descricao = "Selecione", Sigla = "Estado" });
 
@@ -40,6 +48,7 @@ namespace One.UI.Controllers
         [Route("Lista-Aluno")]
         public IActionResult Lista()
         {
+            ViewBag.BaseUrl = ObterBaseUrl();
             return View();
         }
         #endregion

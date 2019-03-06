@@ -28,14 +28,13 @@ $(document).ready(function () {
         SalvarAluno();
     });
 
-    //_codigoUF.change(function () {
-    //    ObterCidadesPorUF(_codigoUF.val(), _codigoCidade);
-    //});
 
     _codigoUF.val(5);//Pará
 
     ObterCidadesPorUF(_codigoUF.val(), _codigoCidade);
     _codigoUF.attr("disabled", "true");
     _codigoCidade.attr("disabled", "true");
+
+    ObterBairrosPorCidade(1, _codigoBairro);
 });
 

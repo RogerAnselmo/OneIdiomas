@@ -2,26 +2,24 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using One.Infra.CrossCutting.Identity.Data.Models;
+using Microsoft.Extensions.Options;
+using One.UI.Helpers;
 
 namespace One.UI.Controllers
 {
     [Authorize]
     [Route("Painel-Controle")]
-    public class PainelController : Controller
+    public class PainelController : BaseController
     {
 
         #region Interface - IoC
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         #endregion
 
         #region Construtor
-        public PainelController(
-           UserManager<ApplicationUser> userManager,
-           SignInManager<ApplicationUser> signInManager)
+        public PainelController(IOptions<BaseUrl> baseUrl,
+                               UserManager<ApplicationUser> userManager,
+                               SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
         #endregion
 
@@ -29,7 +27,8 @@ namespace One.UI.Controllers
         [Route("Informacao-Geral")]
         public IActionResult DashBoard()
         {
-            ViewBag.login = _userManager.GetUserName(User);
+            ViewBag.BaseUrl = ObterBaseUrl();
+            ViewBag.login = ObterUsuarioLogado();
             return View();
         }
         #endregion

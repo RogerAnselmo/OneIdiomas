@@ -25,24 +25,43 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<ISegurancaAppService, SegurancaAppService>();
 
             //Service
-            services.AddScoped<IGEUFService, GEUFService>();
-            services.AddScoped<IGECidadeService, GECidadeService>();
-            services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
-            services.AddScoped<ISEGUsuarioPerfilService, SEGUsuarioPerfilService>();
-            services.AddScoped<IGEEnderecoService, GEEnderecoService>();
+            #region Serviços Acadêmico
             services.AddScoped<IACAlunoService, ACAlunoService>();
             services.AddScoped<IACAlunoResponsavelService, ACAlunoResponsavelService>();
             services.AddScoped<IACResponsavelService, ACResponsavelService>();
+            #endregion
+
+            #region Serviços Geral
+            services.AddScoped<IGEUFService, GEUFService>();
+            services.AddScoped<IGECidadeService, GECidadeService>();
+            services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
+            services.AddScoped<IGEEnderecoService, GEEnderecoService>();
+            services.AddScoped<IGEBairroService, GEBairroService>();
+            #endregion
+
+            #region Serviços Segurança
+            services.AddScoped<ISEGUsuarioPerfilService, SEGUsuarioPerfilService>();
+            #endregion
 
             //Repository
-            services.AddScoped<IGECidadeRepository, GECidadeRepository>();
-            services.AddScoped<IGEUFRepository, GEUFRepository>();
-            services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>();
-            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
-            services.AddScoped<IGEEnderecoRepository, GEEndercoRepository>();
+
+            #region Repositório Acadêmico
             services.AddScoped<IACAlunoRepository, ACAlunoRepository>();
             services.AddScoped<IACAlunoResponsavelRepository, ACAlunoResponsavelRepository>();
             services.AddScoped<IACResponsavelRepository, ACResponsavelRepository>();
+            #endregion
+
+            #region Repositório Geral
+            services.AddScoped<IGECidadeRepository, GECidadeRepository>();
+            services.AddScoped<IGEUFRepository, GEUFRepository>();
+            services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
+            services.AddScoped<IGEEnderecoRepository, GEEndercoRepository>();
+            services.AddScoped<IGEBairroRepository, GEBairroRepository>();
+            #endregion
+
+            #region repositório Segurança
+            services.AddScoped<ISEGUsuarioRepository, SEGUsuarioRepositopry>(); 
+            #endregion
 
             //Infra - IoC
             services.AddScoped<IUnitOfWork, UnitOfWork>();
