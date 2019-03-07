@@ -26,7 +26,7 @@ namespace One.Domain.Services
         #region Seção: Serviços
         public IEnumerable<GEParentesco> ObterTodos()
         {
-            return _iGEParentescoRepository.ObterTodosParentesco();
+            return _iGEParentescoRepository.ObterTodos();
         } 
         #endregion
     }

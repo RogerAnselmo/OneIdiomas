@@ -15,6 +15,7 @@ namespace One.Infra.Data.Repository
         public Repository(OneContext context)
         {
             Db = context;
+            DbSet = Db.Set<TEntity>();
         }
 
         public virtual void Salvar(TEntity obj)

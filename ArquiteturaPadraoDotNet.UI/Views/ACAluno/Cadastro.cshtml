@@ -43,7 +43,7 @@
                             <div class="tab-content">
                                 @*ABA Aluno*@
                                 <div id="w2-account" class="tab-pane active">
-                                    <input asp-for="CodigoAluno" />
+                                    <input asp-for="CodigoAluno" type="hidden"/>
 
                                     @*Nome*@
                                     <div class="form-group">
@@ -172,6 +172,7 @@
                                 <div id="w2-profile" class="tab-pane">
                                     <div class="col-sm-2 control-label"></div>
                                     <div class="form-group">
+                                        <input asp-for="CodigoResponsavel" type="hidden" />
                                         <div class="col-sm-2">
                                             <div class="switch switch-sm switch-primary">
                                                 <input type="checkbox" asp-for="AlunoÉOProprioResponsavel" />
@@ -186,8 +187,6 @@
                                             <label asp-for="UsarEnderecoDoAluno"></label>
                                         </div>
                                     </div>
-
-                                    <input asp-for="CodigoResponsavel" />
 
                                     @*Nome*@
                                     <div class="form-group">
