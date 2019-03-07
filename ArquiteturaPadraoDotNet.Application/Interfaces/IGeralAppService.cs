@@ -16,5 +16,9 @@ namespace One.Application.Interfaces
         #region Seção: GEBairro
         IEnumerable<GEBairroViewModel> ObterBairroPorCidade(int CodigoCidade);
         #endregion
+
+        #region Seção: GEParentesco
+        IEnumerable<GEParentescoViewModel> ObterTodosParentesco(); 
+        #endregion
     }
 }

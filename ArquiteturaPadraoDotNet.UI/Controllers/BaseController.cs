@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using One.Application.Interfaces;
 using One.Application.ViewModels;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace One.UI.Controllers
@@ -74,7 +77,43 @@ namespace One.UI.Controllers
         public string ObterBaseUrl()
         {
             return _baseUrl.Value.Url;
-        } 
+        }
+        #endregion
+
+        #region Seção: GEUF
+        public IEnumerable<GEUFViewModel> ObterTodasUF(IGeralAppService _geralAppService)
+        {
+            var ListaUF = _geralAppService.ObterTodasUF().ToList();
+            ListaUF.Insert(0, new GEUFViewModel { CodigoUF = 0, Descricao = "Selecione", Sigla = "Estado" });
+            return ListaUF;
+        }
+        #endregion
+
+        #region Seção: GEParentesco
+        public IEnumerable<GEParentescoViewModel> ObterTodosParentesco(IGeralAppService _geralAppService)
+        {
+            var ListaParentesco = _geralAppService.ObterTodosParentesco().ToList();
+            ListaParentesco.Insert(0, new GEParentescoViewModel { CodigoParentesco = 0, Descricao = "Selecione" });
+            return ListaParentesco;
+        }
+        #endregion
+
+        #region Seção: GECidade
+        public IEnumerable<GECidadeViewModel> ObterCidadesPorUF(IGeralAppService _geralAppService, int CodigoUF)
+        {
+            var ListaCidade = _geralAppService.ObterCidadesPorUF(CodigoUF).ToList();
+            ListaCidade.Insert(0, new GECidadeViewModel { CodigoCidade = 0, Descricao = "Selecione" });
+            return ListaCidade;
+        }
+        #endregion
+
+        #region Seção: GEBairro
+        public IEnumerable<GEBairroViewModel> ObterBairroPorCidade(IGeralAppService _geralAppService, int CodigoCidade)
+        {
+            var ListaBairro = _geralAppService.ObterBairroPorCidade(CodigoCidade).ToList();
+            ListaBairro.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione" });
+            return ListaBairro;
+        }
         #endregion
     }
 }

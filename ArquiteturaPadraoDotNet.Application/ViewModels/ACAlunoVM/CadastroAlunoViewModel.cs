@@ -63,6 +63,9 @@ namespace One.Application.ViewModels.ACAlunoVM
         [DisplayName("Nascimento")]
         public string DataNascimentoResponsavel { get; set; }
 
+        [DisplayName("Idade")]
+        public int IdadeResponsavel { get; set; }
+
         [DisplayName("Parentesco")]
         public int CodigoParentesco { get; set; }
 
@@ -101,7 +104,7 @@ namespace One.Application.ViewModels.ACAlunoVM
         [DisplayName("Aluno é o próprio Responsável")]
         public bool AlunoÉOProprioResponsavel { get; set; }
 
-        [DisplayName("Aluno é o próprio Responsável")]
+        [DisplayName("Usar endereço do Resposável")]
         public bool UsarEnderecoDoAluno { get; set; }
         #endregion
     }

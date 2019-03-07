@@ -38,10 +38,11 @@ namespace One.UI.Controllers
         public IActionResult Cadastro()
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            var ListaUF = _geralAppService.ObterTodasUF().ToList();
-            ListaUF.Insert(0,new GEUFViewModel { CodigoUF = 0, Descricao = "Selecione", Sigla = "Estado" });
+            ViewBag.ListaUF = ObterTodasUF(_geralAppService);
+            ViewBag.ListaParentesco = ObterTodosParentesco(_geralAppService);
+            ViewBag.ListaCidade = ObterCidadesPorUF(_geralAppService, 5); //5 = Pará
+            ViewBag.ListaBairro = ObterBairroPorCidade(_geralAppService, 1); //1 = Abaetetuba
 
-            ViewBag.ListaUF = ListaUF;
             return View(new CadastroAlunoViewModel());
         }
 

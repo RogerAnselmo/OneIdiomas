@@ -22,19 +22,10 @@ $(document).ready(function () {
     //configura datas
     ConfiguraDatePicker(_dataNascimento);
 
-    _codigoUF.val(0);
-
-    $('.bt-salvar').click(function () {
-        SalvarAluno();
-    });
-
-
     _codigoUF.val(5);//Pará
+    _codigoCidade.val(1);//Abaetetuba
 
-    ObterCidadesPorUF(_codigoUF.val(), _codigoCidade);
     _codigoUF.attr("disabled", "true");
     _codigoCidade.attr("disabled", "true");
-
-    ObterBairrosPorCidade(1, _codigoBairro);
 });
 

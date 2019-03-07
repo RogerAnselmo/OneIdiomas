@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
@@ -6,10 +7,10 @@ using One.Application.ViewModels;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System;
-using System.Linq;
 
 namespace One.UI.Controllers
 {
+    [Authorize]
     [Route("Gerenciar-Cidade")]
     public class GECidadeController : BaseController
     {
@@ -18,16 +19,19 @@ namespace One.UI.Controllers
         private readonly IGeralAppService _geralAppService;
         #endregion
 
+        #region Seção: Construtor
         public GECidadeController(IAcademicoAppService academicoAppService,
-                               IGeralAppService geralAppService,
-                               IOptions<BaseUrl> baseUrl,
-                               UserManager<ApplicationUser> userManager,
-                               SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
+                              IGeralAppService geralAppService,
+                              IOptions<BaseUrl> baseUrl,
+                              UserManager<ApplicationUser> userManager,
+                              SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
         {
             _academicoAppService = academicoAppService;
             _geralAppService = geralAppService;
         }
+        #endregion
 
+        #region Seção: Ajax
         [HttpPost]
         [Route("Obter-Cidades-Por-UF")]
         public JsonResult ObterCidadesPorUF([FromBody]GEUFViewModel pGEUFViewModel)
@@ -40,6 +44,7 @@ namespace One.UI.Controllers
             {
                 return Json(new { erro = 1, error = ex.Message, mensagem = "Erro ao carregar cidade por UF" });
             }
-        }
+        } 
+        #endregion
     }
 }

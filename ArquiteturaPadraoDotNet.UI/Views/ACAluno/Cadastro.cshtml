@@ -118,7 +118,23 @@
 
                                         <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoCidade"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoCidade">
+                                                @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
+                                                {
+                                                    if (Model.CodigoCidade == cidade.CodigoCidade)
+                                                    {
+                                                        <option value="@cidade.CodigoCidade" selected="selected">
+                                                            @cidade.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@cidade.CodigoCidade">
+                                                            @cidade.Descricao
+                                                        </option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
 
@@ -131,7 +147,23 @@
 
                                         <label class="col-sm-1 control-label" asp-for="CodigoBairro"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoBairro"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoBairro">
+                                                @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
+                                                {
+                                                    if (Model.CodigoBairro == bairro.CodigoBairro)
+                                                    {
+                                                        <option value="@bairro.CodigoBairro" selected="selected">
+                                                            @bairro.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@bairro.CodigoBairro">
+                                                            @bairro.Descricao
+                                                        </option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -172,14 +204,31 @@
                                             <input class="form-control input-sm" asp-for="DataNascimentoResponsavel">
                                         </div>
 
-                                        <label class="col-sm-1 control-label">Idade</label>
+                                        <label class="col-sm-1 control-label"  asp-for="IdadeResponsavel"></label>
                                         <div class="col-sm-2">
-                                            <input class="form-control input-sm">
+                                            <input class="form-control input-sm" -for="IdadeResponsavel">
                                         </div>
 
                                         <label class="col-sm-1 control-label" asp-for="CodigoParentesco"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoParentesco"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoParentesco">
+                                                @foreach (GEParentescoViewModel parentesco in ViewBag.ListaParentesco)
+                                                {
+                                                    if (Model.CodigoParentesco == parentesco.CodigoParentesco)
+                                                    {
+                                                        <option value="@parentesco.CodigoParentesco" selected="selected">
+                                                            @parentesco.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@parentesco.CodigoParentesco">
+                                                            @parentesco.Descricao
+                                                        </option>
+                                                    }
+                                                }
+
+                                            </select>
                                         </div>
                                     </div>
 
@@ -217,13 +266,28 @@
                                                         @uf.Descricao
                                                     </option>
                                                 }
-
                                             </select>
                                         </div>
 
                                         <label class="col-sm-1 control-label" asp-for="CodigoCidadeResponsavel"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoCidadeResponsavel"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoCidadeResponsavel">
+                                                @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
+                                                {
+                                                    if (Model.CodigoCidadeResponsavel == cidade.CodigoCidade)
+                                                    {
+                                                        <option value="@cidade.CodigoCidade" selected="selected">
+                                                            @cidade.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@cidade.CodigoCidade">
+                                                            @cidade.Descricao
+                                                        </option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
 
@@ -235,7 +299,24 @@
 
                                         <label class="col-sm-1 control-label" asp-for="CodigoBairroResponsavel"></label>
                                         <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoBairroResponsavel"></select>
+                                            <select class="form-control input-sm" asp-for="CodigoBairroResponsavel">
+
+                                                @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
+                                                {
+                                                    if (Model.CodigoBairroResponsavel == bairro.CodigoBairro)
+                                                    {
+                                                        <option value="@bairro.CodigoBairro" selected="selected">
+                                                            @bairro.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@bairro.CodigoBairro">
+                                                            @bairro.Descricao
+                                                        </option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

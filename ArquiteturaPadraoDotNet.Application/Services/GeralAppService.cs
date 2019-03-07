@@ -17,18 +17,20 @@ namespace One.Application.Services
         private readonly IGEUFService _iGEUF;
         private readonly IGECidadeService _iGECidadeService;
         private readonly IGEBairroService _iGEBairroService;
+        private readonly IGEParentescoService _iGEParentescoService;
         #endregion
-
 
         #region Seção: Construtor
         public GeralAppService(IGEUFService iGEUF,
            IGECidadeService iGECidadeService,
            IGEBairroService iGEBairroService,
+           IGEParentescoService iGEParentescoService,
            IUnitOfWorkTransaction uow) : base(uow)
         {
             _iGEUF = iGEUF;
             _iGECidadeService = iGECidadeService;
             _iGEBairroService = iGEBairroService;
+            _iGEParentescoService = iGEParentescoService;
         }
         #endregion
 
@@ -51,6 +53,13 @@ namespace One.Application.Services
         {
             return GEBairroAdapter.DomainToViewModel(_iGEBairroService.ObterBairroPorCidade(CodigoCidade));
         }
+        #endregion
+
+        #region Seção: Parentesco
+        public IEnumerable<GEParentescoViewModel> ObterTodosParentesco()
+        {
+            return GEPArentescoAdapter.DomainToViewModel(_iGEParentescoService.ObterTodos());
+        } 
         #endregion
     }
 }

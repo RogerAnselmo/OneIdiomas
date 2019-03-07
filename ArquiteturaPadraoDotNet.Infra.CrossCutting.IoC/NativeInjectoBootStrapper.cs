@@ -37,6 +37,7 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<ISEGUsuarioService, SEGUsuarioService>();
             services.AddScoped<IGEEnderecoService, GEEnderecoService>();
             services.AddScoped<IGEBairroService, GEBairroService>();
+            services.AddScoped<IGEParentescoService, GEParentecoService>();
             #endregion
 
             #region Serviços Segurança
@@ -57,6 +58,7 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<ISEGUsuarioPerfilRepository, SEGUsuarioPerfilRepository>();
             services.AddScoped<IGEEnderecoRepository, GEEndercoRepository>();
             services.AddScoped<IGEBairroRepository, GEBairroRepository>();
+            services.AddScoped<IGEParentescoRepository, GEParentescoRepository>();
             #endregion
 
             #region repositório Segurança

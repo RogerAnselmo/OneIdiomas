@@ -1,19 +1,28 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
+using One.Infra.CrossCutting.Identity.Data.Models;
+using One.UI.Helpers;
 
 namespace One.UI.Controllers
 {
+    [Authorize]
     [Route("Gerenciar-Bairro")]
-    public class GEBairroController : Controller
+    public class GEBairroController : BaseController
     {
-
         #region Seção: Interface - IoC
         private readonly IGeralAppService _geralAppService;
         #endregion
 
         #region Seção: Construtor
-        public GEBairroController(IGeralAppService geralAppService)
+        public GEBairroController(IGeralAppService geralAppService, 
+                                  IOptions<BaseUrl> baseUrl, 
+                                  UserManager<ApplicationUser> userManager, 
+                                  SignInManager<ApplicationUser> signInManager) 
+                                  : base(baseUrl, userManager, signInManager)
         {
             _geralAppService = geralAppService;
         }

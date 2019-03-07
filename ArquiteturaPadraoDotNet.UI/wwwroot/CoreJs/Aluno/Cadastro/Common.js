@@ -1,4 +1,10 @@
 ﻿
+$(document).ready(function () {
+    $('.bt-salvar').click(function () {
+        SalvarAluno();
+    });
+});
+
 function ObterCidadesPorUF(CodigoUF, _target) {
 
     ExecutarComandoPost("/Gerenciar-Cidade/Obter-Cidades-Por-UF", { CodigoUF: CodigoUF },
@@ -140,15 +146,15 @@ function ValidarDadosDoAluno() {
     }
 
     //CPF
-    else if ($.trim(_cpf.val())) {
-        AlertWarning("Preencha a data de nascimento do aluno");
+    else if ($.trim(_cpf.val()) === "") {
+        AlertWarning("Preencha o cpf do aluno");
         _dataNascimento.focus();
         return false;
     }
 
     //dia de vencimento
     else if (_diaVencimento.val() === "0") {
-        AlertWarning("Preencha a data de nascimento do aluno");
+        AlertWarning("Preencha o dia de vencimento");
         _diaVencimento.focus();
         return false;
     }
@@ -200,36 +206,29 @@ function ValidarEnderecoDoAluno() {
 function ValidarDadosDoResponsavel() {
     //nome
     if ($.trim(_nomeCompletoResponsavel.val()) === '') {
-        AlertWarning("Preencha o nome do aluno");
-        _nomeCompleto.focus();
+        AlertWarning("Preencha o nome do Responsável");
+        _nomeCompletoResponsavel.focus();
         return false;
     }
 
     //data de nascimento
     else if (!fIsDate($.trim(_dataNascimentoResponsavel.val()))) {
-        AlertWarning("Preencha a data de nascimento do aluno");
-        _dataNascimento.focus();
+        AlertWarning("Preencha a data de nascimento do Responsavel");
+        _dataNascimentoResponsavel.focus();
         return false;
     }
 
     //RG
     else if ($.trim(_rgResponsavel.val()) === "") {
-        AlertWarning("Preencha o RG do aluno");
-        _rg.focus();
+        AlertWarning("Preencha o RG do Responsável");
+        _rgResponsavel.focus();
         return false;
     }
 
     //CPF
-    else if ($.trim(_cpfResponsavel.val())) {
-        AlertWarning("Preencha a data de nascimento do aluno");
-        _dataNascimento.focus();
-        return false;
-    }
-
-    //dia de vencimento
-    else if (_diaVencimento.val() === "0") {
-        AlertWarning("Preencha a data de nascimento do aluno");
-        _diaVencimento.focus();
+    else if ($.trim(_cpfResponsavel.val()) === "") {
+        AlertWarning("Preencha o CPF do Responsável");
+        _cpfResponsavel.focus();
         return false;
     }
 

@@ -12,10 +12,10 @@ namespace One.UI.Controllers
     public class PainelController : BaseController
     {
 
-        #region Interface - IoC
+        #region Seção:Interface - IoC
         #endregion
 
-        #region Construtor
+        #region Seção: Construtor
         public PainelController(IOptions<BaseUrl> baseUrl,
                                UserManager<ApplicationUser> userManager,
                                SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
@@ -23,7 +23,7 @@ namespace One.UI.Controllers
         }
         #endregion
 
-        #region Actions
+        #region Seção: Actions
         [Route("Informacao-Geral")]
         public IActionResult DashBoard()
         {

@@ -7,6 +7,7 @@ var _telefoneResponsavel = $('#TelefoneResponsavel');
 var _rgResponsavel = $('#RGResponsavel');
 var _cpfResponsavel = $('#CPFResponsavel');
 var _Aluno_OProprioResponsavel = $('#Aluno_OProprioResponsavel');
+var _IdadeResponsavel = $('#IdadeResponsave');
 
 //endereço Responsável
 var _cepResponsavel = $('#CEPResponsavel');
@@ -18,37 +19,55 @@ var _UsarEnderecoDoAluno = $('#UsarEnderecoDoAluno');
 
 $(document).ready(function () {
 
-    _idade.attr("disabled", "disabled");
+    _IdadeResponsavel.attr("disabled", "disabled");
 
     //configura datas
     ConfiguraDatePicker(_dataNascimentoResponsavel);
 
-    _codigoUFResponsavel.val(0);
-
-    _codigoUFResponsavel.change(function () {
-        ObterCidadesPorUF(_codigoUFResponsavel.val(), _codigoCidadeResponsavel);
-    });
-
     _codigoUFResponsavel.val(5);//Pará
-
-    ObterCidadesPorUF(_codigoUFResponsavel.val(), _codigoCidadeResponsavel);
+    _codigoCidadeResponsavel.val(1);//Abaetetuba
 
     _UsarEnderecoDoAluno.click(function () {
         if (_UsarEnderecoDoAluno.is(':checked')) {
-            AlertSuccess("meu pau");
+            CopiarEnderecoDoAluno();
         }
     });
 
     _Aluno_OProprioResponsavel.click(function () {
         if (_Aluno_OProprioResponsavel.is(':checked')) {
-            AlertSuccess("no teu cu");
+            CopiarDadosDoAluno();
+        }
+        else {
+            _UsarEnderecoDoAluno.removeAttr("checked");
+        }
+    });
+
+    _codigoParentesco.change(function () {
+        if (_CodigoParentesco.val() === "1") {
+            CopiarDadosDoAluno();
         }
     });
 
     _codigoUFResponsavel.attr("disabled", "true");
     _codigoCidadeResponsavel.attr("disabled", "true");
-
-    ObterBairrosPorCidade(1, _codigoBairroResponsavel);
-
 });
+
+function CopiarEnderecoDoAluno() {
+    _cepResponsavel.val(_cep.val());
+    _codigoUFResponsavel.val(_codigoUF.val());
+    _codigoCidadeResponsavel.val(_codigoCidade.val());
+    _logradouroResponsavel.val(_logradouro.val());
+    _codigoBairroResponsavel.val(_codigoBairro.val());
+}
+
+function CopiarDadosDoAluno() {
+    _nomeCompletoResponsavel.val(_nomeCompleto.val());
+    _dataNascimentoResponsavel.val(_dataNascimento.val());
+    _telefoneResponsavel.val(_telefone.val());
+    _cpfResponsavel.val(_cpf.val());
+    _rgResponsavel.val(_rg.val());
+    _codigoParentesco.val(1);//1 == o próprio
+    _UsarEnderecoDoAluno.attr("checked", "checked");
+    CopiarEnderecoDoAluno();
+}
 
