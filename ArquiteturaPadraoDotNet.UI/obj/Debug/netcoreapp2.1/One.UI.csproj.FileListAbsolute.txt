@@ -239,3 +239,4 @@ C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\On
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Domain.Validation.dll
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\bin\Debug\netcoreapp2.1\One.Domain.Validation.pdb
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\ACAluno\Cadastro.g.cshtml.cs
+C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\ACAluno\Lista.g.cshtml.cs

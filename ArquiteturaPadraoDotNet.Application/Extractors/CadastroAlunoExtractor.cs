@@ -17,7 +17,8 @@ namespace One.Application.Extractors
                 CPF = pCadastroAlunoViewModel.CPF,
                 DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimento),
                 DiaVencimento = pCadastroAlunoViewModel.DiaVencimento,
-                RG = pCadastroAlunoViewModel.RG
+                RG = pCadastroAlunoViewModel.RG,
+                flAtivo = "A"
             };
         }
 
@@ -25,7 +26,8 @@ namespace One.Application.Extractors
         {
             return new SEGUsuario
             {
-                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto,
+                flAtivo = "A"
             };
         } 
 
@@ -38,20 +40,21 @@ namespace One.Application.Extractors
                 CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
                 Logradouro = pCadastroAlunoViewModel.Logradouro,
                 Numero = pCadastroAlunoViewModel.Numero,
-                GEBairro = new GEBairro
-                {
-                    CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
-                    CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
-                    GECidade = new GECidade
-                    {
-                        CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
-                        CodigoUF = pCadastroAlunoViewModel.CodigoUF,
-                        GEUF = new GEUF
-                        {
-                            CodigoUF = pCadastroAlunoViewModel.CodigoUF
-                        }
-                    }
-                }
+                //GEBairro = new GEBairro
+                //{
+                //    CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
+                //    CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
+                //    GECidade = new GECidade
+                //    {
+                //        CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
+                //        CodigoUF = pCadastroAlunoViewModel.CodigoUF,
+                //        GEUF = new GEUF
+                //        {
+                //            CodigoUF = pCadastroAlunoViewModel.CodigoUF
+                //        }
+                //    }
+                //},
+                flAtivo = "A"
             };
         }
 
@@ -62,7 +65,8 @@ namespace One.Application.Extractors
                 CodigoResponsavel = pCadastroAlunoViewModel.CodigoResponsavel,
                 CPF = pCadastroAlunoViewModel.CPFResponsavel,
                 RG = pCadastroAlunoViewModel.RGResponsavel,
-                DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimentoResponsavel)
+                DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimentoResponsavel),
+                flAtivo = "A"
             };
         }
 
@@ -70,7 +74,8 @@ namespace One.Application.Extractors
         {
             return new SEGUsuario
             {
-                NomeCompleto = pCadastroAlunoViewModel.NomeCompletoResponsavel
+                NomeCompleto = pCadastroAlunoViewModel.NomeCompletoResponsavel,
+                flAtivo = "A"
             };
         } 
 
@@ -84,22 +89,23 @@ namespace One.Application.Extractors
                 Numero = pCadastroAlunoViewModel.NumeroResponsavel,
 
                 CodigoBairro = pCadastroAlunoViewModel.CodigoBairroResponsavel,
-                GEBairro = new GEBairro
-                {
-                    CodigoBairro = pCadastroAlunoViewModel.CodigoBairroResponsavel,
+                //GEBairro = new GEBairro
+                //{
+                //    CodigoBairro = pCadastroAlunoViewModel.CodigoBairroResponsavel,
 
-                    CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
-                    GECidade = new GECidade
-                    {
-                        CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
+                //    CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
+                //    GECidade = new GECidade
+                //    {
+                //        CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
 
-                        CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel,
-                        GEUF = new GEUF
-                        {
-                            CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel
-                        }
-                    }
-                }
+                //        CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel,
+                //        GEUF = new GEUF
+                //        {
+                //            CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel
+                //        }
+                //    }
+                //},
+                flAtivo="A"
             };
         }
 

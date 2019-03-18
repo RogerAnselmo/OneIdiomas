@@ -7,9 +7,9 @@ using System.Text;
 
 namespace One.Application.Adapter
 {
-    public class ACAlunoAdapter : IAppAdapter<ACAluno, ACAlunoViewModel>
+    public static class ACAlunoAdapter
     {
-        public ACAlunoViewModel DomainToViewModel(ACAluno domain)
+        public static ACAlunoViewModel DomainToViewModel(ACAluno domain)
         {
             ACAlunoViewModel viewModel = new ACAlunoViewModel();
 
@@ -27,7 +27,7 @@ namespace One.Application.Adapter
             return viewModel;
         }
 
-        public IEnumerable<ACAlunoViewModel> DomainToViewModel(IEnumerable<ACAluno> listaDomain)
+        public static IEnumerable<ACAlunoViewModel> DomainToViewModel(IEnumerable<ACAluno> listaDomain)
         {
             IList<ACAlunoViewModel> listaViewModel = new List<ACAlunoViewModel>();
 
@@ -42,7 +42,7 @@ namespace One.Application.Adapter
             return listaViewModel;
         }
 
-        public ACAluno ViewModelToDomain(ACAlunoViewModel viewModel)
+        public static ACAluno ViewModelToDomain(ACAlunoViewModel viewModel)
         {
             ACAluno domain = new ACAluno();
 
@@ -59,7 +59,7 @@ namespace One.Application.Adapter
             return domain;
         }
 
-        public IEnumerable<ACAluno> ViewModelToDomain(IEnumerable<ACAlunoViewModel> listaViewModel)
+        public static IEnumerable<ACAluno> ViewModelToDomain(IEnumerable<ACAlunoViewModel> listaViewModel)
         {
             throw new NotImplementedException();
         }

@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.bt-salvar').click(function () {
         SalvarAluno();
     });
+    //PostNoSea();
 });
 
 function ObterCidadesPorUF(CodigoUF, _target) {
@@ -113,7 +114,10 @@ function MontarCadastroAlunoViewModel() {
         CodigoUFResponsavel: _codigoUFResponsavel.val(),
         CodigoCidadeResponsavel: _codigoCidadeResponsavel.val(),
         LogradouroResponsavel: _logradouroResponsavel.val(),
-        CodigoBairroResponsavel: _codigoBairroResponsavel.val()
+        CodigoBairroResponsavel: _codigoBairroResponsavel.val(),
+
+        AlunoÉOProprioResponsavel: _UsarEnderecoDoAluno.is(':checked'),
+        UsarEnderecoDoAluno: _Aluno_OProprioResponsavel.is(':checked')
     };
 }
 
@@ -274,4 +278,30 @@ function ValidarEnderecoDoResponsavel() {
     }
 
     return true;
+}
+
+function PostNoSea() {
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://tjepa-sa214/sea-mobile-teste/autenticar',
+        data: { "username": "pedro.carvalho", "password": "Thepower2019", "grant_type": "password" },
+        contentType: 'application/json',
+        dataType: 'json',
+        sync: false,
+        beforeSend: function () {
+            ShowWaitMe();
+        },
+        success: function (retorno) {
+            console.log(retorno);
+            AlertSuccess("foi");
+        },
+        complete: function () {
+            HideWaitMe();
+        },
+        error: function (erro) {
+            console.log(erro);
+            AlertError("fuen!");
+        }
+    });
 }

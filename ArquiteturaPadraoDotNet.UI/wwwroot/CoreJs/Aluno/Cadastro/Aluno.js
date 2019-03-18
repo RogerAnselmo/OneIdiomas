@@ -27,5 +27,13 @@ $(document).ready(function () {
 
     _codigoUF.attr("disabled", "true");
     _codigoCidade.attr("disabled", "true");
+
+    _dataNascimentoResponsavel.blur(function () {
+
+        if (_dataNascimentoResponsavel.val() == '' || !fIsDate(_dataNascimentoResponsavel.val()))
+            return;
+
+        _idade.val(CalcularIdade(_dataNascimentoResponsavel.val()));
+    });
 });
 

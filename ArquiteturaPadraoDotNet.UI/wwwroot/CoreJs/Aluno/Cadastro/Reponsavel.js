@@ -50,6 +50,14 @@ $(document).ready(function () {
 
     _codigoUFResponsavel.attr("disabled", "true");
     _codigoCidadeResponsavel.attr("disabled", "true");
+
+    _dataNascimento.blur(function () {
+
+        if (_dataNascimento.val() == '' || !fIsDate(_dataNascimento.val()))
+            return;
+
+        _idade.val(CalcularIdade(_dataNascimento.val()));
+    });
 });
 
 function CopiarEnderecoDoAluno() {
@@ -68,6 +76,7 @@ function CopiarDadosDoAluno() {
     _rgResponsavel.val(_rg.val());
     _codigoParentesco.val(1);//1 == o próprio
     _UsarEnderecoDoAluno.attr("checked", "checked");
+    _dataNascimentoResponsavel.val(_dataNascimento.val());
     CopiarEnderecoDoAluno();
 }
 

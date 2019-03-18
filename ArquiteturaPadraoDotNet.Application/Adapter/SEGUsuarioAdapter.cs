@@ -40,7 +40,8 @@ namespace One.Application.Adapter
             {
                 CodigoUsuario = SEGUsuario.CodigoUsuario,
                 flAtivo = SEGUsuario.flAtivo,
-                Login = SEGUsuario.Login
+                Login = SEGUsuario.Login,
+                NomeCompleto = SEGUsuario.NomeCompleto
             }; 
             #endregion
 

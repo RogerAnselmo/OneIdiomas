@@ -50,7 +50,10 @@ namespace One.UI.Controllers
         public IActionResult Lista()
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            return View();
+
+            ListaAlunoViewModel model = new ListaAlunoViewModel();
+            model.ListaAlunos = _academicoAppService.ObterAlunosPorNome("");
+            return View(model);
         }
         #endregion
 

@@ -100,12 +100,14 @@ namespace One.Application.ViewModels.ACAlunoVM
 
         [DisplayName("Número")]
         public int Numero { get; set; }
+        #endregion
 
+        #region Seção: Booleanos
         [DisplayName("Aluno é o próprio Responsável")]
         public bool AlunoÉOProprioResponsavel { get; set; }
 
         [DisplayName("Usar endereço do Resposável")]
-        public bool UsarEnderecoDoAluno { get; set; }
+        public bool UsarEnderecoDoAluno { get; set; } 
         #endregion
     }
 }

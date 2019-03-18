@@ -1,0 +1,61 @@
+﻿@model One.Application.ViewModels.ACAlunoVM.ListaAlunoViewModel
+@{
+    ViewData["Title"] = "Lista de Alunos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                    @*<a href="#" class="fa fa-times"></a>*@
+                </div>
+
+                <h2 class="panel-title">@ViewBag.Title</h2>
+            </header>
+            <div class="panel-body">
+                <form class="form-horizontal" novalidate="novalidate">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" asp-for="NomeAluno"></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input-sm" asp-for="NomeAluno">
+                        </div>
+
+                        <input type="button" class="btn btn-default" value="Pesquisar" />
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-lg-12">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="result-data">
+                    <table id="tableAlunos" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Aluno
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (ACAlunoViewModel aluno in Model.ListaAlunos)
+                            {
+                                <tr>
+                                    <td>
+                                        @aluno.SEGUsuarioViewModel.NomeCompleto
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="~/CoreJs/Aluno/Lista/Common.js"></script>
