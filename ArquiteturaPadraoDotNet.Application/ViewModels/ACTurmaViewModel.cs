@@ -26,7 +26,7 @@ namespace One.Application.ViewModels
         #endregion
 
         #region ACNivelViewModel
-        [DisplayName("Código do Estágio")]
+        [DisplayName("Código do Nível")]
         public int CodigoNivel { get; set; }
 
         public ACNivelViewModel ACNivelViewModel { get; set; }

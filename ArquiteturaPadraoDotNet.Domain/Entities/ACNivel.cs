@@ -6,11 +6,11 @@ using System.Text;
 
 namespace One.Domain.Entities
 {
-    public class ACEstagio
+    public class ACNivel
     {
-        #region ACEstagio
+        #region ACNivel
         [Key]
-        public int CodigoEstagio { get; set; }
+        public int CodigoNivel { get; set; }
 
         [Required]
         [MaxLength(30)]
@@ -25,7 +25,14 @@ namespace One.Domain.Entities
         public int CodigoFaixaEtaria { get; set; }
 
         [ForeignKey("CodigoFaixaEtaria")]
-        public ACFaixaEtaria ACFaixaEtaria { get; set; } 
+        public ACFaixaEtaria ACFaixaEtaria { get; set; }
+        #endregion
+
+        #region ACCategoria
+        public int CodigoCategoria { get; set; }
+
+        [ForeignKey("CodigoCategoria")]
+        public ACCategoria ACCategoria { get; set; } 
         #endregion
     }
 }

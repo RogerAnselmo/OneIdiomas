@@ -8,7 +8,7 @@ namespace One.Application.ViewModels
     public class ACNivelViewModel
     {
         #region ACNivelViewModel
-        [DisplayName("Código Estágio")]
+        [DisplayName("Código Nível")]
         public int CodigoNivel { get; set; }
 
         [DisplayName("Descrição")]

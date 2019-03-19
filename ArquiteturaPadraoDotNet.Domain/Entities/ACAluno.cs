@@ -12,10 +12,6 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoAluno { get; set; }
 
-        //[Required]
-        //[MaxLength(200)]
-        //public string NomeCompleto { get; set; }
-
         [MaxLength(20)]
         public string RG { get; set; }
 
