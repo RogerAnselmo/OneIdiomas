@@ -5,11 +5,11 @@ using System.Text;
 
 namespace One.Application.ViewModels
 {
-    public class ACEstagioViewModel
+    public class ACNivelViewModel
     {
-        #region ACEstagioViewModel
+        #region ACNivelViewModel
         [DisplayName("Código Estágio")]
-        public int CodigoEstagio { get; set; }
+        public int CodigoNivel { get; set; }
 
         [DisplayName("Descrição")]
         public string Descricao { get; set; }

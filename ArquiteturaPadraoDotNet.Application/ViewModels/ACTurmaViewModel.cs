@@ -25,11 +25,11 @@ namespace One.Application.ViewModels
         public string CodigoIdentificador { get; private set; }
         #endregion
 
-        #region ACEstagioViewModel
+        #region ACNivelViewModel
         [DisplayName("Código do Estágio")]
-        public int CodigoEstagio { get; set; }
+        public int CodigoNivel { get; set; }
 
-        public ACEstagioViewModel ACEstagioViewModel { get; set; }
+        public ACNivelViewModel ACNivelViewModel { get; set; }
         #endregion
 
         #region ACProfessorViewModel

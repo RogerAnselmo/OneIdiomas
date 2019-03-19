@@ -22,7 +22,7 @@ namespace One.Infra.Data.Context
         #endregion
 
         #region ACADÊMICO
-        public DbSet<ACEstagio> ACEstagio { get; set; }
+        public DbSet<ACNivel> ACNivel { get; set; }
         public DbSet<ACFaixaEtaria> ACFaixaEtaria { get; set; }
         public DbSet<ACProfessor> ACProfessor { get; set; }
         public DbSet<ACTurma> ACTurma { get; set; }

@@ -107,9 +107,9 @@ namespace One.Infra.Data.Migrations
                     b.ToTable("ACAvaliacao");
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.ACEstagio", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACNivel", b =>
                 {
-                    b.Property<int>("CodigoEstagio")
+                    b.Property<int>("CodigoNivel")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -123,11 +123,11 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(1);
 
-                    b.HasKey("CodigoEstagio");
+                    b.HasKey("CodigoNivel");
 
                     b.HasIndex("CodigoFaixaEtaria");
 
-                    b.ToTable("ACEstagio");
+                    b.ToTable("ACNivel");
                 });
 
             modelBuilder.Entity("One.Domain.Entities.ACFaixaEtaria", b =>
@@ -264,7 +264,7 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CodigoEstagio");
+                    b.Property<int>("CodigoNivel");
 
                     b.Property<string>("CodigoIdentificador")
                         .IsRequired();
@@ -287,7 +287,7 @@ namespace One.Infra.Data.Migrations
 
                     b.HasKey("CodigoTurma");
 
-                    b.HasIndex("CodigoEstagio");
+                    b.HasIndex("CodigoNivel");
 
                     b.HasIndex("CodigoProfessor");
 
@@ -610,7 +610,7 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("One.Domain.Entities.ACEstagio", b =>
+            modelBuilder.Entity("One.Domain.Entities.ACNivel", b =>
                 {
                     b.HasOne("One.Domain.Entities.ACFaixaEtaria", "ACFaixaEtaria")
                         .WithMany()
@@ -657,9 +657,9 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACTurma", b =>
                 {
-                    b.HasOne("One.Domain.Entities.ACEstagio", "ACEstagio")
+                    b.HasOne("One.Domain.Entities.ACNivel", "ACNivel")
                         .WithMany()
-                        .HasForeignKey("CodigoEstagio")
+                        .HasForeignKey("CodigoNivel")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("One.Domain.Entities.ACProfessor", "ACProfessor")

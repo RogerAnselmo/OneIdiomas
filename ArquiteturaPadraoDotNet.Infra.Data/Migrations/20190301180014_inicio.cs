@@ -82,10 +82,10 @@ namespace One.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ACEstagio",
+                name: "ACNivel",
                 columns: table => new
                 {
-                    CodigoEstagio = table.Column<int>(nullable: false)
+                    CodigoNivel = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Descricao = table.Column<string>(maxLength: 30, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
@@ -93,9 +93,9 @@ namespace One.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ACEstagio", x => x.CodigoEstagio);
+                    table.PrimaryKey("PK_ACNivel", x => x.CodigoNivel);
                     table.ForeignKey(
-                        name: "FK_ACEstagio_ACFaixaEtaria_CodigoFaixaEtaria",
+                        name: "FK_ACNivel_ACFaixaEtaria_CodigoFaixaEtaria",
                         column: x => x.CodigoFaixaEtaria,
                         principalTable: "ACFaixaEtaria",
                         principalColumn: "CodigoFaixaEtaria",
@@ -326,17 +326,17 @@ namespace One.Infra.Data.Migrations
                     ValorBase = table.Column<decimal>(nullable: false),
                     CodigoIdentificador = table.Column<string>(nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
-                    CodigoEstagio = table.Column<int>(nullable: false),
+                    CodigoNivel = table.Column<int>(nullable: false),
                     CodigoProfessor = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ACTurma", x => x.CodigoTurma);
                     table.ForeignKey(
-                        name: "FK_ACTurma_ACEstagio_CodigoEstagio",
-                        column: x => x.CodigoEstagio,
-                        principalTable: "ACEstagio",
-                        principalColumn: "CodigoEstagio",
+                        name: "FK_ACTurma_ACNivel_CodigoNivel",
+                        column: x => x.CodigoNivel,
+                        principalTable: "ACNivel",
+                        principalColumn: "CodigoNivel",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ACTurma_ACProfessor_CodigoProfessor",
@@ -508,8 +508,8 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoMatricula");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACEstagio_CodigoFaixaEtaria",
-                table: "ACEstagio",
+                name: "IX_ACNivel_CodigoFaixaEtaria",
+                table: "ACNivel",
                 column: "CodigoFaixaEtaria");
 
             migrationBuilder.CreateIndex(
@@ -538,9 +538,9 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoUsuario");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACTurma_CodigoEstagio",
+                name: "IX_ACTurma_CodigoNivel",
                 table: "ACTurma",
-                column: "CodigoEstagio");
+                column: "CodigoNivel");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ACTurma_CodigoProfessor",
@@ -635,7 +635,7 @@ namespace One.Infra.Data.Migrations
                 name: "ACTurma");
 
             migrationBuilder.DropTable(
-                name: "ACEstagio");
+                name: "ACNivel");
 
             migrationBuilder.DropTable(
                 name: "ACProfessor");
