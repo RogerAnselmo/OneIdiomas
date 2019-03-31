@@ -56,3 +56,16 @@ C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.Validation.pdb
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CopyComplete
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\TextUtil.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.deps.json
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.Validation.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\TextUtil.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\bin\Debug\netcoreapp2.1\One.Domain.Validation.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csprojAssemblyReference.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CoreCompileInputs.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfoInputs.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.AssemblyInfo.cs
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.csproj.CopyComplete
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Domain\obj\Debug\netcoreapp2.1\One.Domain.pdb

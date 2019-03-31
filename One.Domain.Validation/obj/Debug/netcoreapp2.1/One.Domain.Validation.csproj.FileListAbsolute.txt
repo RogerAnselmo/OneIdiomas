@@ -6,3 +6,12 @@ C:\TJE\Projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Dom
 C:\TJE\Projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfo.cs
 C:\TJE\Projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.dll
 C:\TJE\Projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.pdb
+C:\G\projetos\OneIdiomas\One.Domain.Validation\bin\Debug\netcoreapp2.1\One.Domain.Validation.deps.json
+C:\G\projetos\OneIdiomas\One.Domain.Validation\bin\Debug\netcoreapp2.1\One.Domain.Validation.dll
+C:\G\projetos\OneIdiomas\One.Domain.Validation\bin\Debug\netcoreapp2.1\One.Domain.Validation.pdb
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.csprojAssemblyReference.cache
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.csproj.CoreCompileInputs.cache
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfoInputs.cache
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfo.cs
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.dll
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.pdb

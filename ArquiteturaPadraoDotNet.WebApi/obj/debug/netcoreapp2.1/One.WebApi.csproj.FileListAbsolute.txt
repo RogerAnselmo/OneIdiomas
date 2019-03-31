@@ -68,3 +68,17 @@ C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorTargetAssemblyInfo.cache
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.dll
 C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.deps.json
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.runtimeconfig.json
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.runtimeconfig.dev.json
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\bin\Debug\netcoreapp2.1\One.WebApi.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.csprojAssemblyReference.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.csproj.CoreCompileInputs.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorAssemblyInfo.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorAssemblyInfo.cs
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.AssemblyInfoInputs.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.AssemblyInfo.cs
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorTargetAssemblyInfo.cache
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.dll
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.pdb
