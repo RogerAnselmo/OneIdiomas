@@ -55,9 +55,9 @@ C:\TJE\Projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\o
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.deps.json
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
-C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfo.cs
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
