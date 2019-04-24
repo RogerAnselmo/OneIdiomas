@@ -73,7 +73,7 @@ namespace One.Application.Extractors
                 //        }
                 //    }
                 //},
-                flAtivo="A"
+                flAtivo = "A"
             };
         }
 
@@ -84,6 +84,22 @@ namespace One.Application.Extractors
                 CodigoAluno = pCadastroAlunoViewModel.CodigoAluno,
                 CodigoResponsavel = pCadastroAlunoViewModel.CodigoResponsavel,
                 CodigoParentesco = pCadastroAlunoViewModel.CodigoParentesco
+            };
+        }
+
+        public static GETelefone ExtractTelefoneAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+            return new GETelefone
+            {
+                NumeroTelefone = pCadastroAlunoViewModel.Telefone
+            };
+        }
+
+        public static GETelefone ExtractTelefoneResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        {
+            return new GETelefone
+            {
+                NumeroTelefone = pCadastroAlunoViewModel.TelefoneResponsavel
             };
         }
     }

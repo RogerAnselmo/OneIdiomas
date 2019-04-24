@@ -26,7 +26,7 @@ namespace One.Application.Extractors
                 Logradouro = GEEndereco.Logradouro,
                 NomeCompleto = ACAluno.SEGUsuario.NomeCompleto,
                 RG = ACAluno.RG,
-                Telefone = ACAluno.SEGUsuario.GETelefone.FirstOrDefault().NumeroTelefone
+                //Telefone = ACAluno.SEGUsuario.GETelefone.FirstOrDefault().NumeroTelefone
             };
         }
     }

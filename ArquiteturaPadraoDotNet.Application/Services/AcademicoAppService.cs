@@ -70,6 +70,8 @@ namespace One.Application.Services
             _iACAlunoService.SalvarAluno(ACAluno);
             #endregion
 
+
+
             #region Salva o usuário do responsável
             SEGUsuario SEGUsuarioResponsavel = null;
 
