@@ -19,6 +19,7 @@ namespace One.Infra.Data.Context
         public DbSet<GETipoTelefone> GETipoTelefone { get; set; }
         public DbSet<GEUF> GEUF { get; set; }
         public DbSet<GEParentesco> GEParentesco { get; set; }
+        public DbSet<GEUsuarioEndereco> GEUsuarioEndereco { get; set; }
         #endregion
 
         #region ACADÊMICO

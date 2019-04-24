@@ -12,5 +12,7 @@ namespace One.Domain.Interfaces.Service
         ACAluno ObterPoId(int CodigoAluno);
         IEnumerable<ACAluno> ObterTodos();
         IEnumerable<ACAluno> ObterPorNome(string nome);
+        ACAluno ObterAlunoParaEdicao(int id);
+
     }
 }

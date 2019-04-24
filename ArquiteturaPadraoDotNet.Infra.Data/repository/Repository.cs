@@ -21,6 +21,7 @@ namespace One.Infra.Data.Repository
         public virtual void Salvar(TEntity obj)
         {
             DbSet.Add(obj);
+            Db.SaveChanges();
         }
 
         public virtual TEntity ObterPorId(int id)

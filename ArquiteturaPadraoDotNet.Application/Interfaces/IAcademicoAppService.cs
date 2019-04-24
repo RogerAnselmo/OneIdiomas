@@ -10,6 +10,8 @@ namespace One.Application.Interfaces
         void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel);
 
         IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome);
+
+        EditarAlunoViewModel ObterAlunoParaEdicao(int id);
         #endregion
     }
 }

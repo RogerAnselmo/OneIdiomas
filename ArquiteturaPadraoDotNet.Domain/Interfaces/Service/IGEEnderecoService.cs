@@ -8,5 +8,6 @@ namespace One.Domain.Interfaces.Service
     public interface IGEEnderecoService: IDisposable
     {
         void SalvarEndereco(GEEndereco GEEndereco);
+        void SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
     }
 }

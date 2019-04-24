@@ -54,6 +54,14 @@ namespace One.Application.Services
             #region salva o endereço do aluno
             GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
             _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
+
+            GEUsuarioEndereco GEUsuarioEnderecoAluno = new GEUsuarioEndereco
+            {
+                CodigoEndereco = GEEnderecoAluno.CodigoEndereco,
+                CodigoUsuario = SEGUsuarioAluno.CodigoUsuario
+            };
+
+            _iGEEnderecoService.SalvarUsuarioEndereco(GEUsuarioEnderecoAluno);
             #endregion
 
             #region salva o aluno com os dados do usuário e endereço
@@ -72,7 +80,7 @@ namespace One.Application.Services
                     Login = pCadastroAlunoViewModel.CPF,
                     NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
                 };
-                _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel); 
+                _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel);
             }
             #endregion
 
@@ -81,13 +89,13 @@ namespace One.Application.Services
             {
                 GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
                 _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
-                
+
             }
             #endregion
 
             #region salva o responsável
             ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(pCadastroAlunoViewModel);
-            ACResponsavel.CodigoUsuario = pCadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario: SEGUsuarioResponsavel.CodigoUsuario;
+            ACResponsavel.CodigoUsuario = pCadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
             _iACResponsavelService.SalvarResponsavel(ACResponsavel);
             #endregion
 
@@ -108,6 +116,11 @@ namespace One.Application.Services
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome)
         {
             return ACAlunoAdapter.DomainToViewModel(_iACAlunoService.ObterPorNome(nome));
+        }
+
+        public EditarAlunoViewModel ObterAlunoParaEdicao(int id)
+        {
+            return EditarAlunoExtractor.ConvertAcAlunoToEditarAlunoViewModel(_iACAlunoService.ObterAlunoParaEdicao(id));
         }
         #endregion
     }

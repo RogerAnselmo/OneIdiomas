@@ -8,13 +8,15 @@ namespace One.Domain.Services
     public class ACAlunoService : IACAlunoService
     {
         #region Interface - IoC
-        private readonly IACAlunoRepository _iACAlunoRepository; 
+        private readonly IACAlunoRepository _iACAlunoRepository;
+        private readonly IGEEnderecoRepository _iGEEnderecoRepository;
         #endregion
 
         #region Construtor
-        public ACAlunoService(IACAlunoRepository iACAlunoRepository)
+        public ACAlunoService(IACAlunoRepository iACAlunoRepository, IGEEnderecoRepository iGEEnderecoRepository)
         {
             _iACAlunoRepository = iACAlunoRepository;
+            _iGEEnderecoRepository = iGEEnderecoRepository;
         }
         #endregion
 
@@ -52,6 +54,13 @@ namespace One.Domain.Services
         {
             _iACAlunoRepository.Salvar(pACAluno);
         } 
+
+        public ACAluno ObterAlunoParaEdicao(int id)
+        {
+            ACAluno ACAluno = _iACAlunoRepository.ObterAlunoParaEdicao(id);
+            ACAluno.SEGUsuario.GEUsuarioEndereco = _iGEEnderecoRepository.ObterEnderecosPorCodigoUsuario(ACAluno.CodigoUsuario);
+            return ACAluno;
+        }
         #endregion
     }
 }

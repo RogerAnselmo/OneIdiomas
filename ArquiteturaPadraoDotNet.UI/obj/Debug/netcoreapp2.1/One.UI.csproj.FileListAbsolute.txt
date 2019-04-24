@@ -292,3 +292,4 @@ C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.csproj.CopyComplete
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.dll
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\One.UI.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.UI\obj\Debug\netcoreapp2.1\Razor\Views\ACAluno\Editar.g.cshtml.cs

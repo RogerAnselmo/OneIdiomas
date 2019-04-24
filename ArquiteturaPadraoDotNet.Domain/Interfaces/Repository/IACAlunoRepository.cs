@@ -8,5 +8,6 @@ namespace One.Domain.Interfaces.Repository
     public interface IACAlunoRepository: IRepository<ACAluno>
     {
         IEnumerable<ACAluno> ObterPorNome(string nome);
+        ACAluno ObterAlunoParaEdicao(int id);
     }
 }

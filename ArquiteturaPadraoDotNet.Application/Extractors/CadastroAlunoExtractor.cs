@@ -22,15 +22,6 @@ namespace One.Application.Extractors
             };
         }
 
-        public static SEGUsuario ExtractUsuarioAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
-        {
-            return new SEGUsuario
-            {
-                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto,
-                flAtivo = "A"
-            };
-        } 
-
         public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
         {
             return new GEEndereco()
@@ -40,20 +31,6 @@ namespace One.Application.Extractors
                 CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
                 Logradouro = pCadastroAlunoViewModel.Logradouro,
                 Numero = pCadastroAlunoViewModel.Numero,
-                //GEBairro = new GEBairro
-                //{
-                //    CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
-                //    CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
-                //    GECidade = new GECidade
-                //    {
-                //        CodigoCidade = pCadastroAlunoViewModel.CodigoCidade,
-                //        CodigoUF = pCadastroAlunoViewModel.CodigoUF,
-                //        GEUF = new GEUF
-                //        {
-                //            CodigoUF = pCadastroAlunoViewModel.CodigoUF
-                //        }
-                //    }
-                //},
                 flAtivo = "A"
             };
         }
@@ -69,15 +46,6 @@ namespace One.Application.Extractors
                 flAtivo = "A"
             };
         }
-
-        public static SEGUsuario ExtractUsuarioResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
-        {
-            return new SEGUsuario
-            {
-                NomeCompleto = pCadastroAlunoViewModel.NomeCompletoResponsavel,
-                flAtivo = "A"
-            };
-        } 
 
         public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
         {

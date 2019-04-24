@@ -21,5 +21,15 @@ namespace One.Infra.Data.Repository
                 .OrderBy(a => a.SEGUsuario.NomeCompleto)
                 .AsNoTracking();
         }
+
+        public ACAluno ObterAlunoParaEdicao(int id)
+        {
+            return Db.ACAluno
+                .Include(a => a.SEGUsuario)
+                .Include(a => a.SEGUsuario.GEUsuarioEndereco)
+                .Where(a => a.CodigoAluno == id)
+                .AsNoTracking()
+                .FirstOrDefault();
+        }
     }
 }

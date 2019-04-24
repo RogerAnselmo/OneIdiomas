@@ -81,3 +81,4 @@ C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.RazorTargetAssemblyInfo.cache
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.dll
 C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.pdb
+C:\G\projetos\OneIdiomas\ArquiteturaPadraoDotNet.WebApi\obj\Debug\netcoreapp2.1\One.WebApi.csprojAssemblyReference.cache

@@ -29,7 +29,8 @@ namespace One.Domain.Services
         {
             SEGUsuario.CodigoUsuario = 0;//usuário novo sempre tem CodigoUsuario = 0
             SEGUsuario.flAtivo = "A";//usuário novo sempre tem flAtivo = "A"
-            _iSEGUsuarioRepository.SalvarUsuario(SEGUsuario);
+            //_iSEGUsuarioRepository.SalvarUsuario(SEGUsuario);
+            _iSEGUsuarioRepository.Salvar(SEGUsuario);
         }
     }
 }

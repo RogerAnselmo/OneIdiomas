@@ -14,3 +14,4 @@ C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domai
 C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfo.cs
 C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.dll
 C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.pdb
+C:\G\projetos\OneIdiomas\One.Domain.Validation\obj\Debug\netcoreapp2.1\One.Domain.Validation.csprojAssemblyReference.cache

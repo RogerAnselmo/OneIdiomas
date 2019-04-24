@@ -55,6 +55,20 @@ namespace One.UI.Controllers
             model.ListaAlunos = _academicoAppService.ObterAlunosPorNome("");
             return View(model);
         }
+
+        [Route("Editar-Aluno/{id:int}")]
+        public IActionResult Editar(int id)
+        {
+            ViewBag.BaseUrl = ObterBaseUrl();
+            ViewBag.ListaUF = ObterTodasUF(_geralAppService);
+            ViewBag.ListaParentesco = ObterTodosParentesco(_geralAppService);
+            ViewBag.ListaCidade = ObterCidadesPorUF(_geralAppService, 5); //5 = Pará
+            ViewBag.ListaBairro = ObterBairroPorCidade(_geralAppService, 1); //1 = Abaetetuba
+
+
+
+            return View(_academicoAppService.ObterAlunoParaEdicao(id));
+        }
         #endregion
 
         #region Seção: Ajax
