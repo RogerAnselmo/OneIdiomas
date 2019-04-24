@@ -1,8 +1,0 @@
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.deps.json
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.dll
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.csprojAssemblyReference.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.csproj.CoreCompileInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfoInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.AssemblyInfo.cs
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.csproj.CopyComplete
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Domain.Validation\Debug\netcoreapp2.1\One.Domain.Validation.dll

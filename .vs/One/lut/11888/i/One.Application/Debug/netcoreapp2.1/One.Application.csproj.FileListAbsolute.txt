@@ -1,8 +1,0 @@
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Application\Debug\netcoreapp2.1\One.Application.deps.json
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Application\Debug\netcoreapp2.1\One.Application.dll
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.csprojAssemblyReference.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.csproj.CoreCompileInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.AssemblyInfoInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.AssemblyInfo.cs
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.csproj.CopyComplete
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Application\Debug\netcoreapp2.1\One.Application.dll

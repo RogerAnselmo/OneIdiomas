@@ -1,9 +1,0 @@
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.deps.json
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.dll
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\bin\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.pdb
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.AssemblyInfo.cs
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.dll
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.pdb
-C:\Users\carlos.anselmo\Dropbox\ProjetosPessoais\ArquiteturaPadraoDotNet\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity\obj\Debug\netcoreapp2.1\ArquiteturaPadraoDotNet.Infra.CrossCutting.Identity.csprojResolveAssemblyReference.cache

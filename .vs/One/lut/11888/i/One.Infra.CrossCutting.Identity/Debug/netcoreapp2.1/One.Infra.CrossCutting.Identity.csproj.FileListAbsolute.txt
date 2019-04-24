@@ -1,8 +1,0 @@
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.deps.json
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\b\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csprojAssemblyReference.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csproj.CoreCompileInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfoInputs.cache
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.AssemblyInfo.cs
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.csproj.CopyComplete
-C:\TJE\Projetos\OneIdiomas\.vs\One\lut\0\i\One.Infra.CrossCutting.Identity\Debug\netcoreapp2.1\One.Infra.CrossCutting.Identity.dll
