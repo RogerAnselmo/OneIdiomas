@@ -65,8 +65,6 @@ namespace One.UI.Controllers
             ViewBag.ListaCidade = ObterCidadesPorUF(_geralAppService, 5); //5 = Pará
             ViewBag.ListaBairro = ObterBairroPorCidade(_geralAppService, 1); //1 = Abaetetuba
 
-
-
             return View(_academicoAppService.ObterAlunoParaEdicao(id));
         }
         #endregion

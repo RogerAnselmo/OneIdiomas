@@ -10,13 +10,18 @@ namespace One.Domain.Services
         #region Interface - IoC
         private readonly IACAlunoRepository _iACAlunoRepository;
         private readonly IGEEnderecoRepository _iGEEnderecoRepository;
+        private readonly IGETelefoneRepository _iGETelefoneRepository;
         #endregion
 
         #region Construtor
-        public ACAlunoService(IACAlunoRepository iACAlunoRepository, IGEEnderecoRepository iGEEnderecoRepository)
+        public ACAlunoService(IACAlunoRepository iACAlunoRepository, 
+            IGEEnderecoRepository iGEEnderecoRepository,
+            IGETelefoneRepository iGETelefoneRepository
+            )
         {
             _iACAlunoRepository = iACAlunoRepository;
             _iGEEnderecoRepository = iGEEnderecoRepository;
+            _iGETelefoneRepository = iGETelefoneRepository;
         }
         #endregion
 
@@ -59,6 +64,8 @@ namespace One.Domain.Services
         {
             ACAluno ACAluno = _iACAlunoRepository.ObterAlunoParaEdicao(id);
             ACAluno.SEGUsuario.GEUsuarioEndereco = _iGEEnderecoRepository.ObterEnderecosPorCodigoUsuario(ACAluno.CodigoUsuario);
+            ACAluno.SEGUsuario.GETelefone = _iGETelefoneRepository.ObterTelefonesPorUsuario(ACAluno.SEGUsuario.CodigoUsuario);
+
             return ACAluno;
         }
         #endregion

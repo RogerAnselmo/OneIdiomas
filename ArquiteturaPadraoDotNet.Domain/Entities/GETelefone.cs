@@ -23,7 +23,7 @@ namespace One.Domain.Entities
         public int CodigoTipoTelefone { get; set; }
 
         [ForeignKey("CodigoTipoTelefone")]
-        public virtual GETipoTelefone TipoTelefone { get; set; }
+        public virtual GETipoTelefone GETipoTelefone { get; set; }
         #endregion
 
         #region SEGUsuario

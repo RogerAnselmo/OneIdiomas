@@ -39,20 +39,21 @@ namespace One.Application.Services
         #endregion
 
         #region Seção: ACAluno
-        public void SalvarAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public void SalvarAluno(CadastroAlunoViewModel CadastroAlunoViewModel)
         {
             BeginTransaction();
+
             #region Salva o usuário do aluno
             SEGUsuario SEGUsuarioAluno = new SEGUsuario
             {
-                Login = pCadastroAlunoViewModel.CPF,
-                NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+                Login = CadastroAlunoViewModel.CPF,
+                NomeCompleto = CadastroAlunoViewModel.NomeCompleto
             };
             _iSEGUsuarioService.SalvarUsuario(SEGUsuarioAluno);
             #endregion
 
             #region salva o endereço do aluno
-            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(pCadastroAlunoViewModel);
+            GEEndereco GEEnderecoAluno = CadastroAlunoExtractor.ExtractGEEnderecoAluno(CadastroAlunoViewModel);
             _iGEEnderecoService.SalvarEndereco(GEEnderecoAluno);
 
             GEUsuarioEndereco GEUsuarioEnderecoAluno = new GEUsuarioEndereco
@@ -65,40 +66,49 @@ namespace One.Application.Services
             #endregion
 
             #region salva o aluno com os dados do usuário e endereço
-            ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(pCadastroAlunoViewModel);
+            ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(CadastroAlunoViewModel);
             ACAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
             _iACAlunoService.SalvarAluno(ACAluno);
             #endregion
 
+            #region salva o telefone do aluno
+            GETelefone GETelefoneAluno = CadastroAlunoExtractor.ExtractTelefoneAluno(CadastroAlunoViewModel);
+            GETelefoneAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario; 
 
+            #endregion
 
             #region Salva o usuário do responsável
             SEGUsuario SEGUsuarioResponsavel = null;
 
-            if (!pCadastroAlunoViewModel.AlunoÉOProprioResponsavel)
+            if (!CadastroAlunoViewModel.AlunoÉOProprioResponsavel)
             {
                 SEGUsuarioResponsavel = new SEGUsuario
                 {
-                    Login = pCadastroAlunoViewModel.CPF,
-                    NomeCompleto = pCadastroAlunoViewModel.NomeCompleto
+                    Login = CadastroAlunoViewModel.CPF,
+                    NomeCompleto = CadastroAlunoViewModel.NomeCompleto
                 };
                 _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel);
             }
             #endregion
 
             #region salva o endereço do responsável
-            if (!pCadastroAlunoViewModel.UsarEnderecoDoAluno)
+            if (!CadastroAlunoViewModel.UsarEnderecoDoAluno)
             {
-                GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(pCadastroAlunoViewModel);
+                GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(CadastroAlunoViewModel);
                 _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
 
             }
             #endregion
 
             #region salva o responsável
-            ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(pCadastroAlunoViewModel);
-            ACResponsavel.CodigoUsuario = pCadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
+            ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(CadastroAlunoViewModel);
+            ACResponsavel.CodigoUsuario = CadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
             _iACResponsavelService.SalvarResponsavel(ACResponsavel);
+            #endregion
+
+            #region salva o telefone do responsável
+            GETelefone GETelefoneResponsavel = CadastroAlunoExtractor.ExtractTelefoneResponsavel(CadastroAlunoViewModel);
+            GETelefoneResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
             #endregion
 
             #region salva o aluno responsavel
@@ -106,7 +116,7 @@ namespace One.Application.Services
             {
                 CodigoAluno = ACAluno.CodigoAluno,
                 CodigoResponsavel = ACResponsavel.CodigoResponsavel,
-                CodigoParentesco = pCadastroAlunoViewModel.CodigoParentesco
+                CodigoParentesco = CadastroAlunoViewModel.CodigoParentesco
             };
             _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
             #endregion
