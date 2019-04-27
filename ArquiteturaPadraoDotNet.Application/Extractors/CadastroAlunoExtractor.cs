@@ -91,7 +91,9 @@ namespace One.Application.Extractors
         {
             return new GETelefone
             {
-                NumeroTelefone = pCadastroAlunoViewModel.Telefone
+                NumeroTelefone = pCadastroAlunoViewModel.Telefone,
+                flAtivo = "A",
+                CodigoTipoTelefone = 1                
             };
         }
 
@@ -99,7 +101,9 @@ namespace One.Application.Extractors
         {
             return new GETelefone
             {
-                NumeroTelefone = pCadastroAlunoViewModel.TelefoneResponsavel
+                NumeroTelefone = pCadastroAlunoViewModel.TelefoneResponsavel,
+                flAtivo = "A",
+                CodigoTipoTelefone = 1
             };
         }
     }

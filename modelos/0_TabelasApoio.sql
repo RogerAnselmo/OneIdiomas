@@ -222,3 +222,8 @@ insert into geparentesco values ('Avô(a)', 'A');
 
 select * from geparentesco;
 
+insert into GETipoTelefone values ('Celular', 'A');
+insert into GETipoTelefone values ('Fixo', 'A');
+
+select * from GETipoTelefone
+

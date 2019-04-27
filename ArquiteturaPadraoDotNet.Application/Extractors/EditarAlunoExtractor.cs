@@ -10,6 +10,7 @@ namespace One.Application.Extractors
         {
 
             GEEndereco GEEndereco = ACAluno.SEGUsuario.GEUsuarioEndereco.ToList().FirstOrDefault().GEEndereco;
+            GETelefone GETelefone = ACAluno.SEGUsuario.GETelefone.ToList().FirstOrDefault();
 
             return new EditarAlunoViewModel
             {
@@ -26,7 +27,7 @@ namespace One.Application.Extractors
                 Logradouro = GEEndereco.Logradouro,
                 NomeCompleto = ACAluno.SEGUsuario.NomeCompleto,
                 RG = ACAluno.RG,
-                //Telefone = ACAluno.SEGUsuario.GETelefone.FirstOrDefault().NumeroTelefone
+                Telefone = ACAluno.SEGUsuario.GETelefone.FirstOrDefault().NumeroTelefone
             };
         }
     }

@@ -19,6 +19,7 @@ namespace One.Application.Services
         private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
         private readonly IGEEnderecoService _iGEEnderecoService;
         private readonly ISEGUsuarioService _iSEGUsuarioService;
+        private readonly IGETelefoneService _iGETelefoneService;
         #endregion
 
         #region Seção: Construtor
@@ -28,6 +29,7 @@ namespace One.Application.Services
             IACAlunoResponsavelService iACAlunoResponsavelService,
             ISEGUsuarioService iSEGUsuarioService,
             IGEEnderecoService iGEEnderecoService,
+            IGETelefoneService iGETelefoneService,
             IUnitOfWorkTransaction uow) : base(uow)
         {
             _iACAlunoService = iACAlunoService;
@@ -35,6 +37,7 @@ namespace One.Application.Services
             _iACAlunoResponsavelService = iACAlunoResponsavelService;
             _iGEEnderecoService = iGEEnderecoService;
             _iSEGUsuarioService = iSEGUsuarioService;
+            _iGETelefoneService = iGETelefoneService;
         }
         #endregion
 
@@ -73,8 +76,8 @@ namespace One.Application.Services
 
             #region salva o telefone do aluno
             GETelefone GETelefoneAluno = CadastroAlunoExtractor.ExtractTelefoneAluno(CadastroAlunoViewModel);
-            GETelefoneAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario; 
-
+            GETelefoneAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
+            _iGETelefoneService.SalvarTelefone(GETelefoneAluno);
             #endregion
 
             #region Salva o usuário do responsável
@@ -106,11 +109,6 @@ namespace One.Application.Services
             _iACResponsavelService.SalvarResponsavel(ACResponsavel);
             #endregion
 
-            #region salva o telefone do responsável
-            GETelefone GETelefoneResponsavel = CadastroAlunoExtractor.ExtractTelefoneResponsavel(CadastroAlunoViewModel);
-            GETelefoneResponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
-            #endregion
-
             #region salva o aluno responsavel
             ACAlunoResponsavel ACAlunoResponsavel = new ACAlunoResponsavel
             {
@@ -119,6 +117,15 @@ namespace One.Application.Services
                 CodigoParentesco = CadastroAlunoViewModel.CodigoParentesco
             };
             _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
+            #endregion
+
+            #region salvar telefone do respossável
+            if (!CadastroAlunoViewModel.AlunoÉOProprioResponsavel)
+            {
+                GETelefone GETelefoneresponsavel = CadastroAlunoExtractor.ExtractTelefoneAluno(CadastroAlunoViewModel);
+                GETelefoneresponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
+                _iGETelefoneService.SalvarTelefone(GETelefoneresponsavel);
+            }
             #endregion
 
             SaveChange();
