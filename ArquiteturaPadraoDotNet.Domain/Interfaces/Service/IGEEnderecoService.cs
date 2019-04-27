@@ -9,5 +9,6 @@ namespace One.Domain.Interfaces.Service
     {
         void SalvarEndereco(GEEndereco GEEndereco);
         void SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
+        void AlterarEndereco(GEEndereco GEEndereco);    
     }
 }

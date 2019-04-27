@@ -1,5 +1,6 @@
 ﻿using One.Application.ViewModels.ACAlunoVM;
 using One.Domain.Entities;
+using System;
 using System.Linq;
 
 namespace One.Application.Extractors
@@ -10,10 +11,10 @@ namespace One.Application.Extractors
         {
 
             GEEndereco GEEndereco = ACAluno.SEGUsuario.GEUsuarioEndereco.ToList().FirstOrDefault().GEEndereco;
-            GETelefone GETelefone = ACAluno.SEGUsuario.GETelefone.ToList().FirstOrDefault();
 
             return new EditarAlunoViewModel
             {
+                CodigoUsuario = ACAluno.CodigoUsuario,
                 CodigoAluno = ACAluno.CodigoAluno,
                 CEP = GEEndereco.Cep,
                 CodigoBairro = GEEndereco.CodigoBairro,
@@ -28,6 +29,44 @@ namespace One.Application.Extractors
                 NomeCompleto = ACAluno.SEGUsuario.NomeCompleto,
                 RG = ACAluno.RG,
                 Telefone = ACAluno.SEGUsuario.GETelefone.FirstOrDefault().NumeroTelefone
+            };
+        }
+
+        public static SEGUsuario ExtractSEGUsuario(EditarAlunoViewModel editarAlunoViewModel)
+        {
+            return new SEGUsuario
+            {
+                CodigoUsuario = editarAlunoViewModel.CodigoUsuario,
+                NomeCompleto = editarAlunoViewModel.NomeCompleto,
+                Login = editarAlunoViewModel .CPF,
+                flAtivo = "A"
+            };
+        }
+
+        public static ACAluno ExtractACAluno(EditarAlunoViewModel editarAlunoViewModel)
+        {
+            return new ACAluno
+            {
+                CodigoUsuario = editarAlunoViewModel.CodigoUsuario,
+                DataNascimento = Convert.ToDateTime(editarAlunoViewModel.DataNascimento),
+                CodigoAluno = editarAlunoViewModel.CodigoAluno,
+                CPF = editarAlunoViewModel.CPF,
+                DiaVencimento = editarAlunoViewModel.DiaVencimento,
+                RG = editarAlunoViewModel.RG,
+                flAtivo = "A"
+            };
+        }
+
+        public static GEEndereco ExtractEnderecoAluno(EditarAlunoViewModel editarAlunoViewModel)
+        {
+            return new GEEndereco
+            {
+                Cep = editarAlunoViewModel.CEP,
+                CodigoBairro = editarAlunoViewModel.CodigoBairro,
+                CodigoEndereco = editarAlunoViewModel.CodigoEndereco,
+                flAtivo = "A",
+                Logradouro = editarAlunoViewModel.Logradouro,
+                Numero = editarAlunoViewModel.Numero
             };
         }
     }

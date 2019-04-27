@@ -3,7 +3,6 @@ $(document).ready(function () {
     $('.bt-salvar').click(function () {
         SalvarAluno();
     });
-    //PostNoSea();
 });
 
 function ObterCidadesPorUF(CodigoUF, _target) {

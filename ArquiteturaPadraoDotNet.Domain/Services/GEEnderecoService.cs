@@ -27,5 +27,7 @@ namespace One.Domain.Services
         {
             _iGEEnderecoRepository.SalvarUsuarioEndereco(GEUsuarioEndereco);
         }
+
+        public void AlterarEndereco(GEEndereco GEEndereco) => _iGEEnderecoRepository.Alterar(GEEndereco);
     }
 }

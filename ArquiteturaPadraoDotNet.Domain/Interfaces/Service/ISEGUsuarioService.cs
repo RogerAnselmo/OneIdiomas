@@ -7,5 +7,6 @@ namespace One.Domain.Interfaces.Service
     {
         SEGUsuario ObterUsuarioPorLogin(string login);
         void SalvarUsuario(SEGUsuario usuario);
+        void AlterarUsuario(SEGUsuario SEGUsuario); 
     }
 }

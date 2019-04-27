@@ -75,14 +75,36 @@ namespace One.UI.Controllers
         {
             try
             {
-                _academicoAppService.SalvarAluno(pCadastroAlunoViewModel);
-                return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
+                if (ModelState.IsValid)
+                {
+                    _academicoAppService.SalvarAluno(pCadastroAlunoViewModel);
+                    return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
+                }
+                return Json(new { erro = 1, mensagem = "Modelo inválido" });
             }
             catch (Exception ex)
             {
                 return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
             }
-        } 
+        }
+
+        [Route("Registrar-Edicao-Aluno")]
+        public JsonResult RegistrarEdicao([FromBody]EditarAlunoViewModel editarAlunoViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _academicoAppService.AlterarAluno(editarAlunoViewModel);
+                    return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
+                }
+                return Json(new { erro = 1, mensagem = "Modelo inválido" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
+            }
+        }
         #endregion
     }
 }

@@ -132,6 +132,22 @@ namespace One.Application.Services
             Commit();
         }
 
+        public void AlterarAluno(EditarAlunoViewModel editarAlunoViewModel)
+        {
+            BeginTransaction();
+
+            SEGUsuario SEGUsuario = EditarAlunoExtractor.ExtractSEGUsuario(editarAlunoViewModel);
+            ACAluno ACAluno = EditarAlunoExtractor.ExtractACAluno(editarAlunoViewModel);
+            GEEndereco GEEndereco = EditarAlunoExtractor.ExtractEnderecoAluno(editarAlunoViewModel);
+
+            _iACAlunoService.AlterarAluno(ACAluno);
+            _iSEGUsuarioService.AlterarUsuario(SEGUsuario);
+            _iGEEnderecoService.AlterarEndereco(GEEndereco);
+
+            SaveChange();
+            Commit();
+        }
+
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome)
         {
             return ACAlunoAdapter.DomainToViewModel(_iACAlunoService.ObterPorNome(nome));

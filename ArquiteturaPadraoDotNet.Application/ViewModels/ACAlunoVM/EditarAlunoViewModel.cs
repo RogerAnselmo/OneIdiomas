@@ -5,6 +5,9 @@ namespace One.Application.ViewModels.ACAlunoVM
     public class EditarAlunoViewModel
     {
         #region Seção: Dados do Aluno
+        [DisplayName("Código Usuário")]
+        public int CodigoUsuario { get; set; }
+
         [DisplayName("Código Aluno")]
         public int CodigoAluno { get; set; }
 
@@ -50,7 +53,7 @@ namespace One.Application.ViewModels.ACAlunoVM
         public string Logradouro { get; set; }
 
         [DisplayName("Número")]
-        public int NumeroResponsavel { get; set; }
+        public int Numero{ get; set; }
         #endregion
     }
 }

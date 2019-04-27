@@ -25,6 +25,13 @@
                                 </a>
                             </li>
                         </ul>
+
+                        <div style="display:none;">
+                            <input asp-for="CodigoUsuario" />
+                            <input asp-for="CodigoAluno" />
+                        </div>
+
+
                         <form class="form-horizontal" novalidate="novalidate">
                             <div class="tab-content">
                                 @*ABA Aluno*@
@@ -169,8 +176,4 @@
     </div>
 </div>
 
-<script src="~/CoreJs/Aluno/Cadastro/Aluno.js"></script>
-<script src="~/CoreJs/Aluno/Cadastro/Reponsavel.js"></script>
-<script src="~/CoreJs/Aluno/Cadastro/Common.js"></script>
-
-
+<script src="~/CoreJs/Aluno/Editar/Common.js"></script>
