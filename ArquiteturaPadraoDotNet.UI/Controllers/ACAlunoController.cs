@@ -47,12 +47,11 @@ namespace One.UI.Controllers
         }
 
         [Route("Lista-Aluno")]
-        public IActionResult Lista()
+        public IActionResult Lista(ListaAlunoViewModel model)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
 
-            ListaAlunoViewModel model = new ListaAlunoViewModel();
-            model.ListaAlunos = _academicoAppService.ObterAlunosPorNome("");
+            model.ListaAlunos = _academicoAppService.ObterAlunosPorNome(model.NomeAluno ?? "");
             return View(model);
         }
 
