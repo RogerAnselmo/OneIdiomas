@@ -47,12 +47,10 @@ namespace One.UI.Controllers
         }
 
         [Route("Lista-Aluno")]
-        public IActionResult Lista(ListaAlunoViewModel model)
+        public IActionResult Lista()
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-
-            model.ListaAlunos = _academicoAppService.ObterAlunosPorNome(model.NomeAluno ?? "");
-            return View(model);
+            return View();
         }
 
         [Route("Editar-Aluno/{id:int}")]
@@ -98,6 +96,23 @@ namespace One.UI.Controllers
                     return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
                 }
                 return Json(new { erro = 1, mensagem = "Modelo inválido" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
+            }
+        }
+
+        [Route("Grid-Aluno")]
+        public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_academicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
+
+        [Route("Excluir-Aluno")]
+        public JsonResult RegistrarExclusao([FromBody]int id)
+        {
+            try
+            {
+                _academicoAppService.ExcluirAluno(id);
+                return Json(new { erro = 0, mensagem = "Operação realizada com sucesso" });
             }
             catch (Exception ex)
             {

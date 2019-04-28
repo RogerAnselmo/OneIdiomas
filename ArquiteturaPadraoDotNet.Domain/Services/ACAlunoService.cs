@@ -35,9 +35,11 @@ namespace One.Domain.Services
             _iACAlunoRepository.Alterar(pACAluno);
         }
 
-        public void ExcluirAluno(ACAluno pACAluno)
+        public void ExcluirAluno(int id)
         {
-            throw new System.NotImplementedException();
+            ACAluno ACAluno = _iACAlunoRepository.ObterPorId(id);
+            ACAluno.flAtivo = "I";
+            _iACAlunoRepository.Alterar(ACAluno);
         }
 
         public ACAluno ObterPoId(int CodigoAluno)

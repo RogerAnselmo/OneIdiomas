@@ -148,6 +148,14 @@ namespace One.Application.Services
             Commit();
         }
 
+        public void ExcluirAluno(int id)
+        {
+            BeginTransaction();
+            _iACAlunoService.ExcluirAluno(id);
+            SaveChange();
+            Commit();
+        }
+
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome)
         {
             return ACAlunoAdapter.DomainToViewModel(_iACAlunoService.ObterPorNome(nome));

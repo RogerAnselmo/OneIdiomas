@@ -16,10 +16,10 @@ function ExecutarComandoConsulta(_controller, _parametros, _sucesso, _erro) {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         sync: false,
+        success: _sucesso,
         beforeSend: function () {
             ShowWaitMe();
         },
-        success: _sucesso,
         complete: function () {
             HideWaitMe();
         },
@@ -106,7 +106,7 @@ function ExecutarComandoGet(_controller, _sucesso, _erro) {
     });
 }
 
-function ExecutaComandoPostHTML(_controller, _parametros, _sucesso, _erro) {
+function ExecutaComandoPostComRetornoHTML(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'POST',
         url: '/' + $('#tbBaseUrl').val() +_controller,
@@ -115,6 +115,12 @@ function ExecutaComandoPostHTML(_controller, _parametros, _sucesso, _erro) {
         dataType: 'html',
         sync: false,
         success: _sucesso,
-        error: _erro
+        error: _erro,
+        beforeSend: function () {
+            ShowWaitMe();
+        },
+        complete: function () {
+            HideWaitMe();
+        }
     });
 }

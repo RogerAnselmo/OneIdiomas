@@ -113,7 +113,7 @@ namespace One.UI.Controllers
             var ListaBairro = _geralAppService.ObterBairroPorCidade(CodigoCidade).ToList();
             ListaBairro.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione" });
             return ListaBairro;
-        }
+        } 
         #endregion
     }
 }

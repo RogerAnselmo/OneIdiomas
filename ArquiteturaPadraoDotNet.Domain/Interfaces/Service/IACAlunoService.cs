@@ -8,7 +8,7 @@ namespace One.Domain.Interfaces.Service
     {
         void SalvarAluno(ACAluno pACAluno);
         void AlterarAluno(ACAluno pACAluno);
-        void ExcluirAluno(ACAluno pACAluno);
+        void ExcluirAluno(int id);
         ACAluno ObterPoId(int CodigoAluno);
         IEnumerable<ACAluno> ObterTodos();
         IEnumerable<ACAluno> ObterPorNome(string nome);

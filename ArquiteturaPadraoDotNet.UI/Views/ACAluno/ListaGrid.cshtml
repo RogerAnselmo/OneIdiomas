@@ -1,0 +1,37 @@
+﻿@model ICollection<ACAlunoViewModel>
+@{
+    Layout = null;
+}
+
+<table id="tableAlunos" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Aluno
+            </th>
+            <th>
+                Idade
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ACAlunoViewModel aluno in Model)
+        {
+            <tr>
+                <td>
+                    @aluno.SEGUsuarioViewModel.NomeCompleto
+                </td>
+                <td>
+                    @aluno.Idade Anos
+                </td>
+                <td>
+                    <a href="" class="btn btn-editar btn-default" title="Visualizar"><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="@Url.Action("Editar-Aluno", "Gerenciar-Aluno",new { id = aluno.CodigoAluno })" class="btn btn-editar btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-editar btn-danger" title="Excluir" onclick="ExcluirAluno(@aluno.CodigoAluno, this)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/CoreJs/Aluno/Lista/Grid.js"></script>

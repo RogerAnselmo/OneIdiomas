@@ -11,6 +11,7 @@ namespace One.Application.Interfaces
         IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome);
         EditarAlunoViewModel ObterAlunoParaEdicao(int id);
         void AlterarAluno(EditarAlunoViewModel editarAlunoViewModel);
+        void ExcluirAluno(int id);
         #endregion
     }
 }

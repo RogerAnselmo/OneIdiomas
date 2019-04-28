@@ -17,7 +17,7 @@ namespace One.Infra.Data.Repository
         {
             return Db.ACAluno
                 .Include(a => a.SEGUsuario)
-                .Where(a => a.SEGUsuario.NomeCompleto.ToUpper().Contains(nome.ToUpper()))
+                .Where(a => a.SEGUsuario.NomeCompleto.ToUpper().Contains(nome.ToUpper()) && a.flAtivo.Equals("A"))
                 .OrderBy(a => a.SEGUsuario.NomeCompleto)
                 .AsNoTracking();
         }

@@ -1,9 +1,7 @@
-﻿using One.Application.Interfaces;
-using One.Application.ViewModels;
+﻿using One.Application.ViewModels;
 using One.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace One.Application.Adapter
 {
@@ -46,13 +44,12 @@ namespace One.Application.Adapter
         {
             ACAluno domain = new ACAluno();
 
-            if(viewModel != null)
+            if (viewModel != null)
             {
                 domain = new ACAluno
                 {
                     CodigoAluno = viewModel.CodigoAluno,
-                    //CodigoEndereco = viewModel.GEEnderecoViewModel != null ? viewModel.GEEnderecoViewModel.CodigoEndereco : 0,
-                    CodigoUsuario = viewModel.SEGUsuarioViewModel != null ? viewModel.SEGUsuarioViewModel.CodigoUsuario: 0
+                    CodigoUsuario = viewModel.SEGUsuarioViewModel != null ? viewModel.SEGUsuarioViewModel.CodigoUsuario : 0
                 };
             }
 

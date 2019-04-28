@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -8,7 +7,6 @@ using One.Application.ViewModels;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace One.UI.Controllers
@@ -48,13 +46,6 @@ namespace One.UI.Controllers
             return View(usuarioViewModel);
         }
 
-        public async Task<IActionResult> LogoutAsync()
-        {
-            await LogoutAsync();
-            ViewBag.BaseUrl = ObterBaseUrl();
-            return View("Login", new SEGUsuarioViewModel());
-        } 
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -81,7 +72,7 @@ namespace One.UI.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 usuarioViewModel.Mensagem = "Erro ao autenticar usuário";
                 return View("Login", usuarioViewModel);
@@ -95,7 +86,7 @@ namespace One.UI.Controllers
         {
             try
             {
-                if(LoginJaExiste(usuarioViewModel.Login))//verifica se o login está disponível
+                if (LoginJaExiste(usuarioViewModel.Login))//verifica se o login está disponível
                 {
                     usuarioViewModel.Mensagem = "Este login já existe!";
                 }
@@ -114,7 +105,7 @@ namespace One.UI.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 usuarioViewModel.Mensagem = "Erro ao Salvar Usuário";
             }
