@@ -11,70 +11,70 @@ namespace One.Domain.Test.Entities
     [TestFixture]
     public class SEGUsuarioTest
     {
-        SEGUsuario SEGUsuario = new SEGUsuario();
+        //SEGUsuario SEGUsuario = new SEGUsuario();
 
-        [SetUp]
-        public void SetUp()
-        {
-            SEGUsuario = new SEGUsuario {
-                NomeCompleto = "Carlos Rogério Campos Anselmo",
-                Login = "carlos.anselmo",
-                CodigoUsuario = 0,
-                flAtivo = "A"
-            };
-        }
+        //[SetUp]
+        //public void SetUp()
+        //{
+        //    SEGUsuario = new SEGUsuario {
+        //        NomeCompleto = "Carlos Rogério Campos Anselmo",
+        //        Login = "carlos.anselmo",
+        //        CodigoUsuario = 0,
+        //        flAtivo = "A"
+        //    };
+        //}
 
-        [Test]
-        public void SEGUsuarioConsistente()
-        {
-            //Arrange -> //Act
-            var test = SEGUsuario.IsValid();
+        //[Test]
+        //public void SEGUsuarioConsistente()
+        //{
+        //    //Arrange -> //Act
+        //    var test = SEGUsuario.IsValid();
 
-            //assert
-            Assert.IsTrue(test);
-        }
+        //    //assert
+        //    Assert.IsTrue(test);
+        //}
 
-        [Test]
-        public void SEGUsuarioConsistente_false()
-        {
-            //Arrange
-            SEGUsuario = new SEGUsuario();
+        //[Test]
+        //public void SEGUsuarioConsistente_false()
+        //{
+        //    //Arrange
+        //    SEGUsuario = new SEGUsuario();
 
-            //Act
-            var test = SEGUsuario.IsValid();
+        //    //Act
+        //    var test = SEGUsuario.IsValid();
 
-            //assert
-            Assert.IsFalse(test);
-        }
+        //    //assert
+        //    Assert.IsFalse(test);
+        //}
 
-        [Test]
-        public void DeveTerUmNomeValido()
-        {
-            //Arrange -> //Act
-            var test = new NomeDeveSerValido().IsSatisfiedBy(SEGUsuario);
+        //[Test]
+        //public void DeveTerUmNomeValido()
+        //{
+        //    //Arrange -> //Act
+        //    var test = new NomeDeveSerValido().IsSatisfiedBy(SEGUsuario);
 
-            //assert
-            Assert.IsTrue(test);
-        }
+        //    //assert
+        //    Assert.IsTrue(test);
+        //}
 
-        [Test]
-        public void NomeDeveTerAte200Caracteres()
-        {
-            //Arrange -> //Act
-            var test = new NomeDeveTerAte200Caracteres().IsSatisfiedBy(SEGUsuario);
+        //[Test]
+        //public void NomeDeveTerAte200Caracteres()
+        //{
+        //    //Arrange -> //Act
+        //    var test = new NomeDeveTerAte200Caracteres().IsSatisfiedBy(SEGUsuario);
 
-            //assert
-            Assert.IsTrue(test);
-        }
+        //    //assert
+        //    Assert.IsTrue(test);
+        //}
 
-        [Test]
-        public void NomeDeveTerMinimo3Caracteres()
-        {
-            //Arrange -> //Act
-            var test = new NomeDeveTerMinimo3Caracteres().IsSatisfiedBy(SEGUsuario);
+        //[Test]
+        //public void NomeDeveTerMinimo3Caracteres()
+        //{
+        //    //Arrange -> //Act
+        //    var test = new NomeDeveTerMinimo3Caracteres().IsSatisfiedBy(SEGUsuario);
 
-            //assert
-            Assert.IsTrue(test);
-        }
+        //    //assert
+        //    Assert.IsTrue(test);
+        //}
     }
 }

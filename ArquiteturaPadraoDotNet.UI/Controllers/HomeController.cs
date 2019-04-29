@@ -1,43 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using One.UI.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
+using One.Infra.Data.Context;
 
 namespace One.UI.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly OneContext context;
+
+        public HomeController(OneContext context) => this.context = context;
+
+        public ActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [Route(nameof(ApplicationIsAlive))]
+        public ActionResult ApplicationIsAlive()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return StatusCode(StatusCodes.Status200OK);
         }
 
-        public IActionResult Contact()
+        [Route(nameof(DataBaseIsAlive))]
+        public ActionResult DataBaseIsAlive()
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return (context.Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists()
+            ? StatusCode(StatusCodes.Status200OK)
+            : StatusCode(StatusCodes.Status500InternalServerError);
         }
     }
 }

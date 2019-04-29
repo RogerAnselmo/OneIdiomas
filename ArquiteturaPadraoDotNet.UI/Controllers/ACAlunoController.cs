@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
-using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System;
-using System.Linq;
 
 namespace One.UI.Controllers
 {
