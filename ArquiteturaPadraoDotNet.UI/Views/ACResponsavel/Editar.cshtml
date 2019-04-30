@@ -1,4 +1,4 @@
-﻿@model One.Application.ViewModels.ACAlunoVM.EditarAlunoViewModel
+﻿@model One.Application.ViewModels.ACResponsavelVM.EditarResponsavelViewModel
 @{
     ViewData["Title"] = "Editar Aluno";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,7 +28,7 @@
 
                         <div style="display:none;">
                             <input asp-for="CodigoUsuario" />
-                            <input asp-for="CodigoAluno" />
+                            <input asp-for="CodigoResponsavel" />
                         </div>
 
 
@@ -36,7 +36,6 @@
                             <div class="tab-content">
                                 @*ABA Aluno*@
                                 <div id="w2-account" class="tab-pane active">
-                                    <input asp-for="CodigoAluno" type="hidden" />
 
                                     @*Nome*@
                                     <div class="form-group">
@@ -74,17 +73,6 @@
                                         <label class="col-sm-1 control-label" asp-for="CPF"></label>
                                         <div class="col-sm-2">
                                             <input class="form-control input-sm" asp-for="CPF">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="DiaVencimento"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="DiaVencimento">
-                                                <option value="5" selected="selected">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="25">25</option>
-                                            </select>
                                         </div>
                                     </div>
 
@@ -176,4 +164,4 @@
     </div>
 </div>
 
-<script src="~/CoreJs/ACAluno/Editar/Common.js"></script>
+<script src="~/CoreJs/ACResponsavel/Editar/Common.js"></script>

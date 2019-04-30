@@ -1,0 +1,37 @@
+﻿@model ICollection<ACResponsavelViewModel>
+@{
+    Layout = null;
+}
+
+<table id="tableResponsaveis" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Responsável
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ACResponsavelViewModel Responsavel in Model)
+        {
+            <tr>
+                <td>
+                    @Responsavel.SEGUsuario.NomeCompleto
+                </td>
+                <td>
+                    @Responsavel.CPF
+                </td>
+                <td>
+                    <a href="" class="btn btn-editar btn-default" title="Visualizar"><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="@Url.Action("Editar-Responsavel", "Gerenciar-Responsavel",new { id = Responsavel.CodigoResponsavel })" class="btn btn-editar btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-editar btn-danger" title="Excluir" onclick="ExcluirResponsavel(@Responsavel.CodigoResponsavel, this)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/CoreJs/ACResponsavel/Lista/Grid.js"></script>

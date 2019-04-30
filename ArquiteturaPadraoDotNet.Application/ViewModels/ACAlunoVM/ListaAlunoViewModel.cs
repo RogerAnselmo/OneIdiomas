@@ -16,5 +16,5 @@ namespace One.Application.ViewModels.ACAlunoVM
         [DisplayName("Nome do Aluno")]
         public string NomeAluno { get; set; }
         public IEnumerable<ACAlunoViewModel> ListaAlunos { get; set; }
-            }
+    }
 }

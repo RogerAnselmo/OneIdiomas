@@ -4,13 +4,11 @@ var _nomeAluno = $('#NomeAluno');
 var _divAluno = $('#divAluno');
 
 $(document).ready(function () {
-
     ObterAlunosPorNome();
 
     _btPesquisar.click(function () {
         ObterAlunosPorNome();
     });
-
 });
 
 function ObterAlunosPorNome() {
@@ -23,6 +21,4 @@ function ObterAlunosPorNome() {
             AlertError("Erro ao carregar lista de alunos");
             console.log(error);
         });
-
-    
 }

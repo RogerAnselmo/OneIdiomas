@@ -1,9 +1,6 @@
-﻿using One.Application.ViewModels;
-using One.Application.ViewModels.ACAlunoVM;
+﻿using One.Application.ViewModels.ACAlunoVM;
 using One.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Application.Extractors
 {
@@ -33,7 +30,7 @@ namespace One.Application.Extractors
             flAtivo = "A"
         };
 
-        public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
+        public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
         {
             CodigoEndereco = CadastroAlunoViewModel.CodigoEndereco,
             Cep = CadastroAlunoViewModel.CEP,
@@ -52,19 +49,19 @@ namespace One.Application.Extractors
             flAtivo = "A"
         };
 
-        public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
+        public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
         {
-            CodigoEndereco = CadastroAlunoViewModel.CodigoEnderecoResponsavel,
-            Cep = CadastroAlunoViewModel.CEPResponsavel,
-            Logradouro = CadastroAlunoViewModel.LogradouroResponsavel,
-            Numero = CadastroAlunoViewModel.NumeroResponsavel,
-            CodigoBairro = CadastroAlunoViewModel.CodigoBairroResponsavel,
+            CodigoEndereco = CadastroAlunoViewModel.CodigoEndereco,
+            Cep = CadastroAlunoViewModel.CEP,
+            Logradouro = CadastroAlunoViewModel.Logradouro,
+            Numero = CadastroAlunoViewModel.NumeroAluno,
+            CodigoBairro = CadastroAlunoViewModel.CodigoBairro,
             flAtivo = "A"
         };
 
         public static ACAlunoResponsavel ExtractACAlunoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new ACAlunoResponsavel
         (
-            CadastroAlunoViewModel.CodigoAluno,
+            CadastroAlunoViewModel.CodigoResponsavel,
             CadastroAlunoViewModel.CodigoResponsavel,
             CadastroAlunoViewModel.CodigoParentesco
         );

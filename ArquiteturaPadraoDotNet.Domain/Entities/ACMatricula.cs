@@ -19,12 +19,12 @@ namespace One.Domain.Entities
 
         #endregion
 
-        #region ACAluno
+        #region ACResponsavel
         [Required]
-        public int CodigoAluno { get; set; }
+        public int CodigoResponsavel { get; set; }
 
-        [ForeignKey("CodigoAluno")]
-        public virtual ACAluno ACAluno { get; set; }
+        [ForeignKey("CodigoResponsavel")]
+        public virtual ACResponsavel ACResponsavel { get; set; }
         #endregion
 
         #region ACTurma

@@ -16,7 +16,7 @@ namespace One.Domain.Entities
 
         #region ACAlunoResponsavel
         [Key]
-        public int CodigoAlunoResponsavel { get; set; }
+        public int CodigoResponsavelResponsavel { get; set; }
 
         [NotMapped]
         public ValidationResults ValidationResult { get; set; }

@@ -51,7 +51,7 @@ namespace One.Application.ViewModels.ACAlunoVM
         public string Logradouro { get; set; }
 
         [DisplayName("Número")]
-        public int NumeroResponsavel { get; set; }
+        public int NumeroAluno { get; set; }
         #endregion
 
         #region Seção: Dados do Responsável
@@ -108,7 +108,7 @@ namespace One.Application.ViewModels.ACAlunoVM
         public bool AlunoÉOProprioResponsavel { get; set; }
 
         [DisplayName("Usar endereço do Resposável")]
-        public bool UsarEnderecoDoAluno { get; set; }
+        public bool UsarEnderecoDoResponsavel { get; set; }
         #endregion
 
         public ValidationResults ValidationResult { get; set; }

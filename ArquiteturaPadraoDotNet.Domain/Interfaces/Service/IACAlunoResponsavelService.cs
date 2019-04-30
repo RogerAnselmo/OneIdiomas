@@ -7,6 +7,6 @@ namespace One.Domain.Interfaces.Service
 {
     public interface IACAlunoResponsavelService: IDisposable
     {
-        ACAlunoResponsavel SalvarAlunoReponsavel(ACAlunoResponsavel ACAlunoResponsavel);
+        ACAlunoResponsavel Salvar(ACAlunoResponsavel ACAlunoResponsavel);
     }
 }

@@ -8,12 +8,12 @@ namespace One.Domain.Validations.ACAlunoResponsavelValidation
     {
         public ACAlunoResponsavelConsistenteValidation(ACAlunoResponsavel ACAlunoResponsavel)
         {
-            var CodigoAlunoDeveSerMaiorQueZero = new CodigoAlunoDeveSerMaiorQueZero();
-            var CodigoParentescoDeveSerMaiorQueZero = new CodigoParentescoDeveSerMaiorQueZero();
             var CodigoResponsavelDeveSerMaiorQueZero = new CodigoResponsavelDeveSerMaiorQueZero();
+            var CodigoParentescoDeveSerMaiorQueZero = new CodigoParentescoDeveSerMaiorQueZero();
+            var CodigoAlunoDeveSerMaiorQueZero = new CodigoAlunoDeveSerMaiorQueZero();
 
-            base.Add("CodigoAlunoDeveSerMaiorQueZero ", new Rule<ACAlunoResponsavel>(CodigoAlunoDeveSerMaiorQueZero, "Código do aluno deve ser maior que Zero.", ACAlunoResponsavel));
-            base.Add("CodigoResponsavelDeveSerMaiorQueZero ", new Rule<ACAlunoResponsavel>(CodigoResponsavelDeveSerMaiorQueZero, "Código do responsável deve ser maior que Zero.", ACAlunoResponsavel));
+            base.Add("CodigoResponsavelDeveSerMaiorQueZero ", new Rule<ACAlunoResponsavel>(CodigoAlunoDeveSerMaiorQueZero, "Código do aluno deve ser maior que Zero.", ACAlunoResponsavel));
+            base.Add("CodigoAlunoDeveSerMaiorQueZero ", new Rule<ACAlunoResponsavel>(CodigoResponsavelDeveSerMaiorQueZero, "Código do responsável deve ser maior que Zero.", ACAlunoResponsavel));
             base.Add("CodigoParentescoDeveSerMaiorQueZero", new Rule<ACAlunoResponsavel>(CodigoParentescoDeveSerMaiorQueZero, "Código do parentesco deve ser maior que Zero.", ACAlunoResponsavel));
         }
     }

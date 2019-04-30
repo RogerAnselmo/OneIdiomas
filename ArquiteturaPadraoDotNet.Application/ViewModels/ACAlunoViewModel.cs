@@ -7,8 +7,8 @@ namespace One.Application.ViewModels
 {
     public class ACAlunoViewModel
     {
-        #region ACAlunoViewModel
-        [DisplayName("Código do Aluno")]
+        #region ACResponsavelViewModel
+        [DisplayName("Código do Responsavel")]
         public int CodigoAluno { get; set; }
 
         [DisplayName("Idade")]
@@ -16,9 +16,6 @@ namespace One.Application.ViewModels
 
         [DisplayName("Vencimento")]
         public int DiaVencimento { get; set; }
-
-        //[DisplayName("Nascimento")]
-        //public DateTime DataNascimento { get; set; }
         #endregion
 
         #region GEEndereco

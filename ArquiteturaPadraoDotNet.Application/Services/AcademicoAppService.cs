@@ -5,6 +5,7 @@ using One.Application.Interfaces;
 using One.Application.UoW;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Application.ViewModels.ACResponsavelVM;
 using One.Domain.Entities;
 using One.Domain.Interfaces.Service;
 using One.Domain.Validation;
@@ -77,7 +78,7 @@ namespace One.Application.Services
             #region salva o aluno com os dados do usuário e endereço
             ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(cadastroAlunoViewModel);
             ACAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
-            ACAluno = _iACAlunoService.SalvarAluno(ACAluno);
+            ACAluno = _iACAlunoService.Salvar(ACAluno);
 
             if (!ACAluno.ValidationResult.IsValid)
                 return ACAluno.ValidationResult;
@@ -108,7 +109,7 @@ namespace One.Application.Services
             #endregion
 
             #region salva o endereço do responsável
-            if (!cadastroAlunoViewModel.UsarEnderecoDoAluno)
+            if (!cadastroAlunoViewModel.UsarEnderecoDoResponsavel)
             {
                 GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(cadastroAlunoViewModel);
                 GEEnderecoResponsavel = _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
@@ -121,7 +122,7 @@ namespace One.Application.Services
             #region salva o responsável
             ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(cadastroAlunoViewModel);
             ACResponsavel.CodigoUsuario = cadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
-            ACResponsavel = _iACResponsavelService.SalvarResponsavel(ACResponsavel);
+            ACResponsavel = _iACResponsavelService.Salvar(ACResponsavel);
 
             if (!ACResponsavel.ValidationResult.IsValid)
                 return ACResponsavel.ValidationResult;
@@ -134,7 +135,7 @@ namespace One.Application.Services
                 cadastroAlunoViewModel.CodigoParentesco
             );
 
-            ACAlunoResponsavel = _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
+            ACAlunoResponsavel = _iACAlunoResponsavelService.Salvar(ACAlunoResponsavel);
 
             if (!ACAlunoResponsavel.ValidationResult.IsValid)
                 return ACAlunoResponsavel.ValidationResult;
@@ -163,7 +164,7 @@ namespace One.Application.Services
         {
             BeginTransaction();
 
-            validationResult = _iACAlunoService.AlterarAluno(EditarAlunoExtractor.ExtractACAluno(editarAlunoViewModel)).ValidationResult;
+            validationResult = _iACAlunoService.Alterar(EditarAlunoExtractor.ExtractACAluno(editarAlunoViewModel)).ValidationResult;
             if (!validationResult.IsValid)
                 return validationResult;
 
@@ -184,7 +185,7 @@ namespace One.Application.Services
         public ValidationResults ExcluirAluno(int id)
         {
             BeginTransaction();
-            validationResult = _iACAlunoService.ExcluirAluno(id).ValidationResult;
+            validationResult = _iACAlunoService.Excluir(id).ValidationResult;
 
             if (!validationResult.IsValid)
                 return validationResult;
@@ -204,6 +205,41 @@ namespace One.Application.Services
         {
             return EditarAlunoExtractor.ConvertAcAlunoToEditarAlunoViewModel(_iACAlunoService.ObterAlunoParaEdicao(id));
         }
+        #endregion
+
+        #region Seção: ACResponsavel
+        public ValidationResults SalvarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel)
+        {
+            //validationResult = _iACAlunoService.Alterar(EditarResponsavelExtractor.ExtractACResponsavel(editarResponsavelViewModel)).ValidationResult;
+            //if (!validationResult.IsValid)
+            //    return validationResult;
+
+            //validationResult = _iSEGUsuarioService.AlterarUsuario(EditarAlunoExtractor.ExtractSEGUsuario(editarResponsavelViewModel)).ValidationResult;
+            //if (!validationResult.IsValid)
+            //    return validationResult;
+
+            //validationResult = _iGEEnderecoService.AlterarEndereco(EditarAlunoExtractor.ExtractEnderecoAluno(editarResponsavelViewModel)).ValidationResult;
+            //if (!validationResult.IsValid)
+            //    return validationResult;
+
+            return new ValidationResults(false, "não implementado!");
+        }
+
+        public ValidationResults AlterarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ValidationResults ExcluirResponsavel(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome)
+           => ACReponsavelAdapter.DomainToViewModel(_iACResponsavelService.ObterPorNome(nome));
+
+        public EditarResponsavelViewModel ObterResponsavelParaEdicao(int id)
+            => EditarResponsavelExtractor.ConvertToEditarResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
         #endregion
     }
 }

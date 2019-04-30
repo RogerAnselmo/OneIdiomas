@@ -22,14 +22,14 @@ namespace One.Application.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ACAluno {
+    public class ACResponsavel {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ACAluno() {
+        internal ACResponsavel() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace One.Application.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("One.Application.Messages.ACAluno", typeof(ACAluno).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("One.Application.Messages.ACResponsavel", typeof(ACResponsavel).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace One.Application.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Aluno salvo com sucesso!&quot;.
+        ///   Looks up a localized string similar to &quot;Responsavel salvo com sucesso!&quot;.
         /// </summary>
-        public static string AlunoSalvoComSucesso {
+        public static string ResponsavelSalvoComSucesso {
             get {
-                return ResourceManager.GetString("AlunoSalvoComSucesso", resourceCulture);
+                return ResourceManager.GetString("ResponsavelSalvoComSucesso", resourceCulture);
             }
         }
     }

@@ -33,7 +33,7 @@ namespace One.Domain.Services
         #endregion
 
         #region Seção: Serviços
-        public ACAluno AlterarAluno(ACAluno ACAluno)
+        public ACAluno Alterar(ACAluno ACAluno)
         {
             if (ACAluno.IsValid())
                 _iACAlunoRepository.Alterar(ACAluno);
@@ -41,7 +41,7 @@ namespace One.Domain.Services
             return ACAluno;
         }
 
-        public ACAluno ExcluirAluno(int id)
+        public ACAluno Excluir(int id)
         {
             ACAluno ACAluno = _iACAlunoRepository.ObterPorId(id);
             ACAluno.flAtivo = "I";
@@ -54,7 +54,7 @@ namespace One.Domain.Services
         public IEnumerable<ACAluno> ObterPorNome(string nome) => _iACAlunoRepository.ObterPorNome(nome);
         public IEnumerable<ACAluno> ObterTodos() => _iACAlunoRepository.ObterTodos();
 
-        public ACAluno SalvarAluno(ACAluno ACAluno)
+        public ACAluno Salvar(ACAluno ACAluno)
         {
             if (ACAluno.IsValid())
                 _iACAlunoRepository.Salvar(ACAluno);

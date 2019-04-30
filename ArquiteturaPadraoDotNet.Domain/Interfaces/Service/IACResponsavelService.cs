@@ -7,6 +7,9 @@ namespace One.Domain.Interfaces.Service
 {
     public interface IACResponsavelService: IDisposable
     {
-        ACResponsavel SalvarResponsavel(ACResponsavel ACResponsavel);
+        ACResponsavel Salvar(ACResponsavel ACResponsavel);
+        ACResponsavel Alterar(ACResponsavel ACResponsavel);
+        IEnumerable<ACResponsavel> ObterPorNome(string nome);
+        ACResponsavel ObterPorId(int id);
     }
 }

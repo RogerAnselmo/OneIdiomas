@@ -25,8 +25,8 @@ namespace One.UI.Controllers
         public ACAlunoController(IAcademicoAppService academicoAppService,
                                IGeralAppService geralAppService,
                                IOptions<BaseUrl> baseUrl,
-                               UserManager<ApplicationUser> userManager, 
-                               SignInManager<ApplicationUser> signInManager): base(baseUrl, userManager, signInManager)
+                               UserManager<ApplicationUser> userManager,
+                               SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
         {
             _academicoAppService = academicoAppService;
             _geralAppService = geralAppService;
@@ -38,10 +38,10 @@ namespace One.UI.Controllers
         public IActionResult Cadastro()
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            ViewBag.ListaUF = ObterTodasUF(_geralAppService);
-            ViewBag.ListaParentesco = ObterTodosParentesco(_geralAppService);
-            ViewBag.ListaCidade = ObterCidadesPorUF(_geralAppService, 5); //5 = Pará
-            ViewBag.ListaBairro = ObterBairroPorCidade(_geralAppService, 1); //1 = Abaetetuba
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+            ViewBag.ListaBairro = _geralAppService.ObterBairroPorCidade(1); //1 = Abaetetuba
 
             return View(new CadastroAlunoViewModel());
         }
@@ -57,16 +57,19 @@ namespace One.UI.Controllers
         public IActionResult Editar(int id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            ViewBag.ListaUF = ObterTodasUF(_geralAppService);
-            ViewBag.ListaParentesco = ObterTodosParentesco(_geralAppService);
-            ViewBag.ListaCidade = ObterCidadesPorUF(_geralAppService, 5); //5 = Pará
-            ViewBag.ListaBairro = ObterBairroPorCidade(_geralAppService, 1); //1 = Abaetetuba
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+            ViewBag.ListaBairro = _geralAppService.ObterBairroPorCidade(1); //1 = Abaetetuba
 
             return View(_academicoAppService.ObterAlunoParaEdicao(id));
         }
         #endregion
 
         #region Seção: Ajax
+        [Route("Grid-Aluno")]
+        public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_academicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
+
         [Route("Registrar-Cadastro-Aluno")]
         public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel CadastroAlunoViewModel)
         {
@@ -79,36 +82,17 @@ namespace One.UI.Controllers
         [Route("Registrar-Edicao-Aluno")]
         public JsonResult RegistrarEdicao([FromBody]EditarAlunoViewModel editarAlunoViewModel)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    _academicoAppService.AlterarAluno(editarAlunoViewModel);
-                    return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
-                }
-                return Json(new { erro = 1, mensagem = "Modelo inválido" });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
-            }
+            if (ModelState.IsValid)
+                validationResult = _academicoAppService.AlterarAluno(editarAlunoViewModel);
+
+            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }
 
-        [Route("Grid-Aluno")]
-        public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_academicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
-
-        [Route("Excluir-Aluno")]
+        [Route("Registrar-Exclusao-Aluno")]
         public JsonResult RegistrarExclusao([FromBody]int id)
         {
-            try
-            {
-                _academicoAppService.ExcluirAluno(id);
-                return Json(new { erro = 0, mensagem = "Operação realizada com sucesso" });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
-            }
+            validationResult = _academicoAppService.ExcluirAluno(id);
+            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }
         #endregion
     }

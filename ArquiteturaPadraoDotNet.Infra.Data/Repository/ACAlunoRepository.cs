@@ -13,23 +13,17 @@ namespace One.Infra.Data.Repository
         {
         }
 
-        public IEnumerable<ACAluno> ObterPorNome(string nome)
-        {
-            return Db.ACAluno
+        public IEnumerable<ACAluno> ObterPorNome(string nome) => Db.ACAluno
                 .Include(a => a.SEGUsuario)
                 .Where(a => a.SEGUsuario.NomeCompleto.ToUpper().Contains(nome.ToUpper()) && a.flAtivo.Equals("A"))
                 .OrderBy(a => a.SEGUsuario.NomeCompleto)
                 .AsNoTracking();
-        }
 
-        public ACAluno ObterAlunoParaEdicao(int id)
-        {
-            return Db.ACAluno
+        public ACAluno ObterAlunoParaEdicao(int id) => Db.ACAluno
                 .Include(a => a.SEGUsuario)
                 .Include(a => a.SEGUsuario.GEUsuarioEndereco)
                 .Where(a => a.CodigoAluno == id)
                 .AsNoTracking()
                 .FirstOrDefault();
-        }
     }
 }

@@ -12,11 +12,8 @@ namespace One.Infra.Data.Repository
         {
         }
 
-        public IEnumerable<GEBairro> ObterBairroPorCidade(int CodigoCidade)
-        {
-            return Db.GEBairro
+        public IEnumerable<GEBairro> ObterBairroPorCidade(int CodigoCidade) => Db.GEBairro
                      .Where(b => b.CodigoCidade == CodigoCidade)
                      .OrderBy(b => b.descricao);
-        }
     }
 }

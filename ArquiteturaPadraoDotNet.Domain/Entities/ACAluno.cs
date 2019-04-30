@@ -36,8 +36,8 @@ namespace One.Domain.Entities
         public ValidationResults ValidationResult { get; set; }
         #endregion
 
-        #region ACAlunoResponsavel
-        public virtual IEnumerable<ACAlunoResponsavel> ACAlunoResponsavel { get; set; }
+        #region ACResponsavel
+        public virtual IEnumerable<ACResponsavel> ACResponsavel { get; set; }
         #endregion
 
         #region SEGUsuario

@@ -13,7 +13,7 @@ namespace One.Domain.Services
 
         public ACAlunoResponsavelService(IACAlunoResponsavelRepository iACAlunoResponsavelRepository) => _iACAlunoResponsavelRepository = iACAlunoResponsavelRepository;
         public void Dispose() { }
-        public ACAlunoResponsavel SalvarAlunoReponsavel(ACAlunoResponsavel ACAlunoResponsavel)
+        public ACAlunoResponsavel Salvar(ACAlunoResponsavel ACAlunoResponsavel)
         {
             if (ACAlunoResponsavel.IsValid())
                 _iACAlunoResponsavelRepository.Salvar(ACAlunoResponsavel);

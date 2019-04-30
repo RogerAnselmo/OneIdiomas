@@ -30,12 +30,10 @@ namespace One.Application.Adapter
             IList<ACAlunoViewModel> listaViewModel = new List<ACAlunoViewModel>();
 
             if (listaDomain != null)
-            {
                 foreach (ACAluno domain in listaDomain)
                 {
                     listaViewModel.Add(DomainToViewModel(domain));
                 }
-            }
 
             return listaViewModel;
         }
