@@ -7,8 +7,6 @@ namespace One.Domain.Specifications.GEUsuarioEnderecoSpecification
     public class CodigoEnderecoDeveSerMaiorQueZero : ISpecification<GEUsuarioEndereco>
     {
         public bool IsSatisfiedBy(GEUsuarioEndereco entity)
-        {
-            throw new NotImplementedException();
-        }
+            => entity.CodigoUsuario > 0;
     }
 }

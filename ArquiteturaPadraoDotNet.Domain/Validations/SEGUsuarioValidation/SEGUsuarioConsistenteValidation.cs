@@ -27,7 +27,7 @@ namespace One.Domain.Validations.SEGUsuarioValidation
             #region Seção: Validações
             //Login
             base.Add("LoginDeveSerValido", new Rule<SEGUsuario>(LoginDeveSerValido, "Usuário deve ter um login válido.", SEGUsuario));
-            base.Add("LoginDeveTerNoMaximo100Caracteres", new Rule<SEGUsuario>(LoginDeveSerValido, "Login do Usuário deve ter no máximo 100 caracteres.", SEGUsuario));
+            base.Add("LoginDeveTerNoMaximo100Caracteres", new Rule<SEGUsuario>(LoginDeveTerNoMaximo100Caracteres, "Login do Usuário deve ter no máximo 100 caracteres.", SEGUsuario));
             base.Add("LoginDeveTerNoMinimo3Caracteres", new Rule<SEGUsuario>(LoginDeveTerNoMinimo3Caracteres, "Login do Usuário deve ter no mínimo 3 caracteres", SEGUsuario));
 
             //Nome

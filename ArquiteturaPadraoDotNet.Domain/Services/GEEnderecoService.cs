@@ -18,16 +18,28 @@ namespace One.Domain.Services
         {
         }
 
-        public void SalvarEndereco(GEEndereco GEEndereco)
+        public GEEndereco SalvarEndereco(GEEndereco GEEndereco)
         {
-            _iGEEnderecoRepository.Salvar(GEEndereco);
+            if (GEEndereco.IsValid())
+                _iGEEnderecoRepository.Salvar(GEEndereco);
+
+            return GEEndereco;
         }
 
-        public void SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco)
+        public GEUsuarioEndereco SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco)
         {
-            _iGEEnderecoRepository.SalvarUsuarioEndereco(GEUsuarioEndereco);
+            if (!GEUsuarioEndereco.IsValid())
+                _iGEEnderecoRepository.SalvarUsuarioEndereco(GEUsuarioEndereco);
+
+            return GEUsuarioEndereco;
         }
 
-        public void AlterarEndereco(GEEndereco GEEndereco) => _iGEEnderecoRepository.Alterar(GEEndereco);
+        public GEEndereco AlterarEndereco(GEEndereco GEEndereco)
+        {
+            if (!GEEndereco.IsValid())
+                _iGEEnderecoRepository.Alterar(GEEndereco);
+
+            return GEEndereco;
+        }
     }
 }

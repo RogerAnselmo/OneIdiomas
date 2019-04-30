@@ -6,9 +6,7 @@ namespace One.Domain.Specifications.ACResponsavelSpecification
 {
     public class CPFDeveSerValido : ISpecification<ACResponsavel>
     {
-        public bool IsSatisfiedBy(ACResponsavel entity)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACResponsavel entity) 
+            => !string.IsNullOrEmpty(entity.CPF) && entity.CPF.Length <= 11;
     }
 }

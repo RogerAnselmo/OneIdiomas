@@ -10,14 +10,14 @@ namespace One.Domain.Services
     public class GETelefoneService : IGETelefoneService
     {
         #region Interface - IoC
-        private readonly IGETelefoneRepository _iGETelefoneRepository; 
+        private readonly IGETelefoneRepository _iGETelefoneRepository;
         #endregion
 
         #region Construtor
         public GETelefoneService(IGETelefoneRepository iGETelefoneRepository)
         {
             _iGETelefoneRepository = iGETelefoneRepository;
-        } 
+        }
         #endregion
 
         #region Serviços
@@ -25,10 +25,13 @@ namespace One.Domain.Services
         {
         }
 
-        public void SalvarTelefone(GETelefone GETelefone)
+        public GETelefone SalvarTelefone(GETelefone GETelefone)
         {
-            _iGETelefoneRepository.Salvar(GETelefone);
-        } 
+            if (GETelefone.IsValid())
+                _iGETelefoneRepository.Salvar(GETelefone);
+
+            return GETelefone;
+        }
         #endregion
     }
 }

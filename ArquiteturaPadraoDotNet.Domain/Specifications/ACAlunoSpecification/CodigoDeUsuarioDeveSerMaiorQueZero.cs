@@ -8,9 +8,6 @@ namespace One.Domain.Specifications.ACAlunoSpecification
 {
     public class CodigoDeUsuarioDeveSerMaiorQueZero : ISpecification<ACAluno>
     {
-        public bool IsSatisfiedBy(ACAluno entity)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACAluno entity) => entity.CodigoUsuario > 0;
     }
 }

@@ -7,8 +7,8 @@ namespace One.Domain.Interfaces.Service
 {
     public interface IGEEnderecoService: IDisposable
     {
-        void SalvarEndereco(GEEndereco GEEndereco);
-        void SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
-        void AlterarEndereco(GEEndereco GEEndereco);    
+        GEEndereco SalvarEndereco(GEEndereco GEEndereco);
+        GEUsuarioEndereco SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
+        GEEndereco AlterarEndereco(GEEndereco GEEndereco);    
     }
 }

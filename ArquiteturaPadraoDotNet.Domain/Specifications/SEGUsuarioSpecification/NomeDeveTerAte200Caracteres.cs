@@ -5,9 +5,7 @@ namespace One.Domain.Specifications.SEGUsuarioSpecification
 {
     public class NomeDeveTerAte200Caracteres : ISpecification<SEGUsuario>
     {
-        public bool IsSatisfiedBy(SEGUsuario entity)
-        {
-            return false;
-        }
+        public bool IsSatisfiedBy(SEGUsuario entity) 
+            => !string.IsNullOrEmpty(entity.NomeCompleto) && entity.NomeCompleto.Length <= 200;
     }
 }

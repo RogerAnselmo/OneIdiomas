@@ -8,9 +8,7 @@ namespace One.Domain.Specifications.GEEnderecoSpecification
 {
     public class LogradouroDeveSerValido : ISpecification<GEEndereco>
     {
-        public bool IsSatisfiedBy(GEEndereco entity)
-        {
-            return !string.IsNullOrEmpty(entity.Logradouro) && entity.Logradouro.Length <= 500;
-        }
+        public bool IsSatisfiedBy(GEEndereco entity) 
+            => !string.IsNullOrEmpty(entity.Logradouro) && entity.Logradouro.Length <= 500;
     }
 }

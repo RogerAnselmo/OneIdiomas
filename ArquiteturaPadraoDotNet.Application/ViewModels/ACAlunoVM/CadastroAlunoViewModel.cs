@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using One.Domain.Validation;
+using System.ComponentModel;
 
 namespace One.Application.ViewModels.ACAlunoVM
 {
@@ -107,7 +108,9 @@ namespace One.Application.ViewModels.ACAlunoVM
         public bool AlunoÉOProprioResponsavel { get; set; }
 
         [DisplayName("Usar endereço do Resposável")]
-        public bool UsarEnderecoDoAluno { get; set; } 
+        public bool UsarEnderecoDoAluno { get; set; }
         #endregion
+
+        public ValidationResults ValidationResult { get; set; }
     }
 }

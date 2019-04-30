@@ -1,9 +1,7 @@
-﻿using One.Domain.Validations.GEUsuarioEnderecoValidation;
-using System;
-using System.Collections.Generic;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.GEUsuarioEnderecoValidation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace One.Domain.Entities
 {
@@ -14,7 +12,7 @@ namespace One.Domain.Entities
         public int CodigoUsuarioEndereco { get; set; }
 
         [NotMapped]
-        public Validation.ValidationResult ValidationResult { get; set; }
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region SEGUsuario

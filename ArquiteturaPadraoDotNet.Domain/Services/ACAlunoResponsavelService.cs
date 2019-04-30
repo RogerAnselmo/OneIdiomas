@@ -11,18 +11,8 @@ namespace One.Domain.Services
     {
         private readonly IACAlunoResponsavelRepository _iACAlunoResponsavelRepository;
 
-        public ACAlunoResponsavelService(IACAlunoResponsavelRepository iACAlunoResponsavelRepository)
-        {
-            _iACAlunoResponsavelRepository = iACAlunoResponsavelRepository;
-        }
-
-        public void Dispose()
-        {
-        }
-
-        public void SalvarAlunoReponsavel(ACAlunoResponsavel ACAlunoResponsavel)
-        {
-            _iACAlunoResponsavelRepository.Salvar(ACAlunoResponsavel);
-        }
+        public ACAlunoResponsavelService(IACAlunoResponsavelRepository iACAlunoResponsavelRepository) => _iACAlunoResponsavelRepository = iACAlunoResponsavelRepository;
+        public void Dispose() { }
+        public void SalvarAlunoReponsavel(ACAlunoResponsavel ACAlunoResponsavel) => _iACAlunoResponsavelRepository.Salvar(ACAlunoResponsavel);
     }
 }

@@ -1,4 +1,5 @@
-﻿using One.Domain.Validations.GEEnderecoValidation;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.GEEnderecoValidation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,7 +27,7 @@ namespace One.Domain.Entities
         public string flAtivo { get; set; }
 
         [NotMapped]
-        public Validation.ValidationResult ValidationResult { get; set; }
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region GEBairro

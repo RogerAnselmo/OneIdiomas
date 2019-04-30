@@ -2,6 +2,6 @@
 {
     public interface IValidator<in TEntity>
     {
-        ValidationResult Validate();
+        ValidationResults Validate();
     }
 }

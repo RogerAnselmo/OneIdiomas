@@ -8,9 +8,7 @@ namespace One.Domain.Specifications.SEGUsuarioSpecification
 {
     public class LoginDeveTerNoMaximo100Caracteres : ISpecification<SEGUsuario>
     {
-        public bool IsSatisfiedBy(SEGUsuario entity)
-        {
-            return false;
-        }
+        public bool IsSatisfiedBy(SEGUsuario entity) 
+            => !string.IsNullOrEmpty(entity.Login) && entity.Login.Length <= 100;
     }
 }

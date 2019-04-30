@@ -6,9 +6,7 @@ namespace One.Domain.Specifications.ACAlunoSpecification
 {
     public class DiaVencimentoDeveSerValido : ISpecification<ACAluno>
     {
-        public bool IsSatisfiedBy(ACAluno entity)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACAluno entity) 
+            => entity.DiaVencimento > 0 && entity.DiaVencimento < 25;
     }
 }

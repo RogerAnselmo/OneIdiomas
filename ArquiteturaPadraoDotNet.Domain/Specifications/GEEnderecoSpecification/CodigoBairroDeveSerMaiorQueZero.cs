@@ -5,9 +5,7 @@ namespace One.Domain.Specifications.GEEnderecoSpecification
 {
     public class CodigoBairroDeveSerMaiorQueZero : ISpecification<GEEndereco>
     {
-        public bool IsSatisfiedBy(GEEndereco entity)
-        {
-            return entity.CodigoBairro > 0;
-        }
+        public bool IsSatisfiedBy(GEEndereco entity) 
+            => entity.CodigoBairro > 0;
     }
 }

@@ -9,7 +9,6 @@ namespace One.Domain.Validations.ACAlunoValidation
         public ACAlunoConsistenteValidation(ACAluno ACAluno)
         {
             #region Seção: Regras
-            var ACAlunoDeveTerPeloMenos1Responsavel = new ACAlunoDeveTerPeloMenos1Responsavel();
             var CPFDeveSerValido = new CPFDeveSerValido();
             var DataDeNascimentoDeveSerValida = new DataDeNascimentoDeveSerValida();
             var CodigoDeUsuarioDeveSerMaiorQueZero = new CodigoDeUsuarioDeveSerMaiorQueZero();
@@ -20,7 +19,6 @@ namespace One.Domain.Validations.ACAlunoValidation
             #endregion
 
             #region Seção: Validações
-            base.Add("ACAlunoDeveTerPeloMenos1Responsavel", new Rule<ACAluno>(ACAlunoDeveTerPeloMenos1Responsavel, "Aluno deve ter pelo menos um Resposável.", ACAluno));
             base.Add("CPFDeveSerValido", new Rule<ACAluno>(CPFDeveSerValido, "Aluno deve ter um CPF válido.", ACAluno));
             base.Add("DataDeNascimentoDeveSerValida", new Rule<ACAluno>(DataDeNascimentoDeveSerValida, "Aluno deve ter data de nascimento válida.", ACAluno));
             base.Add("CodigoDeUsuarioDeveSerMaiorQueZero", new Rule<ACAluno>(CodigoDeUsuarioDeveSerMaiorQueZero, "Aluno deve ter um código de usuário.", ACAluno));

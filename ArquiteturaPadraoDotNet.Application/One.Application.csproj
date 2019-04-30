@@ -15,4 +15,19 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Messages\ACAluno.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ACAluno.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Messages\ACAluno.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ACAluno.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

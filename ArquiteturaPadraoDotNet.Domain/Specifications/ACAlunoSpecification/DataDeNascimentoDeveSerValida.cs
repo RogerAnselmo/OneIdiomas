@@ -7,8 +7,7 @@ namespace One.Domain.Specifications.ACAlunoSpecification
     public class DataDeNascimentoDeveSerValida : ISpecification<ACAluno>
     {
         public bool IsSatisfiedBy(ACAluno entity)
-        {
-            throw new NotImplementedException();
-        }
+        => entity.DataNascimento > new DateTime(1900, 1, 1).Date
+                   && entity.DataNascimento <= DateTime.Now.Date;
     }
 }

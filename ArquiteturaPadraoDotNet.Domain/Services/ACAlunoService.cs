@@ -2,6 +2,7 @@
 using One.Domain.Entities;
 using One.Domain.Interfaces.Repository;
 using One.Domain.Interfaces.Service;
+using One.Domain.Validation;
 
 namespace One.Domain.Services
 {
@@ -13,8 +14,8 @@ namespace One.Domain.Services
         private readonly IGETelefoneRepository _iGETelefoneRepository;
         #endregion
 
-        #region Construtor
-        public ACAlunoService(IACAlunoRepository iACAlunoRepository, 
+        #region S~ção: Construtor
+        public ACAlunoService(IACAlunoRepository iACAlunoRepository,
             IGEEnderecoRepository iGEEnderecoRepository,
             IGETelefoneRepository iGETelefoneRepository
             )
@@ -25,42 +26,41 @@ namespace One.Domain.Services
         }
         #endregion
 
-        #region Serviços
+        #region Seção: Dispose
         public void Dispose()
         {
         }
+        #endregion
 
-        public void AlterarAluno(ACAluno pACAluno)
+        #region Seção: Serviços
+        public ACAluno AlterarAluno(ACAluno ACAluno)
         {
-            _iACAlunoRepository.Alterar(pACAluno);
+            if (ACAluno.IsValid())
+                _iACAlunoRepository.Alterar(ACAluno);
+
+            return ACAluno;
         }
 
-        public void ExcluirAluno(int id)
+        public ACAluno ExcluirAluno(int id)
         {
             ACAluno ACAluno = _iACAlunoRepository.ObterPorId(id);
             ACAluno.flAtivo = "I";
             _iACAlunoRepository.Alterar(ACAluno);
+            ACAluno.ValidationResult = new ValidationResults(true, "Aluno excluído com sucesso");
+            return ACAluno;
         }
 
-        public ACAluno ObterPoId(int CodigoAluno)
-        {
-            return _iACAlunoRepository.ObterPorId(CodigoAluno);
-        }
+        public ACAluno ObterPoId(int CodigoAluno) => _iACAlunoRepository.ObterPorId(CodigoAluno);
+        public IEnumerable<ACAluno> ObterPorNome(string nome) => _iACAlunoRepository.ObterPorNome(nome);
+        public IEnumerable<ACAluno> ObterTodos() => _iACAlunoRepository.ObterTodos();
 
-        public IEnumerable<ACAluno> ObterPorNome(string nome)
+        public ACAluno SalvarAluno(ACAluno ACAluno)
         {
-            return _iACAlunoRepository.ObterPorNome(nome);
-        }
+            if (ACAluno.IsValid())
+                _iACAlunoRepository.Salvar(ACAluno);
 
-        public IEnumerable<ACAluno> ObterTodos()
-        {
-            return _iACAlunoRepository.ObterTodos();
+            return ACAluno;
         }
-
-        public void SalvarAluno(ACAluno pACAluno)
-        {
-            _iACAlunoRepository.Salvar(pACAluno);
-        } 
 
         public ACAluno ObterAlunoParaEdicao(int id)
         {

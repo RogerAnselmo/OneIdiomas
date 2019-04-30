@@ -6,9 +6,7 @@ namespace One.Domain.Specifications.ACResponsavelSpecification
 {
     public class CodigoDeUsuarioDeveSerMaiorQueZero : ISpecification<ACResponsavel>
     {
-        public bool IsSatisfiedBy(ACResponsavel entity)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACResponsavel entity) 
+            => entity.CodigoUsuario > 0;
     }
 }

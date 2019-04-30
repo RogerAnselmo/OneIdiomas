@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.GETelefoneValidation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace One.Domain.Entities
@@ -16,6 +18,9 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
+        [NotMapped]
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region GETipoTelefone
@@ -32,6 +37,14 @@ namespace One.Domain.Entities
 
         [ForeignKey("CodigoUsuario")]
         public virtual SEGUsuario SEGUsuario { get; set; }
+        #endregion
+
+        #region Seção: Validação
+        public bool IsValid()
+        {
+            ValidationResult = new GETelefoneConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        } 
         #endregion
     }
 }

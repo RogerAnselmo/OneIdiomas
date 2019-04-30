@@ -7,8 +7,6 @@ namespace One.Domain.Specifications.ACResponsavelSpecification
     public class ACResponsavelDeveSerMaiorDeIdade : ISpecification<ACResponsavel>
     {
         public bool IsSatisfiedBy(ACResponsavel entity)
-        {
-            throw new NotImplementedException();
-        }
+            => entity.Idade() >= 18;
     }
 }

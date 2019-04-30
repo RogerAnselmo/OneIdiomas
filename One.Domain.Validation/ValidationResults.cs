@@ -4,26 +4,26 @@ using System.Text;
 
 namespace One.Domain.Validation
 {
-    public class ValidationResult
+    public class ValidationResults
     {
-        public ValidationResult()
+        protected ValidationResults() => Erros = new List<ValidationResults>();
+
+        public ValidationResults(bool isValid, string message): this()
         {
-            Erros = new List<ValidationResult>();
+            IsValid = isValid;
+            Message = message;
         }
 
         public string Name { get; set; }
         public string Message { get; set; }
         public bool IsValid { get; set; }
 
-        public IList<ValidationResult> Erros { get; set; }
+        public IList<ValidationResults> Erros { get; set; }
+        public void Add(ValidationError error) => Message = error.Message;
 
-        public void Add(ValidationError error)
-        {
-            this.Message = error.Message;
-        }
         public void Add(string name, string message, bool iSValid)
         {
-            Erros.Add(new ValidationResult { Name = name, Message = message, IsValid = iSValid });
+            Erros.Add(new ValidationResults { Name = name, Message = message, IsValid = iSValid });
 
             IsValid = true;
 

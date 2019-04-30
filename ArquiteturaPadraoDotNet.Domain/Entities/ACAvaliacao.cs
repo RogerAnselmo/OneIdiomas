@@ -1,4 +1,5 @@
-﻿using One.Domain.Validations.ACAvaliacaoValidation;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.ACAvaliacaoValidation;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -30,7 +31,7 @@ namespace One.Domain.Entities
         public decimal NotaAvaliacao { get; set; }
 
         [NotMapped]
-        public Validation.ValidationResult ValidationResult { get; set; }
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region ACMatricula

@@ -1,4 +1,5 @@
-﻿using One.Domain.Validations.ACAlunoValidation;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.ACAlunoValidation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,7 +33,7 @@ namespace One.Domain.Entities
         public string flAtivo { get; set; }
 
         [NotMapped]
-        public Validation.ValidationResult ValidationResult { get; set; }
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region ACAlunoResponsavel

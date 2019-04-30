@@ -5,9 +5,7 @@ namespace One.Domain.Specifications.GEEnderecoSpecification
 {
     public class CEPDeveSerValido : ISpecification<GEEndereco>
     {
-        public bool IsSatisfiedBy(GEEndereco entity)
-        {
-            return !string.IsNullOrEmpty(entity.Cep) && entity.Cep.Length <= 10;
-        }
+        public bool IsSatisfiedBy(GEEndereco entity) 
+            => !string.IsNullOrEmpty(entity.Cep) && entity.Cep.Length <= 10;
     }
 }

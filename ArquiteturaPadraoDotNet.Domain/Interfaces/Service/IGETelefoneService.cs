@@ -5,6 +5,6 @@ namespace One.Domain.Interfaces.Service
 {
     public interface IGETelefoneService: IDisposable
     {
-        void SalvarTelefone(GETelefone GETelefone);
+        GETelefone SalvarTelefone(GETelefone GETelefone);
     }
 }

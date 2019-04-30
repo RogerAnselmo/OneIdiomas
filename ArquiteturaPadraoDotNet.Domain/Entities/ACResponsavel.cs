@@ -1,8 +1,9 @@
-﻿using System;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.ACResponsavelValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace One.Domain.Entities
 {
@@ -11,11 +12,7 @@ namespace One.Domain.Entities
         #region ACResponsavel
         [Key]
         public int CodigoResponsavel { get; set; }
-
-        //[Required]
-        //[MaxLength(200)]
-        //public string NomeCompleto { get; set; }
-
+        
         [MaxLength(20)]
         public string RG { get; set; }
 
@@ -31,14 +28,9 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
-        #endregion
 
-        #region GEEndereco
-        //[Required]
-        //public int CodigoEndereco { get; set; }
-
-        //[ForeignKey("CodigoEndereco")]
-        //public virtual GEEndereco GEEndereco { get; set; }
+        [NotMapped]
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region SEGUsuario
@@ -48,13 +40,30 @@ namespace One.Domain.Entities
         [ForeignKey("CodigoUsuario")]
         public virtual SEGUsuario SEGUsuario { get; set; }
         #endregion
-
-        #region GETelefone
-        //public IEnumerable<GETelefone> GETelefones { get; set; }
-        #endregion
-
+        
         #region ACAlunoResponsavel
         public virtual IEnumerable<ACAlunoResponsavel> ACAlunoResponsavel { get; set; }
+        #endregion
+
+        #region Validação
+        public bool IsValid()
+        {
+            ValidationResult = new ACResponsavelConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        } 
+        #endregion
+
+        #region Métodos Inteligentes
+        public int Idade()
+        {
+            int idade = DateTime.Now.Year - DataNascimento.Year;
+
+            if (DateTime.Now.Month < DataNascimento.Month ||
+                (DateTime.Now.Month == DataNascimento.Month && DateTime.Now.Day < DataNascimento.Day))
+                idade--;
+
+            return idade;
+        }
         #endregion
     }
 }

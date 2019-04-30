@@ -6,26 +6,38 @@ namespace One.Domain.Services
 {
     public class SEGUsuarioService : ISEGUsuarioService
     {
+        #region Seção - Interface IoC
         private readonly ISEGUsuarioRepository _iSEGUsuarioRepository;
+        #endregion
 
+        #region Seção - Construtor
         public SEGUsuarioService(ISEGUsuarioRepository iSEGUsuarioRepository)
+            => _iSEGUsuarioRepository = iSEGUsuarioRepository;
+        #endregion
+
+        #region Seção - Dispose
+        public void Dispose() { }
+        #endregion
+
+        #region Seção - Serviços
+        public SEGUsuario ObterUsuarioPorLogin(string login)
+           => _iSEGUsuarioRepository.ObterUsuarioPorLogin(login);
+
+        public SEGUsuario SalvarUsuario(SEGUsuario SEGUsuario)
         {
-            _iSEGUsuarioRepository = iSEGUsuarioRepository;
+            if (SEGUsuario.IsValid())
+                _iSEGUsuarioRepository.Salvar(SEGUsuario);
+
+            return SEGUsuario;
         }
 
-        public void Dispose()
+        public SEGUsuario AlterarUsuario(SEGUsuario SEGUsuario)
         {
-        }
+            if (SEGUsuario.IsValid())
+                _iSEGUsuarioRepository.Alterar(SEGUsuario);
 
-        public SEGUsuario ObterUsuarioPorLogin(string login) => _iSEGUsuarioRepository.ObterUsuarioPorLogin(login);
-
-        public void SalvarUsuario(SEGUsuario SEGUsuario)
-        {
-            SEGUsuario.CodigoUsuario = 0;//usuário novo sempre tem CodigoUsuario = 0
-            SEGUsuario.flAtivo = "A";//usuário novo sempre tem flAtivo = "A"
-            _iSEGUsuarioRepository.Salvar(SEGUsuario);
-        }
-
-        public void AlterarUsuario(SEGUsuario SEGUsuario) => _iSEGUsuarioRepository.Alterar(SEGUsuario);
+            return SEGUsuario;
+        } 
+        #endregion
     }
 }

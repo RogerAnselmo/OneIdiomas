@@ -17,18 +17,22 @@ namespace One.UI
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-        {
-            string envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Test";
-            string envConfigFile = $"appsettings.{envName}.json";
-
-            return WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(config =>
-                {
-                    config.AddJsonFile("appsettings.json");
-                    config.AddJsonFile(envConfigFile);
-                })
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
-        }
+
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        //{
+        //    string envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Test";
+        //    string envConfigFile = $"appsettings.{envName}.json";
+
+        //    return WebHost.CreateDefaultBuilder(args)
+        //        .ConfigureAppConfiguration(config =>
+        //        {
+        //            config.AddJsonFile("appsettings.json");
+        //            config.AddJsonFile(envConfigFile);
+        //        })
+        //        .UseStartup<Startup>();
+        //}
     }
 }

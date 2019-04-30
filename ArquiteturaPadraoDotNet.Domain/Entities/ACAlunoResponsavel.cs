@@ -1,4 +1,5 @@
-﻿using One.Domain.Validations.ACAlunoResponsavelValidation;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.ACAlunoResponsavelValidation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +12,7 @@ namespace One.Domain.Entities
         public int CodigoAlunoResponsavel { get; set; }
 
         [NotMapped]
-        public Validation.ValidationResult ValidationResult { get; set; }
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region ACAluno

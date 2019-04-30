@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Domain.Validation;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System;
@@ -17,6 +18,7 @@ namespace One.UI.Controllers
         #region Seção: Inteface - IoC
         private readonly IAcademicoAppService _academicoAppService;
         private readonly IGeralAppService _geralAppService;
+        private ValidationResults validationResult;
         #endregion
 
         #region Seção: Construtor
@@ -66,21 +68,12 @@ namespace One.UI.Controllers
 
         #region Seção: Ajax
         [Route("Registrar-Cadastro-Aluno")]
-        public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel CadastroAlunoViewModel)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    _academicoAppService.SalvarAluno(pCadastroAlunoViewModel);
-                    return Json(new { erro = 0, mensagem = "Operação Realizada com sucesso" });
-                }
-                return Json(new { erro = 1, mensagem = "Modelo inválido" });
-            }
-            catch (Exception ex)
-            {
-                return Json(new { erro = 1, mensagem = "Erro ao realizar operação", error = ex.Message });
-            }
+            if (ModelState.IsValid)
+                validationResult = _academicoAppService.SalvarAluno(CadastroAlunoViewModel);
+
+            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }
 
         [Route("Registrar-Edicao-Aluno")]

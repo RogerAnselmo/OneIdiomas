@@ -6,9 +6,7 @@ namespace One.Domain.Specifications.ACAlunoSpecification
 {
     public class RGDeveSerValido : ISpecification<ACAluno>
     {
-        public bool IsSatisfiedBy(ACAluno entity)
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACAluno entity) 
+            => !string.IsNullOrEmpty(entity.RG) && entity.RG.Length <= 20;
     }
 }

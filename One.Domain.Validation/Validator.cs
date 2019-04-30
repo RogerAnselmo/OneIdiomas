@@ -1,18 +1,23 @@
 ﻿using One.Domain.Validation.Interface;
+using System.Linq;
 
 namespace One.Domain.Validation
 {
     public class Validator<TEntity> : IValidator<TEntity> where TEntity : class
     {
-        public ValidationResult validationResult;
+        public ValidationResults validationResult;
         public TEntity entity;
 
-        protected Validator()
+        protected Validator() => validationResult = new ValidationResults(false, "");
+
+        public virtual ValidationResults Validate()
         {
-            validationResult = new ValidationResult();
-        }
-        public virtual ValidationResult Validate()
-        {
+            validationResult = validationResult.Erros
+                               .Where(erro => !erro.IsValid)
+                               .Select(erro => erro)
+                               .FirstOrDefault() ?? new ValidationResults(true, "");
+
+
             return validationResult;
         }
 

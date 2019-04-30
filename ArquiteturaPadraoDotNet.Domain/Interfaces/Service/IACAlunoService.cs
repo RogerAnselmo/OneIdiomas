@@ -6,9 +6,9 @@ namespace One.Domain.Interfaces.Service
 {
     public interface IACAlunoService: IDisposable
     {
-        void SalvarAluno(ACAluno pACAluno);
-        void AlterarAluno(ACAluno pACAluno);
-        void ExcluirAluno(int id);
+        ACAluno SalvarAluno(ACAluno pACAluno);
+        ACAluno AlterarAluno(ACAluno pACAluno);
+        ACAluno ExcluirAluno(int id);
         ACAluno ObterPoId(int CodigoAluno);
         IEnumerable<ACAluno> ObterTodos();
         IEnumerable<ACAluno> ObterPorNome(string nome);

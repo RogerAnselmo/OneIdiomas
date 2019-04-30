@@ -9,102 +9,78 @@ namespace One.Application.Extractors
 {
     public static class CadastroAlunoExtractor
     {
-        public static ACAluno ExtractACAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static SEGUsuario ExtractSEGUsuarioAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new SEGUsuario
         {
-            return new ACAluno
+            Login = CadastroAlunoViewModel.CPF,
+            NomeCompleto = CadastroAlunoViewModel.NomeCompleto,
+            flAtivo = "A"
+        };
+
+        public static SEGUsuario ExtractSEGUsuarioResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new SEGUsuario
             {
-                CodigoAluno = pCadastroAlunoViewModel.CodigoAluno,
-                CPF = pCadastroAlunoViewModel.CPF,
-                DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimento),
-                DiaVencimento = pCadastroAlunoViewModel.DiaVencimento,
-                RG = pCadastroAlunoViewModel.RG,
+                Login = CadastroAlunoViewModel.CPF,
+                NomeCompleto = CadastroAlunoViewModel.NomeCompleto,
                 flAtivo = "A"
             };
-        }
 
-        public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static ACAluno ExtractACAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new ACAluno
         {
-            return new GEEndereco()
-            {
-                CodigoEndereco = pCadastroAlunoViewModel.CodigoEndereco,
-                Cep = pCadastroAlunoViewModel.CEP,
-                CodigoBairro = pCadastroAlunoViewModel.CodigoBairro,
-                Logradouro = pCadastroAlunoViewModel.Logradouro,
-                Numero = pCadastroAlunoViewModel.Numero,
-                flAtivo = "A"
-            };
-        }
+            CodigoAluno = CadastroAlunoViewModel.CodigoAluno,
+            CPF = CadastroAlunoViewModel.CPF,
+            DataNascimento = Convert.ToDateTime(CadastroAlunoViewModel.DataNascimento),
+            DiaVencimento = CadastroAlunoViewModel.DiaVencimento,
+            RG = CadastroAlunoViewModel.RG,
+            flAtivo = "A"
+        };
 
-        public static ACResponsavel ExtractACResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static GEEndereco ExtractGEEnderecoAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
         {
-            return new ACResponsavel
-            {
-                CodigoResponsavel = pCadastroAlunoViewModel.CodigoResponsavel,
-                CPF = pCadastroAlunoViewModel.CPFResponsavel,
-                RG = pCadastroAlunoViewModel.RGResponsavel,
-                DataNascimento = Convert.ToDateTime(pCadastroAlunoViewModel.DataNascimentoResponsavel),
-                flAtivo = "A"
-            };
-        }
+            CodigoEndereco = CadastroAlunoViewModel.CodigoEndereco,
+            Cep = CadastroAlunoViewModel.CEP,
+            CodigoBairro = CadastroAlunoViewModel.CodigoBairro,
+            Logradouro = CadastroAlunoViewModel.Logradouro,
+            Numero = CadastroAlunoViewModel.Numero,
+            flAtivo = "A"
+        };
 
-        public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static ACResponsavel ExtractACResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new ACResponsavel
         {
-            return new GEEndereco()
-            {
-                CodigoEndereco = pCadastroAlunoViewModel.CodigoEnderecoResponsavel,
-                Cep = pCadastroAlunoViewModel.CEPResponsavel,
-                Logradouro = pCadastroAlunoViewModel.LogradouroResponsavel,
-                Numero = pCadastroAlunoViewModel.NumeroResponsavel,
+            CodigoResponsavel = CadastroAlunoViewModel.CodigoResponsavel,
+            CPF = CadastroAlunoViewModel.CPFResponsavel,
+            RG = CadastroAlunoViewModel.RGResponsavel,
+            DataNascimento = Convert.ToDateTime(CadastroAlunoViewModel.DataNascimentoResponsavel),
+            flAtivo = "A"
+        };
 
-                CodigoBairro = pCadastroAlunoViewModel.CodigoBairroResponsavel,
-                //GEBairro = new GEBairro
-                //{
-                //    CodigoBairro = pCadastroAlunoViewModel.CodigoBairroResponsavel,
-
-                //    CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
-                //    GECidade = new GECidade
-                //    {
-                //        CodigoCidade = pCadastroAlunoViewModel.CodigoCidadeResponsavel,
-
-                //        CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel,
-                //        GEUF = new GEUF
-                //        {
-                //            CodigoUF = pCadastroAlunoViewModel.CodigoUFResponsavel
-                //        }
-                //    }
-                //},
-                flAtivo = "A"
-            };
-        }
-
-        public static ACAlunoResponsavel ExtractACAlunoResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static GEEndereco ExtractGEEnderecoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new GEEndereco()
         {
-            return new ACAlunoResponsavel
-            {
-                CodigoAluno = pCadastroAlunoViewModel.CodigoAluno,
-                CodigoResponsavel = pCadastroAlunoViewModel.CodigoResponsavel,
-                CodigoParentesco = pCadastroAlunoViewModel.CodigoParentesco
-            };
-        }
+            CodigoEndereco = CadastroAlunoViewModel.CodigoEnderecoResponsavel,
+            Cep = CadastroAlunoViewModel.CEPResponsavel,
+            Logradouro = CadastroAlunoViewModel.LogradouroResponsavel,
+            Numero = CadastroAlunoViewModel.NumeroResponsavel,
+            CodigoBairro = CadastroAlunoViewModel.CodigoBairroResponsavel,
+            flAtivo = "A"
+        };
 
-        public static GETelefone ExtractTelefoneAluno(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static ACAlunoResponsavel ExtractACAlunoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new ACAlunoResponsavel
         {
-            return new GETelefone
-            {
-                NumeroTelefone = pCadastroAlunoViewModel.Telefone,
-                flAtivo = "A",
-                CodigoTipoTelefone = 1                
-            };
-        }
+            CodigoAluno = CadastroAlunoViewModel.CodigoAluno,
+            CodigoResponsavel = CadastroAlunoViewModel.CodigoResponsavel,
+            CodigoParentesco = CadastroAlunoViewModel.CodigoParentesco
+        };
 
-        public static GETelefone ExtractTelefoneResponsavel(CadastroAlunoViewModel pCadastroAlunoViewModel)
+        public static GETelefone ExtractTelefoneAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new GETelefone
         {
-            return new GETelefone
-            {
-                NumeroTelefone = pCadastroAlunoViewModel.TelefoneResponsavel,
-                flAtivo = "A",
-                CodigoTipoTelefone = 1
-            };
-        }
+            NumeroTelefone = CadastroAlunoViewModel.Telefone,
+            flAtivo = "A",
+            CodigoTipoTelefone = 1
+        };
+
+        public static GETelefone ExtractTelefoneResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new GETelefone
+        {
+            NumeroTelefone = CadastroAlunoViewModel.TelefoneResponsavel,
+            flAtivo = "A",
+            CodigoTipoTelefone = 1
+        };
     }
 }
