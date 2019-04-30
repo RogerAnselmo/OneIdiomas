@@ -15,6 +15,7 @@ namespace One.Application.Services
     public class AcademicoAppService : ApplicationServiceTransaction, IAcademicoAppService
     {
         #region Seção: Interface - IoC
+        private ValidationResults validationResult;
         private readonly IACAlunoService _iACAlunoService;
         private readonly IACResponsavelService _iACResponsavelService;
         private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
@@ -120,25 +121,35 @@ namespace One.Application.Services
             #region salva o responsável
             ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(cadastroAlunoViewModel);
             ACResponsavel.CodigoUsuario = cadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
-            _iACResponsavelService.SalvarResponsavel(ACResponsavel);
+            ACResponsavel = _iACResponsavelService.SalvarResponsavel(ACResponsavel);
+
+            if (!ACResponsavel.ValidationResult.IsValid)
+                return ACResponsavel.ValidationResult;
             #endregion
 
             #region salva o aluno responsavel
-            ACAlunoResponsavel ACAlunoResponsavel = new ACAlunoResponsavel
-            {
-                CodigoAluno = ACAluno.CodigoAluno,
-                CodigoResponsavel = ACResponsavel.CodigoResponsavel,
-                CodigoParentesco = cadastroAlunoViewModel.CodigoParentesco
-            };
-            _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
+            ACAlunoResponsavel ACAlunoResponsavel = new ACAlunoResponsavel(
+                ACAluno.CodigoAluno,
+                ACResponsavel.CodigoResponsavel,
+                cadastroAlunoViewModel.CodigoParentesco
+            );
+
+            ACAlunoResponsavel = _iACAlunoResponsavelService.SalvarAlunoReponsavel(ACAlunoResponsavel);
+
+            if (!ACAlunoResponsavel.ValidationResult.IsValid)
+                return ACAlunoResponsavel.ValidationResult;
+
             #endregion
 
-            #region salvar telefone do respossável
+            #region salvar telefone do responsável
             if (!cadastroAlunoViewModel.AlunoÉOProprioResponsavel)
             {
                 GETelefone GETelefoneresponsavel = CadastroAlunoExtractor.ExtractTelefoneAluno(cadastroAlunoViewModel);
                 GETelefoneresponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
-                _iGETelefoneService.SalvarTelefone(GETelefoneresponsavel);
+                GETelefoneresponsavel = _iGETelefoneService.SalvarTelefone(GETelefoneresponsavel);
+
+                if (!GETelefoneresponsavel.ValidationResult.IsValid)
+                    return GETelefoneresponsavel.ValidationResult;
             }
             #endregion
 
@@ -148,28 +159,40 @@ namespace One.Application.Services
             return new ValidationResults(true, "Aluno salvo com sucesso!");
         }
 
-        public void AlterarAluno(EditarAlunoViewModel editarAlunoViewModel)
+        public ValidationResults AlterarAluno(EditarAlunoViewModel editarAlunoViewModel)
         {
             BeginTransaction();
 
-            SEGUsuario SEGUsuario = EditarAlunoExtractor.ExtractSEGUsuario(editarAlunoViewModel);
-            ACAluno ACAluno = EditarAlunoExtractor.ExtractACAluno(editarAlunoViewModel);
-            GEEndereco GEEndereco = EditarAlunoExtractor.ExtractEnderecoAluno(editarAlunoViewModel);
+            validationResult = _iACAlunoService.AlterarAluno(EditarAlunoExtractor.ExtractACAluno(editarAlunoViewModel)).ValidationResult;
+            if (!validationResult.IsValid)
+                return validationResult;
 
-            _iACAlunoService.AlterarAluno(ACAluno);
-            _iSEGUsuarioService.AlterarUsuario(SEGUsuario);
-            _iGEEnderecoService.AlterarEndereco(GEEndereco);
+            validationResult = _iSEGUsuarioService.AlterarUsuario(EditarAlunoExtractor.ExtractSEGUsuario(editarAlunoViewModel)).ValidationResult;
+            if (!validationResult.IsValid)
+                return validationResult;
+
+            validationResult = _iGEEnderecoService.AlterarEndereco(EditarAlunoExtractor.ExtractEnderecoAluno(editarAlunoViewModel)).ValidationResult;
+            if (!validationResult.IsValid)
+                return validationResult;
 
             SaveChange();
             Commit();
+
+            return new ValidationResults(true, "Aluno alterado com sucesso");
         }
 
-        public void ExcluirAluno(int id)
+        public ValidationResults ExcluirAluno(int id)
         {
             BeginTransaction();
-            _iACAlunoService.ExcluirAluno(id);
+            validationResult = _iACAlunoService.ExcluirAluno(id).ValidationResult;
+
+            if (!validationResult.IsValid)
+                return validationResult;
+
             SaveChange();
             Commit();
+
+            return new ValidationResults(true, "Aluno alterado com sucesso");
         }
 
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome)

@@ -7,6 +7,13 @@ namespace One.Domain.Entities
 {
     public class ACAlunoResponsavel
     {
+        public ACAlunoResponsavel(int codigoAluno, int codigoResponsavel, int codigoParentesco)
+        {
+            CodigoAluno = codigoAluno;
+            CodigoResponsavel = codigoResponsavel;
+            CodigoParentesco = codigoParentesco;
+        }
+
         #region ACAlunoResponsavel
         [Key]
         public int CodigoAlunoResponsavel { get; set; }

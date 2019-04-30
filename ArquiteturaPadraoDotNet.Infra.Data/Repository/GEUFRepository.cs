@@ -16,11 +16,9 @@ namespace One.Infra.Data.Repository
         /// carrega todas as UF's válidas
         /// </summary>
         /// <returns>lista da GEUF</returns>
-        IEnumerable<GEUF> IGEUFRepository.ObterTodos()
-        {
-            return Db.GEUF
-                .Where(uf=> "A".Equals(uf.flAtivo))
+        public IEnumerable<GEUF> ObterTodosAtivos() 
+            => Db.GEUF
+                .Where(uf => "A".Equals(uf.flAtivo))
                 .OrderBy(uf => uf.Descricao);
-        }
     }
 }

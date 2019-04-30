@@ -9,10 +9,10 @@ namespace One.Application.Interfaces
     {
         #region Seção: ACAluno
         ValidationResults SalvarAluno(CadastroAlunoViewModel CadastroAlunoViewModel);
+        ValidationResults AlterarAluno(EditarAlunoViewModel editarAlunoViewModel);
+        ValidationResults ExcluirAluno(int id);
         IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome);
         EditarAlunoViewModel ObterAlunoParaEdicao(int id);
-        void AlterarAluno(EditarAlunoViewModel editarAlunoViewModel);
-        void ExcluirAluno(int id);
         #endregion
     }
 }

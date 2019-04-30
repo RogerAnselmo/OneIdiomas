@@ -7,6 +7,6 @@ namespace One.Domain.Specifications.ACAlunoSpecification
     public class CPFDeveSerValido : ISpecification<ACAluno>
     {
         public bool IsSatisfiedBy(ACAluno entity) 
-            => string.IsNullOrEmpty(entity.CPF) && entity.CPF.Length <= 11;
+            => !string.IsNullOrEmpty(entity.CPF) && entity.CPF.Length <= 11;
     }
 }

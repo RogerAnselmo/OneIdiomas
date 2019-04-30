@@ -63,11 +63,11 @@ namespace One.Application.Extractors
         };
 
         public static ACAlunoResponsavel ExtractACAlunoResponsavel(CadastroAlunoViewModel CadastroAlunoViewModel) => new ACAlunoResponsavel
-        {
-            CodigoAluno = CadastroAlunoViewModel.CodigoAluno,
-            CodigoResponsavel = CadastroAlunoViewModel.CodigoResponsavel,
-            CodigoParentesco = CadastroAlunoViewModel.CodigoParentesco
-        };
+        (
+            CadastroAlunoViewModel.CodigoAluno,
+            CadastroAlunoViewModel.CodigoResponsavel,
+            CadastroAlunoViewModel.CodigoParentesco
+        );
 
         public static GETelefone ExtractTelefoneAluno(CadastroAlunoViewModel CadastroAlunoViewModel) => new GETelefone
         {

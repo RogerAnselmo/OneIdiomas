@@ -5,6 +5,6 @@ namespace One.Domain.Interfaces.Repository
 {
     public interface IGEUFRepository :IRepository<GEUF>
     {
-        IEnumerable<GEUF> ObterTodos();
+        IEnumerable<GEUF> ObterTodosAtivos();
     }
 }

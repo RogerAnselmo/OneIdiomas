@@ -10,6 +10,22 @@ function AlertError(mensagem) {
     swal('Atenção', mensagem, 'error');
 }
 
+function AlertSuccessCallBack(text, _callback) {
+    swal({
+        title: "Atenção",
+        text: text,
+        type: "success",
+        confirmButtonText: "OK",
+        closeOnConfirm: true,
+        showCancelButton: false
+    },
+        function (isConfirm) {
+            if (isConfirm) {
+                _callback();
+            }
+        });
+}
+
 function AlertDelete(text, _callback) {
     swal({
         title: "Atenção",
@@ -26,8 +42,5 @@ function AlertDelete(text, _callback) {
             if (isConfirm) {
                 _callback();
             }
-            //else {
-            //    swal("Cancelled", "Your imaginary file is safe :)", "error");
-            //}
         });
 }

@@ -5,9 +5,6 @@ namespace One.Domain.Specifications.ACAlunoResponsavelSpecification
 {
     public class CodigoResponsavelDeveSerMaiorQueZero : ISpecification<ACAlunoResponsavel>
     {
-        public bool IsSatisfiedBy(ACAlunoResponsavel entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        public bool IsSatisfiedBy(ACAlunoResponsavel entity) => entity.CodigoResponsavel > 0;
     }
 }

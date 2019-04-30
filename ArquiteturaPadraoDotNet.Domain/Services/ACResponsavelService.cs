@@ -22,8 +22,10 @@ namespace One.Domain.Services
 
         public ACResponsavel SalvarResponsavel(ACResponsavel ACResponsavel)
         {
-            if(ACResponsavel.                )
-            _iACResponsavelRepository.Salvar(ACResponsavel);
+            if (ACResponsavel.IsValid())
+                _iACResponsavelRepository.Salvar(ACResponsavel);
+
+            return ACResponsavel;
         }
     }
 }

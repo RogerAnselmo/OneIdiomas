@@ -68,7 +68,9 @@ function SalvarAluno() {
         ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Cadastro-Aluno", MontarCadastroAlunoViewModel(),
             function (retorno) {
                 if (retorno.erro === 0) {
-                    AlertSuccess(retorno.mensagem);
+                    AlertSuccessCallBack(retorno.mensagem, function () {
+                        history.back();
+                    });
                 }
                 else {
                     AlertWarning(retorno.mensagem);
@@ -277,30 +279,4 @@ function ValidarEnderecoDoResponsavel() {
     }
 
     return true;
-}
-
-function PostNoSea() {
-
-    $.ajax({
-        type: 'POST',
-        url: 'http://tjepa-sa214/sea-mobile-teste/autenticar',
-        data: { "username": "pedro.carvalho", "password": "Thepower2019", "grant_type": "password" },
-        contentType: 'application/json',
-        dataType: 'json',
-        sync: false,
-        beforeSend: function () {
-            ShowWaitMe();
-        },
-        success: function (retorno) {
-            console.log(retorno);
-            AlertSuccess("foi");
-        },
-        complete: function () {
-            HideWaitMe();
-        },
-        error: function (erro) {
-            console.log(erro);
-            AlertError("fuen!");
-        }
-    });
 }

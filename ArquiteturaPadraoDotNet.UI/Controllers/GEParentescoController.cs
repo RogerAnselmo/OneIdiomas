@@ -24,6 +24,7 @@ namespace One.UI.Controllers
                                       SignInManager<ApplicationUser> signInManager) 
             : base(baseUrl, userManager, signInManager)
         {
+            _geralAppService = geralAppService;
         }
         #endregion
 
