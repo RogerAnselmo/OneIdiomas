@@ -1,3 +1,5 @@
+use one;
+
 delete from ACAlunoResponsavel
 
 delete from ACAluno;

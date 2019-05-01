@@ -62,13 +62,7 @@ namespace One.Application.Services
             if (!GEEnderecoAluno.ValidationResult.IsValid)
                 return GEEnderecoAluno.ValidationResult;
 
-
-            GEUsuarioEndereco GEUsuarioEnderecoAluno = new GEUsuarioEndereco
-            {
-                CodigoEndereco = GEEnderecoAluno.CodigoEndereco,
-                CodigoUsuario = SEGUsuarioAluno.CodigoUsuario
-            };
-
+            GEUsuarioEndereco GEUsuarioEnderecoAluno = new GEUsuarioEndereco(SEGUsuarioAluno.CodigoUsuario,GEEnderecoAluno.CodigoEndereco);
             GEUsuarioEnderecoAluno = _iGEEnderecoService.SalvarUsuarioEndereco(GEUsuarioEnderecoAluno);
 
             if (!GEUsuarioEnderecoAluno.ValidationResult.IsValid)

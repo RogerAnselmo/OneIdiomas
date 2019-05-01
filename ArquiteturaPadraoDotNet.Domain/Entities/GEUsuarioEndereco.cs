@@ -7,6 +7,12 @@ namespace One.Domain.Entities
 {
     public class GEUsuarioEndereco
     {
+        public GEUsuarioEndereco(int codigoUsuario, int codigoEndereco)
+        {
+            CodigoUsuario = codigoUsuario;
+            CodigoEndereco = codigoEndereco;
+        }
+
         #region GEUsuarioEndereco
         [Key]
         public int CodigoUsuarioEndereco { get; set; }

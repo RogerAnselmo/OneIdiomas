@@ -28,7 +28,7 @@ namespace One.Domain.Services
 
         public GEUsuarioEndereco SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco)
         {
-            if (!GEUsuarioEndereco.IsValid())
+            if (GEUsuarioEndereco.IsValid())
                 _iGEEnderecoRepository.SalvarUsuarioEndereco(GEUsuarioEndereco);
 
             return GEUsuarioEndereco;
@@ -36,7 +36,7 @@ namespace One.Domain.Services
 
         public GEEndereco AlterarEndereco(GEEndereco GEEndereco)
         {
-            if (!GEEndereco.IsValid())
+            if (GEEndereco.IsValid())
                 _iGEEnderecoRepository.Alterar(GEEndereco);
 
             return GEEndereco;

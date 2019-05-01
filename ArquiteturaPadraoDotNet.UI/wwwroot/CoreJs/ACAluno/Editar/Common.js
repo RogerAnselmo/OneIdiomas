@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     _dataNascimento.blur(function () {
 
-        if (_dataNascimento.val() == '' || !fIsDate(_dataNascimento.val()))
+        if (_dataNascimento.val() === '' || !fIsDate(_dataNascimento.val()))
             return;
 
         _idade.val(CalcularIdade(_dataNascimento.val()));
@@ -50,7 +50,7 @@ function AlterarAluno() {
         ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Edicao-Aluno", MontarEditarAlunoViewModel(),
             function (retorno) {
                 if (retorno.erro === 0) {
-                    AlertSuccess(retorno.mensagem);
+                    AlertSuccessCallBack(retorno.mensagem, function () { window.history.back(1); });
                 }
                 else {
                     AlertWarning(retorno.mensagem);

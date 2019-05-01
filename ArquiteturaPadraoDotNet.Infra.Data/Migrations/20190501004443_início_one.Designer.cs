@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190430210839_start")]
-    partial class start
+    [Migration("20190501004443_início_one")]
+    partial class início_one
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

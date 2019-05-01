@@ -18,10 +18,6 @@ $(document).ready(function () {
 
 function SalvarNovoUsuario() {
 
-    //if (!ValidarUsuario()) {
-    //    return;
-    //}
-
     var usuario = {
         NomeCompleto: _nome.val(),
         Login: _login.val(),
@@ -32,8 +28,8 @@ function SalvarNovoUsuario() {
     ExecutarComandoPost("/Seguranca/SalvarUsuarioAsync", usuario,
         function (retorno) {
 
-            if (retorno.erro == 0) {
-                AlertSuccess("Usuário cadastrado com sucesso", function () { window.history.back(1);});
+            if (retorno.erro === 0) {
+                AlertSuccessCallBack("Usuário cadastrado com sucesso", function () { window.history.back(1);});
             }
             else {
                 AlertWarning(retorno.mensagem);
@@ -67,7 +63,7 @@ function ValidarUsuario() {
         AlertWarning('Erro ao confirmar senha');
         return false;
     }
-    else if (_slcFornecedor.val() == 0 || _slcFornecedor.val() == '') {
+    else if (_slcFornecedor.val() === 0 || _slcFornecedor.val() === '') {
         AlertWarning('Selecione um Fornecedor');
         return false;
     }
