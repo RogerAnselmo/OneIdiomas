@@ -7,5 +7,6 @@ namespace One.Domain.Interfaces.Repository
     {
         IQueryable<GEUsuarioEndereco> ObterEnderecosPorCodigoUsuario(int CodigoUsuario);
         void SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
+        void AlterarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
     }
 }

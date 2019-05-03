@@ -17,11 +17,11 @@ namespace One.Application.Interfaces
         #endregion
 
         #region Seção: ACResponsavel
-        ValidationResults SalvarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel);
-        ValidationResults AlterarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel);
+        ValidationResults AlterarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel);
+        ValidationResults SalvarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel);
         ValidationResults ExcluirResponsavel(int id);
         IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome);
-        EditarResponsavelViewModel ObterResponsavelParaEdicao(int id);
+        CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id);
         #endregion
     }
 }

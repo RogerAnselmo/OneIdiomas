@@ -9,6 +9,24 @@ namespace One.Domain.Entities
 {
     public class ACAluno
     {
+        #region Construtor
+        protected ACAluno()
+        {
+            ACResponsavel = new List<ACResponsavel>();
+            flAtivo = "A";
+        }
+
+        public ACAluno(int codigoAluno, int codigoUsuario, string rg, string cpf, DateTime dataNascimento, int diaVencimento) : this()
+        {
+            CodigoAluno = codigoAluno;
+            CodigoUsuario = codigoUsuario;
+            RG = rg;
+            CPF = cpf;
+            DataNascimento = dataNascimento;
+            DiaVencimento = diaVencimento;
+        } 
+        #endregion
+
         #region ACAluno
         [Key]
         public int CodigoAluno { get; set; }

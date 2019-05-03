@@ -4,7 +4,6 @@ var _codigoUsuario = $('#CodigoUsuario');
 var _nomeCompleto = $('#NomeCompleto');
 var _dataNascimento = $('#DataNascimento');
 var _idade = $('#Idade');
-var _telefone = $('#Telefone');
 var _rg = $('#RG');
 var _cpf = $('#CPF');
 var _diaVencimento = $('#DiaVencimento');
@@ -13,8 +12,13 @@ var _diaVencimento = $('#DiaVencimento');
 var _cep = $('#CEP');
 var _codigoUF = $('#CodigoUF');
 var _codigoCidade = $('#CodigoCidade');
+var _codigoEndereco = $('#CodigoEndereco');
 var _logradouro = $('#Logradouro');
 var _codigoBairro = $('#CodigoBairro');
+
+//telefone
+var _codigoTelefone = $('#CodigoTelefone');
+var _telefone = $('#Telefone');
 
 $(document).ready(function () {
 
@@ -35,22 +39,20 @@ $(document).ready(function () {
 
         _idade.val(CalcularIdade(_dataNascimento.val()));
     });
+
+    $('.bt-salvar').click(function () {
+        SalvarResponsavel();
+    });
 });
 
-$('.bt-salvar').click(function () {
-    AlterarResponsavel();
-});
-
-function AlterarResponsavel() {
+function SalvarResponsavel() {
 
     if (ValidarDadosDoResponsavel()) {
 
-        var editarResponsavelViewModel = MontarEditarResponsavelViewModel();
-
-        ExecutarComandoPost("/Gerenciar-Responsavel/Registrar-Edicao-Responsavel", MontarEditarResponsavelViewModel(),
+        ExecutarComandoPost("/Gerenciar-Responsavel/Registrar-Cadastro-Responsavel", MontarCadastroResponsavelViewModel(),
             function (retorno) {
                 if (retorno.erro === 0) {
-                    AlertSuccess(retorno.mensagem);
+                    AlertSuccessCallBack(retorno.mensagem, function () { history.back(1); });
                 }
                 else {
                     AlertWarning(retorno.mensagem);
@@ -103,7 +105,7 @@ function ValidarDadosDoResponsavel() {
     return true;
 }
 
-function MontarEditarResponsavelViewModel() {
+function MontarCadastroResponsavelViewModel() {
 
     return {
         //dados do Responsavel
@@ -112,16 +114,20 @@ function MontarEditarResponsavelViewModel() {
         NomeCompleto: _nomeCompleto.val(),
         DataNascimento: _dataNascimento.val(),
         Idade: _idade.val(),
-        Telefone: _telefone.val(),
         RG: _rg.val(),
         CPF: _cpf.val(),
         DiaVencimento: _diaVencimento.val(),
 
         //endereço Responsavel
+        CodigoEndereco: _codigoEndereco.val(),
         CEP: _cep.val(),
         CodigoUF: _codigoUF.val(),
         CodigoCidade: _codigoCidade.val(),
         Logradouro: _logradouro.val(),
-        CodigoBairro: _codigoBairro.val()
+        CodigoBairro: _codigoBairro.val(),
+
+        //telefone
+        CodigoTelefone: _codigoTelefone.val(),
+        Telefone: _telefone.val()
     };
 }

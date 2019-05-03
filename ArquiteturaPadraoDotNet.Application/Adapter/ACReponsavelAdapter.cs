@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using One.Application.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using One.Application.ViewModels;
+using One.Application.ViewModels.ACResponsavelVM;
 using One.Domain.Entities;
 
 namespace One.Application.Adapter
 {
-    public static class ACReponsavelAdapter 
+    public static class ACReponsavelAdapter
     {
 
         public static ACResponsavelViewModel DomainToViewModel(ACResponsavel domain)
@@ -37,14 +39,44 @@ namespace One.Application.Adapter
             return listaViewModel;
         }
 
-        public static ACResponsavel ViewModelToDomain(ACResponsavelViewModel viewModel)
+        public static CadastroResponsavelViewModel ConvertToCadastroResponsavelViewModel(ACResponsavel ACResponsavel)
         {
-            throw new System.NotImplementedException();
+            GEEndereco GEEndereco = ACResponsavel.SEGUsuario.GEUsuarioEndereco.ToList().FirstOrDefault().GEEndereco;
+            GETelefone GETelefone = ACResponsavel.SEGUsuario.GETelefone.FirstOrDefault();
+
+            return new CadastroResponsavelViewModel
+            {
+                CodigoUsuario = ACResponsavel.CodigoUsuario,
+                CodigoResponsavel = ACResponsavel.CodigoResponsavel,
+                CEP = GEEndereco.Cep,
+                CodigoBairro = GEEndereco.CodigoBairro,
+                CodigoCidade = GEEndereco.GEBairro.CodigoCidade,
+                CodigoEndereco = GEEndereco.CodigoEndereco,
+                CodigoUF = GEEndereco.GEBairro.GECidade.CodigoUF,
+                CPF = ACResponsavel.CPF,
+                DataNascimento = ACResponsavel.DataNascimento.ToShortDateString(),
+                Idade = ACResponsavel.Idade(),
+                Logradouro = GEEndereco.Logradouro,
+                NomeCompleto = ACResponsavel.SEGUsuario.NomeCompleto,
+                RG = ACResponsavel.RG,
+                Telefone = GETelefone.NumeroTelefone,
+                CodigoTelefone = GETelefone.CodigoTelefone
+            };
         }
 
-        public static IEnumerable<ACResponsavel> ViewModelToDomain(IEnumerable<ACResponsavelViewModel> listaViewModel)
-        {
-            throw new System.NotImplementedException();
-        }
+        public static SEGUsuario ExtractSEGUsuario(CadastroResponsavelViewModel cadastroResponsavelViewModel)
+            => new SEGUsuario(cadastroResponsavelViewModel.CodigoUsuario, cadastroResponsavelViewModel.NomeCompleto, cadastroResponsavelViewModel.CPF);
+
+        public static ACResponsavel ExtractACResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
+            => new ACResponsavel(cadastroResponsavelViewModel.CodigoResponsavel, cadastroResponsavelViewModel.CodigoUsuario, cadastroResponsavelViewModel.RG, cadastroResponsavelViewModel.CPF, Convert.ToDateTime(cadastroResponsavelViewModel.DataNascimento));
+
+        public static GEEndereco ExtractEnderecoResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
+            => new GEEndereco(cadastroResponsavelViewModel.CodigoEndereco, cadastroResponsavelViewModel.CodigoBairro, cadastroResponsavelViewModel.Logradouro, cadastroResponsavelViewModel.Numero, cadastroResponsavelViewModel.CEP);
+
+        public static GEEndereco ExtractGEEndereco(CadastroResponsavelViewModel cadastroResponsavelViewModel)
+            => new GEEndereco(cadastroResponsavelViewModel.CodigoEndereco, cadastroResponsavelViewModel.CodigoBairro, cadastroResponsavelViewModel.Logradouro, cadastroResponsavelViewModel.Numero, cadastroResponsavelViewModel.CEP);
+
+        public static GETelefone ExtractTelefone(CadastroResponsavelViewModel cadastroResponsavelViewModel) 
+            => new GETelefone(cadastroResponsavelViewModel.CodigoTelefone, cadastroResponsavelViewModel.Telefone, 1, cadastroResponsavelViewModel.CodigoUsuario);
     }
 }

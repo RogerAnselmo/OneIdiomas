@@ -778,7 +778,7 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
-                        .WithMany("SEGUsuarioPerfis")
+                        .WithMany("SEGUsuarioPerfil")
                         .HasForeignKey("CodigoUsuario")
                         .OnDelete(DeleteBehavior.Restrict);
                 });

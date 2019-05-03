@@ -4,9 +4,9 @@ $(document).ready(function () {
     ConfiguraDataTable(_tableResponsaveis);
 });
 
-function ExcluirAluno(id, botao) {
+function ExcluirResponsavel(id, botao) {
     AlertDelete("Tem certeza que deseja excluir o responsável?", function () {
-        ExecutarComandoPost('/Gerenciar-Responsavel/Excluir-Responsavel', id,
+        ExecutarComandoPost('/Gerenciar-Responsavel/Registrar-Exclusao-Responsavel', id,
             function (retorno) {
                 if (retorno.erro === 0) {
                     $(botao).closest("tr").remove();
@@ -17,7 +17,7 @@ function ExcluirAluno(id, botao) {
                 }
             },
             function (error) {
-                AlertError(retorno.mensagem);
+                AlertError("Erro ao realizar a operação!");
                 console.log(error);
             });
     });

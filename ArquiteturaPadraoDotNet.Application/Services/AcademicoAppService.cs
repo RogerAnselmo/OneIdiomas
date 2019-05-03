@@ -49,104 +49,7 @@ namespace One.Application.Services
         {
             BeginTransaction();
 
-            #region Salva o usuário do aluno
-            SEGUsuario SEGUsuarioAluno = _iSEGUsuarioService.SalvarUsuario(CadastroAlunoExtractor.ExtractSEGUsuarioAluno(cadastroAlunoViewModel));
 
-            if (!SEGUsuarioAluno.ValidationResult.IsValid)
-                return SEGUsuarioAluno.ValidationResult;
-            #endregion
-
-            #region salva o endereço do aluno
-            GEEndereco GEEnderecoAluno = _iGEEnderecoService.SalvarEndereco(CadastroAlunoExtractor.ExtractGEEnderecoAluno(cadastroAlunoViewModel));
-
-            if (!GEEnderecoAluno.ValidationResult.IsValid)
-                return GEEnderecoAluno.ValidationResult;
-
-            GEUsuarioEndereco GEUsuarioEnderecoAluno = new GEUsuarioEndereco(SEGUsuarioAluno.CodigoUsuario,GEEnderecoAluno.CodigoEndereco);
-            GEUsuarioEnderecoAluno = _iGEEnderecoService.SalvarUsuarioEndereco(GEUsuarioEnderecoAluno);
-
-            if (!GEUsuarioEnderecoAluno.ValidationResult.IsValid)
-                return GEUsuarioEnderecoAluno.ValidationResult;
-            #endregion
-
-            #region salva o aluno com os dados do usuário e endereço
-            ACAluno ACAluno = CadastroAlunoExtractor.ExtractACAluno(cadastroAlunoViewModel);
-            ACAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
-            ACAluno = _iACAlunoService.Salvar(ACAluno);
-
-            if (!ACAluno.ValidationResult.IsValid)
-                return ACAluno.ValidationResult;
-
-            #endregion
-
-            #region salva o telefone do aluno
-            GETelefone GETelefoneAluno = CadastroAlunoExtractor.ExtractTelefoneAluno(cadastroAlunoViewModel);
-            GETelefoneAluno.CodigoUsuario = SEGUsuarioAluno.CodigoUsuario;
-            GETelefoneAluno = _iGETelefoneService.SalvarTelefone(GETelefoneAluno);
-
-            if (!GETelefoneAluno.ValidationResult.IsValid)
-                return GETelefoneAluno.ValidationResult;
-
-            #endregion
-
-            #region Salva o usuário do responsável
-            SEGUsuario SEGUsuarioResponsavel = null;
-
-            if (!cadastroAlunoViewModel.AlunoÉOProprioResponsavel)
-            {
-                SEGUsuarioResponsavel = CadastroAlunoExtractor.ExtractSEGUsuarioResponsavel(cadastroAlunoViewModel);
-                SEGUsuarioResponsavel = _iSEGUsuarioService.SalvarUsuario(SEGUsuarioResponsavel);
-
-                if (!SEGUsuarioResponsavel.ValidationResult.IsValid)
-                    return SEGUsuarioResponsavel.ValidationResult;
-            }
-            #endregion
-
-            #region salva o endereço do responsável
-            if (!cadastroAlunoViewModel.UsarEnderecoDoResponsavel)
-            {
-                GEEndereco GEEnderecoResponsavel = CadastroAlunoExtractor.ExtractGEEnderecoResponsavel(cadastroAlunoViewModel);
-                GEEnderecoResponsavel = _iGEEnderecoService.SalvarEndereco(GEEnderecoResponsavel);
-
-                if (!GEEnderecoResponsavel.ValidationResult.IsValid)
-                    return GEEnderecoResponsavel.ValidationResult;
-            }
-            #endregion
-
-            #region salva o responsável
-            ACResponsavel ACResponsavel = CadastroAlunoExtractor.ExtractACResponsavel(cadastroAlunoViewModel);
-            ACResponsavel.CodigoUsuario = cadastroAlunoViewModel.AlunoÉOProprioResponsavel ? SEGUsuarioAluno.CodigoUsuario : SEGUsuarioResponsavel.CodigoUsuario;
-            ACResponsavel = _iACResponsavelService.Salvar(ACResponsavel);
-
-            if (!ACResponsavel.ValidationResult.IsValid)
-                return ACResponsavel.ValidationResult;
-            #endregion
-
-            #region salva o aluno responsavel
-            ACAlunoResponsavel ACAlunoResponsavel = new ACAlunoResponsavel(
-                ACAluno.CodigoAluno,
-                ACResponsavel.CodigoResponsavel,
-                cadastroAlunoViewModel.CodigoParentesco
-            );
-
-            ACAlunoResponsavel = _iACAlunoResponsavelService.Salvar(ACAlunoResponsavel);
-
-            if (!ACAlunoResponsavel.ValidationResult.IsValid)
-                return ACAlunoResponsavel.ValidationResult;
-
-            #endregion
-
-            #region salvar telefone do responsável
-            if (!cadastroAlunoViewModel.AlunoÉOProprioResponsavel)
-            {
-                GETelefone GETelefoneresponsavel = CadastroAlunoExtractor.ExtractTelefoneAluno(cadastroAlunoViewModel);
-                GETelefoneresponsavel.CodigoUsuario = SEGUsuarioResponsavel.CodigoUsuario;
-                GETelefoneresponsavel = _iGETelefoneService.SalvarTelefone(GETelefoneresponsavel);
-
-                if (!GETelefoneresponsavel.ValidationResult.IsValid)
-                    return GETelefoneresponsavel.ValidationResult;
-            }
-            #endregion
 
             SaveChange();
             Commit();
@@ -162,11 +65,11 @@ namespace One.Application.Services
             if (!validationResult.IsValid)
                 return validationResult;
 
-            validationResult = _iSEGUsuarioService.AlterarUsuario(EditarAlunoExtractor.ExtractSEGUsuario(editarAlunoViewModel)).ValidationResult;
+            validationResult = _iSEGUsuarioService.Alterar(EditarAlunoExtractor.ExtractSEGUsuario(editarAlunoViewModel)).ValidationResult;
             if (!validationResult.IsValid)
                 return validationResult;
 
-            validationResult = _iGEEnderecoService.AlterarEndereco(EditarAlunoExtractor.ExtractEnderecoAluno(editarAlunoViewModel)).ValidationResult;
+            validationResult = _iGEEnderecoService.Alterar(EditarAlunoExtractor.ExtractEnderecoAluno(editarAlunoViewModel)).ValidationResult;
             if (!validationResult.IsValid)
                 return validationResult;
 
@@ -202,38 +105,112 @@ namespace One.Application.Services
         #endregion
 
         #region Seção: ACResponsavel
-        public ValidationResults SalvarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel)
+        public ValidationResults SalvarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
         {
-            //validationResult = _iACAlunoService.Alterar(EditarResponsavelExtractor.ExtractACResponsavel(editarResponsavelViewModel)).ValidationResult;
-            //if (!validationResult.IsValid)
-            //    return validationResult;
+            BeginTransaction();
 
-            //validationResult = _iSEGUsuarioService.AlterarUsuario(EditarAlunoExtractor.ExtractSEGUsuario(editarResponsavelViewModel)).ValidationResult;
-            //if (!validationResult.IsValid)
-            //    return validationResult;
+            #region Salva o usuário do responsável
+            var SEGUsuario = _iSEGUsuarioService.Salvar(ACReponsavelAdapter.ExtractSEGUsuario(cadastroResponsavelViewModel));
 
-            //validationResult = _iGEEnderecoService.AlterarEndereco(EditarAlunoExtractor.ExtractEnderecoAluno(editarResponsavelViewModel)).ValidationResult;
-            //if (!validationResult.IsValid)
-            //    return validationResult;
+            if (!SEGUsuario.ValidationResult.IsValid)
+                return SEGUsuario.ValidationResult;
+            #endregion
 
-            return new ValidationResults(false, "não implementado!");
+            #region salva o responsável
+            cadastroResponsavelViewModel.CodigoUsuario = SEGUsuario.CodigoUsuario;
+            ACResponsavel ACResponsavel = _iACResponsavelService.Salvar(ACReponsavelAdapter.ExtractACResponsavel(cadastroResponsavelViewModel));
+
+            if (!ACResponsavel.ValidationResult.IsValid)
+                return ACResponsavel.ValidationResult;
+            #endregion
+
+            #region salva o endereço
+            var GEEndereco = _iGEEnderecoService.Salvar(ACReponsavelAdapter.ExtractGEEndereco(cadastroResponsavelViewModel));
+            if (!GEEndereco.ValidationResult.IsValid)
+                return GEEndereco.ValidationResult;
+            #endregion
+
+            #region vincula endereço ao usuário do responsável
+            var GEUsuarioEndereco = _iGEEnderecoService.SalvarUsuarioEndereco(new GEUsuarioEndereco(SEGUsuario.CodigoUsuario, GEEndereco.CodigoEndereco));
+            if (!GEUsuarioEndereco.ValidationResult.IsValid)
+                return GEUsuarioEndereco.ValidationResult;
+            #endregion
+
+            #region salva o telefone
+            var GETelefone = _iGETelefoneService.Salvar(ACReponsavelAdapter.ExtractTelefone(cadastroResponsavelViewModel));
+            if (!GETelefone.ValidationResult.IsValid)
+                return GETelefone.ValidationResult;
+            #endregion
+
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Responsável cadastrado com sucesso");
         }
 
-        public ValidationResults AlterarResponsavel(EditarResponsavelViewModel editarResponsavelViewModel)
+        public ValidationResults AlterarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
         {
-            throw new System.NotImplementedException();
+
+            BeginTransaction();
+            #region Salva o usuário do responsável
+            var SEGUsuario = _iSEGUsuarioService.Alterar(ACReponsavelAdapter.ExtractSEGUsuario(cadastroResponsavelViewModel));
+
+            if (!SEGUsuario.ValidationResult.IsValid)
+                return SEGUsuario.ValidationResult;
+            #endregion
+
+            #region salva o responsável
+            ACResponsavel ACResponsavel = _iACResponsavelService.Alterar(ACReponsavelAdapter.ExtractACResponsavel(cadastroResponsavelViewModel));
+
+            if (!ACResponsavel.ValidationResult.IsValid)
+                return ACResponsavel.ValidationResult;
+            #endregion
+
+            #region salva o endereço
+            var GEEndereco = _iGEEnderecoService.Alterar(ACReponsavelAdapter.ExtractGEEndereco(cadastroResponsavelViewModel));
+            if (!GEEndereco.ValidationResult.IsValid)
+                return GEEndereco.ValidationResult;
+            #endregion
+
+            #region vincula endereço ao usuário do responsável
+            var GEUsuarioEndereco = _iGEEnderecoService.AlterarUsuarioEndereco(new GEUsuarioEndereco(SEGUsuario.CodigoUsuario, GEEndereco.CodigoEndereco));
+            if (!GEUsuarioEndereco.ValidationResult.IsValid)
+                return GEUsuarioEndereco.ValidationResult;
+            #endregion
+
+            #region salva o telefone
+            var GETelefone = _iGETelefoneService.Alterar(ACReponsavelAdapter.ExtractTelefone(cadastroResponsavelViewModel));
+            if (!GETelefone.ValidationResult.IsValid)
+                return GETelefone.ValidationResult;
+            #endregion
+
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Responsável alterado com sucesso");
         }
 
         public ValidationResults ExcluirResponsavel(int id)
         {
-            throw new System.NotImplementedException();
+            BeginTransaction();
+
+            #region Exclui o responsável
+            var ACResponsavel = _iACResponsavelService.Excluir(id);
+
+            if (!ACResponsavel.ValidationResult.IsValid)
+                return ACResponsavel.ValidationResult;
+            #endregion
+
+            SaveChange();
+            Commit();
+            return new ValidationResults(true, "Responsável excluído com sucesso");
         }
 
         public IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome)
            => ACReponsavelAdapter.DomainToViewModel(_iACResponsavelService.ObterPorNome(nome));
 
-        public EditarResponsavelViewModel ObterResponsavelParaEdicao(int id)
-            => EditarResponsavelExtractor.ConvertToEditarResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
+        public CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id) 
+            => ACReponsavelAdapter.ConvertToCadastroResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
         #endregion
     }
 }

@@ -7,6 +7,16 @@ namespace One.Domain.Entities
 {
     public class GETelefone
     {
+        protected GETelefone() => flAtivo = "A";
+
+        public GETelefone(int codigoTelefone, string numeroTelefone, int codigoTipoTelefone, int codigoUsuario) : this()
+        {
+            CodigoTelefone = codigoTelefone;
+            NumeroTelefone = numeroTelefone;
+            CodigoTipoTelefone = codigoTipoTelefone;
+            CodigoUsuario = codigoUsuario;
+        }
+
         #region GETelefone
         [Key]
         public int CodigoTelefone { get; set; }

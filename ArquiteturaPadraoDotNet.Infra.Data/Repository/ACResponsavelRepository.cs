@@ -13,9 +13,17 @@ namespace One.Infra.Data.Repository
         {
         }
 
-        public IEnumerable<ACResponsavel> ObterPorNome(string nome) 
+        public IEnumerable<ACResponsavel> ObterPorNome(string nome)
             => Db.ACResponsavel.Where(r => r.flAtivo.Equals("A") && r.SEGUsuario.NomeCompleto.Contains(nome))
             .Include(r => r.SEGUsuario)
             .AsNoTracking();
+
+        public override ACResponsavel ObterPorId(int id)
+            => Db.ACResponsavel
+            .Where(r => r.CodigoResponsavel == id)
+            .Include(r => r.SEGUsuario)
+            .Include(r => r.SEGUsuario.GETelefone)
+            .AsNoTracking()
+            .FirstOrDefault();
     }
 }

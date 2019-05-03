@@ -10,10 +10,14 @@ namespace One.Domain.Services
     {
         #region Seção: Interface -IoC
         private readonly IACResponsavelRepository _iACResponsavelRepository;
+        private readonly IGEEnderecoRepository _iGEEnderecoRepository;
         #endregion
 
         #region Seção: Construtor
-        public ACResponsavelService(IACResponsavelRepository iACResponsavelRepository) => _iACResponsavelRepository = iACResponsavelRepository;
+        public ACResponsavelService(IACResponsavelRepository iACResponsavelRepository, IGEEnderecoRepository iGEEnderecoRepository)
+        { _iACResponsavelRepository = iACResponsavelRepository;
+            _iGEEnderecoRepository = iGEEnderecoRepository;
+        }
         #endregion
 
         #region Seção: Dispose
@@ -50,7 +54,11 @@ namespace One.Domain.Services
 
         public IEnumerable<ACResponsavel> ObterPorNome(string nome) => _iACResponsavelRepository.ObterPorNome(nome);
 
-        public ACResponsavel ObterPorId(int id) => _iACResponsavelRepository.ObterPorId(id);
+        public ACResponsavel ObterPorId(int id) {
+            var ACResponsavel = _iACResponsavelRepository.ObterPorId(id);
+            ACResponsavel.SEGUsuario.GEUsuarioEndereco = _iGEEnderecoRepository.ObterEnderecosPorCodigoUsuario(ACResponsavel.SEGUsuario.CodigoUsuario);
+            return ACResponsavel;
+        } 
         #endregion
     }
 }

@@ -20,17 +20,11 @@ namespace One.Application.ViewModels.ACResponsavelVM
         [DisplayName("Idade")]
         public int Idade { get; set; }
 
-        [DisplayName("Telefone")]
-        public string Telefone { get; set; }
-
         [DisplayName("RG")]
         public string RG { get; set; }
 
         [DisplayName("CPF")]
         public string CPF { get; set; }
-
-        [DisplayName("Vencimento")]
-        public int DiaVencimento { get; set; }
         #endregion
 
         #region Seção: Endereço do Responsável
@@ -54,6 +48,14 @@ namespace One.Application.ViewModels.ACResponsavelVM
 
         [DisplayName("Número")]
         public int Numero { get; set; }
+        #endregion
+
+        #region Seção: Telefone do Responsável
+        [DisplayName("CodigoTelefone")]
+        public int CodigoTelefone { get; set; }
+
+        [DisplayName("Telefone")]
+        public string Telefone { get; set; } 
         #endregion
     }
 }

@@ -3,11 +3,26 @@ using One.Domain.Validations.GEEnderecoValidation;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace One.Domain.Entities
 {
     public class GEEndereco
     {
+        protected GEEndereco() {
+            flAtivo = "A";
+            GEUsuarioEndereco = new List<GEUsuarioEndereco>();
+        }
+
+        public GEEndereco(int codigoEndereco, int codigoBairro, string logradouro, int numero, string cep) : this()
+        {
+            CodigoEndereco = codigoEndereco;
+            CodigoBairro = codigoBairro;
+            Logradouro = logradouro;
+            Numero = numero;
+            Cep = cep;
+        }
+
         #region GEEndereco
         [Key]
         public int CodigoEndereco { get; set; }
@@ -39,7 +54,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region GEUsuarioEndereco
-        IEnumerable<GEUsuarioEndereco> GEUsuarioEndereco { get; set; }
+        public virtual IEnumerable<GEUsuarioEndereco> GEUsuarioEndereco { get; set; }
         #endregion,
 
         #region Validação
@@ -49,5 +64,11 @@ namespace One.Domain.Entities
             return ValidationResult.IsValid;
         } 
         #endregion
+
+        public void VincularUsuarioEndereco(SEGUsuario SEGUsuario)
+        {
+            var usuarioEndereco = new GEUsuarioEndereco(SEGUsuario.CodigoUsuario, CodigoEndereco);
+            GEUsuarioEndereco.ToList().Add(usuarioEndereco);
+        }
     }
 }

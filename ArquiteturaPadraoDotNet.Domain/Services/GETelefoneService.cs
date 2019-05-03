@@ -25,10 +25,18 @@ namespace One.Domain.Services
         {
         }
 
-        public GETelefone SalvarTelefone(GETelefone GETelefone)
+        public GETelefone Salvar(GETelefone GETelefone)
         {
             if (GETelefone.IsValid())
                 _iGETelefoneRepository.Salvar(GETelefone);
+
+            return GETelefone;
+        }
+
+        public GETelefone Alterar(GETelefone GETelefone)
+        {
+            if (GETelefone.IsValid())
+                _iGETelefoneRepository.Alterar(GETelefone);
 
             return GETelefone;
         }

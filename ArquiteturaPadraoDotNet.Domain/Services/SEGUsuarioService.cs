@@ -23,7 +23,7 @@ namespace One.Domain.Services
         public SEGUsuario ObterUsuarioPorLogin(string login)
            => _iSEGUsuarioRepository.ObterUsuarioPorLogin(login);
 
-        public SEGUsuario SalvarUsuario(SEGUsuario SEGUsuario)
+        public SEGUsuario Salvar(SEGUsuario SEGUsuario)
         {
             if (SEGUsuario.IsValid())
                 _iSEGUsuarioRepository.Salvar(SEGUsuario);
@@ -31,7 +31,7 @@ namespace One.Domain.Services
             return SEGUsuario;
         }
 
-        public SEGUsuario AlterarUsuario(SEGUsuario SEGUsuario)
+        public SEGUsuario Alterar(SEGUsuario SEGUsuario)
         {
             if (SEGUsuario.IsValid())
                 _iSEGUsuarioRepository.Alterar(SEGUsuario);

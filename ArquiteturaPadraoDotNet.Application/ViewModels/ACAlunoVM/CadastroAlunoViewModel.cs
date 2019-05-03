@@ -6,6 +6,9 @@ namespace One.Application.ViewModels.ACAlunoVM
     public class CadastroAlunoViewModel
     {
         #region Seção: Dados do Aluno
+        [DisplayName("Código Usuário")]
+        public int CodigoUsuario { get; set; }
+
         [DisplayName("Código Aluno")]
         public int CodigoAluno { get; set; }
 

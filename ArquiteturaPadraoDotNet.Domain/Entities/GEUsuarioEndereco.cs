@@ -25,8 +25,8 @@ namespace One.Domain.Entities
         [Required]
         public int CodigoUsuario { get; set; }
 
-        [ForeignKey("CodigoUsuario ")]
-        public virtual SEGUsuario SEGUsuario { get; set; }
+        [ForeignKey("CodigoUsuario")]
+        public SEGUsuario SEGUsuario { get; set; }
         #endregion
 
         #region GEEndereco
@@ -34,7 +34,7 @@ namespace One.Domain.Entities
         public int CodigoEndereco { get; set; }
 
         [ForeignKey("CodigoEndereco")]
-        public virtual GEEndereco GEEndereco { get; set; }
+        public GEEndereco GEEndereco { get; set; }
         #endregion
 
         #region Validação

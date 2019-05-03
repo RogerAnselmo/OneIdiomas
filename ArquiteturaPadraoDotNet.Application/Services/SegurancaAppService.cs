@@ -29,7 +29,7 @@ namespace One.Application.Services
         public void SalvarUsuario(SEGUsuarioViewModel usuarioViewModel)
         {
             BeginTransaction();
-            _iSEGUsuarioService.SalvarUsuario(SEGUsuarioAdapter.ViewModelToDomain(usuarioViewModel));
+            _iSEGUsuarioService.Salvar(SEGUsuarioAdapter.ViewModelToDomain(usuarioViewModel));
             SaveChange();
             Commit();
         }

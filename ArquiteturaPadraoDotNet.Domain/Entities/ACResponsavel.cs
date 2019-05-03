@@ -9,10 +9,27 @@ namespace One.Domain.Entities
 {
     public class ACResponsavel
     {
+        #region Construtor
+        protected ACResponsavel()
+        {
+            ACAlunoResponsavel = new List<ACAlunoResponsavel>();
+            flAtivo = "A";
+        }
+
+        public ACResponsavel(int codigoResponsavel, int codigoUsuario, string rg, string cpf, DateTime dataNascimento) : this()
+        {
+            CodigoResponsavel = codigoResponsavel;
+            CodigoUsuario = codigoUsuario;
+            RG = rg;
+            CPF = cpf;
+            DataNascimento = dataNascimento;
+        } 
+        #endregion
+
         #region ACResponsavel
         [Key]
         public int CodigoResponsavel { get; set; }
-        
+
         [MaxLength(20)]
         public string RG { get; set; }
 
@@ -40,7 +57,7 @@ namespace One.Domain.Entities
         [ForeignKey("CodigoUsuario")]
         public virtual SEGUsuario SEGUsuario { get; set; }
         #endregion
-        
+
         #region ACAlunoResponsavel
         public virtual IEnumerable<ACAlunoResponsavel> ACAlunoResponsavel { get; set; }
         #endregion
@@ -50,7 +67,7 @@ namespace One.Domain.Entities
         {
             ValidationResult = new ACResponsavelConsistenteValidation(this).Validate();
             return ValidationResult.IsValid;
-        } 
+        }
         #endregion
 
         #region Métodos Inteligentes

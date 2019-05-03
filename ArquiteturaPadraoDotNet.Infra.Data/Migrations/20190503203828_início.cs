@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class início_one : Migration
+    public partial class início : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -30,6 +30,12 @@ namespace One.Infra.Data.Repository
             Db.GEUsuarioEndereco.Add(GEUsuarioEndereco);
             Db.SaveChanges();
         }
+
+        public void AlterarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco)
+        {
+            Db.GEUsuarioEndereco.Update(GEUsuarioEndereco);
+            Db.SaveChanges();
+        }
         #endregion
     }
 }

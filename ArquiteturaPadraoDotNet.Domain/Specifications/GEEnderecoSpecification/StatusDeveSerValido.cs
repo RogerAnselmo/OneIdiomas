@@ -5,11 +5,12 @@ namespace One.Domain.Specifications.GEEnderecoSpecification
 {
     public class StatusDeveSerValido : ISpecification<GEEndereco>
     {
-        public bool IsSatisfiedBy(GEEndereco entity) 
+        readonly string ativo = "A";
+        readonly string inativo = "I";
+
+
+        public bool IsSatisfiedBy(GEEndereco entity)
             => entity.flAtivo.Length == 1
-                && (
-                    entity.flAtivo.Equals("A") ||//Ativo
-                    entity.flAtivo.Equals("I")   //Inativo
-                );
+                && (entity.flAtivo.Equals(ativo) || entity.flAtivo.Equals(inativo));
     }
 }

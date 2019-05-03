@@ -1,6 +1,5 @@
-﻿@model One.Application.ViewModels.ACResponsavelVM.EditarResponsavelViewModel
+﻿@model One.Application.ViewModels.ACResponsavelVM.CadastroResponsavelViewModel
 @{
-    ViewData["Title"] = "Editar Aluno";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,20 +20,20 @@
                         <ul class="nav nav-tabs nav-justify">
                             <li class="active">
                                 <a href="#w2-account" data-toggle="tab" class="text-center">
-                                    Aluno
+                                    Responsável
                                 </a>
                             </li>
                         </ul>
-
-                        <div style="display:none;">
-                            <input asp-for="CodigoUsuario" />
-                            <input asp-for="CodigoResponsavel" />
-                        </div>
-
-
-                        <form class="form-horizontal" novalidate="novalidate">
+                        <form class="form-horizontal">
                             <div class="tab-content">
-                                @*ABA Aluno*@
+
+                                <div style="display:none;">
+                                    <input asp-for="CodigoUsuario" />
+                                    <input asp-for="CodigoResponsavel" />
+                                    <input asp-for="CodigoEndereco" />
+                                    <input asp-for="CodigoTelefone" />
+                                </div>
+
                                 <div id="w2-account" class="tab-pane active">
 
                                     @*Nome*@
@@ -164,4 +163,4 @@
     </div>
 </div>
 
-<script src="~/CoreJs/ACResponsavel/Editar/Common.js"></script>
+<script src="~/CoreJs/ACResponsavel/Common.js"></script>

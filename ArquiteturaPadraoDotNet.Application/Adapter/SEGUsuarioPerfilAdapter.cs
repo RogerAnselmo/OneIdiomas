@@ -38,17 +38,15 @@ namespace One.Application.Adapter
 
         #region ViewModelToDomain
         public static SEGUsuarioPerfil ViewModelToDomain(SEGUsuarioPerfilViewModel viewModel)
-        {
-            return new SEGUsuarioPerfil
+            => new SEGUsuarioPerfil
             {
                 CodigoPerfil = viewModel.CodigoPerfil,
                 CodigoPerfilPadrao = viewModel.CodigoPerfil,
                 CodigoUsuario = viewModel.CodigoUsuario,
                 CodigoUsuarioPerfil = viewModel.CodigoUsuario,
                 SEGPerfil = viewModel.SEGPerfilViewModel == null ? new SEGPerfil() : SEGPerfilAdapter.ViewModelToDomain(viewModel.SEGPerfilViewModel),
-                SEGUsuario = viewModel.SEGUsuarioViewModel == null ? new SEGUsuario() : SEGUsuarioAdapter.ViewModelToDomain(viewModel.SEGUsuarioViewModel)
+                SEGUsuario = viewModel.SEGUsuarioViewModel == null ? new SEGUsuario(0, "", "") : SEGUsuarioAdapter.ViewModelToDomain(viewModel.SEGUsuarioViewModel)
             };
-        }
 
         public static IEnumerable<SEGUsuarioPerfil> ViewModelToDomain(IEnumerable<SEGUsuarioPerfilViewModel> listaViewModel)
         {
@@ -63,7 +61,7 @@ namespace One.Application.Adapter
             }
 
             return lista;
-        } 
+        }
         #endregion
     }
 }

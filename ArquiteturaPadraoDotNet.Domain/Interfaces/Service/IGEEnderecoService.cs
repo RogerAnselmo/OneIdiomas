@@ -5,10 +5,11 @@ using System.Text;
 
 namespace One.Domain.Interfaces.Service
 {
-    public interface IGEEnderecoService: IDisposable
+    public interface IGEEnderecoService : IDisposable
     {
-        GEEndereco SalvarEndereco(GEEndereco GEEndereco);
+        GEEndereco Salvar(GEEndereco GEEndereco);
+        GEEndereco Alterar(GEEndereco GEEndereco);
         GEUsuarioEndereco SalvarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
-        GEEndereco AlterarEndereco(GEEndereco GEEndereco);    
+        GEUsuarioEndereco AlterarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco);
     }
 }

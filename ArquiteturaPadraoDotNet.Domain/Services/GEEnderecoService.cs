@@ -18,10 +18,18 @@ namespace One.Domain.Services
         {
         }
 
-        public GEEndereco SalvarEndereco(GEEndereco GEEndereco)
+        public GEEndereco Salvar(GEEndereco GEEndereco)
         {
             if (GEEndereco.IsValid())
                 _iGEEnderecoRepository.Salvar(GEEndereco);
+
+            return GEEndereco;
+        }
+
+        public GEEndereco Alterar(GEEndereco GEEndereco)
+        {
+            if (GEEndereco.IsValid())
+                _iGEEnderecoRepository.Alterar(GEEndereco);
 
             return GEEndereco;
         }
@@ -34,12 +42,13 @@ namespace One.Domain.Services
             return GEUsuarioEndereco;
         }
 
-        public GEEndereco AlterarEndereco(GEEndereco GEEndereco)
+        public GEUsuarioEndereco AlterarUsuarioEndereco(GEUsuarioEndereco GEUsuarioEndereco)
         {
-            if (GEEndereco.IsValid())
-                _iGEEnderecoRepository.Alterar(GEEndereco);
+            if (GEUsuarioEndereco.IsValid())
+                _iGEEnderecoRepository.AlterarUsuarioEndereco(GEUsuarioEndereco);
 
-            return GEEndereco;
+            return GEUsuarioEndereco;
         }
+
     }
 }

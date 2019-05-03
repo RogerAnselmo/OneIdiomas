@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190501004443_início_one")]
-    partial class início_one
+    [Migration("20190503203828_início")]
+    partial class início
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -780,7 +780,7 @@ namespace One.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("One.Domain.Entities.SEGUsuario", "SEGUsuario")
-                        .WithMany("SEGUsuarioPerfis")
+                        .WithMany("SEGUsuarioPerfil")
                         .HasForeignKey("CodigoUsuario")
                         .OnDelete(DeleteBehavior.Restrict);
                 });

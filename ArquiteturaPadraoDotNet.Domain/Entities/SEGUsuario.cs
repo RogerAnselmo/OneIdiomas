@@ -8,6 +8,23 @@ namespace One.Domain.Entities
 {
     public class SEGUsuario
     {
+        #region Construtor
+        protected SEGUsuario()
+        {
+            flAtivo = "A";
+            GEUsuarioEndereco = new List<GEUsuarioEndereco>();
+            GETelefone = new List<GETelefone>();
+            SEGUsuarioPerfil = new List<SEGUsuarioPerfil>();
+        }
+
+        public SEGUsuario(int codigoUsuario, string nomeCompleto, string login) : this()
+        {
+            CodigoUsuario = codigoUsuario;
+            NomeCompleto = nomeCompleto;
+            Login = login;
+        } 
+        #endregion
+
         #region SEGUsuario
         [Key]
         public int CodigoUsuario { get; set; }
@@ -32,7 +49,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region SEGUsuarioPerfil
-        public virtual IEnumerable<SEGUsuarioPerfil> SEGUsuarioPerfis { get; set; }
+        public virtual IEnumerable<SEGUsuarioPerfil> SEGUsuarioPerfil { get; set; }
         #endregion
 
         #region GETelefone

@@ -32,33 +32,20 @@ namespace One.Application.Extractors
             };
         }
 
-        public static SEGUsuario ExtractSEGUsuario(EditarAlunoViewModel editarAlunoViewModel) => new SEGUsuario
-        {
-            CodigoUsuario = editarAlunoViewModel.CodigoUsuario,
-            NomeCompleto = editarAlunoViewModel.NomeCompleto,
-            Login = editarAlunoViewModel.CPF,
-            flAtivo = "A"
-        };
+        public static SEGUsuario ExtractSEGUsuario(EditarAlunoViewModel editarAlunoViewModel)
+            => new SEGUsuario(editarAlunoViewModel.CodigoUsuario, editarAlunoViewModel.NomeCompleto, editarAlunoViewModel.CPF);
 
         public static ACAluno ExtractACAluno(EditarAlunoViewModel editarAlunoViewModel) => new ACAluno
-        {
-            CodigoUsuario = editarAlunoViewModel.CodigoUsuario,
-            DataNascimento = Convert.ToDateTime(editarAlunoViewModel.DataNascimento),
-            CodigoAluno = editarAlunoViewModel.CodigoAluno,
-            CPF = editarAlunoViewModel.CPF,
-            DiaVencimento = editarAlunoViewModel.DiaVencimento,
-            RG = editarAlunoViewModel.RG,
-            flAtivo = "A"
-        };
+        (
+            editarAlunoViewModel.CodigoAluno,
+            editarAlunoViewModel.CodigoUsuario,
+            editarAlunoViewModel.RG,
+            editarAlunoViewModel.CPF,
+            Convert.ToDateTime(editarAlunoViewModel.DataNascimento),
+            editarAlunoViewModel.DiaVencimento
+        );
 
-        public static GEEndereco ExtractEnderecoAluno(EditarAlunoViewModel editarAlunoViewModel) => new GEEndereco
-        {
-            Cep = editarAlunoViewModel.CEP,
-            CodigoBairro = editarAlunoViewModel.CodigoBairro,
-            CodigoEndereco = editarAlunoViewModel.CodigoEndereco,
-            flAtivo = "A",
-            Logradouro = editarAlunoViewModel.Logradouro,
-            Numero = editarAlunoViewModel.Numero
-        };
+        public static GEEndereco ExtractEnderecoAluno(EditarAlunoViewModel editarAlunoViewModel) 
+            => new GEEndereco(editarAlunoViewModel.CodigoEndereco, editarAlunoViewModel.CodigoBairro, editarAlunoViewModel.Logradouro, editarAlunoViewModel.Numero, editarAlunoViewModel.CEP);
     }
 }

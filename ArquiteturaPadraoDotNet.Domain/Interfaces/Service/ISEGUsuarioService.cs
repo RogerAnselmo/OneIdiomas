@@ -6,7 +6,7 @@ namespace One.Domain.Interfaces.Service
     public interface ISEGUsuarioService: IDisposable
     {
         SEGUsuario ObterUsuarioPorLogin(string login);
-        SEGUsuario SalvarUsuario(SEGUsuario usuario);
-        SEGUsuario AlterarUsuario(SEGUsuario SEGUsuario); 
+        SEGUsuario Salvar(SEGUsuario usuario);
+        SEGUsuario Alterar(SEGUsuario SEGUsuario); 
     }
 }

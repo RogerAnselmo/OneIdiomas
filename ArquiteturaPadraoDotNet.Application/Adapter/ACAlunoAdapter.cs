@@ -37,26 +37,5 @@ namespace One.Application.Adapter
 
             return listaViewModel;
         }
-
-        public static ACAluno ViewModelToDomain(ACAlunoViewModel viewModel)
-        {
-            ACAluno domain = new ACAluno();
-
-            if (viewModel != null)
-            {
-                domain = new ACAluno
-                {
-                    CodigoAluno = viewModel.CodigoAluno,
-                    CodigoUsuario = viewModel.SEGUsuarioViewModel != null ? viewModel.SEGUsuarioViewModel.CodigoUsuario : 0
-                };
-            }
-
-            return domain;
-        }
-
-        public static IEnumerable<ACAluno> ViewModelToDomain(IEnumerable<ACAlunoViewModel> listaViewModel)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

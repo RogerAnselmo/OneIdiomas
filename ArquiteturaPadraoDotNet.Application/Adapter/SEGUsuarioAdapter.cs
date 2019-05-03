@@ -9,15 +9,7 @@ namespace One.Application.Adapter
     {
         #region ViewModelToDomain
         public static SEGUsuario ViewModelToDomain(SEGUsuarioViewModel usuarioViewModel)
-        {
-            return new SEGUsuario
-            {
-                CodigoUsuario = usuarioViewModel.CodigoUsuario,
-                flAtivo = usuarioViewModel.flAtivo,
-                Login = usuarioViewModel.Login,
-                NomeCompleto = usuarioViewModel.NomeCompleto
-            };
-        }
+            => new SEGUsuario(usuarioViewModel.CodigoUsuario, usuarioViewModel.NomeCompleto, usuarioViewModel.Login);
 
         public static IEnumerable<SEGUsuario> ViewModelToDomain(IEnumerable<SEGUsuarioViewModel> listaUsuarioViewModel)
         {
@@ -42,15 +34,15 @@ namespace One.Application.Adapter
                 flAtivo = SEGUsuario.flAtivo,
                 Login = SEGUsuario.Login,
                 NomeCompleto = SEGUsuario.NomeCompleto
-            }; 
+            };
             #endregion
 
             #region PerfilViewModel
-            if(SEGUsuario.SEGUsuarioPerfis != null)
+            if (SEGUsuario.SEGUsuarioPerfil != null)
             {
                 SEGUsuarioViewModel.SEGPerfilViewModel = new List<SEGPerfilViewModel>();
 
-                foreach (SEGUsuarioPerfil SEGUsuarioPerfil in SEGUsuario.SEGUsuarioPerfis)
+                foreach (SEGUsuarioPerfil SEGUsuarioPerfil in SEGUsuario.SEGUsuarioPerfil)
                 {
                     SEGUsuarioViewModel.SEGPerfilViewModel.Add(new SEGPerfilViewModel
                     {
@@ -74,7 +66,7 @@ namespace One.Application.Adapter
             }
 
             return listaUsuarioViewModel;
-        } 
+        }
         #endregion
     }
 }
