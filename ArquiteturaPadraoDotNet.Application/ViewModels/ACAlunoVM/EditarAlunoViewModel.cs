@@ -53,7 +53,7 @@ namespace One.Application.ViewModels.ACAlunoVM
         public string Logradouro { get; set; }
 
         [DisplayName("Número")]
-        public int Numero{ get; set; }
+        public string Numero{ get; set; }
         #endregion
     }
 }

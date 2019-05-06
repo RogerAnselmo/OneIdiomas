@@ -14,7 +14,7 @@ namespace One.Domain.Entities
             GEUsuarioEndereco = new List<GEUsuarioEndereco>();
         }
 
-        public GEEndereco(int codigoEndereco, int codigoBairro, string logradouro, int numero, string cep) : this()
+        public GEEndereco(int codigoEndereco, int codigoBairro, string logradouro, string numero, string cep) : this()
         {
             CodigoEndereco = codigoEndereco;
             CodigoBairro = codigoBairro;
@@ -27,7 +27,7 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoEndereco { get; set; }
 
-        public int Numero { get; set; }
+        public string Numero { get; set; }
 
         [Required]
         [MaxLength(500)]

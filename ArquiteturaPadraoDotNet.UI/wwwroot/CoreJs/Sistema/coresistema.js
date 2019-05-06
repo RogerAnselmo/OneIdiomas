@@ -1,4 +1,6 @@
-﻿function configuraFormulario(_nameform, _success, _error) {
+﻿var _ModuloSistema = $('#ModuloSistema');
+
+function configuraFormulario(_nameform, _success, _error) {
     $(_nameform).on("submit", function (event) {
         event.preventDefault();
 

@@ -25,18 +25,15 @@ $(document).ready(function () {
     _idade.attr("disabled", "disabled");
 
     //configura datas
-    ConfiguraDatePicker(_dataNascimento);
+    //ConfiguraDateFormat();
 
     _codigoUF.val(5);//Pará
     _codigoCidade.val(1);//Abaetetuba
 
     _codigoUF.attr("disabled", "true");
+    _codigoCidade.attr("disabled", "true");
 
     _dataNascimento.blur(function () {
-
-        if (_dataNascimento.val() == '' || !fIsDate(_dataNascimento.val()))
-            return;
-
         _idade.val(CalcularIdade(_dataNascimento.val()));
     });
 

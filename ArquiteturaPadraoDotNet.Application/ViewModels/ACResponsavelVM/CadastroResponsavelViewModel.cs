@@ -47,7 +47,7 @@ namespace One.Application.ViewModels.ACResponsavelVM
         public string Logradouro { get; set; }
 
         [DisplayName("Número")]
-        public int Numero { get; set; }
+        public string Numero { get; set; }
         #endregion
 
         #region Seção: Telefone do Responsável
