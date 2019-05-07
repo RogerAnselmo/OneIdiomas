@@ -4,21 +4,20 @@ using One.UI.Controllers;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace One.Test.Integration.Smoke
+namespace One.Tests.Integration.Smoke
 {
-
-    public class StartUptest: GlobalSetup
+    public class StartUpTest: GlobalSetup
     {
         [Test]
         public async Task ServerShouldStart() =>
-            (await httpClient.GetAsync(nameof(HomeController.ApplicationIsAlive)))
+            (await httpClient.GetAsync(nameof(HomeController.ServidorDeveExistir)))
                 .StatusCode.Should().Be(HttpStatusCode.OK);
 
 
 
         [Test]
         public async Task DataBaseShouldStart() =>
-            (await httpClient.GetAsync(nameof(HomeController.DataBaseIsAlive)))
+            (await httpClient.GetAsync(nameof(HomeController.BancoDeDadosDeveExistir)))
                 .StatusCode.Should().Be(HttpStatusCode.OK);
     }
 }

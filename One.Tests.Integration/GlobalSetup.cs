@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.TestHost;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using Microsoft.AspNetCore.TestHost;
+using System.Net.Http;
 using One.UI;
 using System;
-using System.Net.Http;
 
-namespace One.Test.Integration
+namespace One.Tests.Integration
 {
     [TestFixture]
     public class GlobalSetup

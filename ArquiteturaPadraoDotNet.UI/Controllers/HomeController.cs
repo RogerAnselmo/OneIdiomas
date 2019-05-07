@@ -17,14 +17,14 @@ namespace One.UI.Controllers
             return View();
         }
 
-        [Route(nameof(ApplicationIsAlive))]
-        public ActionResult ApplicationIsAlive()
+        [Route(nameof(ServidorDeveExistir))]
+        public ActionResult ServidorDeveExistir()
         {
             return StatusCode(StatusCodes.Status200OK);
         }
 
-        [Route(nameof(DataBaseIsAlive))]
-        public ActionResult DataBaseIsAlive()
+        [Route(nameof(BancoDeDadosDeveExistir))]
+        public ActionResult BancoDeDadosDeveExistir()
         {
             return (context.Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists()
             ? StatusCode(StatusCodes.Status200OK)

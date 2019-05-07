@@ -19,9 +19,6 @@ $(document).ready(function () {
 
     _idade.attr("disabled", "disabled");
 
-    //configura datas
-    ConfiguraDatePicker(_dataNascimento);
-
     _codigoUF.val(5);//Pará
     _codigoCidade.val(1);//Abaetetuba
 
