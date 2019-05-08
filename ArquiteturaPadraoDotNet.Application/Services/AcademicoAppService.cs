@@ -5,6 +5,7 @@ using One.Application.Interfaces;
 using One.Application.UoW;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Application.ViewModels.ACProfessorVM;
 using One.Application.ViewModels.ACResponsavelVM;
 using One.Domain.Entities;
 using One.Domain.Interfaces.Service;
@@ -20,6 +21,7 @@ namespace One.Application.Services
         private readonly IACAlunoService _iACAlunoService;
         private readonly IACResponsavelService _iACResponsavelService;
         private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
+        private readonly IACProfessorService _iACProfessorService;
         private readonly IGEEnderecoService _iGEEnderecoService;
         private readonly ISEGUsuarioService _iSEGUsuarioService;
         private readonly IGETelefoneService _iGETelefoneService;
@@ -30,6 +32,7 @@ namespace One.Application.Services
             IACAlunoService iACAlunoService,
             IACResponsavelService iACResponsavelService,
             IACAlunoResponsavelService iACAlunoResponsavelService,
+            IACProfessorService iACProfessorService,
             ISEGUsuarioService iSEGUsuarioService,
             IGEEnderecoService iGEEnderecoService,
             IGETelefoneService iGETelefoneService,
@@ -38,6 +41,7 @@ namespace One.Application.Services
             _iACAlunoService = iACAlunoService;
             _iACResponsavelService = iACResponsavelService;
             _iACAlunoResponsavelService = iACAlunoResponsavelService;
+            _iACProfessorService = iACProfessorService;
             _iGEEnderecoService = iGEEnderecoService;
             _iSEGUsuarioService = iSEGUsuarioService;
             _iGETelefoneService = iGETelefoneService;
@@ -258,5 +262,31 @@ namespace One.Application.Services
         public CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id) 
             => ACResponsavelAdapter.ConvertToCadastroResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
         #endregion
+
+        public ValidationResults SalvarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel)
+        {
+            BeginTransaction();
+
+            #region Salva o usuário do Aluno
+            var SEGUsuario = _iSEGUsuarioService.Salvar(ACProfessorAdapter.ExtractSEGUsuario(cadastroProfessorViewModel));
+
+            if (!SEGUsuario.ValidationResult.IsValid)
+                return SEGUsuario.ValidationResult;
+            #endregion
+
+            #region salva o Professor
+            cadastroProfessorViewModel.CodigoUsuario = SEGUsuario.CodigoUsuario;
+            ACProfessor ACProfessor = _iACProfessorService.Salvar(ACProfessorAdapter.ExtractACAluno(cadastroProfessorViewModel));
+
+            if (!ACProfessor.ValidationResult.IsValid)
+                return ACProfessor.ValidationResult;
+            #endregion
+
+
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Professor salvo com sucesso!");
+        }
     }
 }

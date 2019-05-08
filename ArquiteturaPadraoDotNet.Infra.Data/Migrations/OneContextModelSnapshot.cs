@@ -181,12 +181,10 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ACAlunoCodigoAluno");
+                    b.Property<int>("CodigoAluno");
 
                     b.Property<string>("CodigoIdentificador")
                         .IsRequired();
-
-                    b.Property<int>("CodigoResponsavel");
 
                     b.Property<int>("CodigoTurma");
 
@@ -196,9 +194,7 @@ namespace One.Infra.Data.Migrations
 
                     b.HasKey("CodigoMatricula");
 
-                    b.HasIndex("ACAlunoCodigoAluno");
-
-                    b.HasIndex("CodigoResponsavel");
+                    b.HasIndex("CodigoAluno");
 
                     b.HasIndex("CodigoTurma");
 
@@ -650,14 +646,9 @@ namespace One.Infra.Data.Migrations
 
             modelBuilder.Entity("One.Domain.Entities.ACMatricula", b =>
                 {
-                    b.HasOne("One.Domain.Entities.ACAluno")
+                    b.HasOne("One.Domain.Entities.ACAluno", "ACAluno")
                         .WithMany("ACMatricula")
-                        .HasForeignKey("ACAlunoCodigoAluno")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("One.Domain.Entities.ACResponsavel", "ACResponsavel")
-                        .WithMany()
-                        .HasForeignKey("CodigoResponsavel")
+                        .HasForeignKey("CodigoAluno")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("One.Domain.Entities.ACTurma", "ACTurma")

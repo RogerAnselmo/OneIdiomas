@@ -7,6 +7,19 @@ namespace One.Domain.Entities
 {
     public class ACTurma
     {
+        protected ACTurma() => flAtivo = "A";
+
+        public ACTurma(int codigoTurma, string descricao, DateTime dataInicio, DateTime dataFim, decimal valorBase, int codigoNivel, int codigoProfessor) : this()
+        {
+            CodigoTurma = codigoTurma;
+            Descricao = descricao;
+            DataInicio = dataInicio;
+            DataFim = dataFim;
+            ValorBase = valorBase;
+            CodigoNivel = codigoNivel;
+            CodigoProfessor = codigoProfessor;
+        }
+
         #region ACTurma
         [Key]
         public int CodigoTurma { get; set; }
@@ -19,7 +32,7 @@ namespace One.Domain.Entities
         public DateTime DataInicio { get; set; }
 
         [Required]
-        public DateTime DataFim { get; set; } 
+        public DateTime DataFim { get; set; }
 
         [Required]
         public decimal ValorBase { get; set; }
@@ -43,7 +56,7 @@ namespace One.Domain.Entities
         [Required]
         public int CodigoProfessor { get; set; }
 
-        public virtual ACProfessor ACProfessor { get; set; } 
+        public virtual ACProfessor ACProfessor { get; set; }
         #endregion
     }
 }

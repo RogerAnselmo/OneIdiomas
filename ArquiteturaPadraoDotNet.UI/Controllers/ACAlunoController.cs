@@ -71,6 +71,8 @@ namespace One.UI.Controllers
                 validationResult = cadastroAlunoViewModel.CodigoAluno == 0 ?
                     _academicoAppService.SalvarAluno(cadastroAlunoViewModel)
                     : _academicoAppService.AlterarAluno(cadastroAlunoViewModel);
+            else
+                validationResult = new ValidationResults(false, "modelo inválido");
 
             return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }

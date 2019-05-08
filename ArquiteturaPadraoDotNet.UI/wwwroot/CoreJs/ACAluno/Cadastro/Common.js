@@ -162,7 +162,7 @@ function ValidarEnderecoDoAluno() {
     //cep
     if ($.trim(_cep.val()) === "") {
         AlertWarning("Preencha o cep do aluno");
-        _cep.focus()
+        _cep.focus();
         return false;
     }
 

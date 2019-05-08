@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class start : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -408,24 +408,17 @@ namespace One.Infra.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CodigoIdentificador = table.Column<string>(nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
-                    CodigoResponsavel = table.Column<int>(nullable: false),
                     CodigoTurma = table.Column<int>(nullable: false),
-                    ACAlunoCodigoAluno = table.Column<int>(nullable: true)
+                    CodigoAluno = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ACMatricula", x => x.CodigoMatricula);
                     table.ForeignKey(
-                        name: "FK_ACMatricula_ACAluno_ACAlunoCodigoAluno",
-                        column: x => x.ACAlunoCodigoAluno,
+                        name: "FK_ACMatricula_ACAluno_CodigoAluno",
+                        column: x => x.CodigoAluno,
                         principalTable: "ACAluno",
                         principalColumn: "CodigoAluno",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ACMatricula_ACResponsavel_CodigoResponsavel",
-                        column: x => x.CodigoResponsavel,
-                        principalTable: "ACResponsavel",
-                        principalColumn: "CodigoResponsavel",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ACMatricula_ACTurma_CodigoTurma",
@@ -567,14 +560,9 @@ namespace One.Infra.Data.Migrations
                 column: "CodigoMatricula");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ACMatricula_ACAlunoCodigoAluno",
+                name: "IX_ACMatricula_CodigoAluno",
                 table: "ACMatricula",
-                column: "ACAlunoCodigoAluno");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ACMatricula_CodigoResponsavel",
-                table: "ACMatricula",
-                column: "CodigoResponsavel");
+                column: "CodigoAluno");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ACMatricula_CodigoTurma",
@@ -694,6 +682,9 @@ namespace One.Infra.Data.Migrations
                 name: "GEParentesco");
 
             migrationBuilder.DropTable(
+                name: "ACResponsavel");
+
+            migrationBuilder.DropTable(
                 name: "ACMatricula");
 
             migrationBuilder.DropTable(
@@ -706,16 +697,13 @@ namespace One.Infra.Data.Migrations
                 name: "SEGPerfil");
 
             migrationBuilder.DropTable(
-                name: "ACResponsavel");
+                name: "ACAluno");
 
             migrationBuilder.DropTable(
                 name: "ACTurma");
 
             migrationBuilder.DropTable(
                 name: "GEBairro");
-
-            migrationBuilder.DropTable(
-                name: "ACAluno");
 
             migrationBuilder.DropTable(
                 name: "ACNivel");

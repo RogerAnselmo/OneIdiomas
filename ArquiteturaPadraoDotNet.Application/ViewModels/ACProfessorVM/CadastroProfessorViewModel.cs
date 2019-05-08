@@ -11,7 +11,7 @@ namespace One.Application.ViewModels.ACProfessorVM
 
         [Required]
         [DisplayName("Código Professor")]
-        public int Codigoprofessor { get; set; }
+        public int CodigoProfessor { get; set; }
 
         [Required]
         [DisplayName("Nome do Professor")]
@@ -20,5 +20,13 @@ namespace One.Application.ViewModels.ACProfessorVM
         [Required]
         [DisplayName("Data de Nascimento")]
         public string DataNascimento { get; set; }
+
+        [Required]
+        [DisplayName("RG")]
+        public string RG { get; set; }
+
+        [Required]
+        [DisplayName("CPF")]
+        public string CPF { get; set; }
     }
 }

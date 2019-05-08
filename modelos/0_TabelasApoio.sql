@@ -200,18 +200,6 @@ insert into SEGPerfil values ('Responsável', 'A');
 
 select * from  SEGPerfil;
 
-insert into segusuario values('Neto Costa', 'neto.costa', 'A');
-insert into segusuario values('Rogério Anselmo', 'rogerio.anselmo', 'A');
-insert into segusuario values('Fábio Vale', 'fabio.vale', 'A');
-
-select * from SEGUsuario;
-
-insert into SEGUsuarioPerfil values(1,1,1);
-insert into SEGUsuarioPerfil values(1,2,1);
-insert into SEGUsuarioPerfil values(1,3,1);
-
-select * from SEGUsuarioPerfil;
-
 insert into geparentesco values ('O próprio', 'A');
 insert into geparentesco values ('Pai', 'A');
 insert into geparentesco values ('Mãe', 'A');

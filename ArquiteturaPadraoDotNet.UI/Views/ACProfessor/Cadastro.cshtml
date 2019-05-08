@@ -28,7 +28,7 @@
                             <div class="tab-content">
 
                                 <div style="display: nones">
-                                    <input asp-for="Codigoprofessor" />
+                                    <input asp-for="CodigoProfessor" />
                                     <input asp-for="CodigoUsuario" />
                                 </div>
 
@@ -46,6 +46,16 @@
                                         <label class="col-sm-2 control-label" asp-for="DataNascimento"></label>
                                         <div class="col-sm-2">
                                             <input one-ui="date" class="form-control input-sm" asp-for="DataNascimento">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="RG"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="RG">
+                                        </div>
+
+                                        <label class="col-sm-1 control-label" asp-for="CPF"></label>
+                                        <div class="col-sm-2">
+                                            <input class="form-control input-sm" asp-for="CPF">
                                         </div>
                                     </div>
                                 </div>

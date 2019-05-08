@@ -6,6 +6,15 @@ namespace One.Domain.Entities
 {
     public class ACMatricula
     {
+        protected ACMatricula() => flAtivo = "A";
+
+        public ACMatricula(int codigoMatricula, int codigoAluno, int codigoTurma)
+        {
+            CodigoMatricula = codigoMatricula;
+            CodigoAluno = codigoAluno;
+            CodigoTurma = codigoTurma;
+        }
+
         #region ACMatricula
         [Key]
         public int CodigoMatricula { get; set; }
@@ -16,15 +25,6 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
-
-        #endregion
-
-        #region ACResponsavel
-        [Required]
-        public int CodigoResponsavel { get; set; }
-
-        [ForeignKey("CodigoResponsavel")]
-        public virtual ACResponsavel ACResponsavel { get; set; }
         #endregion
 
         #region ACTurma
@@ -32,6 +32,11 @@ namespace One.Domain.Entities
 
         [ForeignKey("CodigoTurma")]
         public ACTurma ACTurma { get; set; }
+        #endregion
+
+        #region ACAluno
+        public int CodigoAluno { get; set; }
+        public ACAluno ACAluno { get; set; } 
         #endregion
 
         #region ACFrequencia

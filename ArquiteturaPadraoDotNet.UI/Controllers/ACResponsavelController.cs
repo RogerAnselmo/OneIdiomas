@@ -17,9 +17,9 @@ namespace One.UI.Controllers
     public class ACResponsavelController : BaseController
     {
         #region Seão: Interface - IoC
+        private ValidationResults validationResult; 
         private readonly IAcademicoAppService _academicoAppService;
         private readonly IGeralAppService _geralAppService;
-        private ValidationResults validationResult;
         #endregion
 
         #region Seção: Construtor
@@ -86,15 +86,8 @@ namespace One.UI.Controllers
                 validationResult = CadastroResponsavelViewModel.CodigoResponsavel == 0 ?
                     _academicoAppService.SalvarResponsavel(CadastroResponsavelViewModel)
                     : _academicoAppService.AlterarResponsavel(CadastroResponsavelViewModel);
-
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
-        }
-
-        [Route("Registrar-Edicao-Responsavel")]
-        public JsonResult RegistrarEdicao([FromBody]CadastroResponsavelViewModel cadastroResponsavelViewModel)
-        {
-            if (ModelState.IsValid)
-                validationResult = _academicoAppService.AlterarResponsavel(cadastroResponsavelViewModel);
+            else
+                validationResult = new ValidationResults(false, "modelo inválido");
 
             return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }
