@@ -7,7 +7,7 @@ using One.Domain.Entities;
 
 namespace One.Application.Adapter
 {
-    public static class ACReponsavelAdapter
+    public static class ACResponsavelAdapter
     {
 
         public static ACResponsavelViewModel DomainToViewModel(ACResponsavel domain)
@@ -69,9 +69,6 @@ namespace One.Application.Adapter
 
         public static ACResponsavel ExtractACResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
             => new ACResponsavel(cadastroResponsavelViewModel.CodigoResponsavel, cadastroResponsavelViewModel.CodigoUsuario, cadastroResponsavelViewModel.RG, cadastroResponsavelViewModel.CPF, Convert.ToDateTime(cadastroResponsavelViewModel.DataNascimento));
-
-        public static GEEndereco ExtractEnderecoResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel)
-            => new GEEndereco(cadastroResponsavelViewModel.CodigoEndereco, cadastroResponsavelViewModel.CodigoBairro, cadastroResponsavelViewModel.Logradouro, cadastroResponsavelViewModel.Numero, cadastroResponsavelViewModel.CEP);
 
         public static GEEndereco ExtractGEEndereco(CadastroResponsavelViewModel cadastroResponsavelViewModel)
             => new GEEndereco(cadastroResponsavelViewModel.CodigoEndereco, cadastroResponsavelViewModel.CodigoBairro, cadastroResponsavelViewModel.Logradouro, cadastroResponsavelViewModel.Numero, cadastroResponsavelViewModel.CEP);

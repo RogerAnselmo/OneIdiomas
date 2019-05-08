@@ -86,11 +86,14 @@ function SalvarAluno() {
 function MontarCadastroAlunoViewModel() {
 
     return {
+
+        CodigoUsuario: _codigoUsuario.val(),
+        CodigoAluno: _codigoAluno.val(),
+
         //dados do aluno
         NomeCompleto: _nomeCompleto.val(),
         DataNascimento: _dataNascimento.val(),
         Idade: _idade.val(),
-        Telefone: _telefone.val(),
         RG: _rg.val(),
         CPF: _cpf.val(),
         DiaVencimento: _diaVencimento.val(),
@@ -101,30 +104,17 @@ function MontarCadastroAlunoViewModel() {
         CodigoCidade: _codigoCidade.val(),
         Logradouro: _logradouro.val(),
         CodigoBairro: _codigoBairro.val(),
+        Numero: _numero.val(),
 
-        //dados do responsável
-        NomeCompletoResponsavel: _nomeCompletoResponsavel.val(),
-        DataNascimentoResponsavel: _dataNascimentoResponsavel.val(),
-        CodigoParentesco: _codigoParentesco.val(),
-        TelefoneResponsavel: _telefoneResponsavel.val(),
-        RGResponsavel: _rgResponsavel.val(),
-        CPFResponsavel: _cpfResponsavel.val(),
-
-        //endereço Responsável
-        CEPResponsavel: _cepResponsavel.val(),
-        CodigoUFResponsavel: _codigoUFResponsavel.val(),
-        CodigoCidadeResponsavel: _codigoCidadeResponsavel.val(),
-        LogradouroResponsavel: _logradouroResponsavel.val(),
-        CodigoBairroResponsavel: _codigoBairroResponsavel.val(),
-
-        AlunoÉOProprioResponsavel: _UsarEnderecoDoAluno.is(':checked'),
-        UsarEnderecoDoAluno: _Aluno_OProprioResponsavel.is(':checked')
+        //telefone
+        CodigoTelefone: _codigoTelefone.val(),
+        Telefone: _telefone.val()
     };
 }
 
 function ValidarCadastroAlunoViewModel() {
 
-    return ValidarDadosDoAluno() && ValidarEnderecoDoAluno && ValidarEnderecoDoResponsavel();
+    return ValidarDadosDoAluno() && ValidarEnderecoDoAluno();
 }
 
 function ValidarDadosDoAluno() {
@@ -171,7 +161,7 @@ function ValidarEnderecoDoAluno() {
 
     //cep
     if ($.trim(_cep.val()) === "") {
-        AlertWarning("Preencha o cep do aluno")
+        AlertWarning("Preencha o cep do aluno");
         _cep.focus()
         return false;
     }
@@ -202,79 +192,6 @@ function ValidarEnderecoDoAluno() {
 
         AlertWarning("Preencha o bairro do aluno");
         _codigoBairro.focus();
-        return false;
-    }
-
-    return true;
-}
-
-function ValidarDadosDoResponsavel() {
-    //nome
-    if ($.trim(_nomeCompletoResponsavel.val()) === '') {
-        AlertWarning("Preencha o nome do Responsável");
-        _nomeCompletoResponsavel.focus();
-        return false;
-    }
-
-    //data de nascimento
-    else if (!fIsDate($.trim(_dataNascimentoResponsavel.val()))) {
-        AlertWarning("Preencha a data de nascimento do Responsavel");
-        _dataNascimentoResponsavel.focus();
-        return false;
-    }
-
-    //RG
-    else if ($.trim(_rgResponsavel.val()) === "") {
-        AlertWarning("Preencha o RG do Responsável");
-        _rgResponsavel.focus();
-        return false;
-    }
-
-    //CPF
-    else if ($.trim(_cpfResponsavel.val()) === "") {
-        AlertWarning("Preencha o CPF do Responsável");
-        _cpfResponsavel.focus();
-        return false;
-    }
-
-    return true;
-}
-
-function ValidarEnderecoDoResponsavel() {
-
-    //cep
-    if ($.trim(_cepResponsavel.val()) === "") {
-        AlertWarning("Preencha o cep do responsável")
-        _cepResponsavel.focus()
-        return false;
-    }
-
-    //Estado
-    else if (_codigoUFResponsavel.val() === "0") {
-        AlertWarning("Preencha o estado do responsável");
-        _codigoUFResponsavel.focus();
-        return false;
-    }
-
-    //Cidade
-    else if (_codigoCidadeResponsavel.val() === "0") {
-        AlertWarning("Preencha a cidade do responsável");
-        _codigoCidadeResponsavel.focus();
-        return false;
-    }
-
-    //Logradouro
-    else if ($.trim(_logradouroResponsavel.val()) === "") {
-        AlertWarning("Preencha o endereço do responsável");
-        _logradouroResponsavel.focus();
-        return false;
-    }
-
-    //Bairro
-    else if (_codigoBairroResponsavel.val() === "0") {
-
-        AlertWarning("Preencha o bairro do responsável");
-        _codigoBairroResponsavel.focus();
         return false;
     }
 

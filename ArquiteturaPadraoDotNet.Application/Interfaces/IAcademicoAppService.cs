@@ -9,11 +9,11 @@ namespace One.Application.Interfaces
     public interface IAcademicoAppService
     {
         #region Seção: ACAluno
-        ValidationResults SalvarAluno(CadastroAlunoViewModel CadastroAlunoViewModel);
-        ValidationResults AlterarAluno(EditarAlunoViewModel editarAlunoViewModel);
+        ValidationResults SalvarAluno(CadastroAlunoViewModel cadastroAlunoViewModel);
+        ValidationResults AlterarAluno(CadastroAlunoViewModel CadastroAlunoViewModel);
         ValidationResults ExcluirAluno(int id);
         IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome);
-        EditarAlunoViewModel ObterAlunoParaEdicao(int id);
+        CadastroAlunoViewModel ObterAlunoParaEdicao(int id);
         #endregion
 
         #region Seção: ACResponsavel

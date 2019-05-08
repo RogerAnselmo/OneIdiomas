@@ -64,15 +64,12 @@ namespace One.UI.Controllers
             ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
             ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
 
-
             //TODO: refatorar esse código
             var lista = _geralAppService.ObterBairroPorCidade(1).ToList();
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            var cadastroResponsavelViewModel = (id == 0) ? new CadastroResponsavelViewModel() : _academicoAppService.ObterResponsavelParaEdicao(id);
-
-            return View(cadastroResponsavelViewModel);
+            return View((id == 0) ? new CadastroResponsavelViewModel() : _academicoAppService.ObterResponsavelParaEdicao(id));
         }
         #endregion
 

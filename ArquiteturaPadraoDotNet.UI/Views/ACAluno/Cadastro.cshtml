@@ -24,316 +24,135 @@
                                     Aluno
                                 </a>
                             </li>
-                            <li>
-                                <a href="#w2-profile" data-toggle="tab" class="text-center">
-                                    Responsável
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#w2-confirm" data-toggle="tab" class="text-center disabled">
-                                    Matrículas
-                                </a>
-                            </li>
                         </ul>
                         <form class="form-horizontal" novalidate="novalidate">
                             <div class="tab-content">
+
+                                <div style="display: nones">
+                                    <input asp-for="CodigoAluno" />
+                                    <input asp-for="CodigoUsuario" />
+                                    <input asp-for="CodigoTelefone" />
+                                    <input asp-for="CodigoEndereco" />
+                                </div>
+
                                 @*ABA Aluno*@
-                                <div id="w2-account" class="tab-pane active">
-                                    <input asp-for="CodigoAluno" type="hidden"/>
+                            <div id="w2-account" class="tab-pane active">
 
-                                    @*Nome*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" asp-for="NomeCompleto">
-                                        </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control input-sm" asp-for="NomeCompleto">
+                                    </div>
+                                </div>
+
+                                @*Nascimento/Idade/Telefone*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" asp-for="DataNascimento"></label>
+                                    <div class="col-sm-2">
+                                        <input one-ui="date" class="form-control input-sm" asp-for="DataNascimento">
                                     </div>
 
-                                    @*Nascimento/Idade/Telefone*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="DataNascimento"></label>
-                                        <div class="col-sm-2">
-                                            <input one-ui="date" class="form-control input-sm" asp-for="DataNascimento">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="Idade"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="Idade">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="Telefone"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="Telefone">
-                                        </div>
+                                    <label class="col-sm-1 control-label" asp-for="Idade"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="Idade">
                                     </div>
 
-                                    @*RG/CPF/Dia de Vencimento*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="RG"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="RG">
-                                        </div>
+                                    <label class="col-sm-1 control-label" asp-for="Telefone"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="Telefone">
+                                    </div>
+                                </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="CPF"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="CPF">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="DiaVencimento"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="DiaVencimento">
-                                                <option value="5" selected="selected">5</option>
-                                                <option value="10">10</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="25">25</option>
-                                            </select>
-                                        </div>
+                                @*RG/CPF/Dia de Vencimento*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" asp-for="RG"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="RG">
                                     </div>
 
-                                    @*CEP/UF/Cidade*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="CEP"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="CEP">
-                                        </div>
+                                    <label class="col-sm-1 control-label" asp-for="CPF"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="CPF">
+                                    </div>
 
-                                        <label class="col-sm-1 control-label" asp-for="CodigoUF"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoUF">
+                                    <label class="col-sm-1 control-label" asp-for="CEP"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="CEP">
+                                    </div>
+                                </div>
 
-                                                @foreach (GEUFViewModel uf in ViewBag.ListaUF)
+                                @*CEP/UF/Cidade*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" asp-for="Logradouro"></label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control input-sm" asp-for="Logradouro">
+                                    </div>
+
+                                    <label class="col-sm-1 control-label" asp-for="Numero"></label>
+                                    <div class="col-sm-2">
+                                        <input class="form-control input-sm" asp-for="Numero">
+                                    </div>
+                                </div>
+
+                                @*Logradouro/Bairro*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label" asp-for="CodigoUF"></label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control input-sm" asp-for="CodigoUF">
+
+                                            @foreach (GEUFViewModel uf in ViewBag.ListaUF)
+                                            {
+                                                <option value="@uf.CodigoUF" selected="@(Model.CodigoUF== uf.CodigoUF ? "selected": "")">
+                                                    @uf.Descricao
+                                                </option>
+                                            }
+
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control input-sm" asp-for="CodigoCidade">
+                                            @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
+                                            {
+                                                if (Model.CodigoCidade == cidade.CodigoCidade)
                                                 {
-                                                    <option value="@uf.CodigoUF" selected="@(Model.CodigoUF== uf.CodigoUF ? "selected": "")">
-                                                        @uf.Descricao
+                                                    <option value="@cidade.CodigoCidade" selected="selected">
+                                                        @cidade.Descricao
                                                     </option>
                                                 }
-
-                                            </select>
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoCidade">
-                                                @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
+                                                else
                                                 {
-                                                    if (Model.CodigoCidade == cidade.CodigoCidade)
-                                                    {
-                                                        <option value="@cidade.CodigoCidade" selected="selected">
-                                                            @cidade.Descricao
-                                                        </option>
-                                                    }
-                                                    else
-                                                    {
-                                                        <option value="@cidade.CodigoCidade">
-                                                            @cidade.Descricao
-                                                        </option>
-                                                    }
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    @*Logradouro/Bairro*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="Logradouro"></label>
-                                        <div class="col-sm-5">
-                                            <input type="text" class="form-control input-sm" asp-for="Logradouro">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoBairro"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoBairro">
-                                                @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
-                                                {
-                                                    if (Model.CodigoBairro == bairro.CodigoBairro)
-                                                    {
-                                                        <option value="@bairro.CodigoBairro" selected="selected">
-                                                            @bairro.Descricao
-                                                        </option>
-                                                    }
-                                                    else
-                                                    {
-                                                        <option value="@bairro.CodigoBairro">
-                                                            @bairro.Descricao
-                                                        </option>
-                                                    }
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @*ABA Responsável*@
-                                <div id="w2-profile" class="tab-pane">
-                                    <div class="col-sm-2 control-label"></div>
-                                    <div class="form-group">
-                                        <input asp-for="CodigoResponsavel" type="hidden" />
-                                        <div class="col-sm-2">
-                                            <div class="switch switch-sm switch-primary">
-                                                <input type="checkbox" asp-for="AlunoÉOProprioResponsavel" />
-                                            </div>
-                                            <label asp-for="AlunoÉOProprioResponsavel"></label>
-                                        </div>
-
-                                        <div class="col-sm-2">
-                                            <div class="switch switch-sm switch-primary">
-                                                <input type="checkbox" asp-for="UsarEnderecoDoResponsavel" />
-                                            </div>
-                                            <label asp-for="UsarEnderecoDoResponsavel"></label>
-                                        </div>
-                                    </div>
-
-                                    @*Nome*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="NomeCompletoResponsavel"></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" asp-for="NomeCompletoResponsavel">
-                                        </div>
-                                    </div>
-
-                                    @*Nascimento/Parentesco*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="DataNascimentoResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="DataNascimentoResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label"  asp-for="IdadeResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" -for="IdadeResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoParentesco"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoParentesco">
-                                                @foreach (GEParentescoViewModel parentesco in ViewBag.ListaParentesco)
-                                                {
-                                                    if (Model.CodigoParentesco == parentesco.CodigoParentesco)
-                                                    {
-                                                        <option value="@parentesco.CodigoParentesco" selected="selected">
-                                                            @parentesco.Descricao
-                                                        </option>
-                                                    }
-                                                    else
-                                                    {
-                                                        <option value="@parentesco.CodigoParentesco">
-                                                            @parentesco.Descricao
-                                                        </option>
-                                                    }
-                                                }
-
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    @*RG/CPF/Telefone*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="CPFResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="CPFResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="RGResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="RGResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="TelefoneResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="TelefoneResponsavel">
-                                        </div>
-                                    </div>
-
-                                    @*CEP/Estado/Cidade*@
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="CEPResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <input class="form-control input-sm" asp-for="CEPResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoUFResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoUFResponsavel">
-                                                @foreach (GEUFViewModel uf in ViewBag.ListaUF)
-                                                {
-                                                    <option value="@uf.CodigoUF" selected="@(Model.CodigoUFResponsavel== uf.CodigoUF ? "selected": "")">
-                                                        @uf.Descricao
+                                                    <option value="@cidade.CodigoCidade">
+                                                        @cidade.Descricao
                                                     </option>
                                                 }
-                                            </select>
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoCidadeResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoCidadeResponsavel">
-                                                @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
-                                                {
-                                                    if (Model.CodigoCidadeResponsavel == cidade.CodigoCidade)
-                                                    {
-                                                        <option value="@cidade.CodigoCidade" selected="selected">
-                                                            @cidade.Descricao
-                                                        </option>
-                                                    }
-                                                    else
-                                                    {
-                                                        <option value="@cidade.CodigoCidade">
-                                                            @cidade.Descricao
-                                                        </option>
-                                                    }
-                                                }
-                                            </select>
-                                        </div>
+                                            }
+                                        </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="LogradouroResponsavel"></label>
-                                        <div class="col-sm-5">
-                                            <input type="text" class="form-control input-sm" asp-for="LogradouroResponsavel">
-                                        </div>
-
-                                        <label class="col-sm-1 control-label" asp-for="CodigoBairroResponsavel"></label>
-                                        <div class="col-sm-2">
-                                            <select class="form-control input-sm" asp-for="CodigoBairroResponsavel">
-
-                                                @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
+                                    <label class="col-sm-1 control-label" asp-for="CodigoBairro"></label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control input-sm" asp-for="CodigoBairro">
+                                            @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
+                                            {
+                                                if (Model.CodigoBairro == bairro.CodigoBairro)
                                                 {
-                                                    if (Model.CodigoBairroResponsavel == bairro.CodigoBairro)
-                                                    {
-                                                        <option value="@bairro.CodigoBairro" selected="selected">
-                                                            @bairro.Descricao
-                                                        </option>
-                                                    }
-                                                    else
-                                                    {
-                                                        <option value="@bairro.CodigoBairro">
-                                                            @bairro.Descricao
-                                                        </option>
-                                                    }
+                                                    <option value="@bairro.CodigoBairro" selected="selected">
+                                                        @bairro.Descricao
+                                                    </option>
                                                 }
-                                            </select>
-                                        </div>
+                                                else
+                                                {
+                                                    <option value="@bairro.CodigoBairro">
+                                                        @bairro.Descricao
+                                                    </option>
+                                                }
+                                            }
+                                        </select>
                                     </div>
                                 </div>
-
-                                @*ABA MATRÍCULAS*@
-                                <div id="w2-confirm" class="tab-pane">
-                                    <div class="form-group">
-                                        <label class="col-sm-4 control-label" for="w2-email">Email</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control input-sm" name="email" id="w2-email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-2"></div>
-                                        <div class="col-sm-10">
-                                            <div class="checkbox-custom">
-                                                <input type="checkbox" name="terms" id="w2-terms" required>
-                                                <label for="w2-terms">I agree to the terms of service</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
                             </div>
                         </form>
                     </div>
@@ -351,7 +170,6 @@
 </div>
 
 <script src="~/CoreJs/ACAluno/Cadastro/Aluno.js"></script>
-<script src="~/CoreJs/ACAluno/Cadastro/Reponsavel.js"></script>
 <script src="~/CoreJs/ACAluno/Cadastro/Common.js"></script>
 
 

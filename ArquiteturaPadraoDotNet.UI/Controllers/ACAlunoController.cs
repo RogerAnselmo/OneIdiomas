@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
+using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
 using One.Domain.Validation;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System;
+using System.Linq;
 
 namespace One.UI.Controllers
 {
@@ -34,16 +36,19 @@ namespace One.UI.Controllers
         #endregion
 
         #region Seção: Actions
-        [Route("Novo-Aluno")]
-        public IActionResult Cadastro()
+        [Route("Cadastro-Aluno/{id:int}")]
+        public IActionResult Cadastro(int id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
             ViewBag.ListaUF = _geralAppService.ObterTodasUF();
             ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
             ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
-            ViewBag.ListaBairro = _geralAppService.ObterBairroPorCidade(1); //1 = Abaetetuba
 
-            return View(new CadastroAlunoViewModel());
+            var lista = _geralAppService.ObterBairroPorCidade(1).ToList();
+            lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
+            ViewBag.ListaBairro = lista; //1 = Abaetetuba
+
+            return base.View(id == 0 ? new CadastroAlunoViewModel() : _academicoAppService.ObterAlunoParaEdicao(id));
         }
 
         [Route("Lista-Aluno")]
@@ -53,17 +58,6 @@ namespace One.UI.Controllers
             return View();
         }
 
-        [Route("Editar-Aluno/{id:int}")]
-        public IActionResult Editar(int id)
-        {
-            ViewBag.BaseUrl = ObterBaseUrl();
-            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
-            ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
-            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
-            ViewBag.ListaBairro = _geralAppService.ObterBairroPorCidade(1); //1 = Abaetetuba
-
-            return View(_academicoAppService.ObterAlunoParaEdicao(id));
-        }
         #endregion
 
         #region Seção: Ajax
@@ -71,19 +65,12 @@ namespace One.UI.Controllers
         public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_academicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
 
         [Route("Registrar-Cadastro-Aluno")]
-        public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel CadastroAlunoViewModel)
+        public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel cadastroAlunoViewModel)
         {
             if (ModelState.IsValid)
-                validationResult = _academicoAppService.SalvarAluno(CadastroAlunoViewModel);
-
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
-        }
-
-        [Route("Registrar-Edicao-Aluno")]
-        public JsonResult RegistrarEdicao([FromBody]EditarAlunoViewModel editarAlunoViewModel)
-        {
-            if (ModelState.IsValid)
-                validationResult = _academicoAppService.AlterarAluno(editarAlunoViewModel);
+                validationResult = cadastroAlunoViewModel.CodigoAluno == 0 ?
+                    _academicoAppService.SalvarAluno(cadastroAlunoViewModel)
+                    : _academicoAppService.AlterarAluno(cadastroAlunoViewModel);
 
             return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }

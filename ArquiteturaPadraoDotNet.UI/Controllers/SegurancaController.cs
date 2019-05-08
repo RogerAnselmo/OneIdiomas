@@ -46,6 +46,12 @@ namespace One.UI.Controllers
             return View(usuarioViewModel);
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await LogoutAsync();
+            return RedirectToAction("Login", "Seguranca");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

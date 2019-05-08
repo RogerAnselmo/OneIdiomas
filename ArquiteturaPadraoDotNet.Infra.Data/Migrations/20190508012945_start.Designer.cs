@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190503203828_início")]
-    partial class início
+    [Migration("20190508012945_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -424,7 +424,8 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<int>("Numero");
+                    b.Property<string>("Numero")
+                        .HasMaxLength(5);
 
                     b.Property<string>("flAtivo")
                         .IsRequired()
@@ -762,7 +763,7 @@ namespace One.Infra.Data.Migrations
             modelBuilder.Entity("One.Domain.Entities.GEUsuarioEndereco", b =>
                 {
                     b.HasOne("One.Domain.Entities.GEEndereco", "GEEndereco")
-                        .WithMany()
+                        .WithMany("GEUsuarioEndereco")
                         .HasForeignKey("CodigoEndereco")
                         .OnDelete(DeleteBehavior.Restrict);
 

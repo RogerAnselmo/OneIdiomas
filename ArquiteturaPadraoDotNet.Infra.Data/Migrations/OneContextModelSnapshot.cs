@@ -422,7 +422,8 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(500);
 
-                    b.Property<string>("Numero");
+                    b.Property<string>("Numero")
+                        .HasMaxLength(5);
 
                     b.Property<string>("flAtivo")
                         .IsRequired()

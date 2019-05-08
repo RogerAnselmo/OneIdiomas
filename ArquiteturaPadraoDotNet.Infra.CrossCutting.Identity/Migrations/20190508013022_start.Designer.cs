@@ -10,8 +10,8 @@ using One.Infra.CrossCutting.Identity.Data;
 namespace One.Infra.CrossCutting.Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190503203659_identity")]
-    partial class identity
+    [Migration("20190508013022_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

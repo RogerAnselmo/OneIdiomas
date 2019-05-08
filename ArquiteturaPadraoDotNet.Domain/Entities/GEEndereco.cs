@@ -27,6 +27,7 @@ namespace One.Domain.Entities
         [Key]
         public int CodigoEndereco { get; set; }
 
+        [MaxLength(5)]
         public string Numero { get; set; }
 
         [Required]

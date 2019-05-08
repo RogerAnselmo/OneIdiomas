@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class início : Migration
+    public partial class start : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -350,7 +350,7 @@ namespace One.Infra.Data.Migrations
                 {
                     CodigoEndereco = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Numero = table.Column<int>(nullable: false),
+                    Numero = table.Column<string>(maxLength: 5, nullable: true),
                     Logradouro = table.Column<string>(maxLength: 500, nullable: false),
                     Cep = table.Column<string>(maxLength: 10, nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
