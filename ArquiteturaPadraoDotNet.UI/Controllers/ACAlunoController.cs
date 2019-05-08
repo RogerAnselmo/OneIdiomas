@@ -48,7 +48,7 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return base.View(id == 0 ? new CadastroAlunoViewModel() : _academicoAppService.ObterAlunoParaEdicao(id));
+            return View(id == 0 ? new CadastroAlunoViewModel() : _academicoAppService.ObterAlunoParaEdicao(id));
         }
 
         [Route("Lista-Aluno")]

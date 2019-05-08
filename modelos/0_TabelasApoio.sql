@@ -225,5 +225,53 @@ select * from geparentesco;
 insert into GETipoTelefone values ('Celular', 'A');
 insert into GETipoTelefone values ('Fixo', 'A');
 
-select * from GETipoTelefone
+select * from GETipoTelefone;
 
+insert into ACFaixaEtaria values ('de 1 a 4 anos', 1, 4, 'A');
+insert into ACFaixaEtaria values ('de 1 a 5 anos', 1, 5, 'A');
+
+insert into ACFaixaEtaria values ('de 1 a 6 anos', 1, 6, 'A');
+insert into ACFaixaEtaria values ('de 1 a 7 anos', 1, 7, 'A');
+insert into ACFaixaEtaria values ('de 2 a 8 anos', 2, 8, 'A');
+insert into ACFaixaEtaria values ('de 3 a 9 anos', 3, 9, 'A');
+insert into ACFaixaEtaria values ('de 4 a 10 anos', 4, 10, 'A');
+
+insert into ACFaixaEtaria values ('de 10 a 13 anos', 10, 13, 'A');
+insert into ACFaixaEtaria values ('a partir de 14 anos', 14, 0, 'A');
+insert into ACFaixaEtaria values ('Geral', 0, 100, 'A');
+
+select * from ACFaixaEtaria;
+
+insert into ACCategoria values('BABY COURSE', 'A');
+insert into ACCategoria values('KIDS COURSE', 'A');
+insert into ACCategoria values('TEENS COURSE', 'A');
+insert into ACCategoria values('ADULTS COURSE', 'A');
+insert into ACCategoria values('ADVANCED COURSE', 'A');
+
+select * from ACCategoria;
+
+
+insert into ACNivel values('BABY 1', 'A', 1, 1);
+insert into ACNivel values('BABY 2', 'A', 2, 1);
+
+insert into ACNivel values('KIDS Starter', 'A', 3, 2);
+insert into ACNivel values('KIDS 1', 'A', 4, 2);
+insert into ACNivel values('KIDS 2', 'A', 5, 2);
+insert into ACNivel values('KIDS 3', 'A', 6, 2);
+insert into ACNivel values('KIDS 4', 'A', 7, 2);
+
+insert into ACNivel values('TEENS 1', 'A', 8, 3);
+insert into ACNivel values('TEENS 2', 'A', 10, 3);
+insert into ACNivel values('TEENS 3', 'A', 10, 3);
+insert into ACNivel values('TEENS 4', 'A', 10, 3);
+
+insert into ACNivel values('Beginner', 'A', 9, 4);
+insert into ACNivel values('Elementary', 'A', 10, 4);
+insert into ACNivel values('Intermediate', 'A', 10, 4);
+insert into ACNivel values('Pré-Advanced', 'A', 10, 4);
+
+insert into ACNivel values('Advanced', 'A', 10, 5);
+insert into ACNivel values('Upper-Advanced', 'A', 10, 5);
+
+
+select * from ACNivel;
