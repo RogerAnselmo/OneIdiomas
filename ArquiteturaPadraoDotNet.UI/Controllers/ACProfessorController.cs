@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using One.Application.ViewModels.ACProfessorVM;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 
@@ -19,7 +20,7 @@ namespace One.UI.Controllers
         [Route("Cadastro-Professor/{id: int}")]
         public IActionResult Cadastro(int id)
         {
-            return View();
+            return View(id == 0? new CadastroProfessorViewModel(): null);
         }
     }
 }
