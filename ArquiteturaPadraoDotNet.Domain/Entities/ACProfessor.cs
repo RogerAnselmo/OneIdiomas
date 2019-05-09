@@ -13,11 +13,13 @@ namespace One.Domain.Entities
         #region Construtor
         protected ACProfessor() => flAtivo = "A";
 
-        public ACProfessor(int codigoUsuario, int codigoProfessor, DateTime dataNascimento) : this()
+        public ACProfessor(int codigoUsuario, int codigoProfessor, DateTime dataNascimento, string cpf, string rg) : this()
         {
             CodigoUsuario = codigoUsuario;
             CodigoProfessor = codigoProfessor;
             DataNascimento = dataNascimento;
+            CPF = cpf;
+            RG = rg;
         } 
         #endregion
 

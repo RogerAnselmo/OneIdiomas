@@ -29,7 +29,7 @@ namespace One.Domain.Services
 
         }
 
-        public ACProfessor Excluir(ACProfessor ACProfessor)
+        public ACProfessor Excluir(int id)
         {
             throw new NotImplementedException();
         }

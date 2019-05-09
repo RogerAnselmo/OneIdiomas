@@ -8,7 +8,7 @@ namespace One.Domain.Interfaces.Service
     {
         ACProfessor Salvar(ACProfessor ACProfessor);
         ACProfessor Alterar(ACProfessor ACProfessor);
-        ACProfessor Excluir(ACProfessor ACProfessor);
+        ACProfessor Excluir(int id);
         ACProfessor ObterProfessorParaEdicao(int id);
         IEnumerable<ACProfessor> ObterProfessorPorNome(string nome);
     }

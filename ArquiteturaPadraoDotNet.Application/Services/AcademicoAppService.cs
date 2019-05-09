@@ -244,7 +244,7 @@ namespace One.Application.Services
         {
             BeginTransaction();
 
-            #region Exclui o responsável
+            #region Exclui o responsavel
             var ACResponsavel = _iACResponsavelService.Excluir(id);
 
             if (!ACResponsavel.ValidationResult.IsValid)
@@ -263,11 +263,12 @@ namespace One.Application.Services
             => ACResponsavelAdapter.ConvertToCadastroResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
         #endregion
 
+        #region Seção: ACProfessor
         public ValidationResults SalvarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel)
         {
             BeginTransaction();
 
-            #region Salva o usuário do Aluno
+            #region Salva o usuário do Professor
             var SEGUsuario = _iSEGUsuarioService.Salvar(ACProfessorAdapter.ExtractSEGUsuario(cadastroProfessorViewModel));
 
             if (!SEGUsuario.ValidationResult.IsValid)
@@ -276,7 +277,7 @@ namespace One.Application.Services
 
             #region salva o Professor
             cadastroProfessorViewModel.CodigoUsuario = SEGUsuario.CodigoUsuario;
-            ACProfessor ACProfessor = _iACProfessorService.Salvar(ACProfessorAdapter.ExtractACAluno(cadastroProfessorViewModel));
+            ACProfessor ACProfessor = _iACProfessorService.Salvar(ACProfessorAdapter.ExtractACProfessor(cadastroProfessorViewModel));
 
             if (!ACProfessor.ValidationResult.IsValid)
                 return ACProfessor.ValidationResult;
@@ -288,5 +289,27 @@ namespace One.Application.Services
 
             return new ValidationResults(true, "Professor salvo com sucesso!");
         }
+
+        public ValidationResults AlterarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ValidationResults ExcluirProfessor(int id)
+        {
+            BeginTransaction();
+
+            #region Exclui o professor
+            var ACProfessor = _iACProfessorService.Excluir(id);
+
+            if (!ACProfessor.ValidationResult.IsValid)
+                return ACProfessor.ValidationResult;
+            #endregion
+
+            SaveChange();
+            Commit();
+            return new ValidationResults(true, "Professor excluído com sucesso");
+        }
+        #endregion
     }
 }

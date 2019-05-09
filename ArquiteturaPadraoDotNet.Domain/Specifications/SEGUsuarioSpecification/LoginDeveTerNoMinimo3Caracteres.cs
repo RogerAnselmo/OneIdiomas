@@ -7,6 +7,6 @@ namespace One.Domain.Specifications.SEGUsuarioSpecification
     public class LoginDeveTerNoMinimo3Caracteres : ISpecification<SEGUsuario>
     {
         public bool IsSatisfiedBy(SEGUsuario entity) 
-            => !string.IsNullOrEmpty(entity.NomeCompleto) && entity.NomeCompleto.Length >= 3;
+            => !string.IsNullOrEmpty(entity.Login) && entity.Login.Length >= 3;
     }
 }

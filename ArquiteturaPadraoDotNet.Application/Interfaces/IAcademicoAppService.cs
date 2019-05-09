@@ -1,5 +1,6 @@
 ﻿using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Application.ViewModels.ACProfessorVM;
 using One.Application.ViewModels.ACResponsavelVM;
 using One.Domain.Validation;
 using System.Collections.Generic;
@@ -22,6 +23,12 @@ namespace One.Application.Interfaces
         ValidationResults ExcluirResponsavel(int id);
         IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome);
         CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id);
+        #endregion
+
+        #region Seção: ACProfessor
+        ValidationResults SalvarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel);
+        ValidationResults AlterarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel);
+        ValidationResults ExcluirProfessor(int id);
         #endregion
     }
 }
