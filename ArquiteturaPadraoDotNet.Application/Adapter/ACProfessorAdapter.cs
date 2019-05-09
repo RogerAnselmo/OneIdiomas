@@ -18,6 +18,7 @@ namespace One.Application.Adapter
                 {
                     CodigoUsuario = domain.CodigoUsuario,
                     CodigoProfessor = domain.CodigoProfessor,
+                    NomeCompleto = domain.SEGUsuario == null ? "" : domain.SEGUsuario.NomeCompleto,
                     CPF = domain.CPF,
                     RG = domain.RG
                 };
@@ -39,10 +40,23 @@ namespace One.Application.Adapter
             return listaViewModel;
         }
 
-        public static SEGUsuario ExtractSEGUsuario(CadastroProfessorViewModel cadastroProfessorViewModel) 
+        public static SEGUsuario ExtractSEGUsuario(CadastroProfessorViewModel cadastroProfessorViewModel)
             => new SEGUsuario(cadastroProfessorViewModel.CodigoUsuario, cadastroProfessorViewModel.NomeProfessor, cadastroProfessorViewModel.CPF);
 
-        public static ACProfessor ExtractACProfessor(CadastroProfessorViewModel cadastroProfessorViewModel) 
+        public static ACProfessor ExtractACProfessor(CadastroProfessorViewModel cadastroProfessorViewModel)
             => new ACProfessor(cadastroProfessorViewModel.CodigoUsuario, cadastroProfessorViewModel.CodigoProfessor, Convert.ToDateTime(cadastroProfessorViewModel.DataNascimento), cadastroProfessorViewModel.CPF, cadastroProfessorViewModel.RG);
+
+        public static CadastroProfessorViewModel ConvertToCadastroProfessorViewModel(ACProfessor ACProfessor)
+        {
+            return new CadastroProfessorViewModel
+            {
+                CodigoProfessor = ACProfessor.CodigoProfessor,
+                CodigoUsuario = ACProfessor.CodigoUsuario,
+                CPF = ACProfessor.CPF,
+                DataNascimento = ACProfessor.DataNascimento.ToShortDateString(),
+                NomeProfessor = ACProfessor.SEGUsuario.NomeCompleto,
+                RG = ACProfessor.RG
+            };
+        }
     }
 }

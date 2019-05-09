@@ -1,6 +1,6 @@
-﻿@model One.Application.ViewModels.ACResponsavelVM.ListaResponsavelViewModel
+﻿@model One.Application.ViewModels.ACProfessorVM.ListaProfessorViewModel
 @{
-    ViewData["Title"] = "Lista de Responsáveis";
+    ViewData["Title"] = "Lista de Professores";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,12 +15,12 @@
             <div class="panel-body">
                 <form class="form-horizontal" novalidate="novalidate">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" asp-for="NomeResponsavel"></label>
+                        <label class="col-sm-2 control-label" asp-for="NomeProfessor"></label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control input-sm" asp-for="NomeResponsavel">
+                            <input type="text" class="form-control input-sm" asp-for="NomeProfessor">
                         </div>
                         <a class="btn btn-default" id="btPesquisar"><i class="glyphicon glyphicon-search"></i> Pesquisar</a>
-                        <a class="btn btn-primary" href="@Url.Action("Cadastro-Responsavel","Gerenciar-Responsavel",new { id = 0})"><i class="glyphicon glyphicon-user"></i> Novo Responsável</a>
+                        <a class="btn btn-primary" href="@Url.Action("Cadastro-Professor","Gerenciar-Professor",new { id = 0})"><i class="glyphicon glyphicon-user"></i> Novo Responsável</a>
                     </div>
                 </form>
             </div>
@@ -30,10 +30,11 @@
     <div class="col-lg-12">
         <section class="panel">
             <div class="panel-body">
-                <div class="result-data" id="divResponsavel">
+                <div class="result-data" id="divProfessor">
                 </div>
             </div>
         </section>
     </div>
 </div>
-<script src="~/CoreJs/ACResponsavel/Lista/Common.js"></script>
+<script src="~/CoreJs/ACProfessor/Lista/Common.js"></script>
+

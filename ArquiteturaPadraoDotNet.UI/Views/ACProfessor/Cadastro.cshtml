@@ -1,6 +1,6 @@
 ﻿@model One.Application.ViewModels.ACProfessorVM.CadastroProfessorViewModel
 @{
-    ViewData["Title"] = "Cadastro";
+    ViewData["Title"] = "Cadastro de Professor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,8 +11,6 @@
                 <div class="panel-actions">
                     <a href="#" class="fa fa-caret-down"></a>
                 </div>
-
-                <h2 class="panel-title">@ViewBag.Title</h2>
             </header>
             <div class="panel-body">
                 <section class="panel form-wizard" id="w2">
@@ -27,7 +25,7 @@
                         <form class="form-horizontal" novalidate="novalidate">
                             <div class="tab-content">
 
-                                <div style="display: nones">
+                                <div style="display: none">
                                     <input asp-for="CodigoProfessor" />
                                     <input asp-for="CodigoUsuario" />
                                 </div>

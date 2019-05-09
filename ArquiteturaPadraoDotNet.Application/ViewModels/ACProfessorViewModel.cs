@@ -9,6 +9,9 @@ namespace One.Application.ViewModels
         [DisplayName("Código do usuário")]
         public int CodigoUsuario { get; set; }
 
+        [DisplayName("Nome Completo")]
+        public string NomeCompleto { get; set; }
+
         [DisplayName("Código do Professor")]
         public int CodigoProfessor { get; set; }
 

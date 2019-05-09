@@ -21,7 +21,7 @@ namespace One.Application.Interfaces
         ValidationResults AlterarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel);
         ValidationResults SalvarResponsavel(CadastroResponsavelViewModel cadastroResponsavelViewModel);
         ValidationResults ExcluirResponsavel(int id);
-        IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome);
+        IEnumerable<ACResponsavelViewModel> ObterResponsavelPorNome(string nome);
         CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id);
         #endregion
 
@@ -29,6 +29,8 @@ namespace One.Application.Interfaces
         ValidationResults SalvarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel);
         ValidationResults AlterarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel);
         ValidationResults ExcluirProfessor(int id);
+        IEnumerable<ACProfessorViewModel> ObterProfessorPorNome(string nome);
+        CadastroProfessorViewModel ObterProfessorParaEdicao(int id);
         #endregion
     }
 }

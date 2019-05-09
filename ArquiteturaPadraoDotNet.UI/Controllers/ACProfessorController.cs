@@ -29,13 +29,19 @@ namespace One.UI.Controllers
         }
         #endregion
 
-
         #region Seção: Actions
         [Route("Cadastro-Professor/{id:int}")]
         public IActionResult Cadastro(int id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            return View(id == 0 ? new CadastroProfessorViewModel() : null);
+            return View(id == 0 ? new CadastroProfessorViewModel() : _iAcademicoAppService.ObterProfessorParaEdicao(id));
+        }
+
+        [Route("Lista-Professor")]
+        public IActionResult Lista(int id)
+        {
+            ViewBag.BaseUrl = ObterBaseUrl();
+            return View();
         }
         #endregion
 
@@ -53,6 +59,19 @@ namespace One.UI.Controllers
 
             return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         }
+
+        [HttpPost]
+        [Route("Registrar-Exclusao-Professor")]
+        public JsonResult RegistrarExclusaoProfessor([FromBody] int id)
+        {
+            validationResult = _iAcademicoAppService.ExcluirProfessor(id);
+            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+        }
+
+        [HttpPost]
+        [Route("Grid-Professor")]
+        public IActionResult ListaGrid([FromBody]string nome)
+           => View(_iAcademicoAppService.ObterProfessorPorNome(nome));
         #endregion
     }
 }

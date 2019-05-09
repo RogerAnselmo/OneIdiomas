@@ -11,16 +11,19 @@ namespace One.Infra.Data.Repository
 {
     public class ACProfessorRepository : Repository<ACProfessor>, IACProfessorRepository
     {
-        public ACProfessorRepository(OneContext context) : base(context)
-        {
-        }
+        public ACProfessorRepository(OneContext context) : base(context) { }
 
         public IEnumerable<ACProfessor> ObterProfessorPorNome(string nome)
-        {
-            return Db.ACProfessor
-                .Where(p => p.SEGUsuario.NomeCompleto.Contains(nome))
+            => Db.ACProfessor
+                .Where(p => p.SEGUsuario.NomeCompleto.Contains(nome) && p.flAtivo.Equals("A"))
                 .Include(p => p.SEGUsuario)
                 .AsNoTracking();
-        }
+
+        public override ACProfessor ObterPorId(int id)
+            => Db.ACProfessor
+                .Where(p => p.CodigoProfessor == id)
+                .Include(p => p.SEGUsuario)
+                .AsNoTracking()
+                .FirstOrDefault();
     }
 }

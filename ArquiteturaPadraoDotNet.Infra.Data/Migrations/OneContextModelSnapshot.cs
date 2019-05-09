@@ -234,9 +234,15 @@ namespace One.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CPF")
+                        .IsRequired();
+
                     b.Property<int>("CodigoUsuario");
 
                     b.Property<DateTime>("DataNascimento");
+
+                    b.Property<string>("RG")
+                        .IsRequired();
 
                     b.Property<string>("flAtivo")
                         .IsRequired()

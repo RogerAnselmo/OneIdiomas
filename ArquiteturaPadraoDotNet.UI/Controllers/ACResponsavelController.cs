@@ -76,7 +76,7 @@ namespace One.UI.Controllers
         #region Seção: Ajax
         [Route("Grid-Responsavel")]
         public IActionResult ListaGrid([FromBody]string nome)
-            => View(_academicoAppService.ObterPorResponsavelNome(nome));
+            => View(_academicoAppService.ObterResponsavelPorNome(nome));
 
         [Route("Registrar-Cadastro-Responsavel")]
         [HttpPost]

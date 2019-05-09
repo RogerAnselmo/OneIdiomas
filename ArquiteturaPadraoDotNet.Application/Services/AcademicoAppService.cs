@@ -151,7 +151,8 @@ namespace One.Application.Services
 
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome) => ACAlunoAdapter.DomainToViewModel(_iACAlunoService.ObterPorNome(nome));
 
-        public CadastroAlunoViewModel ObterAlunoParaEdicao(int id) => ACAlunoAdapter.ConvertAcAlunoToCadastroAlunoViewModel(_iACAlunoService.ObterAlunoParaEdicao(id));
+        public CadastroAlunoViewModel ObterAlunoParaEdicao(int id) 
+            => ACAlunoAdapter.ConvertAcAlunoToCadastroAlunoViewModel(_iACAlunoService.ObterAlunoParaEdicao(id));
         #endregion
 
         #region Seção: ACResponsavel
@@ -256,7 +257,7 @@ namespace One.Application.Services
             return new ValidationResults(true, "Responsável excluído com sucesso");
         }
 
-        public IEnumerable<ACResponsavelViewModel> ObterPorResponsavelNome(string nome)
+        public IEnumerable<ACResponsavelViewModel> ObterResponsavelPorNome(string nome)
            => ACResponsavelAdapter.DomainToViewModel(_iACResponsavelService.ObterPorNome(nome));
 
         public CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id) 
@@ -292,7 +293,27 @@ namespace One.Application.Services
 
         public ValidationResults AlterarProfessor(CadastroProfessorViewModel cadastroProfessorViewModel)
         {
-            throw new System.NotImplementedException();
+            BeginTransaction();
+
+            #region altera o usuário do Professor
+            var SEGUsuario = _iSEGUsuarioService.Alterar(ACProfessorAdapter.ExtractSEGUsuario(cadastroProfessorViewModel));
+
+            if (!SEGUsuario.ValidationResult.IsValid)
+                return SEGUsuario.ValidationResult;
+            #endregion
+
+            #region altera o Professor
+            cadastroProfessorViewModel.CodigoUsuario = SEGUsuario.CodigoUsuario;
+            ACProfessor ACProfessor = _iACProfessorService.Alterar(ACProfessorAdapter.ExtractACProfessor(cadastroProfessorViewModel));
+
+            if (!ACProfessor.ValidationResult.IsValid)
+                return ACProfessor.ValidationResult;
+            #endregion
+
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Professor alterado com sucesso!");
         }
 
         public ValidationResults ExcluirProfessor(int id)
@@ -310,6 +331,12 @@ namespace One.Application.Services
             Commit();
             return new ValidationResults(true, "Professor excluído com sucesso");
         }
+
+        public IEnumerable<ACProfessorViewModel> ObterProfessorPorNome(string nome) 
+            => ACProfessorAdapter.DomainToViewModel(_iACProfessorService.ObterProfessorPorNome(nome));
+
+        public CadastroProfessorViewModel ObterProfessorParaEdicao(int id)
+            => ACProfessorAdapter.ConvertToCadastroProfessorViewModel(_iACProfessorService.ObterProfessorParaEdicao(id));
         #endregion
     }
 }

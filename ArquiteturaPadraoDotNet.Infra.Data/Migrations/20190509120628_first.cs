@@ -191,6 +191,8 @@ namespace One.Infra.Data.Migrations
                     CodigoProfessor = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DataNascimento = table.Column<DateTime>(nullable: false),
+                    RG = table.Column<string>(nullable: false),
+                    CPF = table.Column<string>(nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
                     CodigoUsuario = table.Column<int>(nullable: false)
                 },
