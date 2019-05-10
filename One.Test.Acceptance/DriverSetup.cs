@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -17,11 +16,10 @@ namespace One.Test.Acceptance
             var service = ChromeDriverService.CreateDefaultService(driverPath);
             var chromeOptions = new ChromeOptions();
 
-            if (!Debugger.IsAttached)
-                chromeOptions.AddArguments("window-size=1920,1080","--headless");
+            chromeOptions.AddArguments("--start-maximized");
 
             var driver = new ChromeDriver(service, chromeOptions);
-            driver.Manage().Window.Maximize();
+
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             return driver;

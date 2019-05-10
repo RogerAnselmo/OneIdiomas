@@ -20,7 +20,7 @@
                             <input type="text" class="form-control input-sm" asp-for="NomeProfessor">
                         </div>
                         <a class="btn btn-default" id="btPesquisar"><i class="glyphicon glyphicon-search"></i> Pesquisar</a>
-                        <a class="btn btn-primary" href="@Url.Action("Cadastro-Professor","Gerenciar-Professor",new { id = 0})"><i class="glyphicon glyphicon-user"></i> Novo Responsável</a>
+                        <a class="btn btn-primary" id="btNovoProfessor" href="@Url.Action("Cadastro-Professor","Gerenciar-Professor")"><i class="glyphicon glyphicon-user"></i> Novo Professor</a>
                     </div>
                 </form>
             </div>

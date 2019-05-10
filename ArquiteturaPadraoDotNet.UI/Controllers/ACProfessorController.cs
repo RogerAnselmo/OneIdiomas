@@ -30,11 +30,11 @@ namespace One.UI.Controllers
         #endregion
 
         #region Seção: Actions
-        [Route("Cadastro-Professor/{id:int}")]
-        public IActionResult Cadastro(int id)
+        [Route("Cadastro-Professor/{id:int?}")]
+        public IActionResult Cadastro(int? id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
-            return View(id == 0 ? new CadastroProfessorViewModel() : _iAcademicoAppService.ObterProfessorParaEdicao(id));
+            return View(!id.HasValue ? new CadastroProfessorViewModel() : _iAcademicoAppService.ObterProfessorParaEdicao(id.Value));
         }
 
         [Route("Lista-Professor")]
