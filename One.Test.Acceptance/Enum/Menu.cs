@@ -6,10 +6,11 @@ namespace One.Test.Acceptance.Enum
     {
         Home,
         Acadêmico,
-        Financeiro,
-        Segurança,
         Professores,
-        Responsáveis
+        Responsáveis,
+        Alunos,
 
+        Financeiro,
+        Segurança
     }
 }

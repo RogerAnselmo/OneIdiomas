@@ -30,7 +30,6 @@ namespace One.Test.Acceptance.Specs
             cadastroResponsavelPage.CEP = "6605652";
             cadastroResponsavelPage.Telefone = "(91)9999999";
 
-
             cadastroResponsavelPage.BotaoSalvarClick();
         }
     }
