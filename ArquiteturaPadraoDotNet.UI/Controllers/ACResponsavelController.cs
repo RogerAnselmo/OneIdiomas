@@ -55,10 +55,10 @@ namespace One.UI.Controllers
             return View(_academicoAppService.ObterResponsavelParaEdicao(id));
         }
 
-        [Route("Cadastro-Responsavel/{id:int}")]
-        public IActionResult Cadastro(int id)
+        [Route("Cadastro-Responsavel/{id:int?}")]
+        public IActionResult Cadastro(int? id)
         {
-            ViewBag.Title = id == 0 ? "Novo Responsável" : "Editar Responsável";
+            ViewBag.Title = id == 0 ? "Cadastro Responsável" : "Editar Responsável";
             ViewBag.BaseUrl = ObterBaseUrl();
             ViewBag.ListaUF = _geralAppService.ObterTodasUF();
             ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
@@ -69,7 +69,7 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return View((id == 0) ? new CadastroResponsavelViewModel() : _academicoAppService.ObterResponsavelParaEdicao(id));
+            return View(!id.HasValue ? new CadastroResponsavelViewModel() : _academicoAppService.ObterResponsavelParaEdicao(id.Value));
         }
         #endregion
 

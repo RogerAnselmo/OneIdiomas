@@ -8,7 +8,8 @@ namespace One.Test.Acceptance.Enum
         Acadêmico,
         Financeiro,
         Segurança,
+        Professores,
+        Responsáveis
 
-        Professores
     }
 }

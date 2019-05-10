@@ -8,7 +8,7 @@ namespace One.Test.Acceptance.Specs
 {
     public class CadastroProfessorTest : LoggedInSetup
     {
-        public CadastroProfessorPage cadastroProfessorPage { get; set; }
+        private CadastroProfessorPage cadastroProfessorPage { get; set; }
 
         [SetUp]
         public void SetUp()
@@ -20,7 +20,7 @@ namespace One.Test.Acceptance.Specs
         }
 
         [Test]
-        public void DeveCadastrarUmAluno()
+        public void DeveCadastrarUmProfessor()
         {
             cadastroProfessorPage.NomeProfessor = "nome do professor";
             cadastroProfessorPage.DataNascimento = new DateTime(1989, 9, 4);
