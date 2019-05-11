@@ -41,6 +41,19 @@ namespace One.UI.Controllers
             return View(!id.HasValue ? new CadastroTurmaViewModel() : null);
         }
 
+        [Route("Lista-Turma")]
+        public IActionResult Lista()
+        {
+            ViewBag.BaseUrl = ObterBaseUrl();
+            return View();
+        }
+
+        [Route("Grid-Turma")]
+        public IActionResult ListaGrid([FromBody] string nome)
+        {
+            return View();
+        }
+
         [Route("Registrar-Cadastro-Turma")]
         public JsonResult RegistrarCadastroTurma([FromBody] CadastroTurmaViewModel cadastroTurmaViewModel)
         {

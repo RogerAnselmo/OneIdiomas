@@ -13,16 +13,16 @@ namespace One.Domain.Services
 
         public ACTurmaService(IACTurmaRepository iACTurmaRepository) => _iACTurmaRepository = iACTurmaRepository;
 
+        public void Dispose()
+        {
+        }
+
         public ACTurma Alterar(ACTurma aCTurma)
         {
             if (aCTurma.IsValid())
                 _iACTurmaRepository.Alterar(aCTurma);
 
             return aCTurma;
-        }
-
-        public void Dispose()
-        {
         }
 
         public ACTurma Salvar(ACTurma aCTurma)
@@ -32,5 +32,7 @@ namespace One.Domain.Services
 
             return aCTurma;
         }
+
+        public IEnumerable<ACTurma> ObterTodos() => _iACTurmaRepository.ObterTodos();
     }
 }

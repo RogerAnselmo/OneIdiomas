@@ -372,7 +372,9 @@ namespace One.Application.Services
             Commit();
 
             return new ValidationResults(true,"Turma alterada com sucesso");
-        } 
+        }
+
+        public IEnumerable<ACTurmaViewModel> ObterTurmasAtivas() => ACTurmaAdapter.DomainToViewModel(_iACTurmaService.ObterTodos());
         #endregion
     }
 }
