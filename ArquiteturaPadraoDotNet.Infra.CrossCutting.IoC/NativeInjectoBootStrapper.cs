@@ -30,6 +30,8 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<IACAlunoResponsavelService, ACAlunoResponsavelService>();
             services.AddScoped<IACResponsavelService, ACResponsavelService>();
             services.AddScoped<IACProfessorService, ACProfessorService>();
+            services.AddScoped<IACNivelService, ACNivelService>();
+            services.AddScoped<IACTurmaService, ACTurmaService>();
             #endregion
 
             #region Serviços Geral
@@ -53,6 +55,8 @@ namespace One.Infra.CrossCutting.IoC
             services.AddScoped<IACAlunoResponsavelRepository, ACAlunoResponsavelRepository>();
             services.AddScoped<IACResponsavelRepository, ACResponsavelRepository>();
             services.AddScoped<IACProfessorRepository, ACProfessorRepository>();
+            services.AddScoped<IACNivelRepository, ACNivelRepository>();
+            services.AddScoped<IACTurmaRepository, ACTurmaRepository>();
             #endregion
 
             #region Repositório Geral

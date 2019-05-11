@@ -7,7 +7,7 @@ $(document).ready(function () {
 
 function ObterCidadesPorUF(CodigoUF, _target) {
 
-    ExecutarComandoPost("/Gerenciar-Cidade/Obter-Cidades-Por-UF", { CodigoUF: CodigoUF },
+    ExecutarComandoPostCallBack("/Gerenciar-Cidade/Obter-Cidades-Por-UF", { CodigoUF: CodigoUF },
         function (retorno) {
 
             if (retorno.erro === 0) {
@@ -65,21 +65,23 @@ function ObterBairrosPorCidade(CodigoCidade, _target) {
 function SalvarAluno() {
 
     if (ValidarCadastroAlunoViewModel()) {
-        ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Cadastro-Aluno", MontarCadastroAlunoViewModel(),
-            function (retorno) {
-                if (retorno.erro === 0) {
-                    AlertSuccessCallBack(retorno.mensagem, function () {
-                        history.back();
-                    });
-                }
-                else {
-                    AlertWarning(retorno.mensagem);
-                }
-            },
-            function (error) {
-                console.log(error);
-                AlertError(error.mensagem);
-            });
+        //ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Cadastro-Aluno", MontarCadastroAlunoViewModel(),
+        //    function (retorno) {
+        //        if (retorno.erro === 0) {
+        //            AlertSuccessCallBack(retorno.mensagem, function () {
+        //                history.back();
+        //            });
+        //        }
+        //        else {
+        //            AlertWarning(retorno.mensagem);
+        //        }
+        //    },
+        //    function (error) {
+        //        console.log(error);
+        //        AlertError(error.mensagem);
+        //    });
+
+        ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Cadastro-Aluno", MontarCadastroAlunoViewModel());
     }
 }
 

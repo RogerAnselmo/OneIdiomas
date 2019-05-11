@@ -24,9 +24,6 @@ function ConfiguraDatePicker(_target) {
         autoclose: true,
         todayHighlight: true
     });
-
-    //DesabilitaDigitacaoNoCampo(_target);
-
 }
 
 function CalcularIdade(data) {
@@ -59,14 +56,11 @@ function ConfiguraDateFormat() {
     _ModuloSistema.find('[one-ui="date"]').mask("99/99/9999");
 
     _ModuloSistema.find('[one-ui="date"]').each(function (i, el) {
-
-        //$(el).mask("99/99/9999");
-
         $(el).blur(function () {
             if ($(el).val() !== '' && !fIsDate($(el).val())) {
                 AlertWarning('Informe uma data válida');
                 $(el).focus();
             }
-        })
+        });
     });
 }

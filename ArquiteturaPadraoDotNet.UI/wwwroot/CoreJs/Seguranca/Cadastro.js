@@ -25,7 +25,7 @@ function SalvarNovoUsuario() {
         CodigoUsuario: 0
     };
 
-    ExecutarComandoPost("/Seguranca/SalvarUsuarioAsync", usuario,
+    ExecutarComandoPostCallBack("/Seguranca/SalvarUsuarioAsync", usuario,
         function (retorno) {
 
             if (retorno.erro === 0) {

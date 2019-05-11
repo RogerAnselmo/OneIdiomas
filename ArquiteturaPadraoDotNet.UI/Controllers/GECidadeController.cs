@@ -15,7 +15,7 @@ namespace One.UI.Controllers
     public class GECidadeController : BaseController
     {
         #region Seção: Inteface - IoC
-        private readonly IAcademicoAppService _academicoAppService;
+        private readonly IAcademicoAppService _iacademicoAppService;
         private readonly IGeralAppService _geralAppService;
         #endregion
 
@@ -26,7 +26,7 @@ namespace One.UI.Controllers
                               UserManager<ApplicationUser> userManager,
                               SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
         {
-            _academicoAppService = academicoAppService;
+            _iacademicoAppService = academicoAppService;
             _geralAppService = geralAppService;
         }
         #endregion

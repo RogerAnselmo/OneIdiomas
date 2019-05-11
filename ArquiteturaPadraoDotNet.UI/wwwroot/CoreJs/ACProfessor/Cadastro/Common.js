@@ -14,20 +14,22 @@ $(document).ready(function () {
 
 function SalvarProfessor() {
     if (ValidarCadastroProfessorViewModel()) {
-        ExecutarComandoPost("/Gerenciar-Professor/Registrar-Cadastro-Professor", MontarCadastroProfessorViewModel(),
-            function (retorno) {
-                if (retorno.erro === 0) {
-                    AlertSuccessCallBack(retorno.mensagem, function () {
-                        history.back();
-                    });
-                }
-                else {
-                    AlertWarning(retorno.mensagem);
-                }
-            },
-            function (error) {
-                console.log(error); AlertError("Erro ao realizar operação");
-            });
+        //ExecutarComandoPost("/Gerenciar-Professor/Registrar-Cadastro-Professor", MontarCadastroProfessorViewModel(),
+        //    function (retorno) {
+        //        if (retorno.erro === 0) {
+        //            AlertSuccessCallBack(retorno.mensagem, function () {
+        //                history.back();
+        //            });
+        //        }
+        //        else {
+        //            AlertWarning(retorno.mensagem);
+        //        }
+        //    },
+        //    function (error) {
+        //        console.log(error); AlertError("Erro ao realizar operação");
+        //    });
+
+        ExecutarComandoPost("/Gerenciar-Professor/Registrar-Cadastro-Professor", MontarCadastroProfessorViewModel());
     }
 }
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
 using One.Application.ViewModels;
+using One.Domain.Validation;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace One.UI.Controllers
         private readonly IOptions<BaseUrl> _baseUrl;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        protected ValidationResults validationResult;
         #endregion
 
         #region Seção: Contrutor
@@ -25,6 +27,7 @@ namespace One.UI.Controllers
             _baseUrl = baseUrl;
             _signInManager = signInManager;
             _userManager = userManager;
+            validationResult = new ValidationResults(false, "validationResult não iniciado");
         }
         #endregion
 
@@ -78,6 +81,8 @@ namespace One.UI.Controllers
         {
             return _baseUrl.Value.Url;
         }
+
+        public JsonResult ReturnValidationResult() => Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
         #endregion
 
         #region Seção: GEUF

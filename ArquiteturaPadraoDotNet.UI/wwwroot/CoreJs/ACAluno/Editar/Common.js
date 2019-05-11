@@ -45,21 +45,21 @@ function AlterarAluno() {
 
     if (ValidarDadosDoAluno()) {
 
-        var editarAlunoViewModel = MontarEditarAlunoViewModel();
+        //ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Edicao-Aluno", MontarEditarAlunoViewModel(),
+        //    function (retorno) {
+        //        if (retorno.erro === 0) {
+        //            AlertSuccessCallBack(retorno.mensagem, function () { window.history.back(1); });
+        //        }
+        //        else {
+        //            AlertWarning(retorno.mensagem);
+        //        }
+        //    },
+        //    function (error) {
+        //        console.log(error);
+        //        AlertError(error.mensagem);
+        //    });
 
-        ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Edicao-Aluno", MontarEditarAlunoViewModel(),
-            function (retorno) {
-                if (retorno.erro === 0) {
-                    AlertSuccessCallBack(retorno.mensagem, function () { window.history.back(1); });
-                }
-                else {
-                    AlertWarning(retorno.mensagem);
-                }
-            },
-            function (error) {
-                console.log(error);
-                AlertError(error.mensagem);
-            });
+        ExecutarComandoPost("/Gerenciar-Aluno/Registrar-Edicao-Aluno", MontarEditarAlunoViewModel());
     }
 }
 

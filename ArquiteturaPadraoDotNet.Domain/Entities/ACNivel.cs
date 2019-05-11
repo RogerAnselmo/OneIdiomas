@@ -8,13 +8,28 @@ namespace One.Domain.Entities
 {
     public class ACNivel
     {
+        protected ACNivel()
+        {
+            flAtivo = "A";
+            ACFaixaEtaria = new ACFaixaEtaria();
+            ACCategoria = new ACCategoria();
+        }
+
+        public ACNivel(int codigoNivel, int codigoCategoria, int codigoFaixaEtaria, string descricao)
+        {
+            CodigoNivel = codigoNivel;
+            Descricao = descricao;
+            CodigoCategoria = codigoCategoria;
+            CodigoFaixaEtaria = codigoFaixaEtaria;
+        }
+
         #region ACNivel
         [Key]
         public int CodigoNivel { get; set; }
 
         [Required]
         [MaxLength(30)]
-        public string Descricao{ get; set; }
+        public string Descricao { get; set; }
 
         [Required]
         [MaxLength(1)]
@@ -32,7 +47,7 @@ namespace One.Domain.Entities
         public int CodigoCategoria { get; set; }
 
         [ForeignKey("CodigoCategoria")]
-        public ACCategoria ACCategoria { get; set; } 
+        public ACCategoria ACCategoria { get; set; }
         #endregion
     }
 }

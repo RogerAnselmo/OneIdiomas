@@ -17,8 +17,7 @@ namespace One.UI.Controllers
     public class ACResponsavelController : BaseController
     {
         #region Seão: Interface - IoC
-        private ValidationResults validationResult; 
-        private readonly IAcademicoAppService _academicoAppService;
+        private readonly IAcademicoAppService _iacademicoAppService;
         private readonly IGeralAppService _geralAppService;
         #endregion
 
@@ -29,7 +28,7 @@ namespace One.UI.Controllers
           IAcademicoAppService academicoAppService,
           IGeralAppService geralAppService) : base(baseUrl, userManager, signInManager)
         {
-            _academicoAppService = academicoAppService;
+            _iacademicoAppService = academicoAppService;
             _geralAppService = geralAppService;
         }
         #endregion
@@ -52,7 +51,7 @@ namespace One.UI.Controllers
             ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
             ViewBag.ListaBairro = _geralAppService.ObterBairroPorCidade(1); //1 = Abaetetuba
 
-            return View(_academicoAppService.ObterResponsavelParaEdicao(id));
+            return View(_iacademicoAppService.ObterResponsavelParaEdicao(id));
         }
 
         [Route("Cadastro-Responsavel/{id:int?}")]
@@ -69,14 +68,14 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return View(!id.HasValue ? new CadastroResponsavelViewModel() : _academicoAppService.ObterResponsavelParaEdicao(id.Value));
+            return View(!id.HasValue ? new CadastroResponsavelViewModel() : _iacademicoAppService.ObterResponsavelParaEdicao(id.Value));
         }
         #endregion
 
         #region Seção: Ajax
         [Route("Grid-Responsavel")]
         public IActionResult ListaGrid([FromBody]string nome)
-            => View(_academicoAppService.ObterResponsavelPorNome(nome));
+            => View(_iacademicoAppService.ObterResponsavelPorNome(nome));
 
         [Route("Registrar-Cadastro-Responsavel")]
         [HttpPost]
@@ -84,19 +83,19 @@ namespace One.UI.Controllers
         {
             if (ModelState.IsValid)
                 validationResult = CadastroResponsavelViewModel.CodigoResponsavel == 0 ?
-                    _academicoAppService.SalvarResponsavel(CadastroResponsavelViewModel)
-                    : _academicoAppService.AlterarResponsavel(CadastroResponsavelViewModel);
+                    _iacademicoAppService.SalvarResponsavel(CadastroResponsavelViewModel)
+                    : _iacademicoAppService.AlterarResponsavel(CadastroResponsavelViewModel);
             else
                 validationResult = new ValidationResults(false, "modelo inválido");
 
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            return ReturnValidationResult();
         }
 
         [Route("Registrar-Exclusao-Responsavel")]
         public JsonResult RegistrarExclusao([FromBody]int id)
         {
-            validationResult = _academicoAppService.ExcluirResponsavel(id);
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            validationResult = _iacademicoAppService.ExcluirResponsavel(id);
+            return ReturnValidationResult();
         }
         #endregion
     }

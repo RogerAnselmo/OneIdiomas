@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using One.Application.Adapter;
-using One.Application.Extractors;
 using One.Application.Interfaces;
 using One.Application.UoW;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
 using One.Application.ViewModels.ACProfessorVM;
 using One.Application.ViewModels.ACResponsavelVM;
+using One.Application.ViewModels.ACTurmaVM;
 using One.Domain.Entities;
 using One.Domain.Interfaces.Service;
 using One.Domain.Validation;
@@ -22,6 +22,8 @@ namespace One.Application.Services
         private readonly IACResponsavelService _iACResponsavelService;
         private readonly IACAlunoResponsavelService _iACAlunoResponsavelService;
         private readonly IACProfessorService _iACProfessorService;
+        private readonly IACNivelService _iACNivelService;
+        private readonly IACTurmaService _iACTurmaService;
         private readonly IGEEnderecoService _iGEEnderecoService;
         private readonly ISEGUsuarioService _iSEGUsuarioService;
         private readonly IGETelefoneService _iGETelefoneService;
@@ -33,6 +35,8 @@ namespace One.Application.Services
             IACResponsavelService iACResponsavelService,
             IACAlunoResponsavelService iACAlunoResponsavelService,
             IACProfessorService iACProfessorService,
+            IACNivelService iACNivelService,
+            IACTurmaService iACTurmaService,
             ISEGUsuarioService iSEGUsuarioService,
             IGEEnderecoService iGEEnderecoService,
             IGETelefoneService iGETelefoneService,
@@ -42,6 +46,8 @@ namespace One.Application.Services
             _iACResponsavelService = iACResponsavelService;
             _iACAlunoResponsavelService = iACAlunoResponsavelService;
             _iACProfessorService = iACProfessorService;
+            _iACNivelService = iACNivelService;
+            _iACTurmaService = iACTurmaService;
             _iGEEnderecoService = iGEEnderecoService;
             _iSEGUsuarioService = iSEGUsuarioService;
             _iGETelefoneService = iGETelefoneService;
@@ -337,6 +343,36 @@ namespace One.Application.Services
 
         public CadastroProfessorViewModel ObterProfessorParaEdicao(int id)
             => ACProfessorAdapter.ConvertToCadastroProfessorViewModel(_iACProfessorService.ObterProfessorParaEdicao(id));
+        #endregion
+
+        #region Seção: ACNivel
+        public IEnumerable<ACNivelViewModel> ObterNiveisAtivos() => ACNivelAdapter.DomainToViewModel(_iACNivelService.ObterTodosAtivos());
+        #endregion
+
+        #region Seção: ACTurma
+        public ValidationResults SalvarTurma(CadastroTurmaViewModel cadastroTurmaViewModel)
+        {
+            BeginTransaction();
+
+            ACTurma aCTurma = ACTurmaAdapter.ExtractACTurma(cadastroTurmaViewModel);
+            aCTurma = _iACTurmaService.Salvar(aCTurma);
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Turma salva com sucesso");
+        }
+
+        public ValidationResults AlterarTurma(CadastroTurmaViewModel cadastroTurmaViewModel)
+        {
+            BeginTransaction();
+
+            ACTurma aCTurma = ACTurmaAdapter.ExtractACTurma(cadastroTurmaViewModel);
+            aCTurma = _iACTurmaService.Alterar(aCTurma);
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true,"Turma alterada com sucesso");
+        } 
         #endregion
     }
 }

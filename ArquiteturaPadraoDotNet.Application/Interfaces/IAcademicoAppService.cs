@@ -2,6 +2,7 @@
 using One.Application.ViewModels.ACAlunoVM;
 using One.Application.ViewModels.ACProfessorVM;
 using One.Application.ViewModels.ACResponsavelVM;
+using One.Application.ViewModels.ACTurmaVM;
 using One.Domain.Validation;
 using System.Collections.Generic;
 
@@ -31,6 +32,15 @@ namespace One.Application.Interfaces
         ValidationResults ExcluirProfessor(int id);
         IEnumerable<ACProfessorViewModel> ObterProfessorPorNome(string nome);
         CadastroProfessorViewModel ObterProfessorParaEdicao(int id);
+        #endregion
+
+        #region Seção: ACNivel
+        IEnumerable<ACNivelViewModel> ObterNiveisAtivos();
+        #endregion
+        
+        #region Seção: ACTurma
+        ValidationResults SalvarTurma(CadastroTurmaViewModel cadastroTurmaViewModel);
+        ValidationResults AlterarTurma(CadastroTurmaViewModel cadastroTurmaViewModel); 
         #endregion
     }
 }

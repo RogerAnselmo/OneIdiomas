@@ -1,13 +1,20 @@
-﻿using System;
+﻿using One.Domain.Validation;
+using One.Domain.Validations.ACTurmaValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace One.Domain.Entities
 {
     public class ACTurma
     {
-        protected ACTurma() => flAtivo = "A";
+        protected ACTurma()
+        {
+            flAtivo = "A";
+            CodigoIdentificador = DateTime.Now.ToString();
+        }
 
         public ACTurma(int codigoTurma, string descricao, DateTime dataInicio, DateTime dataFim, decimal valorBase, int codigoNivel, int codigoProfessor) : this()
         {
@@ -43,6 +50,9 @@ namespace One.Domain.Entities
         [Required]
         [MaxLength(1)]
         public string flAtivo { get; set; }
+
+        [NotMapped]
+        public ValidationResults ValidationResult { get; set; }
         #endregion
 
         #region ACNivel
@@ -58,5 +68,11 @@ namespace One.Domain.Entities
 
         public virtual ACProfessor ACProfessor { get; set; }
         #endregion
+
+        public bool IsValid()
+        {
+            ValidationResult = new ACTurmaConsistenteValidation(this).Validate();
+            return ValidationResult.IsValid;
+        }
     }
 }

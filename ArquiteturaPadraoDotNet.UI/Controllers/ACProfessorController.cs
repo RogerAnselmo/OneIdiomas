@@ -15,7 +15,6 @@ namespace One.UI.Controllers
     public class ACProfessorController : BaseController
     {
         #region Seção: Interface - IoC
-        private ValidationResults validationResult;
         private readonly IAcademicoAppService _iAcademicoAppService;
         #endregion
 
@@ -57,7 +56,7 @@ namespace One.UI.Controllers
             else
                 validationResult = new ValidationResults(false, "modelo inválido");
 
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            return ReturnValidationResult();
         }
 
         [HttpPost]
@@ -65,7 +64,7 @@ namespace One.UI.Controllers
         public JsonResult RegistrarExclusaoProfessor([FromBody] int id)
         {
             validationResult = _iAcademicoAppService.ExcluirProfessor(id);
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            return ReturnValidationResult();
         }
 
         [HttpPost]

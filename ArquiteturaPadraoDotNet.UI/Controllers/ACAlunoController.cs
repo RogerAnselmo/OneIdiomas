@@ -8,7 +8,6 @@ using One.Application.ViewModels.ACAlunoVM;
 using One.Domain.Validation;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
-using System;
 using System.Linq;
 
 namespace One.UI.Controllers
@@ -18,9 +17,8 @@ namespace One.UI.Controllers
     public class ACAlunoController : BaseController
     {
         #region Seção: Inteface - IoC
-        private readonly IAcademicoAppService _academicoAppService;
+        private readonly IAcademicoAppService _iacademicoAppService;
         private readonly IGeralAppService _geralAppService;
-        private ValidationResults validationResult;
         #endregion
 
         #region Seção: Construtor
@@ -30,7 +28,7 @@ namespace One.UI.Controllers
                                UserManager<ApplicationUser> userManager,
                                SignInManager<ApplicationUser> signInManager) : base(baseUrl, userManager, signInManager)
         {
-            _academicoAppService = academicoAppService;
+            _iacademicoAppService = academicoAppService;
             _geralAppService = geralAppService;
         }
         #endregion
@@ -48,7 +46,7 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return View(id == 0 ? new CadastroAlunoViewModel() : _academicoAppService.ObterAlunoParaEdicao(id));
+            return View(id == 0 ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id));
         }
 
         [Route("Lista-Aluno")]
@@ -62,26 +60,26 @@ namespace One.UI.Controllers
 
         #region Seção: Ajax
         [Route("Grid-Aluno")]
-        public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_academicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
+        public IActionResult ListaGrid([FromBody]string nomeAluno) => View(_iacademicoAppService.ObterAlunosPorNome(nomeAluno ?? ""));
 
         [Route("Registrar-Cadastro-Aluno")]
         public JsonResult RegistrarCadastro([FromBody]CadastroAlunoViewModel cadastroAlunoViewModel)
         {
             if (ModelState.IsValid)
                 validationResult = cadastroAlunoViewModel.CodigoAluno == 0 ?
-                    _academicoAppService.SalvarAluno(cadastroAlunoViewModel)
-                    : _academicoAppService.AlterarAluno(cadastroAlunoViewModel);
+                    _iacademicoAppService.SalvarAluno(cadastroAlunoViewModel)
+                    : _iacademicoAppService.AlterarAluno(cadastroAlunoViewModel);
             else
                 validationResult = new ValidationResults(false, "modelo inválido");
 
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            return ReturnValidationResult();
         }
 
         [Route("Registrar-Exclusao-Aluno")]
         public JsonResult RegistrarExclusao([FromBody]int id)
         {
-            validationResult = _academicoAppService.ExcluirAluno(id);
-            return Json(new { erro = validationResult.IsValid ? 0 : 1, mensagem = validationResult.Message });
+            validationResult = _iacademicoAppService.ExcluirAluno(id);
+            return ReturnValidationResult();
         }
         #endregion
     }

@@ -1,0 +1,130 @@
+﻿@model One.Application.ViewModels.ACTurmaVM.CadastroTurmaViewModel
+
+@{
+    ViewData["Title"] = "Cadastro de Turmas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="#" class="fa fa-caret-down"></a>
+                </div>
+            </header>
+            <div class="panel-body">
+                <section class="panel form-wizard" id="w2">
+                    <div class="tabs">
+                        <ul class="nav nav-tabs nav-justify">
+                            <li class="active">
+                                <a href="#w2-account" data-toggle="tab" class="text-center">
+                                    Dados da turma
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="form-horizontal" novalidate="novalidate">
+                            <div class="tab-content">
+
+                                <div style="display: nones">
+                                    <input asp-for="CodigoTurma" />
+                                    <input asp-for="CodigoIdentificador" />
+                                </div>
+
+                                <div id="w2-account" class="tab-pane active">
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-2 control-label" asp-for="CodigoProfessor"></label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control input-sm" asp-for="CodigoProfessor">
+
+                                                @foreach (ACProfessorViewModel professor in ViewBag.listaProfessores)
+                                                {
+                                                    if (Model.CodigoProfessor == professor.CodigoProfessor)
+                                                    {
+                                                        <option value="@professor.CodigoProfessor" selected="selected">
+                                                            @professor.NomeCompleto
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@professor.CodigoProfessor">
+                                                            @professor.NomeCompleto
+                                                        </option>
+                                                    }
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label class="col-sm-2 control-label" asp-for="CodigoNivel"></label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control input-sm" asp-for="CodigoNivel">
+
+                                                @foreach (ACNivelViewModel nivel in ViewBag.ListaNiveis)
+                                                {
+                                                    if (Model.CodigoNivel == nivel.CodigoNivel)
+                                                    {
+                                                        <option value="@nivel.CodigoNivel" selected="selected">
+                                                            @nivel.Descricao
+                                                        </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@nivel.CodigoNivel">
+                                                            @nivel.Descricao
+                                                        </option>
+                                                    }
+                                                }
+
+                                            </select>
+                                        </div>
+
+                                        <label class="col-sm-2 control-label" asp-for="ValorBase"></label>
+                                        <div class="col-sm-3">
+                                            <input class="form-control input-sm" asp-for="ValorBase">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="DataInicio"></label>
+                                        <div class="col-sm-3">
+                                            <input one-ui="date" class="form-control input-sm" asp-for="DataInicio">
+                                        </div>
+
+                                        <label class="col-sm-2 control-label" asp-for="DataFim"></label>
+                                        <div class="col-sm-3">
+                                            <input one-ui="date" class="form-control input-sm" asp-for="DataFim">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="Descricao"></label>
+                                        <div class="col-sm-8">
+                                            <textarea type="text" class="form-control input-sm" asp-for="Descricao" rows="5"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-8"></div>
+                            <a class="bt-salvar btn btn-sm btn-default col-md-1 col-xs-12">Salvar</a>
+                            <a class="bt-cancelar btn btn-sm btn-default col-md-1 col-xs-12">Cancelar</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/CoreJs/ACTurma/Cadastro/Common.js"></script>

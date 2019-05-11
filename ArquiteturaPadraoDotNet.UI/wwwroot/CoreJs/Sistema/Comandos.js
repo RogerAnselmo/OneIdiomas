@@ -46,7 +46,7 @@ function ExecutarComandoSalvar(_controller, _parametros, _sucesso, _erro) {
     });
 }
 
-function ExecutarComandoPost(_controller, _parametros, _sucesso, _erro) {
+function ExecutarComandoPostCallBack(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
         type: 'POST',
         url: '/' + $('#tbBaseUrl').val() + _controller,
@@ -64,6 +64,38 @@ function ExecutarComandoPost(_controller, _parametros, _sucesso, _erro) {
         error: _erro
     });
 }
+
+function ExecutarComandoPost(_controller, _parametros) {
+    $.ajax({
+        type: 'POST',
+        url: '/' + $('#tbBaseUrl').val() + _controller,
+        data: JSON.stringify(_parametros),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        sync: false,
+        beforeSend: function () {
+            ShowWaitMe();
+        },
+        success: function (retorno) {
+            if (retorno.erro === 0) {
+                AlertSuccessCallBack(retorno.mensagem, function () {
+                    history.back(1);
+                });
+            }
+            else {
+                AlertWarning(retorno.mensagem);
+            }
+        },
+        complete: function () {
+            HideWaitMe();
+        },
+        error: function (error) {
+            console.log(error);
+            AlertError("Erro ao realizar operação");
+        }
+    });
+}
+
 
 function ExecutarComandoDelete(_controller, _parametros, _sucesso, _erro) {
     $.ajax({
