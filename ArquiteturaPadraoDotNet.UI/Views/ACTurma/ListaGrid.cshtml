@@ -1,0 +1,37 @@
+﻿@model ICollection<ACTurmaViewModel>
+@{
+    Layout = null;
+}
+
+<table id="tableTurmas" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Nível/Categoria
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ACTurmaViewModel Turma in Model)
+        {
+            <tr>
+                <td>
+                    @(Turma.ACNivelViewModel.Descricao + '/' + Turma.ACNivelViewModel.ACCategoriaViewModel.DescicaoCategoria)
+                </td>
+                <td>
+                    @Turma.ACNivelViewModel.ACFaixaEtariaViewModel.Descricao
+                </td>
+                <td>
+                    <a href="" class="btn btn-editar btn-default" title="Visualizar"><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="@Url.Action("Cadastro-Turma", "Gerenciar-Turma",new { id = Turma.CodigoTurma })" class="btn btn-editar btn-primary" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-editar btn-danger" title="Excluir" onclick="ExcluirTurma(@Turma.CodigoTurma, this)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/CoreJs/ACTurma/Lista/Grid.js"></script>

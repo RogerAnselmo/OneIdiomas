@@ -32,7 +32,7 @@ namespace One.Domain.Entities
         public int CodigoTurma { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(400)]
         public string Descricao { get; set; }
 
         [Required]

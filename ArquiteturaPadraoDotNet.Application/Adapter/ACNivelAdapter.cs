@@ -12,7 +12,9 @@ namespace One.Application.Adapter
         public static ACNivelViewModel DomainToViewModel(ACNivel domain) => new ACNivelViewModel
         {
             CodigoNivel = domain.CodigoNivel,
-            Descricao = domain.Descricao
+            Descricao = domain.Descricao,
+            ACCategoriaViewModel = ACCategoriaAdapter.DomainToViewModel(domain.ACCategoria),
+            ACFaixaEtariaViewModel = ACFaixaEtariaAdapter.DomainToViewModel(domain.ACFaixaEtaria)
         };
 
         public static IEnumerable<ACNivelViewModel> DomainToViewModel(IEnumerable<ACNivel> listaDomain)

@@ -356,6 +356,10 @@ namespace One.Application.Services
 
             ACTurma aCTurma = ACTurmaAdapter.ExtractACTurma(cadastroTurmaViewModel);
             aCTurma = _iACTurmaService.Salvar(aCTurma);
+
+            if (!aCTurma.ValidationResult.IsValid)
+                return aCTurma.ValidationResult;
+
             SaveChange();
             Commit();
 
@@ -368,15 +372,35 @@ namespace One.Application.Services
 
             ACTurma aCTurma = ACTurmaAdapter.ExtractACTurma(cadastroTurmaViewModel);
             aCTurma = _iACTurmaService.Alterar(aCTurma);
+
+            if (!aCTurma.ValidationResult.IsValid)
+                return aCTurma.ValidationResult;
+
             SaveChange();
             Commit();
 
             return new ValidationResults(true,"Turma alterada com sucesso");
         }
 
+        public ValidationResults ExcluirTurma(int id)
+        {
+            BeginTransaction();
+            var aCTurma = _iACTurmaService.Excluir(id);
+
+            if (!aCTurma.ValidationResult.IsValid)
+                return validationResult;
+
+            SaveChange();
+            Commit();
+
+            return new ValidationResults(true, "Turma excluída com sucesso");
+        }
+
         public IEnumerable<ACTurmaViewModel> ObterTurmasAtivas() => ACTurmaAdapter.DomainToViewModel(_iACTurmaService.ObterTodos());
 
         public CadastroTurmaViewModel ObterTurmaParaEdicao(int id) => ACTurmaAdapter.ConvertToCadastroTurmaViewModel(_iACTurmaService.ObterPorId(id));
+
+        public IEnumerable<ACTurmaViewModel> ObterTurmaPorDescicaoNivelCategoria(string filtro) => ACTurmaAdapter.DomainToViewModel(_iACTurmaService.ObterPorDescicaoNivelCategoria(filtro));
         #endregion
     }
 }

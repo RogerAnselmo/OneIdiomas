@@ -14,7 +14,9 @@ namespace One.Domain.Validations.ACTurmaValidation
             var DataInicialDevSerValida = new DataInicialDevSerValida();
             var DataFinalDevSerValida = new DataFinalDevSerValida();
             var DataInicialDeveSerMenorQueDataFinal = new DataInicialDeveSerMenorQueDataFinal();
+            var DescricaoSerValida = new DescricaoSerValida();
 
+            base.Add("DescricaoSerValida", new Rule<ACTurma>(DescricaoSerValida, "descrição deve ser preenchida e deve ter no máximo 400 caracteres", ACTurma));
             base.Add("CodigoProfessorDeveSerMaiorQueZero", new Rule<ACTurma>(CodigoProfessorDeveSerMaiorQueZero, "código do professor deve ser maior que zero", ACTurma));
             base.Add("CodigoNivelDeveSerMaiorQueZero", new Rule<ACTurma>(CodigoNivelDeveSerMaiorQueZero, "código do nivel deve ser maior que zero", ACTurma));
             base.Add("DataInicialDeveSerMenorQueDataFinal", new Rule<ACTurma>(DataInicialDeveSerMenorQueDataFinal, "Data inicial deve ser menor que a adata final", ACTurma));

@@ -31,15 +31,29 @@ namespace One.Application.Adapter
             ValorBase = aCTurma.ValorBase
         };
 
-
-        public static ACTurmaViewModel DomainToViewModel(ACTurma domain)
+        public static ACTurmaViewModel DomainToViewModel(ACTurma domain) => new ACTurmaViewModel
         {
-            throw new NotImplementedException();
-        }
+            CodigoNivel = domain.CodigoNivel,
+            CodigoProfessor = domain.CodigoProfessor,
+            CodigoTurma = domain.CodigoTurma,
+            DataFim = domain.DataFim,
+            DataInicio = domain.DataInicio,
+            Descricao = domain.Descricao,
+            ValorBase = domain.ValorBase,
+            ACNivelViewModel = ACNivelAdapter.DomainToViewModel(domain.ACNivel)
+        };
 
         public static IEnumerable<ACTurmaViewModel> DomainToViewModel(IEnumerable<ACTurma> listaDomain)
         {
-            throw new NotImplementedException();
+            IList<ACTurmaViewModel> listaViewModel = new List<ACTurmaViewModel>();
+
+            if (listaDomain != null)
+                foreach (ACTurma domain in listaDomain)
+                {
+                    listaViewModel.Add(DomainToViewModel(domain));
+                }
+
+            return listaViewModel;
         }
 
         public static ACTurma ViewModelToDomain(ACTurmaViewModel viewModel)

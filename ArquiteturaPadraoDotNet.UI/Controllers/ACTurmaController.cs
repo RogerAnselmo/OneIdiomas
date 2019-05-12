@@ -15,16 +15,19 @@ namespace One.UI.Controllers
     [Route("Gerenciar-Turma")]
     public class ACTurmaController : BaseController
     {
+        #region Seção: Interface - IoC
         private readonly IAcademicoAppService _iacademicoAppService;
+        #endregion
 
-        public ACTurmaController(IOptions<BaseUrl> baseUrl,
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            IAcademicoAppService academicoAppService) : base(baseUrl, userManager, signInManager)
+        #region Seção: Construtor
+        public ACTurmaController(IOptions<BaseUrl> baseUrl, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+                IAcademicoAppService academicoAppService) : base(baseUrl, userManager, signInManager)
         {
             _iacademicoAppService = academicoAppService;
         }
+        #endregion
 
+        #region Seção: Serviços
         [Route("Cadastro-Turma/{id:int?}")]
         public IActionResult Cadastro(int? id)
         {
@@ -47,12 +50,11 @@ namespace One.UI.Controllers
             ViewBag.BaseUrl = ObterBaseUrl();
             return View();
         }
+        #endregion
 
+        #region Seção: AJAX
         [Route("Grid-Turma")]
-        public IActionResult ListaGrid([FromBody] string nome)
-        {
-            return View();
-        }
+        public IActionResult ListaGrid([FromBody] string filtro) => View(_iacademicoAppService.ObterTurmaPorDescicaoNivelCategoria(filtro));
 
         [Route("Registrar-Cadastro-Turma")]
         public JsonResult RegistrarCadastroTurma([FromBody] CadastroTurmaViewModel cadastroTurmaViewModel)
@@ -66,5 +68,13 @@ namespace One.UI.Controllers
 
             return ReturnValidationResult();
         }
+
+        [Route("Registrar-Exclusao-Turma")]
+        public JsonResult RegistrarExclusaoTurma([FromBody] int id)
+        {
+            validationResult = _iacademicoAppService.ExcluirTurma(id);
+            return ReturnValidationResult();
+        }
+        #endregion
     }
 }

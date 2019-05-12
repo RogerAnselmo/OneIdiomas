@@ -17,5 +17,15 @@ namespace One.Infra.Data.Repository
                 .Include(t => t.ACNivel)
                 .Include(t => t.ACNivel.ACCategoria)
                 .AsNoTracking();
+
+        public IQueryable<ACTurma> ObterPorDescicaoNivelCategoria(string filtro)
+            => Db.ACTurma.Where(t => t.flAtivo.Equals("A") && 
+                                (t.Descricao.Contains(filtro) 
+                                || t.ACNivel.Descricao.Contains(filtro)
+                                || t.ACProfessor.SEGUsuario.NomeCompleto.Contains(filtro)
+                                || t.ACNivel.ACCategoria.DescicaoCategoria.Contains(filtro)))
+                .Include(t => t.ACNivel)
+                .Include(t => t.ACNivel.ACCategoria)
+                .AsNoTracking();
     }
 }
