@@ -40,7 +40,8 @@ namespace One.Application.Interfaces
         
         #region Seção: ACTurma
         ValidationResults SalvarTurma(CadastroTurmaViewModel cadastroTurmaViewModel);
-        ValidationResults AlterarTurma(CadastroTurmaViewModel cadastroTurmaViewModel); 
+        ValidationResults AlterarTurma(CadastroTurmaViewModel cadastroTurmaViewModel);
+        CadastroTurmaViewModel ObterTurmaParaEdicao(int id);
         #endregion
     }
 }

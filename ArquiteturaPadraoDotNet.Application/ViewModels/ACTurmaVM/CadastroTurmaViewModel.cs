@@ -27,6 +27,6 @@ namespace One.Application.ViewModels.ACTurmaVM
         public decimal ValorBase { get; set; }
 
         [DisplayName("Código Identificador da Turma")]
-        public string CodigoIdentificador { get; private set; }
+        public string CodigoIdentificador { get; set; }
     }
 }

@@ -375,6 +375,8 @@ namespace One.Application.Services
         }
 
         public IEnumerable<ACTurmaViewModel> ObterTurmasAtivas() => ACTurmaAdapter.DomainToViewModel(_iACTurmaService.ObterTodos());
+
+        public CadastroTurmaViewModel ObterTurmaParaEdicao(int id) => ACTurmaAdapter.ConvertToCadastroTurmaViewModel(_iACTurmaService.ObterPorId(id));
         #endregion
     }
 }

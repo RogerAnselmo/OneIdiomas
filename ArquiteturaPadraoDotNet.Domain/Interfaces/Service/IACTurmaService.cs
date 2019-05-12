@@ -9,5 +9,6 @@ namespace One.Domain.Interfaces.Service
         ACTurma Salvar(ACTurma aCTurma);
         ACTurma Alterar(ACTurma aCTurma);
         IEnumerable<ACTurma> ObterTodos();
+        ACTurma ObterPorId(int id);
     }
 }

@@ -34,5 +34,7 @@ namespace One.Domain.Services
         }
 
         public IEnumerable<ACTurma> ObterTodos() => _iACTurmaRepository.ObterTodos();
+
+        public ACTurma ObterPorId(int id) => _iACTurmaRepository.ObterPorId(id);
     }
 }

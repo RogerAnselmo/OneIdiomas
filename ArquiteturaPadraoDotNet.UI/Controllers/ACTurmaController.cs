@@ -38,7 +38,7 @@ namespace One.UI.Controllers
             listaNiveis.Insert(0, new ACNivelViewModel { CodigoNivel = 0, Descricao = "Selecione o Nível" });
             ViewBag.ListaNiveis = listaNiveis;
 
-            return View(!id.HasValue ? new CadastroTurmaViewModel() : null);
+            return View(!id.HasValue ? new CadastroTurmaViewModel() : _iacademicoAppService.ObterTurmaParaEdicao(id.Value));
         }
 
         [Route("Lista-Turma")]

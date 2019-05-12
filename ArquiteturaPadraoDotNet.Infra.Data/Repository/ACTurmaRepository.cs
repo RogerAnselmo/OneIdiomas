@@ -12,7 +12,7 @@ namespace One.Infra.Data.Repository
         {
         }
 
-        public override IQueryable<ACTurma> ObterTodos() 
+        public override IQueryable<ACTurma> ObterTodos()
             => Db.ACTurma.Where(t => t.flAtivo.Equals("A"))
                 .Include(t => t.ACNivel)
                 .Include(t => t.ACNivel.ACCategoria)

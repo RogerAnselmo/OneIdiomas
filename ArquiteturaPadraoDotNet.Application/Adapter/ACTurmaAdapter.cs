@@ -19,6 +19,18 @@ namespace One.Application.Adapter
                            cadastroTurmaViewModel.CodigoNivel,
                            cadastroTurmaViewModel.CodigoProfessor);
 
+        public static CadastroTurmaViewModel ConvertToCadastroTurmaViewModel(ACTurma aCTurma) => new CadastroTurmaViewModel
+        {
+            CodigoIdentificador = aCTurma.CodigoIdentificador,
+            CodigoNivel = aCTurma.CodigoNivel,
+            CodigoProfessor = aCTurma.CodigoProfessor,
+            CodigoTurma = aCTurma.CodigoTurma,
+            DataFim = aCTurma.DataFim.ToShortDateString(),
+            DataInicio = aCTurma.DataInicio.ToShortDateString(),
+            Descricao = aCTurma.Descricao,
+            ValorBase = aCTurma.ValorBase
+        };
+
 
         public static ACTurmaViewModel DomainToViewModel(ACTurma domain)
         {
