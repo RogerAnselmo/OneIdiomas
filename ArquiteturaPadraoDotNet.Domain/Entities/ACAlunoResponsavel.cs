@@ -47,7 +47,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region Validação
-        public bool IsValid()
+        public virtual bool IsValid()
         {
             ValidationResult = new ACAlunoResponsavelConsistenteValidation(this).Validate();
             return ValidationResult.IsValid;

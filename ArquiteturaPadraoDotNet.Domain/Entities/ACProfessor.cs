@@ -20,7 +20,7 @@ namespace One.Domain.Entities
             DataNascimento = dataNascimento;
             CPF = cpf;
             RG = rg;
-        } 
+        }
         #endregion
 
         #region ACProfessor
@@ -56,7 +56,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region Validação
-        public bool IsValid()
+        public virtual bool IsValid()
         {
             ValidationResult = new ACProfessorConsistenteValidation(this).Validate();
             return ValidationResult.IsValid;
