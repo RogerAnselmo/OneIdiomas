@@ -13,7 +13,7 @@ namespace One.Test.Acceptance.Pages
             set => SetText(By.Id("NomeProfessor"), value);
         }
 
-        public void PesquisarResponsavelClick() 
+        public void PesquisarProfessorClick() 
             => driver.FindElement(By.Id("btPesquisar")).Click();
 
         public void NovoProfessorClick()
