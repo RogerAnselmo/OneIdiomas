@@ -35,8 +35,8 @@ namespace One.UI.Controllers
         #endregion
 
         #region Seção: Actions
-        [Route("Cadastro-Aluno/{id:int}")]
-        public IActionResult Cadastro(int id)
+        [Route("Cadastro-Aluno-old/{id:int?}")]
+        public IActionResult Cadastro(int? id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
             ViewBag.ListaUF = _geralAppService.ObterTodasUF();
@@ -47,7 +47,13 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return View(id == 0 ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id));
+            return View(id.HasValue ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id.Value));
+        }
+
+        [Route("Cadastro-Aluno/{id:int?}")]
+        public IActionResult CadastroNovo(int? id)
+        {
+            return View();
         }
 
         [Route("Lista-Aluno")]

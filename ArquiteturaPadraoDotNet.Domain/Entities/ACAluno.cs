@@ -79,8 +79,8 @@ namespace One.Domain.Entities
         #endregion
 
         #region Métodos Inteligentes
-        public int Idade(DateTime dataAtual) 
-            => new DateTime(dataAtual.Subtract(DataNascimento).Ticks).Year;
+        public int Idade() 
+            => new DateTime(DateTime.Today.Subtract(DataNascimento).Ticks).Year;
         #endregion
     }
 }

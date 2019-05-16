@@ -42,6 +42,7 @@
     <Folder Include="Areas\Responsavel\Models\" />
     <Folder Include="Areas\Responsavel\Views\" />
     <Folder Include="wwwroot\CoreComponents\Cidade\" />
+    <Folder Include="wwwroot\CoreJs\ACAluno\wizard\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
