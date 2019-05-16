@@ -63,7 +63,7 @@ namespace One.Domain.Entities
         #endregion
 
         #region Validação
-        public bool IsValid()
+        public virtual bool IsValid()
         {
             ValidationResult = new ACResponsavelConsistenteValidation(this).Validate();
             return ValidationResult.IsValid;
@@ -71,16 +71,8 @@ namespace One.Domain.Entities
         #endregion
 
         #region Métodos Inteligentes
-        public int Idade()
-        {
-            int idade = DateTime.Now.Year - DataNascimento.Year;
-
-            if (DateTime.Now.Month < DataNascimento.Month ||
-                (DateTime.Now.Month == DataNascimento.Month && DateTime.Now.Day < DataNascimento.Day))
-                idade--;
-
-            return idade;
-        }
+        public int Idade() => 
+            new DateTime(DateTime.Today.Subtract(DataNascimento).Ticks).Year;
         #endregion
     }
 }

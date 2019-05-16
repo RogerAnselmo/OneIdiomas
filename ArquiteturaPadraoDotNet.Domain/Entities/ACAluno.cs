@@ -75,20 +75,12 @@ namespace One.Domain.Entities
         {
             ValidationResult = new ACAlunoConsistenteValidation(this).Validate();
             return ValidationResult.IsValid;
-        } 
+        }
         #endregion
 
         #region Métodos Inteligentes
-        public int Idade()
-        {
-            int idade = DateTime.Now.Year - DataNascimento.Year;
-
-            if (DateTime.Now.Month < DataNascimento.Month ||
-                (DateTime.Now.Month == DataNascimento.Month && DateTime.Now.Day < DataNascimento.Day))
-                idade--;
-
-            return idade;
-        } 
+        public int Idade(DateTime dataAtual) 
+            => new DateTime(dataAtual.Subtract(DataNascimento).Ticks).Year;
         #endregion
     }
 }

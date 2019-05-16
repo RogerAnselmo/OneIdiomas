@@ -23,13 +23,13 @@ namespace One.Test.Unit.Domain.Services
             _iACProfessorService = new ACProfessorService(fakeACProfessorRepository);
         }
 
-        public class AlterarTest: ACProfessorServiceTest
+        public class AlterarTest : ACProfessorServiceTest
         {
             [SetUp]
             public void SetUp() => fakeACProfessor = A.Fake<ACProfessor>();
 
             [Test]
-            public void DeveRetornarMesmoObjetoPassadoPorParametro() 
+            public void DeveRetornarMesmoObjetoPassadoPorParametro()
                 => _iACProfessorService.Alterar(fakeACProfessor).Should().Be(fakeACProfessor);
 
             [Test]
@@ -46,6 +46,67 @@ namespace One.Test.Unit.Domain.Services
                 A.CallTo(() => fakeACProfessor.IsValid()).Returns(false);
                 _iACProfessorService.Alterar(fakeACProfessor);
                 A.CallTo(() => fakeACProfessorRepository.Alterar(fakeACProfessor)).MustNotHaveHappened();
+            }
+        }
+
+        public class SalvarTest : ACProfessorServiceTest
+        {
+            [SetUp]
+            public void SetUp() => fakeACProfessor = A.Fake<ACProfessor>();
+
+            [Test]
+            public void DeveRetornarMesmoObjetoPassadoPorParametro()
+                => _iACProfessorService.Salvar(fakeACProfessor).Should().Be(fakeACProfessor);
+
+            [Test]
+            public void DeveChamarRepositorioSalvarExatamenteUmaVezQuandoIsValidTrue()
+            {
+                A.CallTo(() => fakeACProfessor.IsValid()).Returns(true);
+                _iACProfessorService.Salvar(fakeACProfessor);
+                A.CallTo(() => fakeACProfessorRepository.Salvar(fakeACProfessor)).MustHaveHappenedOnceExactly();
+            }
+
+            [Test]
+            public void NaoDeveChamarRepositorioSalvarQuandoIsValidFalse()
+            {
+                A.CallTo(() => fakeACProfessor.IsValid()).Returns(false);
+                _iACProfessorService.Salvar(fakeACProfessor);
+                A.CallTo(() => fakeACProfessorRepository.Salvar(fakeACProfessor)).MustNotHaveHappened();
+            }
+        }
+
+        public class ExcluirTest : ACProfessorServiceTest
+        {
+            [SetUp]
+            public void SetUp() => fakeACProfessor = A.Fake<ACProfessor>();
+
+            [Test]
+            public void DeveRetornarUmProfessor() =>
+                _iACProfessorService.Excluir(fakeId).Should().GetType().Equals(fakeACProfessor.GetType());
+
+            [Test]
+            public void DeveChamarRepositrioAlterarExatamenteUmaVez()
+            {
+                A.CallTo(() => fakeACProfessorRepository.ObterPorId(fakeId)).Returns(fakeACProfessor);
+                _iACProfessorService.Excluir(fakeId);
+                A.CallTo(() => fakeACProfessorRepository.Alterar(fakeACProfessor)).MustHaveHappenedOnceExactly();
+            }
+
+            [Test]
+            public void DeveRetornarUmProfessorComflAtivoIgualI()
+            {
+                A.CallTo(() => fakeACProfessorRepository.ObterPorId(fakeId)).Returns(fakeACProfessor);
+                _iACProfessorService.Excluir(fakeId).flAtivo.Should().Be("I");
+            }
+
+            [Test]
+            public void DeveChamarRepositorioAlterarComflAtivoIgualI()
+            {
+                A.CallTo(() => fakeACProfessorRepository.ObterPorId(fakeId)).Returns(fakeACProfessor);
+                _iACProfessorService.Excluir(fakeId);
+                A.CallTo(() => fakeACProfessorRepository
+                                .Alterar(A<ACProfessor>.That.Matches(p => p.flAtivo.Equals("I"))))
+                                .MustHaveHappenedOnceExactly();
             }
         }
     }
