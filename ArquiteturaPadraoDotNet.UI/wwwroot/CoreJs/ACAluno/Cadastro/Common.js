@@ -3,6 +3,8 @@ $(document).ready(function () {
     $('.bt-salvar').click(function () {
         SalvarAluno();
     });
+
+//    CarregarHtmlSelecaoResponsavel();
 });
 
 function ObterCidadesPorUF(CodigoUF, _target) {
@@ -198,4 +200,8 @@ function ValidarEnderecoDoAluno() {
     }
 
     return true;
+}
+
+function CarregarHtmlSelecaoResponsavel() {
+    CarregarHtmlView('/Gerenciar-Aluno/Selecionar-Responsavel', {}, 'tab-responsavel');
 }

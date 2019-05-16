@@ -156,3 +156,26 @@ function ExecutaComandoPostComRetornoHTML(_controller, _parametros, _sucesso, _e
         }
     });
 }
+
+function CarregarHtmlView(_controller, _parametros, _target) {
+    $.ajax({
+        type: 'POST',
+        url: '/' + $('#tbBaseUrl').val() + _controller,
+        data: JSON.stringify(_parametros),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'html',
+        sync: false,
+        success: function (retorno) {
+            $('#' + _target).html(retorno);
+        },
+        error: function () {
+            AlertError('Erro ao realizar operação');
+        },
+        beforeSend: function () {
+            ShowWaitMe();
+        },
+        complete: function () {
+            HideWaitMe();
+        }
+    });
+}

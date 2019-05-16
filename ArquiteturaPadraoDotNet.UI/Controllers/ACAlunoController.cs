@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using One.Application.Interfaces;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACAlunoVM;
+using One.Application.ViewModels.ACResponsavelVM;
 using One.Domain.Validation;
 using One.Infra.CrossCutting.Identity.Data.Models;
 using One.UI.Helpers;
@@ -80,6 +81,34 @@ namespace One.UI.Controllers
         {
             validationResult = _iacademicoAppService.ExcluirAluno(id);
             return ReturnValidationResult();
+        }
+
+        [Route("Selecionar-Responsavel")]
+        public IActionResult SelecionarResponsavel() => View();
+
+        [Route("Cadastro-Responsavel")]
+        public IActionResult CadastroResponsavel()
+        {
+            ViewBag.BaseUrl = ObterBaseUrl();
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+
+            //TODO: refatorar esse código
+            var listaParentesco = _geralAppService.ObterTodosParentesco().ToList();
+            listaParentesco.Insert(0, new GEParentescoViewModel { CodigoParentesco = 0, Descricao = "Selecione" });
+            ViewBag.ListaParentesco = listaParentesco;
+
+            //TODO: refatorar esse código
+            var listaBairro = _geralAppService.ObterBairroPorCidade(1).ToList();
+            listaBairro.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
+            ViewBag.ListaBairro = listaBairro; //1 = Abaetetuba
+
+            var cadastroResponsavelViewModel = new CadastroResponsavelViewModel {
+                CodigoUF = 5,
+                CodigoCidade = 1
+            };
+
+            return View(cadastroResponsavelViewModel);
         }
         #endregion
     }

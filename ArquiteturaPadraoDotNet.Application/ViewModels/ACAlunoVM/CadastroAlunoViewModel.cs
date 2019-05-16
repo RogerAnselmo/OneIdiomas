@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using One.Application.ViewModels.ACResponsavelVM;
+using System.ComponentModel;
 
 namespace One.Application.ViewModels.ACAlunoVM
 {
