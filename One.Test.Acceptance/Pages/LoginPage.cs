@@ -16,6 +16,11 @@ namespace One.Test.Acceptance.Pages
             set => SetText(By.Name("Senha"), value);
         }
 
+        public string PasswordText
+        {
+            get => driver.FindElement(By.Name("Senha")).Text;
+        }
+
         public void ClickLoginButton() 
             => driver.FindElement(By.CssSelector(".btnEntrar")).Click();
     }

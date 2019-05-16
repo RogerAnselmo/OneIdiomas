@@ -1,9 +1,6 @@
 ﻿using One.Domain.Entities;
 using One.Domain.Interfaces.Repository;
 using One.Domain.Interfaces.Service;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace One.Domain.Services
 {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using One.Domain.Entities;
 using One.Domain.Interfaces.Repository;
 using One.Domain.Interfaces.Service;
@@ -33,6 +34,14 @@ namespace One.Domain.Services
         #endregion
 
         #region Seção: Serviços
+        public ACAluno Salvar(ACAluno ACAluno)
+        {
+            if (ACAluno.IsValid())
+                _iACAlunoRepository.Salvar(ACAluno);
+
+            return ACAluno;
+        }
+
         public ACAluno Alterar(ACAluno ACAluno)
         {
             if (ACAluno.IsValid())
@@ -44,23 +53,27 @@ namespace One.Domain.Services
         public ACAluno Excluir(int id)
         {
             ACAluno ACAluno = _iACAlunoRepository.ObterPorId(id);
-            ACAluno.flAtivo = "I";
-            _iACAlunoRepository.Alterar(ACAluno);
-            ACAluno.ValidationResult = new ValidationResults(true, "Aluno excluído com sucesso");
-            return ACAluno;
+
+            if (ACAluno != null)
+            {
+                ACAluno.flAtivo = "I";
+                _iACAlunoRepository.Alterar(ACAluno);
+                ACAluno.ValidationResult = new ValidationResults(true, "Aluno excluído com sucesso");
+
+                return ACAluno;
+            }
+            
+            return new ACAluno(0, 0, "", "", DateTime.MinValue, 0)
+            {
+                ValidationResult = new ValidationResults(false, "Aluno não encontrado")
+            };
         }
 
         public ACAluno ObterPoId(int CodigoAluno) => _iACAlunoRepository.ObterPorId(CodigoAluno);
+
         public IEnumerable<ACAluno> ObterPorNome(string nome) => _iACAlunoRepository.ObterPorNome(nome);
+
         public IEnumerable<ACAluno> ObterTodos() => _iACAlunoRepository.ObterTodos();
-
-        public ACAluno Salvar(ACAluno ACAluno)
-        {
-            if (ACAluno.IsValid())
-                _iACAlunoRepository.Salvar(ACAluno);
-
-            return ACAluno;
-        }
 
         public ACAluno ObterAlunoParaEdicao(int id)
         {

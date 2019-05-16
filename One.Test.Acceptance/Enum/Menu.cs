@@ -9,6 +9,7 @@ namespace One.Test.Acceptance.Enum
         Professores,
         Responsáveis,
         Alunos,
+        Turmas,
 
         Financeiro,
         Segurança
