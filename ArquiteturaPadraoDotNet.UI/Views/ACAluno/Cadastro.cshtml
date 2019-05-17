@@ -32,15 +32,15 @@
                         <form class="form-horizontal" novalidate="novalidate">
                             <div class="tab-content">
 
-                                <div style="display: none">
-                                    <input asp-for="CodigoAluno" />
-                                    <input asp-for="CodigoUsuario" />
-                                    <input asp-for="CodigoTelefone" />
-                                    <input asp-for="CodigoEndereco" />
-                                </div>
-
                                 @*ABA Aluno*@
                                 <div id="tab-aluno" class="tab-pane active">
+
+                                    <div style="display: none">
+                                        <input asp-for="CodigoAluno" />
+                                        <input asp-for="CodigoUsuario" />
+                                        <input asp-for="CodigoTelefone" />
+                                        <input asp-for="CodigoEndereco" />
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>

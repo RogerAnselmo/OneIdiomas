@@ -1,22 +1,24 @@
 ﻿var _passoAtual;
-var _minimoPassos = 1
+var _minimoPassos = 1;
 var _totalPassos = 4;
 var _progressIndicator = $('.progress-indicator');
 
-
 $(document).ready(function () {
+
+    CarregarHtmlView('/Gerenciar-Matricula/Selecionar-Aluno', {}, 'tab_1');
+    CarregarHtmlView('/Gerenciar-Aluno/Selecionar-Responsavel', {}, 'tab_2');
 
     _passoAtual = _minimoPassos;
 
     $('.next').click(function () {
         _passoAtual = (_passoAtual < _totalPassos) ? _passoAtual + 1 : _totalPassos;
         AtivaNumero();
-    })
+    });
 
     $('.previous').click(function () {
         _passoAtual = (_passoAtual > _minimoPassos) ? _passoAtual - 1 : _minimoPassos;
         AtivaNumero(_passoAtual);
-    })
+    });
 
 });
 

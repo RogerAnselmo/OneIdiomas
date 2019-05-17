@@ -1,3 +1,3 @@
 ﻿function CarregarCadastroResponsavel() {
-    CarregarHtmlView("/Gerenciar-Aluno/Cadastro-Responsavel", {}, "tab-responsavel");
+    CarregarHtmlView("/Gerenciar-Aluno/Cadastro-Responsavel", {}, "tab_2");
 }   

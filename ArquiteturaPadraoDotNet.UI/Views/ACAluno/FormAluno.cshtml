@@ -1,9 +1,17 @@
-﻿@model One.Application.ViewModels.ACResponsavelVM.CadastroResponsavelViewModel
+﻿@model One.Application.ViewModels.ACAlunoVM.CadastroAlunoViewModel
 @{
+    ViewData["Title"] = "Novo Aluno";
     Layout = null;
 }
 
-@*Nome*@
+
+<div style="display: none">
+    <input asp-for="CodigoAluno" />
+    <input asp-for="CodigoUsuario" />
+    <input asp-for="CodigoTelefone" />
+    <input asp-for="CodigoEndereco" />
+</div>
+
 <div class="form-group">
     <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>
     <div class="col-sm-8">
@@ -18,28 +26,16 @@
         <input one-ui="date" class="form-control input-sm" asp-for="DataNascimento">
     </div>
 
-    <label class="col-sm-1 control-label">Parentesco</label>
+    <label class="col-sm-1 control-label" asp-for="Idade"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm">
-            @foreach (GEParentescoViewModel parentesco in ViewBag.ListaParentesco)
-            {
-                if (parentesco.CodigoParentesco == 0)
-                {
-                    <option value="@parentesco.CodigoParentesco" selected="selected">@parentesco.Descricao</option>
-                }
-                else
-                {
-                    <option value="@parentesco.CodigoParentesco">@parentesco.Descricao</option>
-                }
-            }
-        </select>
-
+        <input class="form-control input-sm" asp-for="Idade">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="Telefone"></label>
+    <label class="col-sm-1 control-label" asp-for="DiaVencimento"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="Telefone">
+        <input class="form-control input-sm" asp-for="DiaVencimento">
     </div>
+
 </div>
 
 @*RG/CPF/Dia de Vencimento*@
@@ -54,9 +50,9 @@
         <input class="form-control input-sm" asp-for="CPF">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="CEP"></label>
+    <label class="col-sm-1 control-label" asp-for="Telefone"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="CEP">
+        <input class="form-control input-sm" asp-for="Telefone">
     </div>
 </div>
 
@@ -77,23 +73,13 @@
 <div class="form-group">
     <label class="col-sm-2 control-label" asp-for="CodigoUF"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm" readonly asp-for="CodigoUF">
+        <select class="form-control input-sm" asp-for="CodigoUF">
 
             @foreach (GEUFViewModel uf in ViewBag.ListaUF)
             {
-                if (Model.CodigoUF == uf.CodigoUF)
-                {
-                    <option value="@uf.CodigoUF" selected="selected">
-                        @uf.Descricao
-                    </option>
-                }
-                else
-                {
-                    <option value="@uf.CodigoUF">
-                        @uf.Descricao
-                    </option>
-                }
-
+                <option value="@uf.CodigoUF" selected="@(Model.CodigoUF== uf.CodigoUF ? "selected": "")">
+                    @uf.Descricao
+                </option>
             }
 
         </select>
@@ -101,7 +87,7 @@
 
     <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm" readonly asp-for="CodigoCidade">
+        <select class="form-control input-sm" asp-for="CodigoCidade">
             @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
             {
                 if (Model.CodigoCidade == cidade.CodigoCidade)
@@ -141,3 +127,5 @@
         </select>
     </div>
 </div>
+<script src="~/CoreJs/ACAluno/Cadastro/Aluno.js"></script>
+<script src="~/CoreJs/ACAluno/Cadastro/Common.js"></script>

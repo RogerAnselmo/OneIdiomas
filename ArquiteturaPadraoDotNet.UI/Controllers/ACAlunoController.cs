@@ -35,7 +35,7 @@ namespace One.UI.Controllers
         #endregion
 
         #region Seção: Actions
-        [Route("Cadastro-Aluno-old/{id:int?}")]
+        [Route("Cadastro-Aluno/{id:int?}")]
         public IActionResult Cadastro(int? id)
         {
             ViewBag.BaseUrl = ObterBaseUrl();
@@ -47,12 +47,14 @@ namespace One.UI.Controllers
             lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
             ViewBag.ListaBairro = lista; //1 = Abaetetuba
 
-            return View(id.HasValue ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id.Value));
+            return View(!id.HasValue ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id.Value));
         }
 
-        [Route("Cadastro-Aluno/{id:int?}")]
+        [Route("Cadastro-Aluno-novo/{id:int?}")]
         public IActionResult CadastroNovo(int? id)
         {
+            ViewBag.BaseUrl = ObterBaseUrl();
+            ViewBag.Title = "Cadastro de Aluno";
             return View();
         }
 
@@ -61,6 +63,33 @@ namespace One.UI.Controllers
         {
             ViewBag.BaseUrl = ObterBaseUrl();
             return View();
+        }
+
+        [Route("Form-Aluno/{id:int?}")]
+        public IActionResult FormAluno(int? id)
+        {
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+
+            var lista = _geralAppService.ObterBairroPorCidade(1).ToList();
+            lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
+            ViewBag.ListaBairro = lista; //1 = Abaetetuba
+
+            return View(id.HasValue ? new CadastroAlunoViewModel() : _iacademicoAppService.ObterAlunoParaEdicao(id.Value));
+        }
+
+        [Route("Form-Responsavel/{id:int?}")]
+        public IActionResult FormResponsavel(int? id)
+        {
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaParentesco = _geralAppService.ObterTodosParentesco();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+
+            var lista = _geralAppService.ObterBairroPorCidade(1).ToList();
+            lista.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
+            ViewBag.ListaBairro = lista; //1 = Abaetetuba
+
+            return View(id.HasValue ? new CadastroResponsavelViewModel() : _iacademicoAppService.ObterResponsavelParaEdicao(id.Value));
         }
 
         #endregion
@@ -93,9 +122,8 @@ namespace One.UI.Controllers
         public IActionResult SelecionarResponsavel() => View();
 
         [Route("Cadastro-Responsavel")]
-        public IActionResult CadastroResponsavel()
+        public IActionResult FormResponsavel()
         {
-            ViewBag.BaseUrl = ObterBaseUrl();
             ViewBag.ListaUF = _geralAppService.ObterTodasUF();
             ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
 

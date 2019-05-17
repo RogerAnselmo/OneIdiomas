@@ -1,18 +1,17 @@
-﻿using One.Application.ViewModels.ACResponsavelVM;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace One.Application.ViewModels.ACAlunoVM
+namespace One.Application.ViewModels.ACResponsavelVM
 {
-    public class CadastroAlunoViewModel
+    public class FormResponsavelViewModel
     {
-        #region Seção: Dados do Aluno
+        #region Seção: Dados do Responsável
         [DisplayName("Código Usuário")]
         public int CodigoUsuario { get; set; }
 
-        [DisplayName("Código Aluno")]
-        public int CodigoAluno { get; set; }
+        [DisplayName("Código Responsável")]
+        public int CodigoResponsavel { get; set; }
 
-        [DisplayName("Nome do Aluno")]
+        [DisplayName("Nome do Responsável")]
         public string NomeCompleto { get; set; }
 
         [DisplayName("Nascimento")]
@@ -21,31 +20,19 @@ namespace One.Application.ViewModels.ACAlunoVM
         [DisplayName("Idade")]
         public int Idade { get; set; }
 
-        [DisplayName("Código Telefone")]
-        public int CodigoTelefone { get; set; }
-
-        [DisplayName("Telefone")]
-        public string Telefone { get; set; }
-
         [DisplayName("RG")]
         public string RG { get; set; }
 
         [DisplayName("CPF")]
         public string CPF { get; set; }
-
-        [DisplayName("Vencimento")]
-        public int DiaVencimento { get; set; }
         #endregion
 
-        #region Seção: Endereço do Aluno
+        #region Seção: Endereço do Responsável
         [DisplayName("Código Endereço")]
         public int CodigoEndereco { get; set; }
 
         [DisplayName("Estado")]
         public int CodigoUF { get; set; }
-
-        [DisplayName("Número")]
-        public string Numero { get; set; }
 
         [DisplayName("CEP")]
         public string CEP { get; set; }
@@ -60,7 +47,15 @@ namespace One.Application.ViewModels.ACAlunoVM
         public string Logradouro { get; set; }
 
         [DisplayName("Número")]
-        public int NumeroAluno { get; set; }
+        public string Numero { get; set; }
+        #endregion
+
+        #region Seção: Telefone do Responsável
+        [DisplayName("CodigoTelefone")]
+        public int CodigoTelefone { get; set; }
+
+        [DisplayName("Telefone")]
+        public string Telefone { get; set; } 
         #endregion
     }
 }
