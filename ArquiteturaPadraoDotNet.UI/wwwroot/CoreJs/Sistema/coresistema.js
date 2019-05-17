@@ -1,5 +1,10 @@
 ﻿var _ModuloSistema = $('#ModuloSistema');
 
+$(document).ready(function () {
+    ConfiguraBotaoVoltar();
+});
+
+
 function configuraFormulario(_nameform, _success, _error) {
     $(_nameform).on("submit", function (event) {
         event.preventDefault();
@@ -181,5 +186,14 @@ function DesabilitaDigitacaoNoCampo(_target) {
         if (/\d/.test(charStr)) {
             return false;
         }
+    });
+}
+
+function ConfiguraBotaoVoltar() {
+
+    _ModuloSistema.find('[one-ui="btn-voltar"]').each(function (i, el) {
+        $(el).click(function () {
+            history.back(1);
+        });
     });
 }

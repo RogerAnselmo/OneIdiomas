@@ -8,7 +8,6 @@ using System.Net.Http;
 
 namespace One.Test.Acceptance
 {
-    [TestFixture]
     public class GlobalSetup
     {
         protected HttpClient httpClient;

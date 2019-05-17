@@ -19,7 +19,7 @@ namespace One.Application.Adapter
                 {
                     CodigoAluno = domain.CodigoAluno,
                     DiaVencimento = domain.DiaVencimento,
-                    Idade = domain.Idade(),
+                    Idade = domain.Idade(DateTime.Today),
                     SEGUsuarioViewModel = domain.SEGUsuario != null ? SEGUsuarioAdapter.DomainToViewModel(domain.SEGUsuario) : new SEGUsuarioViewModel()
                 };
             }
@@ -69,7 +69,7 @@ namespace One.Application.Adapter
                 CPF = ACAluno.CPF,
                 DataNascimento = ACAluno.DataNascimento.ToShortDateString(),
                 DiaVencimento = ACAluno.DiaVencimento,
-                Idade = ACAluno.Idade(),
+                Idade = ACAluno.Idade(DateTime.Today),
                 Logradouro = GEEndereco.Logradouro,
                 NomeCompleto = ACAluno.SEGUsuario.NomeCompleto,
                 RG = ACAluno.RG,

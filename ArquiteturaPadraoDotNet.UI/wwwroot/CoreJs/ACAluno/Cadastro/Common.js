@@ -3,8 +3,6 @@ $(document).ready(function () {
     $('.bt-salvar').click(function () {
         SalvarAluno();
     });
-
-//    CarregarHtmlSelecaoResponsavel();
 });
 
 function ObterCidadesPorUF(CodigoUF, _target) {
@@ -163,15 +161,8 @@ function ValidarDadosDoAluno() {
 
 function ValidarEnderecoDoAluno() {
 
-    //cep
-    if ($.trim(_cep.val()) === "") {
-        AlertWarning("Preencha o cep do aluno");
-        _cep.focus();
-        return false;
-    }
-
     //Estado
-    else if (_codigoUF.val() === "0") {
+    if (_codigoUF.val() === "0") {
         AlertWarning("Preencha o estado do aluno");
         _codigoUF.focus();
         return false;

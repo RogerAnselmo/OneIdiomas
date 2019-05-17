@@ -70,6 +70,31 @@ namespace One.UI.Controllers
 
             return View(!id.HasValue ? new CadastroResponsavelViewModel() : _iacademicoAppService.ObterResponsavelParaEdicao(id.Value));
         }
+
+        [Route("Form-Responsavel")]
+        public IActionResult FormResponsavel()
+        {
+            ViewBag.ListaUF = _geralAppService.ObterTodasUF();
+            ViewBag.ListaCidade = _geralAppService.ObterCidadesPorUF(5); //5 = Pará
+
+            //TODO: refatorar esse código
+            var listaParentesco = _geralAppService.ObterTodosParentesco().ToList();
+            listaParentesco.Insert(0, new GEParentescoViewModel { CodigoParentesco = 0, Descricao = "Selecione" });
+            ViewBag.ListaParentesco = listaParentesco;
+
+            //TODO: refatorar esse código
+            var listaBairro = _geralAppService.ObterBairroPorCidade(1).ToList();
+            listaBairro.Insert(0, new GEBairroViewModel { CodigoBairro = 0, Descricao = "Selecione o Bairro" });
+            ViewBag.ListaBairro = listaBairro; //1 = Abaetetuba
+
+            var formResponsavelViewModel = new FormResponsavelViewModel
+            {
+                CodigoUFResponsavel = 5,
+                CodigoCidadeResponsavel = 1
+            };
+
+            return View(formResponsavelViewModel);
+        }
         #endregion
 
         #region Seção: Ajax

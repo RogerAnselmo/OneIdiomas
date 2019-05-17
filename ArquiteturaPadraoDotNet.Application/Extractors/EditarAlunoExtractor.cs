@@ -24,7 +24,7 @@ namespace One.Application.Extractors
                 CPF = ACAluno.CPF,
                 DataNascimento = ACAluno.DataNascimento.ToShortDateString(),
                 DiaVencimento = ACAluno.DiaVencimento,
-                Idade = ACAluno.Idade(),
+                Idade = ACAluno.Idade(DateTime.Today),
                 Logradouro = GEEndereco.Logradouro,
                 NomeCompleto = ACAluno.SEGUsuario.NomeCompleto,
                 RG = ACAluno.RG,

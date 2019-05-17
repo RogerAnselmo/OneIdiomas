@@ -2,15 +2,24 @@
 var _minimoPassos = 1;
 var _totalPassos = 4;
 var _progressIndicator = $('.progress-indicator');
+var _selecaoAluno = 0;
+var _selecaoResponsavel = 0;
 
 $(document).ready(function () {
 
     CarregarHtmlView('/Gerenciar-Matricula/Selecionar-Aluno', {}, 'tab_1');
-    CarregarHtmlView('/Gerenciar-Aluno/Selecionar-Responsavel', {}, 'tab_2');
+    CarregarHtmlView('/Gerenciar-Matricula/Selecionar-Responsavel', {}, 'tab_2');
 
     _passoAtual = _minimoPassos;
 
     $('.next').click(function () {
+
+        if (_passoAtual === 1 && !ValidacaoAluno())
+            return false;
+
+        if (_passoAtual === 2 && !ValidacaoResponsavel())
+            return false;
+
         _passoAtual = (_passoAtual < _totalPassos) ? _passoAtual + 1 : _totalPassos;
         AtivaNumero();
     });
@@ -54,6 +63,29 @@ function ClickNumero(passo) {
     AtivaNumero();
 }
 
-function ShowTab() {
+function ValidacaoAluno() {
+    if (_selecaoAluno === 0) {
+        AlertWarning("Selecione o Aluno");
+        return false;
+    }
+    else if (_selecaoAluno === 1 && !ValidarCadastroAlunoViewModel()) {
+        return false;
+    }
+    if (_selecaoAluno === 2) {
 
+    }
+
+    return true;
+}
+
+function ValidacaoResponsavel() {
+    if (_selecaoResponsavel === 0) {
+        AlertWarning("Selecione o Responsável");
+        return false;
+    }
+    else if (_selecaoResponsavel === 1 && !(ValidarDadosDoResponsavel() && ValidarEnderecoResponsavel())) {
+        return false;
+    }
+
+    return true;
 }

@@ -26,5 +26,11 @@ namespace One.UI.Controllers
         {
             return View();
         }
+
+        [Route("Selecionar-Responsavel")]
+        public IActionResult SelecionarResponsavel()
+        {
+            return View();
+        }
     }
 }

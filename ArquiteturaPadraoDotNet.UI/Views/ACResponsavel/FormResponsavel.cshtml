@@ -1,34 +1,34 @@
-﻿@model One.Application.ViewModels.ACResponsavelVM.CadastroResponsavelViewModel
+﻿@model One.Application.ViewModels.ACResponsavelVM.FormResponsavelViewModel
 @{
     Layout = null;
 }
 
 @*Nome*@
 <div class="form-group">
-    <label class="col-sm-2 control-label" asp-for="NomeCompleto"></label>
+    <label class="col-sm-2 control-label" asp-for="NomeResponsavel"></label>
     <div class="col-sm-8">
-        <input type="text" class="form-control input-sm" asp-for="NomeCompleto">
+        <input type="text" class="form-control input-sm" asp-for="NomeResponsavel">
     </div>
 </div>
 
 @*Nascimento/Idade/Telefone*@
 <div class="form-group">
-    <label class="col-sm-2 control-label" asp-for="DataNascimento"></label>
+    <label class="col-sm-2 control-label" asp-for="DataNascimentoResponsavel"></label>
     <div class="col-sm-2">
-        <input one-ui="date" class="form-control input-sm" asp-for="DataNascimento">
+        <input one-ui="date" class="form-control input-sm" asp-for="DataNascimentoResponsavel">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="Idade" readonly></label>
+    <label class="col-sm-1 control-label" asp-for="IdadeResponsavel"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="Idade">
+        <input class="form-control input-sm" asp-for="IdadeResponsavel" readonly>
     </div>
 
-    <label class="col-sm-1 control-label">Parentesco</label>
+    <label class="col-sm-1 control-label" asp-for="CodigoParentesco"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm">
+        <select class="form-control input-sm" asp-for="CodigoParentesco">
             @foreach (GEParentescoViewModel parentesco in ViewBag.ListaParentesco)
             {
-                if (parentesco.CodigoParentesco == 0)
+                if (parentesco.CodigoParentesco == Model.CodigoParentesco)
                 {
                     <option value="@parentesco.CodigoParentesco" selected="selected">@parentesco.Descricao</option>
                 }
@@ -44,44 +44,44 @@
 
 @*RG/CPF/Dia de Vencimento*@
 <div class="form-group">
-    <label class="col-sm-2 control-label" asp-for="RG"></label>
+    <label class="col-sm-2 control-label" asp-for="RGResponsavel"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="RG">
+        <input class="form-control input-sm" asp-for="RGResponsavel">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="CPF"></label>
+    <label class="col-sm-1 control-label" asp-for="CPFResponsavel"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="CPF">
+        <input class="form-control input-sm" asp-for="CPFResponsavel">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="Telefone"></label>
+    <label class="col-sm-1 control-label" asp-for="TelefoneResponsavel"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="Telefone">
+        <input class="form-control input-sm" asp-for="TelefoneResponsavel">
     </div>
 </div>
 
 @*CEP/UF/Cidade*@
 <div class="form-group">
-    <label class="col-sm-2 control-label" asp-for="Logradouro"></label>
+    <label class="col-sm-2 control-label" asp-for="LogradouroResponsavel"></label>
     <div class="col-sm-5">
-        <input type="text" class="form-control input-sm" asp-for="Logradouro">
+        <input type="text" class="form-control input-sm" asp-for="LogradouroResponsavel">
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="Numero"></label>
+    <label class="col-sm-1 control-label" asp-for="NumeroResponsavel"></label>
     <div class="col-sm-2">
-        <input class="form-control input-sm" asp-for="Numero">
+        <input class="form-control input-sm" asp-for="NumeroResponsavel">
     </div>
 </div>
 
 @*Logradouro/Bairro*@
 <div class="form-group">
-    <label class="col-sm-2 control-label" asp-for="CodigoUF"></label>
+    <label class="col-sm-2 control-label" asp-for="CodigoUFResponsavel"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm" readonly asp-for="CodigoUF">
+        <select class="form-control input-sm" readonly asp-for="CodigoUFResponsavel">
 
             @foreach (GEUFViewModel uf in ViewBag.ListaUF)
             {
-                if (Model.CodigoUF == uf.CodigoUF)
+                if (Model.CodigoUFResponsavel == uf.CodigoUF)
                 {
                     <option value="@uf.CodigoUF" selected="selected">
                         @uf.Descricao
@@ -99,12 +99,12 @@
         </select>
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="CodigoCidade"></label>
+    <label class="col-sm-1 control-label" asp-for="CodigoCidadeResponsavel"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm" readonly asp-for="CodigoCidade">
+        <select class="form-control input-sm" readonly asp-for="CodigoCidadeResponsavel">
             @foreach (GECidadeViewModel cidade in ViewBag.ListaCidade)
             {
-                if (Model.CodigoCidade == cidade.CodigoCidade)
+                if (Model.CodigoCidadeResponsavel == cidade.CodigoCidade)
                 {
                     <option value="@cidade.CodigoCidade" selected="selected">
                         @cidade.Descricao
@@ -120,12 +120,12 @@
         </select>
     </div>
 
-    <label class="col-sm-1 control-label" asp-for="CodigoBairro"></label>
+    <label class="col-sm-1 control-label" asp-for="CodigoBairroResponsavel"></label>
     <div class="col-sm-2">
-        <select class="form-control input-sm" asp-for="CodigoBairro">
+        <select class="form-control input-sm" asp-for="CodigoBairroResponsavel">
             @foreach (GEBairroViewModel bairro in ViewBag.ListaBairro)
             {
-                if (Model.CodigoBairro == bairro.CodigoBairro)
+                if (Model.CodigoBairroResponsavel == bairro.CodigoBairro)
                 {
                     <option value="@bairro.CodigoBairro" selected="selected">
                         @bairro.Descricao
@@ -141,3 +141,4 @@
         </select>
     </div>
 </div>
+<script src="~/CoreJs/ACResponsavel/FormResponsavel/FormResponsavel.js"></script>

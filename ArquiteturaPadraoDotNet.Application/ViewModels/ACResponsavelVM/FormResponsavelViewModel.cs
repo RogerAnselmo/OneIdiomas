@@ -6,56 +6,56 @@ namespace One.Application.ViewModels.ACResponsavelVM
     {
         #region Seção: Dados do Responsável
         [DisplayName("Código Usuário")]
-        public int CodigoUsuario { get; set; }
+        public int CodigoUsuarioResponsavel { get; set; }
 
         [DisplayName("Código Responsável")]
         public int CodigoResponsavel { get; set; }
 
         [DisplayName("Nome do Responsável")]
-        public string NomeCompleto { get; set; }
+        public string NomeResponsavel { get; set; }
 
         [DisplayName("Nascimento")]
-        public string DataNascimento { get; set; }
+        public string DataNascimentoResponsavel { get; set; }
 
         [DisplayName("Idade")]
-        public int Idade { get; set; }
+        public int IdadeResponsavel { get; set; }
 
         [DisplayName("RG")]
-        public string RG { get; set; }
+        public string RGResponsavel { get; set; }
 
         [DisplayName("CPF")]
-        public string CPF { get; set; }
+        public string CPFResponsavel { get; set; }
+
+        [DisplayName("Parentesco")]
+        public int CodigoParentesco { get; set; }
         #endregion
 
         #region Seção: Endereço do Responsável
         [DisplayName("Código Endereço")]
-        public int CodigoEndereco { get; set; }
+        public int CodigoEnderecoResponsavel { get; set; }
 
         [DisplayName("Estado")]
-        public int CodigoUF { get; set; }
-
-        [DisplayName("CEP")]
-        public string CEP { get; set; }
+        public int CodigoUFResponsavel { get; set; }
 
         [DisplayName("Cidade")]
-        public int CodigoCidade { get; set; }
+        public int CodigoCidadeResponsavel { get; set; }
 
         [DisplayName("Bairro")]
-        public int CodigoBairro { get; set; }
+        public int CodigoBairroResponsavel { get; set; }
 
         [DisplayName("Logradouro")]
-        public string Logradouro { get; set; }
+        public string LogradouroResponsavel { get; set; }
 
         [DisplayName("Número")]
-        public string Numero { get; set; }
+        public string NumeroResponsavel { get; set; }
         #endregion
 
         #region Seção: Telefone do Responsável
         [DisplayName("CodigoTelefone")]
-        public int CodigoTelefone { get; set; }
+        public int CodigoTelefoneResponsavel { get; set; }
 
         [DisplayName("Telefone")]
-        public string Telefone { get; set; } 
+        public string TelefoneResponsavel { get; set; } 
         #endregion
     }
 }
