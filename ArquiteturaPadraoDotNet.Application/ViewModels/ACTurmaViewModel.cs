@@ -1,4 +1,5 @@
-﻿using System;
+﻿using One.Application.Enums;
+using System;
 using System.ComponentModel;
 
 namespace One.Application.ViewModels
@@ -38,5 +39,7 @@ namespace One.Application.ViewModels
 
         public ACProfessorViewModel ACProfessorViewModel { get; set; }
         #endregion
+
+        public DiasDaSemana DiasDaSemana { get; set; }
     }
 }

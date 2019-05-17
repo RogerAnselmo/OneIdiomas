@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using One.Application.Adapter;
+using One.Application.Enums;
 using One.Application.Interfaces;
 using One.Application.UoW;
 using One.Application.ViewModels;
@@ -95,7 +96,7 @@ namespace One.Application.Services
             SaveChange();
             Commit();
 
-            return  new ValidationResults(true, "Aluno salvo com sucesso!");
+            return new ValidationResults(true, "Aluno salvo com sucesso!");
         }
 
         public ValidationResults AlterarAluno(CadastroAlunoViewModel cadastroAlunoViewModel)
@@ -157,7 +158,7 @@ namespace One.Application.Services
 
         public IEnumerable<ACAlunoViewModel> ObterAlunosPorNome(string nome) => ACAlunoAdapter.DomainToViewModel(_iACAlunoService.ObterPorNome(nome));
 
-        public CadastroAlunoViewModel ObterAlunoParaEdicao(int id) 
+        public CadastroAlunoViewModel ObterAlunoParaEdicao(int id)
             => ACAlunoAdapter.ConvertAcAlunoToCadastroAlunoViewModel(_iACAlunoService.ObterAlunoParaEdicao(id));
         #endregion
 
@@ -266,7 +267,7 @@ namespace One.Application.Services
         public IEnumerable<ACResponsavelViewModel> ObterResponsavelPorNome(string nome)
            => ACResponsavelAdapter.DomainToViewModel(_iACResponsavelService.ObterPorNome(nome));
 
-        public CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id) 
+        public CadastroResponsavelViewModel ObterResponsavelParaEdicao(int id)
             => ACResponsavelAdapter.ConvertToCadastroResponsavelViewModel(_iACResponsavelService.ObterPorId(id));
         #endregion
 
@@ -338,7 +339,7 @@ namespace One.Application.Services
             return new ValidationResults(true, "Professor excluído com sucesso");
         }
 
-        public IEnumerable<ACProfessorViewModel> ObterProfessorPorNome(string nome) 
+        public IEnumerable<ACProfessorViewModel> ObterProfessorPorNome(string nome)
             => ACProfessorAdapter.DomainToViewModel(_iACProfessorService.ObterProfessorPorNome(nome));
 
         public CadastroProfessorViewModel ObterProfessorParaEdicao(int id)
@@ -379,7 +380,7 @@ namespace One.Application.Services
             SaveChange();
             Commit();
 
-            return new ValidationResults(true,"Turma alterada com sucesso");
+            return new ValidationResults(true, "Turma alterada com sucesso");
         }
 
         public ValidationResults ExcluirTurma(int id)

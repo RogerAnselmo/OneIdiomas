@@ -1,4 +1,5 @@
-﻿using System;
+﻿using One.Application.Enums;
+using System;
 using System.ComponentModel;
 
 namespace One.Application.ViewModels.ACTurmaVM
@@ -23,10 +24,19 @@ namespace One.Application.ViewModels.ACTurmaVM
         [DisplayName("Data Fim")]
         public string DataFim { get; set; }
 
+        [DisplayName("Hora Início")]
+        public string HoraInicio { get; set; }
+
+        [DisplayName("Hora Fim")]
+        public string HoraFim { get; set; }
+
         [DisplayName("Valor Base (R$)")]
         public decimal ValorBase { get; set; }
 
         [DisplayName("Código Identificador da Turma")]
         public string CodigoIdentificador { get; set; }
+
+        [DisplayName("Dias da Semana")]
+        public DiasDaSemana DiasDaSemana { get; set; }
     }
 }

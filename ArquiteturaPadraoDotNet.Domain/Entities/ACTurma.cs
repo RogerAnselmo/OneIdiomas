@@ -42,6 +42,12 @@ namespace One.Domain.Entities
         public DateTime DataFim { get; set; }
 
         [Required]
+        public string HoraInicio { get; set; }
+
+        [Required]
+        public string HoraFim { get; set; }
+
+        [Required]
         public decimal ValorBase { get; set; }
 
         [Required]

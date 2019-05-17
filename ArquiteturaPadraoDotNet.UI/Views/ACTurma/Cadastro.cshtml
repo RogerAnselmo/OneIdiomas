@@ -1,5 +1,5 @@
 ﻿@model One.Application.ViewModels.ACTurmaVM.CadastroTurmaViewModel
-
+@using One.Application.Enums;
 @{
     ViewData["Title"] = "Cadastro de Turmas";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -100,6 +100,33 @@
                                         <label class="col-sm-2 control-label" asp-for="DataFim"></label>
                                         <div class="col-sm-3">
                                             <input one-ui="date" class="form-control input-sm" asp-for="DataFim">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="HoraInicio"></label>
+                                        <div class="col-sm-3">
+                                            <input one-ui="date" class="form-control input-sm" asp-for="HoraInicio">
+                                        </div>
+
+                                        <label class="col-sm-2 control-label" asp-for="HoraFim"></label>
+                                        <div class="col-sm-3">
+                                            <input one-ui="date" class="form-control input-sm" asp-for="HoraFim">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="DiasDaSemana"></label>
+                                        <div class="col-sm-8">
+                                            @*<input class="form-control input-sm" asp-for="DiasDaSemana">*@
+                                            @foreach (string dia in Enum.GetNames(typeof(DiasDaSemana)))
+                                            {
+                                                <span class="checkbox-custom checkbox-default">
+                                                    <input type="checkbox" id="checkboxExample1">
+                                                    <label for="checkboxExample1">@dia</label>
+                                                </span>
+                                            }
+
                                         </div>
                                     </div>
 
