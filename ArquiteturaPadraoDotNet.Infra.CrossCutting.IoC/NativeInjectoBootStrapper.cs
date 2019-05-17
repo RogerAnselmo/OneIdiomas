@@ -4,6 +4,7 @@ using One.Application.Services;
 using One.Domain.Interfaces.Repository;
 using One.Domain.Interfaces.Service;
 using One.Domain.Services;
+using One.Domain.Util;
 using One.Infra.Data.Context;
 using One.Infra.Data.Interface;
 using One.Infra.Data.Repository;
@@ -79,6 +80,8 @@ namespace One.Infra.CrossCutting.IoC
 
             //Context
             services.AddScoped<OneContext>();
+
+            services.AddScoped<Relogio>();
         }
     }
 }
