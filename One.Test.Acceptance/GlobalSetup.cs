@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.TestHost;
+﻿using Bogus;
+using Microsoft.AspNetCore.TestHost;
 using NUnit.Framework;
 using One.UI;
 using OpenQA.Selenium;
@@ -13,12 +14,13 @@ namespace One.Test.Acceptance
         protected HttpClient httpClient;
         private TestServer appServer;
         public static IWebDriver driver;
+        public Faker faker;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
             var builder = WebHostBuilderFactory.CreateFromTypesAssemblyEntryPoint<Startup>(Array.Empty<string>());
-
+            faker = new Faker();
             appServer = new TestServer(builder);
             httpClient = appServer.CreateClient();
             driver = DriverSetup.Setup();

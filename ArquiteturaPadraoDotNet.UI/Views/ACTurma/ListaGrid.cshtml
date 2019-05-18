@@ -7,10 +7,16 @@
     <thead>
         <tr>
             <th>
-                Nível/Categoria
+                Nível
             </th>
             <th>
-                CPF
+                Dias
+            </th>
+            <th>
+                Horário
+            </th>
+            <th>
+                Professor
             </th>
             <th>Ações</th>
         </tr>
@@ -20,10 +26,16 @@
         {
             <tr>
                 <td>
-                    @(Turma.ACNivelViewModel.Descricao + '/' + Turma.ACNivelViewModel.ACCategoriaViewModel.DescicaoCategoria)
+                    @Turma.ACNivelViewModel.Descricao
                 </td>
                 <td>
-                    @Turma.ACNivelViewModel.ACFaixaEtariaViewModel.Descricao
+                    @Turma.DiasDeAula(Turma.DiasDaSemana)
+                </td>
+                <td>
+                    @(Turma.HoraInicio +'-' + Turma.HoraFim)
+                </td>
+                <td>
+                    @Turma.ACProfessorViewModel.NomeCompleto
                 </td>
                 <td>
                     <a href="" class="btn btn-editar btn-default" title="Visualizar"><i class="glyphicon glyphicon-eye-open"></i></a>

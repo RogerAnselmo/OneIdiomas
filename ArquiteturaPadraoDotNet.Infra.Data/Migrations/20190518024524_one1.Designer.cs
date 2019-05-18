@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190517193959_turma")]
-    partial class turma
+    [Migration("20190518024524_one1")]
+    partial class one1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -311,6 +311,8 @@ namespace One.Infra.Data.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(400);
+
+                    b.Property<int>("DiasDaSemana");
 
                     b.Property<string>("HoraFim")
                         .IsRequired();

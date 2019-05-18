@@ -310,6 +310,8 @@ namespace One.Infra.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(400);
 
+                    b.Property<int>("DiasDaSemana");
+
                     b.Property<string>("HoraFim")
                         .IsRequired();
 

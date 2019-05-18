@@ -4,7 +4,11 @@
     ViewData["Title"] = "Cadastro de Turmas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .spanDia {
+        margin-right: 3%;
+    }
+</style>
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -26,12 +30,19 @@
                         <form class="form-horizontal" novalidate="novalidate">
                             <div class="tab-content">
 
-                                <div style="display: none">
+                                <div style="        display: none">
                                     <input asp-for="CodigoTurma" />
                                     <input asp-for="CodigoIdentificador" />
                                 </div>
 
                                 <div id="w2-account" class="tab-pane active">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" asp-for="Descricao"></label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control input-sm" asp-for="Descricao"/>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
 
@@ -106,37 +117,42 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" asp-for="HoraInicio"></label>
                                         <div class="col-sm-3">
-                                            <input one-ui="date" class="form-control input-sm" asp-for="HoraInicio">
+                                            <input one-ui="hora" class="form-control input-sm" asp-for="HoraInicio">
                                         </div>
 
                                         <label class="col-sm-2 control-label" asp-for="HoraFim"></label>
                                         <div class="col-sm-3">
-                                            <input one-ui="date" class="form-control input-sm" asp-for="HoraFim">
+                                            <input one-ui="hora" class="form-control input-sm" asp-for="HoraFim">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label" asp-for="DiasDaSemana"></label>
                                         <div class="col-sm-8">
-                                            @*<input class="form-control input-sm" asp-for="DiasDaSemana">*@
-                                            @foreach (string dia in Enum.GetNames(typeof(DiasDaSemana)))
+                                            <input class="form-control input-sm" style="display:none;" id="DiasDaSemana" value="@(Convert.ToInt32(Model.DiasDaSemana))">
+                                            @foreach (var dia in Enum.GetValues(typeof(DiasDaSemana)))
                                             {
-                                                <span class="checkbox-custom checkbox-default">
-                                                    <input type="checkbox" id="checkboxExample1">
-                                                    <label for="checkboxExample1">@dia</label>
-                                                </span>
+
+                                                if (Model.DiasDaSemana.HasFlag((DiasDaSemana)dia))
+                                                {
+                                                    <span class="checkbox-custom checkbox-default spanDia">
+                                                        <input type="checkbox" checked="checked"
+                                                               onchange="AdicionarRemoverDiaDaSemana(this, @Convert.ToInt32(dia))">
+                                                        <label for="checkboxExample1">@dia</label>
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="checkbox-custom checkbox-default spanDia">
+                                                        <input type="checkbox"
+                                                               onchange="AdicionarRemoverDiaDaSemana(this, @Convert.ToInt32(dia))">
+                                                        <label for="checkboxExample1">@dia</label>
+                                                    </span>
+                                                }
                                             }
 
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label" asp-for="Descricao"></label>
-                                        <div class="col-sm-8">
-                                            <textarea type="text" class="form-control input-sm" asp-for="Descricao" rows="5"></textarea>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </form>

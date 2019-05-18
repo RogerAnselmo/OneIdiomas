@@ -19,6 +19,14 @@ namespace One.Application.ViewModels
         [DisplayName("Data Fim")]
         public DateTime DataFim { get; set; }
 
+
+        [DisplayName("Hora Início")]
+        public string HoraInicio { get; set; }
+
+        [DisplayName("Hora Fim")]
+        public string HoraFim { get; set; }
+
+
         [DisplayName("Valor Base")]
         public decimal ValorBase { get; set; }
 
@@ -41,5 +49,21 @@ namespace One.Application.ViewModels
         #endregion
 
         public DiasDaSemana DiasDaSemana { get; set; }
+
+        public string DiasDeAula(DiasDaSemana diasDaSemana)
+        {
+            string dias = "";
+            foreach (var dia in Enum.GetValues(typeof(DiasDaSemana)))
+
+                if (diasDaSemana.HasFlag((DiasDaSemana)dia))
+                {
+                    if (!dias.Equals(""))
+                        dias += "/";
+
+                    dias += dia;
+                }
+
+            return dias;
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace One.Application.ViewModels.ACTurmaVM
         [DisplayName("Código da Turma")]
         public int CodigoTurma { get; set; }
 
-        [DisplayName("Código do Professor")]
+        [DisplayName("Professor")]
         public int CodigoProfessor { get; set; }
 
         [DisplayName("Nível")]

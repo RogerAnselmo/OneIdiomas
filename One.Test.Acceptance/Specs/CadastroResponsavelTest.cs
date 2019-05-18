@@ -20,8 +20,8 @@ namespace One.Test.Acceptance.Specs
         [Test]
         public void DeveCadastrarUmResponsavel()
         {
-            cadastroResponsavelPage.NomeCompleto = "Teste - " + DateTime.Now;
-            cadastroResponsavelPage.DataNascimento = new DateTime(1980,1,1);
+            cadastroResponsavelPage.NomeCompleto = faker.Person.FullName;
+            cadastroResponsavelPage.DataNascimento = faker.Date.Between(new DateTime(1900, 1, 1), DateTime.Today.AddYears(-18));
             cadastroResponsavelPage.CodigoBairro = 1;
             cadastroResponsavelPage.CPF = "123456798";
             cadastroResponsavelPage.Logradouro = "professor joão arruda";

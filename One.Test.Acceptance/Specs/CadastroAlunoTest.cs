@@ -25,9 +25,9 @@ namespace One.Test.Acceptance.Specs
         {
             listaAlunoPage.NovoAlunoClick();
 
-            cadastroAlunoPage.NomeCompleto = "Teste - " + DateTime.Now;
-            cadastroAlunoPage.DataNascimento = new DateTime(1980, 1, 1);
-            cadastroAlunoPage.Telefone = "(91)9999999";
+            cadastroAlunoPage.NomeCompleto = faker.Person.FullName;
+            cadastroAlunoPage.DataNascimento = faker.Date.Between(new DateTime(1900, 1, 1), new DateTime(2015, 1, 1));
+            cadastroAlunoPage.Telefone = faker.Phone.PhoneNumber("(00)0000-0000");
             cadastroAlunoPage.RG = "4998314";
             cadastroAlunoPage.CPF = "123456798";
             cadastroAlunoPage.CEP = "6605652";

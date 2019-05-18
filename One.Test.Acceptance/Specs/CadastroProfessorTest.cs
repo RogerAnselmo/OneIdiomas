@@ -22,8 +22,8 @@ namespace One.Test.Acceptance.Specs
         [Test]
         public void DeveCadastrarUmProfessor()
         {
-            cadastroProfessorPage.NomeProfessor = "nome do professor";
-            cadastroProfessorPage.DataNascimento = new DateTime(1989, 9, 4);
+            cadastroProfessorPage.NomeProfessor = faker.Person.FullName;
+            cadastroProfessorPage.DataNascimento = faker.Date.Between(new DateTime(1900, 1, 1), new DateTime(2015, 1, 1));
             cadastroProfessorPage.RG = "4998314";
             cadastroProfessorPage.CPF = "8358357272";
 

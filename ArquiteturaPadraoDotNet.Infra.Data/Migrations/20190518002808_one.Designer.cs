@@ -10,8 +10,8 @@ using One.Infra.Data.Context;
 namespace One.Infra.Data.Migrations
 {
     [DbContext(typeof(OneContext))]
-    [Migration("20190509120628_first")]
-    partial class first
+    [Migration("20190518002808_one")]
+    partial class one
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -310,7 +310,13 @@ namespace One.Infra.Data.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasMaxLength(100);
+                        .HasMaxLength(400);
+
+                    b.Property<string>("HoraFim")
+                        .IsRequired();
+
+                    b.Property<string>("HoraInicio")
+                        .IsRequired();
 
                     b.Property<decimal>("ValorBase");
 

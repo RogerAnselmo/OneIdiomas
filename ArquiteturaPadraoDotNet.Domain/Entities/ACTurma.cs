@@ -16,7 +16,7 @@ namespace One.Domain.Entities
             CodigoIdentificador = DateTime.Now.ToString();
         }
 
-        public ACTurma(int codigoTurma, string descricao, DateTime dataInicio, DateTime dataFim, decimal valorBase, int codigoNivel, int codigoProfessor) : this()
+        public ACTurma(int codigoTurma, string descricao, DateTime dataInicio, DateTime dataFim, string horaInicial, string horaFinal, int diasDaSemana, decimal valorBase, int codigoNivel, int codigoProfessor) : this()
         {
             CodigoTurma = codigoTurma;
             Descricao = descricao;
@@ -25,6 +25,9 @@ namespace One.Domain.Entities
             ValorBase = valorBase;
             CodigoNivel = codigoNivel;
             CodigoProfessor = codigoProfessor;
+            HoraInicio = horaInicial;
+            HoraFim = horaFinal;
+            DiasDaSemana = diasDaSemana;
         }
 
         #region ACTurma
@@ -49,6 +52,9 @@ namespace One.Domain.Entities
 
         [Required]
         public decimal ValorBase { get; set; }
+
+        [Required]
+        public int DiasDaSemana { get; set; }
 
         [Required]
         public string CodigoIdentificador { get; private set; }

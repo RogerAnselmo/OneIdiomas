@@ -6,6 +6,9 @@ var _dataInicio = $('#DataInicio');
 var _dataFim = $('#DataFim');
 var _valorBase = $('#ValorBase');
 var _descricao = $('#Descricao');
+var _horaInicio = $('#HoraInicio');
+var _horaFim = $('#HoraFim');
+var _diasDaSemana = $('#DiasDaSemana');
 
 $(document).ready(function () {
     $('.bt-salvar').click(function () {
@@ -27,9 +30,12 @@ function MontarCadastroTurma() {
         codigoNivel: _codigoNivel.val(),
         DataInicio: _dataInicio.val(),
         DataFim: _dataFim.val(),
-        ValorBase: _valorBase.val(),
+        ValorBase: _valorBase.val().replace(".", "").replace(",","."),
         Descricao: _descricao.val(),
-        CodigoIdentificador: _codigoIdentificador.val()
+        CodigoIdentificador: _codigoIdentificador.val(),
+        HoraInicio: _horaInicio.val(),
+        HoraFim: _horaFim.val(),
+        DiasDaSemana: _diasDaSemana.val()
     };
 }
 
@@ -68,5 +74,32 @@ function ValidarCadastroTurmaViewModel() {
         return false;
     }
 
+    if (!fIsTime($.trim(_horaInicio.val()))) {
+        AlertWarning('Informe uma hora inicial válida');
+        return false;
+    }
+
+    if (!fIsTime($.trim(_horaFim.val()))) {
+        AlertWarning('Informe uma hora final válida');
+        return false;
+    }
+
+    if (_diasDaSemana.val() == "0") {
+        AlertWarning('Informe os dias de aula na semana');
+        return false;
+    }
+
     return true;
+}
+
+function AdicionarRemoverDiaDaSemana(campo, valor) {
+
+    var dias = parseInt(_diasDaSemana.val());
+
+    if ($(campo).is(":checked"))
+        dias += valor;
+    else
+        dias -= valor;
+
+    _diasDaSemana.val(dias);
 }

@@ -1,10 +1,9 @@
-﻿using One.Application.Interfaces;
+﻿using One.Application.Enums;
 using One.Application.ViewModels;
 using One.Application.ViewModels.ACTurmaVM;
 using One.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace One.Application.Adapter
 {
@@ -15,6 +14,9 @@ namespace One.Application.Adapter
                            cadastroTurmaViewModel.Descricao,
                            Convert.ToDateTime(cadastroTurmaViewModel.DataInicio),
                            Convert.ToDateTime(cadastroTurmaViewModel.DataFim),
+                           cadastroTurmaViewModel.HoraInicio,
+                           cadastroTurmaViewModel.HoraFim,
+                           Convert.ToInt32(cadastroTurmaViewModel.DiasDaSemana),
                            cadastroTurmaViewModel.ValorBase,
                            cadastroTurmaViewModel.CodigoNivel,
                            cadastroTurmaViewModel.CodigoProfessor);
@@ -28,7 +30,10 @@ namespace One.Application.Adapter
             DataFim = aCTurma.DataFim.ToShortDateString(),
             DataInicio = aCTurma.DataInicio.ToShortDateString(),
             Descricao = aCTurma.Descricao,
-            ValorBase = aCTurma.ValorBase
+            ValorBase = aCTurma.ValorBase,
+            HoraFim = aCTurma.HoraFim,
+            HoraInicio = aCTurma.HoraInicio,
+            DiasDaSemana = (DiasDaSemana)aCTurma.DiasDaSemana
         };
 
         public static ACTurmaViewModel DomainToViewModel(ACTurma domain) => new ACTurmaViewModel
@@ -40,7 +45,11 @@ namespace One.Application.Adapter
             DataInicio = domain.DataInicio,
             Descricao = domain.Descricao,
             ValorBase = domain.ValorBase,
-            ACNivelViewModel = ACNivelAdapter.DomainToViewModel(domain.ACNivel)
+            ACNivelViewModel = ACNivelAdapter.DomainToViewModel(domain.ACNivel),
+            DiasDaSemana = (DiasDaSemana)domain.DiasDaSemana,
+            HoraFim = domain.HoraFim,
+            HoraInicio = domain.HoraInicio,
+            ACProfessorViewModel = domain.ACProfessor == null ? new ACProfessorViewModel(): ACProfessorAdapter.DomainToViewModel(domain.ACProfessor)
         };
 
         public static IEnumerable<ACTurmaViewModel> DomainToViewModel(IEnumerable<ACTurma> listaDomain)
