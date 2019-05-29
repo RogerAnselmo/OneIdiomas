@@ -17,6 +17,7 @@ namespace One.Test.Acceptance
             var chromeOptions = new ChromeOptions();
 
             chromeOptions.AddArguments("--start-maximized");
+            //chromeOptions.AddArguments("headless");
 
             var driver = new ChromeDriver(service, chromeOptions);
 

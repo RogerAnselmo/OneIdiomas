@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace One.Infra.Data.Migrations
 {
-    public partial class one : Migration
+    public partial class identity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -326,6 +326,7 @@ namespace One.Infra.Data.Migrations
                     HoraInicio = table.Column<string>(nullable: false),
                     HoraFim = table.Column<string>(nullable: false),
                     ValorBase = table.Column<decimal>(nullable: false),
+                    DiasDaSemana = table.Column<int>(nullable: false),
                     CodigoIdentificador = table.Column<string>(nullable: false),
                     flAtivo = table.Column<string>(maxLength: 1, nullable: false),
                     CodigoNivel = table.Column<int>(nullable: false),
